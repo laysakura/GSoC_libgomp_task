@@ -1,0 +1,293 @@
+<html>
+<head>
+<title>work.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/work.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L235'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L38' title='Defined at 38.'>alloc_work_share</a>
+<li><a href='#L92' title='Defined at 92.'>gomp_init_work_share</a>
+<li><a href='#L124' title='Defined at 124.'>gomp_fini_work_share</a>
+<li><a href='#L136' title='Defined at 136.'>free_work_share</a>
+<li><a href='#L168' title='Defined at 168.'>gomp_work_share_start</a>
+<li><a href='#L205' title='Defined at 205.'>gomp_work_share_end</a>
+<li><a href='#L235' title='Defined at 235.'>gomp_work_share_end_nowait</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file contains routines to manage the work-share queue for a team</font></i>
+<a name='L26'><i><font color='green'>   of threads.  */</font></i>
+<a name='L27'>
+<a name='L28'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L29'><font color='darkred'>#include</font> &lt;stddef.h&gt;
+<a name='L30'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L31'><font color='darkred'>#include</font> &lt;string.h&gt;
+<a name='L32'>
+<a name='L33'>
+<a name='L34'><i><font color='green'>/* Allocate a new work share structure, preferably from current team's</font></i>
+<a name='L35'><i><font color='green'>   free gomp_work_share cache.  */</font></i>
+<a name='L36'>
+<a name='L37'><b>static</b> <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *
+<a name='L38'><a href='../S/19.html#L189' title='Refered from 189 in work.c.'>alloc_work_share</a> (<b>struct</b> gomp_team *team)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws;
+<a name='L41'>  <b>unsigned</b> <b>int</b> i;
+<a name='L42'>
+<a name='L43'>  <i><font color='green'>/* This is called in a critical section.  */</font></i>
+<a name='L44'>  <b>if</b> (team-&gt;work_share_list_alloc != NULL)
+<a name='L45'>    <font color='red'>{</font>
+<a name='L46'>      ws = team-&gt;work_share_list_alloc;
+<a name='L47'>      team-&gt;work_share_list_alloc = ws-&gt;next_free;
+<a name='L48'>      <b>return</b> ws;
+<a name='L49'>    <font color='red'>}</font>
+<a name='L50'>
+<a name='L51'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L52'>  ws = team-&gt;work_share_list_free;
+<a name='L53'>  <i><font color='green'>/* We need atomic read from work_share_list_free,</font></i>
+<a name='L54'><i><font color='green'>     as free_work_share can be called concurrently.  */</font></i>
+<a name='L55'>  <b>__asm</b> ("" : "+r" (ws));
+<a name='L56'>
+<a name='L57'>  <b>if</b> (ws &amp;&amp; ws-&gt;next_free)
+<a name='L58'>    <font color='red'>{</font>
+<a name='L59'>      <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *next = ws-&gt;next_free;
+<a name='L60'>      ws-&gt;next_free = NULL;
+<a name='L61'>      team-&gt;work_share_list_alloc = next-&gt;next_free;
+<a name='L62'>      <b>return</b> next;
+<a name='L63'>    <font color='red'>}</font>
+<a name='L64'><font color='darkred'>#else</font>
+<a name='L65'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;team-&gt;work_share_list_free_lock);
+<a name='L66'>  ws = team-&gt;work_share_list_free;
+<a name='L67'>  <b>if</b> (ws)
+<a name='L68'>    <font color='red'>{</font>
+<a name='L69'>      team-&gt;work_share_list_alloc = ws-&gt;next_free;
+<a name='L70'>      team-&gt;work_share_list_free = NULL;
+<a name='L71'>      <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;team-&gt;work_share_list_free_lock);
+<a name='L72'>      <b>return</b> ws;
+<a name='L73'>    <font color='red'>}</font>
+<a name='L74'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;team-&gt;work_share_list_free_lock);
+<a name='L75'><font color='darkred'>#endif</font>
+<a name='L76'>
+<a name='L77'>  team-&gt;work_share_chunk *= 2;
+<a name='L78'>  ws = <a href='../S/415.html#L34' title='Defined at 34 in alloc.c.'>gomp_malloc</a> (team-&gt;work_share_chunk * <b>sizeof</b> (<b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a>));
+<a name='L79'>  ws-&gt;next_alloc = team-&gt;work_shares[0].next_alloc;
+<a name='L80'>  team-&gt;work_shares[0].next_alloc = ws;
+<a name='L81'>  team-&gt;work_share_list_alloc = &amp;ws[1];
+<a name='L82'>  <b>for</b> (i = 1; i &lt; team-&gt;work_share_chunk - 1; i++)
+<a name='L83'>    ws[i].next_free = &amp;ws[i + 1];
+<a name='L84'>  ws[i].next_free = NULL;
+<a name='L85'>  <b>return</b> ws;
+<a name='L86'><font color='red'>}</font>
+<a name='L87'>
+<a name='L88'><i><font color='green'>/* Initialize an already allocated struct gomp_work_share.</font></i>
+<a name='L89'><i><font color='green'>   This shouldn't touch the next_alloc field.  */</font></i>
+<a name='L90'>
+<a name='L91'><b>void</b>
+<a name='L92'><a href='../R/189.html' title='Multiple refered from 4 places.'>gomp_init_work_share</a> (<b>struct</b> gomp_work_share *ws, bool ordered,
+<a name='L93'>                      <b>unsigned</b> nthreads)
+<a name='L94'><font color='red'>{</font>
+<a name='L95'>  <a href='../D/239.html' title='Multiple defined in 3 places.'>gomp_mutex_init</a> (&amp;ws-&gt;lock);
+<a name='L96'>  <b>if</b> (__builtin_expect (ordered, 0))
+<a name='L97'>    <font color='red'>{</font>
+<a name='L98'><font color='darkred'>#define</font> <a href='../S/19.html#L103' title='Refered from 103 in work.c.'>INLINE_ORDERED_TEAM_IDS_CNT</a> \
+<a name='L99'>  ((<b>sizeof</b> (<b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a>) \
+<a name='L100'>    - offsetof (<b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a>, inline_ordered_team_ids)) \
+<a name='L101'>   / <b>sizeof</b> (((<b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *) 0)-&gt;inline_ordered_team_ids[0]))
+<a name='L102'>
+<a name='L103'>      <b>if</b> (nthreads &gt; <a href='../S/19.html#L98' title='Defined at 98 in work.c.'>INLINE_ORDERED_TEAM_IDS_CNT</a>)
+<a name='L104'>        ws-&gt;ordered_team_ids
+<a name='L105'>          = <a href='../S/415.html#L34' title='Defined at 34 in alloc.c.'>gomp_malloc</a> (nthreads * <b>sizeof</b> (*ws-&gt;ordered_team_ids));
+<a name='L106'>      <b>else</b>
+<a name='L107'>        ws-&gt;ordered_team_ids = ws-&gt;inline_ordered_team_ids;
+<a name='L108'>      memset (ws-&gt;ordered_team_ids, '\0',
+<a name='L109'>              nthreads * <b>sizeof</b> (*ws-&gt;ordered_team_ids));
+<a name='L110'>      ws-&gt;ordered_num_used = 0;
+<a name='L111'>      ws-&gt;ordered_owner = -1;
+<a name='L112'>      ws-&gt;ordered_cur = 0;
+<a name='L113'>    <font color='red'>}</font>
+<a name='L114'>  <b>else</b>
+<a name='L115'>    ws-&gt;ordered_team_ids = NULL;
+<a name='L116'>  <a href='../D/258.html' title='Multiple defined in 2 places.'>gomp_ptrlock_init</a> (&amp;ws-&gt;next_ws, NULL);
+<a name='L117'>  ws-&gt;threads_completed = 0;
+<a name='L118'><font color='red'>}</font>
+<a name='L119'>
+<a name='L120'><i><font color='green'>/* Do any needed destruction of gomp_work_share fields before it</font></i>
+<a name='L121'><i><font color='green'>   is put back into free gomp_work_share cache or freed.  */</font></i>
+<a name='L122'>
+<a name='L123'><b>void</b>
+<a name='L124'><a href='../R/176.html' title='Multiple refered from 3 places.'>gomp_fini_work_share</a> (<b>struct</b> gomp_work_share *ws)
+<a name='L125'><font color='red'>{</font>
+<a name='L126'>  <a href='../D/238.html' title='Multiple defined in 3 places.'>gomp_mutex_destroy</a> (&amp;ws-&gt;lock);
+<a name='L127'>  <b>if</b> (ws-&gt;ordered_team_ids != ws-&gt;inline_ordered_team_ids)
+<a name='L128'>    free (ws-&gt;ordered_team_ids);
+<a name='L129'>  <a href='../D/255.html' title='Multiple defined in 2 places.'>gomp_ptrlock_destroy</a> (&amp;ws-&gt;next_ws);
+<a name='L130'><font color='red'>}</font>
+<a name='L131'>
+<a name='L132'><i><font color='green'>/* Free a work share struct, if not orphaned, put it into current</font></i>
+<a name='L133'><i><font color='green'>   team's free gomp_work_share cache.  */</font></i>
+<a name='L134'>
+<a name='L135'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L136'><a href='../R/149.html' title='Multiple refered from 4 places.'>free_work_share</a> (<b>struct</b> gomp_team *team, <b>struct</b> gomp_work_share *ws)
+<a name='L137'><font color='red'>{</font>
+<a name='L138'>  <a href='../S/19.html#L124' title='Defined at 124 in work.c.'>gomp_fini_work_share</a> (ws);
+<a name='L139'>  <b>if</b> (__builtin_expect (team == NULL, 0))
+<a name='L140'>    free (ws);
+<a name='L141'>  <b>else</b>
+<a name='L142'>    <font color='red'>{</font>
+<a name='L143'>      <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *next_ws;
+<a name='L144'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L145'>      <b>do</b>
+<a name='L146'>        <font color='red'>{</font>
+<a name='L147'>          next_ws = team-&gt;work_share_list_free;
+<a name='L148'>          ws-&gt;next_free = next_ws;
+<a name='L149'>        <font color='red'>}</font>
+<a name='L150'>      <b>while</b> (!__sync_bool_compare_and_swap (&amp;team-&gt;work_share_list_free,
+<a name='L151'>                                            next_ws, ws));
+<a name='L152'><font color='darkred'>#else</font>
+<a name='L153'>      <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;team-&gt;work_share_list_free_lock);
+<a name='L154'>      next_ws = team-&gt;work_share_list_free;
+<a name='L155'>      ws-&gt;next_free = next_ws;
+<a name='L156'>      team-&gt;work_share_list_free = ws;
+<a name='L157'>      <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;team-&gt;work_share_list_free_lock);
+<a name='L158'><font color='darkred'>#endif</font>
+<a name='L159'>    <font color='red'>}</font>
+<a name='L160'><font color='red'>}</font>
+<a name='L161'>
+<a name='L162'><i><font color='green'>/* The current thread is ready to begin the next work sharing construct.</font></i>
+<a name='L163'><i><font color='green'>   In all cases, thr-&gt;ts.work_share is updated to point to the new</font></i>
+<a name='L164'><i><font color='green'>   structure.  In all cases the work_share lock is locked.  Return true</font></i>
+<a name='L165'><i><font color='green'>   if this was the first thread to reach this point.  */</font></i>
+<a name='L166'>
+<a name='L167'>bool
+<a name='L168'><a href='../R/302.html' title='Multiple refered from 16 places.'>gomp_work_share_start</a> (bool ordered)
+<a name='L169'><font color='red'>{</font>
+<a name='L170'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L171'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L172'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws;
+<a name='L173'>
+<a name='L174'>  <i><font color='green'>/* Work sharing constructs can be orphaned.  */</font></i>
+<a name='L175'>  <b>if</b> (team == NULL)
+<a name='L176'>    <font color='red'>{</font>
+<a name='L177'>      ws = <a href='../S/415.html#L34' title='Defined at 34 in alloc.c.'>gomp_malloc</a> (<b>sizeof</b> (*ws));
+<a name='L178'>      <a href='../S/19.html#L92' title='Defined at 92 in work.c.'>gomp_init_work_share</a> (ws, ordered, 1);
+<a name='L179'>      thr-&gt;ts.work_share = ws;
+<a name='L180'>      <b>return</b> ws;
+<a name='L181'>    <font color='red'>}</font>
+<a name='L182'>
+<a name='L183'>  ws = thr-&gt;ts.work_share;
+<a name='L184'>  thr-&gt;ts.last_work_share = ws;
+<a name='L185'>  ws = <a href='../D/256.html' title='Multiple defined in 2 places.'>gomp_ptrlock_get</a> (&amp;ws-&gt;next_ws);
+<a name='L186'>  <b>if</b> (ws == NULL)
+<a name='L187'>    <font color='red'>{</font>
+<a name='L188'>      <i><font color='green'>/* This thread encountered a new ws first.  */</font></i>
+<a name='L189'>      <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = <a href='../S/19.html#L38' title='Defined at 38 in work.c.'>alloc_work_share</a> (team);
+<a name='L190'>      <a href='../S/19.html#L92' title='Defined at 92 in work.c.'>gomp_init_work_share</a> (ws, ordered, team-&gt;nthreads);
+<a name='L191'>      thr-&gt;ts.work_share = ws;
+<a name='L192'>      <b>return</b> true;
+<a name='L193'>    <font color='red'>}</font>
+<a name='L194'>  <b>else</b>
+<a name='L195'>    <font color='red'>{</font>
+<a name='L196'>      thr-&gt;ts.work_share = ws;
+<a name='L197'>      <b>return</b> false;
+<a name='L198'>    <font color='red'>}</font>
+<a name='L199'><font color='red'>}</font>
+<a name='L200'>
+<a name='L201'><i><font color='green'>/* The current thread is done with its current work sharing construct.</font></i>
+<a name='L202'><i><font color='green'>   This version does imply a barrier at the end of the work-share.  */</font></i>
+<a name='L203'>
+<a name='L204'><b>void</b>
+<a name='L205'><a href='../R/299.html' title='Multiple refered from 3 places.'>gomp_work_share_end</a> (<b>void</b>)
+<a name='L206'><font color='red'>{</font>
+<a name='L207'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L208'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L209'>  <a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a> bstate;
+<a name='L210'>
+<a name='L211'>  <i><font color='green'>/* Work sharing constructs can be orphaned.  */</font></i>
+<a name='L212'>  <b>if</b> (team == NULL)
+<a name='L213'>    <font color='red'>{</font>
+<a name='L214'>      <a href='../S/19.html#L136' title='Defined at 136 in work.c.'>free_work_share</a> (NULL, thr-&gt;ts.work_share);
+<a name='L215'>      thr-&gt;ts.work_share = NULL;
+<a name='L216'>      <b>return</b>;
+<a name='L217'>    <font color='red'>}</font>
+<a name='L218'>
+<a name='L219'>  bstate = <a href='../D/169.html' title='Multiple defined in 2 places.'>gomp_barrier_wait_start</a> (&amp;team-&gt;barrier);
+<a name='L220'>
+<a name='L221'>  <b>if</b> (<a href='../D/162.html' title='Multiple defined in 2 places.'>gomp_barrier_last_thread</a> (bstate))
+<a name='L222'>    <font color='red'>{</font>
+<a name='L223'>      <b>if</b> (__builtin_expect (thr-&gt;ts.last_work_share != NULL, 1))
+<a name='L224'>        <a href='../S/19.html#L136' title='Defined at 136 in work.c.'>free_work_share</a> (team, thr-&gt;ts.last_work_share);
+<a name='L225'>    <font color='red'>}</font>
+<a name='L226'>
+<a name='L227'>  <a href='../D/291.html' title='Multiple defined in 2 places.'>gomp_team_barrier_wait_end</a> (&amp;team-&gt;barrier, bstate);
+<a name='L228'>  thr-&gt;ts.last_work_share = NULL;
+<a name='L229'><font color='red'>}</font>
+<a name='L230'>
+<a name='L231'><i><font color='green'>/* The current thread is done with its current work sharing construct.</font></i>
+<a name='L232'><i><font color='green'>   This version does NOT imply a barrier at the end of the work-share.  */</font></i>
+<a name='L233'>
+<a name='L234'><b>void</b>
+<a name='L235'><a href='../R/300.html' title='Multiple refered from 6 places.'>gomp_work_share_end_nowait</a> (<b>void</b>)
+<a name='L236'><font color='red'>{</font>
+<a name='L237'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L238'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L239'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L240'>  <b>unsigned</b> completed;
+<a name='L241'>
+<a name='L242'>  <i><font color='green'>/* Work sharing constructs can be orphaned.  */</font></i>
+<a name='L243'>  <b>if</b> (team == NULL)
+<a name='L244'>    <font color='red'>{</font>
+<a name='L245'>      <a href='../S/19.html#L136' title='Defined at 136 in work.c.'>free_work_share</a> (NULL, ws);
+<a name='L246'>      thr-&gt;ts.work_share = NULL;
+<a name='L247'>      <b>return</b>;
+<a name='L248'>    <font color='red'>}</font>
+<a name='L249'>
+<a name='L250'>  <b>if</b> (__builtin_expect (thr-&gt;ts.last_work_share == NULL, 0))
+<a name='L251'>    <b>return</b>;
+<a name='L252'>
+<a name='L253'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L254'>  completed = __sync_add_and_fetch (&amp;ws-&gt;threads_completed, 1);
+<a name='L255'><font color='darkred'>#else</font>
+<a name='L256'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;ws-&gt;lock);
+<a name='L257'>  completed = ++ws-&gt;threads_completed;
+<a name='L258'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;ws-&gt;lock);
+<a name='L259'><font color='darkred'>#endif</font>
+<a name='L260'>
+<a name='L261'>  <b>if</b> (completed == team-&gt;nthreads)
+<a name='L262'>    <a href='../S/19.html#L136' title='Defined at 136 in work.c.'>free_work_share</a> (team, thr-&gt;ts.last_work_share);
+<a name='L263'>  thr-&gt;ts.last_work_share = NULL;
+<a name='L264'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L235'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/ordered-3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/ordered-3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L13'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L6' title='Defined at 6.'>check</a>
+<li><a href='#L13' title='Defined at 13.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L2'>
+<a name='L3'><b>int</b> cnt;
+<a name='L4'>
+<a name='L5'><b>void</b>
+<a name='L6'><a href='../R/111.html' title='Multiple refered from 464 places.'>check</a> (<b>int</b> x)
+<a name='L7'><font color='red'>{</font>
+<a name='L8'>  <b>if</b> (cnt++ != x)
+<a name='L9'>    abort ();
+<a name='L10'><font color='red'>}</font>
+<a name='L11'>
+<a name='L12'><b>int</b>
+<a name='L13'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L14'><font color='red'>{</font>
+<a name='L15'>  <b>int</b> j;
+<a name='L16'>
+<a name='L17'>  cnt = 0;
+<a name='L18'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (<b>static</b>, 1) num_threads (4) <b>if</b> (0)
+<a name='L19'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L20'>    <font color='red'>{</font>
+<a name='L21'><font color='darkred'>#pragma</font> omp ordered
+<a name='L22'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L23'>    <font color='red'>}</font>
+<a name='L24'>
+<a name='L25'>  cnt = 0;
+<a name='L26'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (<b>static</b>, 1) num_threads (4) <b>if</b> (1)
+<a name='L27'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L28'>    <font color='red'>{</font>
+<a name='L29'><font color='darkred'>#pragma</font> omp ordered
+<a name='L30'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L31'>    <font color='red'>}</font>
+<a name='L32'>
+<a name='L33'>  cnt = 0;
+<a name='L34'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (runtime) num_threads (4) <b>if</b> (0)
+<a name='L35'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L36'>    <font color='red'>{</font>
+<a name='L37'><font color='darkred'>#pragma</font> omp ordered
+<a name='L38'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L39'>    <font color='red'>}</font>
+<a name='L40'>
+<a name='L41'>  cnt = 0;
+<a name='L42'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (runtime) num_threads (4) <b>if</b> (1)
+<a name='L43'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L44'>    <font color='red'>{</font>
+<a name='L45'><font color='darkred'>#pragma</font> omp ordered
+<a name='L46'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L47'>    <font color='red'>}</font>
+<a name='L48'>
+<a name='L49'>  cnt = 0;
+<a name='L50'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (dynamic) num_threads (4) <b>if</b> (0)
+<a name='L51'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L52'>    <font color='red'>{</font>
+<a name='L53'><font color='darkred'>#pragma</font> omp ordered
+<a name='L54'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L55'>    <font color='red'>}</font>
+<a name='L56'>
+<a name='L57'>  cnt = 0;
+<a name='L58'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (dynamic) num_threads (4) <b>if</b> (1)
+<a name='L59'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L60'>    <font color='red'>{</font>
+<a name='L61'><font color='darkred'>#pragma</font> omp ordered
+<a name='L62'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L63'>    <font color='red'>}</font>
+<a name='L64'>
+<a name='L65'>  cnt = 0;
+<a name='L66'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (guided) num_threads (4) <b>if</b> (0)
+<a name='L67'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L68'>    <font color='red'>{</font>
+<a name='L69'><font color='darkred'>#pragma</font> omp ordered
+<a name='L70'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L71'>    <font color='red'>}</font>
+<a name='L72'>
+<a name='L73'>  cnt = 0;
+<a name='L74'><font color='darkred'>#pragma</font> omp parallel <b>for</b> ordered schedule (guided) num_threads (4) <b>if</b> (1)
+<a name='L75'>  <b>for</b> (j = 0; j &lt; 1000; j++)
+<a name='L76'>    <font color='red'>{</font>
+<a name='L77'><font color='darkred'>#pragma</font> omp ordered
+<a name='L78'>      <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j);
+<a name='L79'>    <font color='red'>}</font>
+<a name='L80'>
+<a name='L81'>  <b>return</b> 0;
+<a name='L82'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L13'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/shared-2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/shared-2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a><a href='#L46'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L7' title='Defined at 7.'>parallel</a>
+<li><a href='#L46' title='Defined at 46.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L2'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L3'>
+<a name='L4'><b>extern</b> <b>void</b> abort (<b>void</b>);
+<a name='L5'>
+<a name='L6'><b>void</b>
+<a name='L7'><a href='../R/340.html' title='Multiple refered from 4 places.'>parallel</a> (<b>int</b> a, <b>int</b> b)
+<a name='L8'><font color='red'>{</font>
+<a name='L9'>  <b>int</b> bad, LASTPRIV, LASTPRIV_SEC;
+<a name='L10'>  <b>int</b> i;
+<a name='L11'>
+<a name='L12'>  a = b = 3;
+<a name='L13'>
+<a name='L14'>  bad = 0;
+<a name='L15'>
+<a name='L16'><font color='darkred'>  #pragma</font> omp parallel firstprivate (a,b) shared (bad) num_threads (5)
+<a name='L17'>    <font color='red'>{</font>
+<a name='L18'>      <b>if</b> (a != 3 || b != 3)
+<a name='L19'>        bad = 1;
+<a name='L20'>
+<a name='L21'><font color='darkred'>      #pragma</font> omp <b>for</b> lastprivate (LASTPRIV)
+<a name='L22'>      <b>for</b> (i = 0; i &lt; 10; i++)
+<a name='L23'>        LASTPRIV = i;
+<a name='L24'>
+<a name='L25'><font color='darkred'>      #pragma</font> omp sections lastprivate (LASTPRIV_SEC)
+<a name='L26'>        <font color='red'>{</font>
+<a name='L27'><font color='darkred'>          #pragma</font> omp section
+<a name='L28'>            <font color='red'>{</font> LASTPRIV_SEC = 3; <font color='red'>}</font>
+<a name='L29'>
+<a name='L30'><font color='darkred'>          #pragma</font> omp section
+<a name='L31'>            <font color='red'>{</font> LASTPRIV_SEC = 42; <font color='red'>}</font>
+<a name='L32'>        <font color='red'>}</font>
+<a name='L33'>
+<a name='L34'>    <font color='red'>}</font>
+<a name='L35'>
+<a name='L36'>  <b>if</b> (LASTPRIV != 9)
+<a name='L37'>    abort ();
+<a name='L38'>
+<a name='L39'>  <b>if</b> (LASTPRIV_SEC != 42)
+<a name='L40'>    abort ();
+<a name='L41'>
+<a name='L42'>  <b>if</b> (bad)
+<a name='L43'>    abort ();
+<a name='L44'><font color='red'>}</font>
+<a name='L45'>
+<a name='L46'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L47'><font color='red'>{</font>
+<a name='L48'>  <a href='../D/396.html' title='Multiple defined in 4 places.'>parallel</a> (1, 2);
+<a name='L49'>  <b>return</b> 0;
+<a name='L50'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a><a href='#L46'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

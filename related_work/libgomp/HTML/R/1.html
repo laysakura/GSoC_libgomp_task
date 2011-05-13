@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>A</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/79.html#L10'>A</a>                  10 testsuite/libgomp.c++/ctor-12.C   A ()
+<a href='../S/79.html#L16'>A</a>                  16 testsuite/libgomp.c++/ctor-12.C   A (const A &amp;x)
+<a href='../S/79.html#L22'>A</a>                  22 testsuite/libgomp.c++/ctor-12.C   virtual A&amp; operator= (const A &amp;x)
+<a href='../S/79.html#L29'>A</a>                  29 testsuite/libgomp.c++/ctor-12.C   virtual ~A ()
+<a href='../S/79.html#L38'>A</a>                  38 testsuite/libgomp.c++/ctor-12.C int A::ctors;
+<a href='../S/79.html#L39'>A</a>                  39 testsuite/libgomp.c++/ctor-12.C int A::dtors;
+<a href='../S/79.html#L40'>A</a>                  40 testsuite/libgomp.c++/ctor-12.C int A::copyctors;
+<a href='../S/79.html#L41'>A</a>                  41 testsuite/libgomp.c++/ctor-12.C int A::assignops;
+<a href='../S/79.html#L46'>A</a>                  46 testsuite/libgomp.c++/ctor-12.C   A a;
+<a href='../S/79.html#L59'>A</a>                  59 testsuite/libgomp.c++/ctor-12.C   if (A::ctors != n + 1
+<a href='../S/79.html#L60'>A</a>                  60 testsuite/libgomp.c++/ctor-12.C       || A::copyctors != 0
+<a href='../S/79.html#L61'>A</a>                  61 testsuite/libgomp.c++/ctor-12.C       || A::dtors != n
+<a href='../S/79.html#L62'>A</a>                  62 testsuite/libgomp.c++/ctor-12.C       || A::assignops != n - 1)
+<a href='../S/105.html#L13'>A</a>                  13 testsuite/libgomp.c++/parallel-1.C   int A = 0;
+<a href='../S/105.html#L17'>A</a>                  17 testsuite/libgomp.c++/parallel-1.C       A = omp_get_num_threads ();
+<a href='../S/105.html#L20'>A</a>                  20 testsuite/libgomp.c++/parallel-1.C   if (A != 1)
+<a href='../S/105.html#L25'>A</a>                  25 testsuite/libgomp.c++/parallel-1.C       A = omp_get_num_threads ();
+<a href='../S/105.html#L28'>A</a>                  28 testsuite/libgomp.c++/parallel-1.C   if (A != 3)
+<a href='../S/105.html#L33'>A</a>                  33 testsuite/libgomp.c++/parallel-1.C       A = omp_get_num_threads ();
+<a href='../S/105.html#L36'>A</a>                  36 testsuite/libgomp.c++/parallel-1.C   if (A != 10)
+<a href='../S/128.html#L6'>A</a>                   6 testsuite/libgomp.c++/pr26691.C   A (int i = 3) : n (i) {}
+<a href='../S/128.html#L12'>A</a>                  12 testsuite/libgomp.c++/pr26691.C   A a;
+<a href='../S/74.html#L12'>A</a>                  12 testsuite/libgomp.c++/pr30703.C   A();
+<a href='../S/74.html#L13'>A</a>                  13 testsuite/libgomp.c++/pr30703.C   A(const A &amp;);
+<a href='../S/74.html#L14'>A</a>                  14 testsuite/libgomp.c++/pr30703.C   ~A();
+<a href='../S/74.html#L18'>A</a>                  18 testsuite/libgomp.c++/pr30703.C A::A()
+<a href='../S/74.html#L24'>A</a>                  24 testsuite/libgomp.c++/pr30703.C A::A(const A &amp;r)
+<a href='../S/74.html#L31'>A</a>                  31 testsuite/libgomp.c++/pr30703.C A::~A()
+<a href='../S/74.html#L38'>A</a>                  38 testsuite/libgomp.c++/pr30703.C foo (A a, A b)
+<a href='../S/74.html#L58'>A</a>                  58 testsuite/libgomp.c++/pr30703.C   A a, b;
+<a href='../S/78.html#L20'>A</a>                  20 testsuite/libgomp.c++/shared-1.C   struct X A[10][5];
+<a href='../S/78.html#L25'>A</a>                  25 testsuite/libgomp.c++/shared-1.C       A[i][j].y.l[3][3] = -10;
+<a href='../S/78.html#L40'>A</a>                  40 testsuite/libgomp.c++/shared-1.C 	  A[i][j].y.l[3][3] += 20;
+<a href='../S/78.html#L46'>A</a>                  46 testsuite/libgomp.c++/shared-1.C       if (A[i][j].y.l[3][3] != 10)
+<a href='../S/120.html#L7'>A</a>                   7 testsuite/libgomp.c++/task-3.C   A ();
+<a href='../S/120.html#L8'>A</a>                   8 testsuite/libgomp.c++/task-3.C   ~A ();
+<a href='../S/120.html#L9'>A</a>                   9 testsuite/libgomp.c++/task-3.C   A (const A &amp;);
+<a href='../S/120.html#L15'>A</a>                  15 testsuite/libgomp.c++/task-3.C A::A ()
+<a href='../S/120.html#L20'>A</a>                  20 testsuite/libgomp.c++/task-3.C A::~A ()
+<a href='../S/120.html#L27'>A</a>                  27 testsuite/libgomp.c++/task-3.C A::A (const A &amp;r)
+<a href='../S/120.html#L33'>A</a>                  33 testsuite/libgomp.c++/task-3.C check (int i, A &amp;a, int j, A &amp;b)
+<a href='../S/120.html#L40'>A</a>                  40 testsuite/libgomp.c++/task-3.C A b;
+<a href='../S/120.html#L46'>A</a>                  46 testsuite/libgomp.c++/task-3.C   A a;
+<a href='../S/120.html#L53'>A</a>                  53 testsuite/libgomp.c++/task-3.C bar (int i, A a)
+<a href='../S/120.html#L60'>A</a>                  60 testsuite/libgomp.c++/task-3.C A
+<a href='../S/120.html#L63'>A</a>                  63 testsuite/libgomp.c++/task-3.C   A a, c;
+<a href='../S/120.html#L76'>A</a>                  76 testsuite/libgomp.c++/task-3.C   bar (6, A ());
+<a href='../S/120.html#L84'>A</a>                  84 testsuite/libgomp.c++/task-3.C 	    bar (6, A ());
+<a href='../S/112.html#L7'>A</a>                   7 testsuite/libgomp.c++/task-5.C   A ();
+<a href='../S/112.html#L8'>A</a>                   8 testsuite/libgomp.c++/task-5.C   ~A ();
+<a href='../S/112.html#L9'>A</a>                   9 testsuite/libgomp.c++/task-5.C   A (const A &amp;);
+<a href='../S/112.html#L15'>A</a>                  15 testsuite/libgomp.c++/task-5.C A::A ()
+<a href='../S/112.html#L20'>A</a>                  20 testsuite/libgomp.c++/task-5.C A::~A ()
+<a href='../S/112.html#L27'>A</a>                  27 testsuite/libgomp.c++/task-5.C A::A (const A &amp;r)
+<a href='../S/112.html#L33'>A</a>                  33 testsuite/libgomp.c++/task-5.C check (int i, A &amp;a, int j, A &amp;b)
+<a href='../S/112.html#L40'>A</a>                  40 testsuite/libgomp.c++/task-5.C A b;
+<a href='../S/112.html#L46'>A</a>                  46 testsuite/libgomp.c++/task-5.C   A a;
+<a href='../S/112.html#L53'>A</a>                  53 testsuite/libgomp.c++/task-5.C bar (int i, A a)
+<a href='../S/112.html#L60'>A</a>                  60 testsuite/libgomp.c++/task-5.C A
+<a href='../S/112.html#L63'>A</a>                  63 testsuite/libgomp.c++/task-5.C   A a, c;
+<a href='../S/112.html#L76'>A</a>                  76 testsuite/libgomp.c++/task-5.C   bar (6, A ());
+<a href='../S/112.html#L84'>A</a>                  84 testsuite/libgomp.c++/task-5.C 	    bar (6, A ());
+<a href='../S/101.html#L7'>A</a>                   7 testsuite/libgomp.c++/task-7.C   A() { }
+<a href='../S/101.html#L8'>A</a>                   8 testsuite/libgomp.c++/task-7.C   A(const A&amp;) { }
+<a href='../S/101.html#L14'>A</a>                  14 testsuite/libgomp.c++/task-7.C   A&lt;int&gt; a;
+<a href='../S/348.html#L4'>A</a>                   4 testsuite/libgomp.c/appendix-a/a.29.1.c int A[2][2] = { 1, 2, 3, 4 };
+<a href='../S/348.html#L19'>A</a>                  19 testsuite/libgomp.c/appendix-a/a.29.1.c     assert (&amp;B[1][1] == &amp;A[1][1]);
+<a href='../S/348.html#L20'>A</a>                  20 testsuite/libgomp.c/appendix-a/a.29.1.c     assert (&amp;C[3] == &amp;A[1][1]);
+<a href='../S/348.html#L28'>A</a>                  28 testsuite/libgomp.c/appendix-a/a.29.1.c   f (2, A, A[0]);
+<a href='../S/293.html#L12'>A</a>                  12 testsuite/libgomp.c/critical-2.c   int A[N];
+<a href='../S/293.html#L23'>A</a>                  23 testsuite/libgomp.c/critical-2.c         A[i] = 0;
+<a href='../S/293.html#L27'>A</a>                  27 testsuite/libgomp.c/critical-2.c         A[i] += 1;
+<a href='../S/293.html#L31'>A</a>                  31 testsuite/libgomp.c/critical-2.c     if (A[i] != nthreads)
+<a href='../S/302.html#L13'>A</a>                  13 testsuite/libgomp.c/omp-parallel-if.c   int A = 0;
+<a href='../S/302.html#L17'>A</a>                  17 testsuite/libgomp.c/omp-parallel-if.c       A = omp_get_num_threads ();
+<a href='../S/302.html#L20'>A</a>                  20 testsuite/libgomp.c/omp-parallel-if.c   if (A != 1)
+<a href='../S/302.html#L25'>A</a>                  25 testsuite/libgomp.c/omp-parallel-if.c       A = omp_get_num_threads ();
+<a href='../S/302.html#L28'>A</a>                  28 testsuite/libgomp.c/omp-parallel-if.c   if (A != 3)
+<a href='../S/302.html#L33'>A</a>                  33 testsuite/libgomp.c/omp-parallel-if.c       A = omp_get_num_threads ();
+<a href='../S/302.html#L36'>A</a>                  36 testsuite/libgomp.c/omp-parallel-if.c   if (A != 10)
+<a href='../S/320.html#L22'>A</a>                  22 testsuite/libgomp.c/omp_matvec.c float A[SIZE][SIZE], b[SIZE], c[SIZE], total;
+<a href='../S/320.html#L30'>A</a>                  30 testsuite/libgomp.c/omp_matvec.c     A[i][j] = (j+1) * 1.0;
+<a href='../S/320.html#L39'>A</a>                  39 testsuite/libgomp.c/omp_matvec.c     printf("%.1f ",A[i][j]);
+<a href='../S/320.html#L54'>A</a>                  54 testsuite/libgomp.c/omp_matvec.c       c[i] += (A[i][j] * b[i]);
+<a href='../S/280.html#L18'>A</a>                  18 testsuite/libgomp.c/shared-1.c   struct X A[10][5];
+<a href='../S/280.html#L23'>A</a>                  23 testsuite/libgomp.c/shared-1.c       A[i][j].y.l[3][3] = -10;
+<a href='../S/280.html#L38'>A</a>                  38 testsuite/libgomp.c/shared-1.c 	  A[i][j].y.l[3][3] += 20;
+<a href='../S/280.html#L44'>A</a>                  44 testsuite/libgomp.c/shared-1.c       if (A[i][j].y.l[3][3] != 10)
+<a href='../S/402.html#L11'>A</a>                  11 testsuite/libgomp.graphite/force-parallel-4.c   int A[2*N], B[2*N];
+<a href='../S/402.html#L15'>A</a>                  15 testsuite/libgomp.graphite/force-parallel-4.c     B[i] = A[i] = i;
+<a href='../S/402.html#L21'>A</a>                  21 testsuite/libgomp.graphite/force-parallel-4.c 	A[i] = A[i+T];
+<a href='../S/402.html#L24'>A</a>                  24 testsuite/libgomp.graphite/force-parallel-4.c 	A[i] = A[i+T+1];
+<a href='../S/402.html#L32'>A</a>                  32 testsuite/libgomp.graphite/force-parallel-4.c 	  if (A[i] != B[i+T])
+<a href='../S/402.html#L37'>A</a>                  37 testsuite/libgomp.graphite/force-parallel-4.c 	  if (A[i] != B[i+T+1])
+<a href='../S/406.html#L9'>A</a>                   9 testsuite/libgomp.graphite/force-parallel-5.c   int A[3*N], B[3*N];
+<a href='../S/406.html#L12'>A</a>                  12 testsuite/libgomp.graphite/force-parallel-5.c     B[i] = A[i] = i;
+<a href='../S/406.html#L18'>A</a>                  18 testsuite/libgomp.graphite/force-parallel-5.c       A[j+N] = A[j] + j;
+<a href='../S/406.html#L22'>A</a>                  22 testsuite/libgomp.graphite/force-parallel-5.c       if (A[j+N] != B[j] + j)
+<a href='../S/408.html#L7'>A</a>                   7 testsuite/libgomp.graphite/force-parallel-6.c   int A[2*N][2*N], C[2*N][2*N];
+<a href='../S/408.html#L14'>A</a>                  14 testsuite/libgomp.graphite/force-parallel-6.c 	  B[j] = A[j][N];
+<a href='../S/408.html#L17'>A</a>                  17 testsuite/libgomp.graphite/force-parallel-6.c 	      A[j+1][k] = B[j] + C[j][k];
+<a href='../S/408.html#L19'>A</a>                  19 testsuite/libgomp.graphite/force-parallel-6.c 	  Y[i+j] = A[j+1][N];
+<a href='../S/408.html#L23'>A</a>                  23 testsuite/libgomp.graphite/force-parallel-6.c   return A[1][5]*B[6];
+<a href='../S/404.html#L6'>A</a>                   6 testsuite/libgomp.graphite/force-parallel-7.c   int A[N+5][N+5][N+5];
+<a href='../S/404.html#L12'>A</a>                  12 testsuite/libgomp.graphite/force-parallel-7.c 	A[k+1][j+2][i+1] = A[k][j][i+1];
+<a href='../S/404.html#L19'>A</a>                  19 testsuite/libgomp.graphite/force-parallel-7.c 	A[i+1][j][k] = A[i][j][k+1];
+<a href='../S/404.html#L21'>A</a>                  21 testsuite/libgomp.graphite/force-parallel-7.c   return A[1][5][2];
+</pre>
+</body>
+</html>

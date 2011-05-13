@@ -1,0 +1,194 @@
+NEWS - New features, changes and fixes for this release.
+________________________________________________________________________
+========================================================================
+
+                   Nano-threads library 4.1 Release Series
+
+March 31, 2008
+
+Release History:
+
+   Nano-thread library 4.1.2
+          March 31, 2008
+
+   Nano-thread library 4.1.1
+          March 31, 2008
+
+   Nano-thread library 4.1.0
+          May 31, 2007
+
+________________________________________________________________________
+
+Nano-thread library 4.1.2 New Features, Changes and Fixes
+
+   Changes:
+
+     * [2008-03-31] Including all features from 'aduran' branch.
+
+________________________________________________________________________
+
+Nano-thread library 4.1.1 New Features, Changes and Fixes
+
+   Changes:
+
+     * [2008-01-20] Added GraphViz support for task graph output.
+       Added 'maxtasks' statistics.
+
+     * [2008-01-19] Added Level Based (LB) scheduler.
+
+     * [2008-01-02] Added BWF scheduler.
+
+     * [2007-12-26] Removed 'taskgroup' support. Added new cutoff
+       mechanism: 'maxlevelnths'. Added NTH_TIE environment variable
+       support and general runtime tieness control.
+
+     * [2007-12-24] Changed free descriptor queue (fdq) type for
+       new list types. Included new list types: 'eslist', 'edlists'.
+
+     * [2007-12-20] Locks changed for gcc built-ins. Atomic add also
+       uses gcc built-in.
+
+     * [2007-12-18] Added new options for Work First scheduler.
+
+     * [2007-12-18] Added LIFO mode to breadth first scheduler.
+
+     * [2007-12-07] Added Cilk scheduler.
+
+     * [2007-12-06] Added independent cutoffs mechanism.
+
+     * [2007-11-29] Added Work First scheduler. Including asserts in
+       the code.
+
+     * [2007-11-08] Added NTH_SCHEDULE environment variable.
+
+     * [2007-11-06] Scheduler moved to separate layer.
+  
+   Reported Bugs Fixed:
+
+     * [2008-01-17] Idle function fixed.
+
+     * [2007-12-05] Intone barrier fixed.
+________________________________________________________________________
+
+Nano-thread library 4.1.0 New Features, Changes and Fixes
+
+   Changes:
+
+     * [2007-05-31] Added omp_get_wtime() and omp_get_wtick() functions.
+
+     * [2007-05-31] Fixed barrier behaviour in order to wait explicitly
+       for the tasks.
+
+     * [2007-05-31] Added GPL header.
+
+     * [2007-05-30] nth_desc_tasksub_succ added in order to implement
+       'OpenMP taskwait' waiting only for direct descendents.
+
+     * [2007-05-29] OpenMP lock functions added.
+
+     * [2007-04-13] nth_taskyield modified. The function do not
+       force exit of current task, if there are not new tasks to
+       execute current task continues with the execution.
+
+     * [2007-04-04] Memory allocation centralized.
+
+     * [2007-03-21] Global macros MIN and MAX changed to NTH_MIN and
+       NTH_MAX.
+
+     * [2007-03-06] IA-64 Itanium port added.
+
+     * [2007-03-06] Alpha and PowerPC-32 skeleton added but not
+       implemented.
+
+     * [2007-02-26] PowerPC-64 port added. (xavim).
+
+     * [2007-02-20] Changed release fashion using libtool. Substitute
+       version info (current, revision and age) by release.
+
+   Reported Bugs Fixed:
+
+     * [2007-03-29] Data type in error messages fixed.
+
+     * [2007-03-21] Look for data environment at nth_main.c fixed.
+
+     * [2007-03-13] Intone schedule policies fixed. OpenMP guided
+       policy still not included.
+
+     * [2007-02-20] Fixed address dependence (linux kernel release) at
+       main stack. nth_stack_dress() disapear in order to use
+       nth_descriptor_allocate().
+
+________________________________________________________________________
+========================================================================
+
+                   Nano-threads library 4.0 Release Series
+
+February 16, 2007
+
+Release History:
+
+   Nano-thread library 4.0.0
+          February 16, 2007
+
+________________________________________________________________________
+
+Nano-thread library 4.0.0 New Features, Changes and Fixes
+
+   Changes:
+  
+     * [2007-02-14] Function nth_task_block() improved. The new
+       implementation avoid innecesary verification.
+
+     * [2007-02-05] New ready queue implemented (TEAM) for tasks. This
+       allow create nano-threads for execution within the team.
+
+     * [2007-02-05] Create a new interface to spawn parallelism taking
+       in account parameters passed by value or reference. Service
+       nth_create() and function nth_qt_args_va() added in qt module.
+
+     * [2007-01-18] Added nth_get_cpu_num() service. This functions
+       return the physical processor that nano-thread is using.
+
+     * [2007-02-05] Using TLS support for current descriptor and
+       p-thread identifier.
+
+     * [2006-12-29] Added Maximum level criteria in task creation.
+       When program want to create a new task verifies that the number
+       of current tasks is greather than the maximum allowed. Then
+       the service create the task or return constant value:
+       NTH_CANNOT_ALLOCATE_TASK. The maximum level criterias are:
+          + Maximum number of nano-threads guided. That verifies the
+            total number of nano-thread created.
+          + Maximum deep level guided. That verifies the depth in
+            the hierarchy structure of nano-threads.
+
+   Reported Bugs Fixed:
+
+     * [2007-02-14] Bug fixed in function nth_qt_args_va() when user
+       call with a NULL value as an optional reference parameter.
+
+     * [2007-02-14] Bug fixed in new interface nth_qt_args_va()
+       implementation. The acces to the vector void **sfl[] was
+       fixed.
+
+     * [2007-02-12] Bug fixed in intone_begin_for() function when
+       compute nex_iters() in descendents loops.
+
+     * [2007-02-08] Create a nano-thread in team scope bug fixed. When
+       a nano-thread is created at first level nano-thread (that has no
+       team linked) the execution fails. Implicit team (descriptor w/o
+       stack) created as initial team.
+
+     * [2007-02-05] Set environment argc bug fixed at nth_main.c file.
+
+     * [2007-01-11] Create task in application without nth_block()
+       function fixed. When user create several tasks in a program
+       that do not use nth_block() to close parallelism expect to
+       wait created tasks. Since nth_block() is not called, program
+       ends execution before all tasks were finished. It is added
+       an implicit nth_task_block() at fini function that waits
+       until all tasks were finished.
+
+     * [2006-12-22] Added nthf_team_set_nplayers_ and nthf_task_block_
+       to fortran interface.
+

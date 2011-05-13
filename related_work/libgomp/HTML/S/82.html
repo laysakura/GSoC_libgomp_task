@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/ctor-2.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/ctor-2.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L65'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L44' title='Defined at 44.'>doit</a>
+<li><a href='#L53' title='Defined at 53.'>foo</a>
+<li><a href='#L65' title='Defined at 65.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L4'><font color='darkred'>#include</font> &lt;assert.h&gt;
+<a name='L5'>
+<a name='L6'><b>struct</b> <a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>
+<a name='L7'><font color='red'>{</font>
+<a name='L8'>  <b>static</b> <b>int</b> ccount;
+<a name='L9'>  <b>static</b> <b>int</b> dcount;
+<a name='L10'>  <b>static</b> <b>int</b> xcount;
+<a name='L11'>  <b>static</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> *expected;
+<a name='L12'>
+<a name='L13'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>();
+<a name='L14'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>int</b>);
+<a name='L15'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>const</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> &amp;);
+<a name='L16'>  ~<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>();
+<a name='L17'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>&amp; <b>operator</b>=(<b>const</b> B &amp;);
+<a name='L18'>  <b>void</b> <a href='../D/125.html' title='Multiple defined in 6 places.'>doit</a>();
+<a name='L19'><font color='red'>}</font>;
+<a name='L20'>
+<a name='L21'><b>int</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::ccount;
+<a name='L22'><b>int</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::dcount;
+<a name='L23'><b>int</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::xcount;
+<a name='L24'><a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> * <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::expected;
+<a name='L25'>
+<a name='L26'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>int</b>)
+<a name='L27'><font color='red'>{</font>
+<a name='L28'>  expected = <b>this</b>;
+<a name='L29'><font color='red'>}</font>
+<a name='L30'>
+<a name='L31'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>const</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> &amp;b)
+<a name='L32'><font color='red'>{</font>
+<a name='L33'><font color='darkred'>  #pragma</font> omp atomic 
+<a name='L34'>    ccount++;
+<a name='L35'>  assert (&amp;b == expected);
+<a name='L36'><font color='red'>}</font>
+<a name='L37'>
+<a name='L38'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::~<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>()
+<a name='L39'><font color='red'>{</font>
+<a name='L40'><font color='darkred'>  #pragma</font> omp atomic
+<a name='L41'>    dcount++;
+<a name='L42'><font color='red'>}</font>
+<a name='L43'>
+<a name='L44'><b>void</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::<a href='../R/122.html' title='Multiple refered from 15 places.'>doit</a>()
+<a name='L45'><font color='red'>{</font>
+<a name='L46'><font color='darkred'>  #pragma</font> omp atomic
+<a name='L47'>    xcount++;
+<a name='L48'>  assert (<b>this</b> != expected);
+<a name='L49'><font color='red'>}</font>
+<a name='L50'>
+<a name='L51'><b>static</b> <b>int</b> nthreads;
+<a name='L52'>
+<a name='L53'><b>void</b> <a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a>()
+<a name='L54'><font color='red'>{</font>
+<a name='L55'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> b(0);
+<a name='L56'>
+<a name='L57'><font color='darkred'>  #pragma</font> omp parallel firstprivate(b)
+<a name='L58'>    <font color='red'>{</font>
+<a name='L59'><font color='darkred'>      #pragma</font> omp master
+<a name='L60'>        nthreads = <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> ();
+<a name='L61'>      b.<a href='../D/125.html' title='Multiple defined in 6 places.'>doit</a>();
+<a name='L62'>    <font color='red'>}</font>
+<a name='L63'><font color='red'>}</font>
+<a name='L64'>
+<a name='L65'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L66'><font color='red'>{</font>
+<a name='L67'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L68'>  <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> (4);
+<a name='L69'>  <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a>();
+<a name='L70'>
+<a name='L71'>  assert (<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::xcount == nthreads);
+<a name='L72'>  assert (<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::ccount == nthreads);
+<a name='L73'>  assert (<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::dcount == nthreads+1);
+<a name='L74'>
+<a name='L75'>  <b>return</b> 0;
+<a name='L76'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L65'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

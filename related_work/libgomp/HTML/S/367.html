@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/omp_reduction.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/omp_reduction.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L17'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L17' title='Defined at 17.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/******************************************************************************</font></i>
+<a name='L2'><i><font color='green'>* FILE: omp_reduction.c</font></i>
+<a name='L3'><i><font color='green'>* DESCRIPTION:</font></i>
+<a name='L4'><i><font color='green'>*   OpenMP Example - Combined Parallel Loop Reduction - C/C++ Version</font></i>
+<a name='L5'><i><font color='green'>*   This example demonstrates a sum reduction within a combined parallel loop</font></i>
+<a name='L6'><i><font color='green'>*   construct.  Notice that default data element scoping is assumed - there</font></i>
+<a name='L7'><i><font color='green'>*   are no clauses specifying shared or private variables.  OpenMP will </font></i>
+<a name='L8'><i><font color='green'>*   automatically make loop index variables private within team threads, and</font></i>
+<a name='L9'><i><font color='green'>*   global variables shared.</font></i>
+<a name='L10'><i><font color='green'>* AUTHOR: Blaise Barney  5/99</font></i>
+<a name='L11'><i><font color='green'>* LAST REVISED: 04/06/05</font></i>
+<a name='L12'><i><font color='green'>******************************************************************************/</font></i>
+<a name='L13'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L14'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L15'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L16'>
+<a name='L17'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>int</b> argc, <b>char</b> *argv[]) <font color='red'>{</font>
+<a name='L18'>
+<a name='L19'><b>int</b>   i, n;
+<a name='L20'><b>float</b> a[100], b[100], sum; 
+<a name='L21'>
+<a name='L22'><i><font color='green'>/* Some initializations */</font></i>
+<a name='L23'>n = 100;
+<a name='L24'><b>for</b> (i=0; i &lt; n; i++)
+<a name='L25'>  a[i] = b[i] = i * 1.0;
+<a name='L26'>sum = 0.0;
+<a name='L27'>
+<a name='L28'><font color='darkred'>#pragma</font> omp parallel <b>for</b> reduction(+:sum)
+<a name='L29'>  <b>for</b> (i=0; i &lt; n; i++)
+<a name='L30'>    sum = sum + (a[i] * b[i]);
+<a name='L31'>
+<a name='L32'>printf("   Sum = %f\n",sum);
+<a name='L33'>
+<a name='L34'>  <b>return</b> 0;
+<a name='L35'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L17'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

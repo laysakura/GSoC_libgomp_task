@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/omp_hello.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/omp_hello.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L17'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L17' title='Defined at 17.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/******************************************************************************</font></i>
+<a name='L2'><i><font color='green'>* FILE: omp_hello.c</font></i>
+<a name='L3'><i><font color='green'>* DESCRIPTION:</font></i>
+<a name='L4'><i><font color='green'>*   OpenMP Example - Hello World - C/C++ Version</font></i>
+<a name='L5'><i><font color='green'>*   In this simple example, the master thread forks a parallel region.</font></i>
+<a name='L6'><i><font color='green'>*   All threads in the team obtain their unique thread number and print it.</font></i>
+<a name='L7'><i><font color='green'>*   The master thread only prints the total number of threads.  Two OpenMP</font></i>
+<a name='L8'><i><font color='green'>*   library routines are used to obtain the number of threads and each</font></i>
+<a name='L9'><i><font color='green'>*   thread's number.</font></i>
+<a name='L10'><i><font color='green'>* AUTHOR: Blaise Barney  5/99</font></i>
+<a name='L11'><i><font color='green'>* LAST REVISED: 04/06/05</font></i>
+<a name='L12'><i><font color='green'>******************************************************************************/</font></i>
+<a name='L13'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L14'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L15'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L16'>
+<a name='L17'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>int</b> argc, <b>char</b> *argv[]) <font color='red'>{</font>
+<a name='L18'>
+<a name='L19'><b>int</b> nthreads, tid;
+<a name='L20'>
+<a name='L21'><i><font color='green'>/* Fork a team of threads giving them their own copies of variables */</font></i>
+<a name='L22'><font color='darkred'>#pragma</font> omp parallel private(nthreads, tid)
+<a name='L23'>  <font color='red'>{</font>
+<a name='L24'>
+<a name='L25'>  <i><font color='green'>/* Obtain thread number */</font></i>
+<a name='L26'>  tid = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a>();
+<a name='L27'>  printf("Hello World from thread = %d\n", tid);
+<a name='L28'>
+<a name='L29'>  <i><font color='green'>/* Only master thread does this */</font></i>
+<a name='L30'>  <b>if</b> (tid == 0) 
+<a name='L31'>    <font color='red'>{</font>
+<a name='L32'>    nthreads = <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a>();
+<a name='L33'>    printf("Number of threads = %d\n", nthreads);
+<a name='L34'>    <font color='red'>}</font>
+<a name='L35'>
+<a name='L36'>  <font color='red'>}</font>  <i><font color='green'>/* All threads join master thread and disband */</font></i>
+<a name='L37'>
+<a name='L38'>  <b>return</b> 0;
+<a name='L39'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L17'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

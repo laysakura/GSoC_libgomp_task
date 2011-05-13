@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/icv-2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/icv-2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L38'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L13' title='Defined at 13.'>tf</a>
+<li><a href='#L38' title='Defined at 38.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run { target *-*-linux* } } */</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#ifndef</font> <a href='../D/100.html' title='Multiple defined in 5 places.'>_GNU_SOURCE</a>
+<a name='L4'><font color='darkred'>#define</font> <a href='../R/100.html' title='Multiple refered from 4 places.'>_GNU_SOURCE</a> 1
+<a name='L5'><font color='darkred'>#endif</font>
+<a name='L6'><font color='darkred'>#include</font> &lt;pthread.h&gt;
+<a name='L7'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L8'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L9'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L10'>
+<a name='L11'>pthread_barrier_t <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>;
+<a name='L12'>
+<a name='L13'><b>void</b> *<a href='../R/391.html' title='Multiple refered from 4 places.'>tf</a> (<b>void</b> *p)
+<a name='L14'><font color='red'>{</font>
+<a name='L15'>  <b>int</b> l;
+<a name='L16'>  <b>if</b> (p)
+<a name='L17'>    <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> (3);
+<a name='L18'>  pthread_barrier_wait (&amp;<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>);
+<a name='L19'>  <b>if</b> (!p)
+<a name='L20'>    <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> (6);
+<a name='L21'>  pthread_barrier_wait (&amp;<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>);
+<a name='L22'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L23'>  <b>if</b> (<a href='../S/414.html#L623' title='Defined at 623 in env.c.'>omp_get_max_threads</a> () != (p ? 3 : 6))
+<a name='L24'>    abort ();
+<a name='L25'>  l = 0;
+<a name='L26'><font color='darkred'>  #pragma</font> omp parallel num_threads (6) reduction (|:l)
+<a name='L27'>    <font color='red'>{</font>
+<a name='L28'>      l |= <a href='../S/414.html#L623' title='Defined at 623 in env.c.'>omp_get_max_threads</a> () != (p ? 3 : 6);
+<a name='L29'>      <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> ((p ? 3 : 6) + <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ());
+<a name='L30'>      l |= <a href='../S/414.html#L623' title='Defined at 623 in env.c.'>omp_get_max_threads</a> () != ((p ? 3 : 6) + <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ());
+<a name='L31'>    <font color='red'>}</font>
+<a name='L32'>  <b>if</b> (l)
+<a name='L33'>    abort ();
+<a name='L34'>  <b>return</b> NULL;
+<a name='L35'><font color='red'>}</font>
+<a name='L36'>
+<a name='L37'><b>int</b>
+<a name='L38'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  pthread_t th;
+<a name='L41'>  pthread_barrier_init (&amp;<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>, NULL, 2);
+<a name='L42'>  pthread_create (&amp;th, NULL, <a href='../D/449.html' title='Multiple defined in 2 places.'>tf</a>, NULL);
+<a name='L43'>  <a href='../D/449.html' title='Multiple defined in 2 places.'>tf</a> ("");
+<a name='L44'>  pthread_join (th, NULL);
+<a name='L45'>  <b>return</b> 0;
+<a name='L46'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L38'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

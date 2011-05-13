@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>testsuite/libgomp.graphite/force-parallel-4.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/440.html'>libgomp.graphite</a>/force-parallel-4.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L8'>[^]</a><a href='#L43'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L8' title='Defined at 8.'>foo</a>
+<li><a href='#L43' title='Defined at 43.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Autopar with IF conditions.  */</font></i>
+<a name='L2'>
+<a name='L3'><b>void</b> abort();
+<a name='L4'>
+<a name='L5'><font color='darkred'>#define</font> <a href='../R/80.html' title='Multiple refered from 167 places.'>N</a> 10000
+<a name='L6'><font color='darkred'>#define</font> <a href='../R/89.html' title='Multiple refered from 245 places.'>T</a> 1000
+<a name='L7'>
+<a name='L8'><b>void</b> <a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a>(<b>void</b>)
+<a name='L9'><font color='red'>{</font>
+<a name='L10'>  <b>int</b> i;
+<a name='L11'>  <b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[2*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>], <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[2*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>];
+<a name='L12'>
+<a name='L13'>  <i><font color='green'>/* Initialize array: carried no dependency.  */</font></i>
+<a name='L14'>  <b>for</b> (i = 0; i &lt; 2*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L15'>    <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[i] = <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] = i;
+<a name='L16'>
+<a name='L17'>  <b>for</b> (i = 0; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L18'>    <font color='red'>{</font>
+<a name='L19'>      <b>if</b> (i &lt; <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>)
+<a name='L20'>        <i><font color='green'>/* loop i1: carried no dependency.  */</font></i>
+<a name='L21'>        <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] = <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i+<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>];
+<a name='L22'>      <b>else</b>
+<a name='L23'>        <i><font color='green'>/* loop i2: carried dependency.  */</font></i>
+<a name='L24'>        <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] = <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i+<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>+1];
+<a name='L25'>    <font color='red'>}</font>
+<a name='L26'>
+<a name='L27'>  <i><font color='green'>/* If it runs a wrong answer, abort.  */</font></i>
+<a name='L28'>  <b>for</b> (i = 0; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L29'>    <font color='red'>{</font>
+<a name='L30'>      <b>if</b> (i &lt; <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>)
+<a name='L31'>        <font color='red'>{</font>
+<a name='L32'>          <b>if</b> (<a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] != <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[i+<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>])
+<a name='L33'>            abort();
+<a name='L34'>        <font color='red'>}</font>
+<a name='L35'>      <b>else</b>
+<a name='L36'>        <font color='red'>{</font>
+<a name='L37'>          <b>if</b> (<a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] != <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[i+<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>+1])
+<a name='L38'>            abort();
+<a name='L39'>        <font color='red'>}</font>
+<a name='L40'>    <font color='red'>}</font>
+<a name='L41'><font color='red'>}</font>
+<a name='L42'>
+<a name='L43'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>(<b>void</b>)
+<a name='L44'><font color='red'>{</font>
+<a name='L45'>  <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a>();
+<a name='L46'>  <b>return</b> 0;
+<a name='L47'><font color='red'>}</font>
+<a name='L48'>
+<a name='L49'><i><font color='green'>/* Check that parallel code generation part make the right answer.  */</font></i>
+<a name='L50'><i><font color='green'>/* { dg-final { scan-tree-dump-times "2 loops carried no dependency" 1 "graphite" } } */</font></i>
+<a name='L51'><i><font color='green'>/* { dg-final { cleanup-tree-dump "graphite" } } */</font></i>
+<a name='L52'><i><font color='green'>/* { dg-final { scan-tree-dump-times "loopfn.0" 5 "optimized" } } */</font></i>
+<a name='L53'><i><font color='green'>/* { dg-final { scan-tree-dump-times "loopfn.1" 5 "optimized" } } */</font></i>
+<a name='L54'><i><font color='green'>/* { dg-final { cleanup-tree-dump "parloops" } } */</font></i>
+<a name='L55'><i><font color='green'>/* { dg-final { cleanup-tree-dump "optimized" } } */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L8'>[^]</a><a href='#L43'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

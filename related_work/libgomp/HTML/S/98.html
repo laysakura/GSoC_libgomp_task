@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/task-1.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/task-1.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L67'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L6' title='Defined at 6.'>f1</a>
+<li><a href='#L26' title='Defined at 26.'>f2</a>
+<li><a href='#L50' title='Defined at 50.'>f3</a>
+<li><a href='#L67' title='Defined at 67.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L2'>
+<a name='L3'><b>int</b> a = 18;
+<a name='L4'>
+<a name='L5'><b>void</b>
+<a name='L6'><a href='../R/128.html' title='Multiple refered from 25 places.'>f1</a> (<b>int</b> i, <b>int</b> j, <b>int</b> k)
+<a name='L7'><font color='red'>{</font>
+<a name='L8'>  <b>int</b> l = 6, m = 7, n = 8;
+<a name='L9'><font color='darkred'>#pragma</font> omp task <b>private</b>(j, m) shared(k, n)
+<a name='L10'>  <font color='red'>{</font>
+<a name='L11'>    j = 6;
+<a name='L12'>    m = 5;
+<a name='L13'>    <b>if</b> (++a != 19 || ++i != 9 || j != 6 || ++l != 7 || m != 5 || ++n != 9)
+<a name='L14'><font color='darkred'>      #pragma</font> omp atomic
+<a name='L15'>        k++;
+<a name='L16'>  <font color='red'>}</font>
+<a name='L17'><font color='darkred'>#pragma</font> omp taskwait
+<a name='L18'>  <b>if</b> (a != 19 || i != 8 || j != 26 || k != 0 || l != 6 || m != 7 || n != 9)
+<a name='L19'>    abort ();
+<a name='L20'><font color='red'>}</font>
+<a name='L21'>
+<a name='L22'><b>int</b> v1 = 1, v2 = 2, v5 = 5;
+<a name='L23'><b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L24'>
+<a name='L25'><b>void</b>
+<a name='L26'><a href='../R/132.html' title='Multiple refered from 22 places.'>f2</a> (<b>void</b>)
+<a name='L27'><font color='red'>{</font>
+<a name='L28'>  <b>int</b> v3 = 3;
+<a name='L29'><font color='darkred'>#pragma</font> omp sections <b>private</b> (v1) firstprivate (v2)
+<a name='L30'>  <font color='red'>{</font>
+<a name='L31'><font color='darkred'>  #pragma</font> omp section
+<a name='L32'>    <font color='red'>{</font>
+<a name='L33'>      <b>int</b> v4 = 4;
+<a name='L34'>      v1 = 7;
+<a name='L35'><font color='darkred'>      #pragma</font> omp task
+<a name='L36'>        <font color='red'>{</font>
+<a name='L37'>          <b>if</b> (++v1 != 8 || ++v2 != 3 || ++v3 != 4 || ++v4 != 5 || ++v5 != 6)
+<a name='L38'>            <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L39'>        <font color='red'>}</font>
+<a name='L40'><font color='darkred'>      #pragma</font> omp taskwait
+<a name='L41'>      <b>if</b> (v1 != 7 || v2 != 2 || v3 != 3 || v4 != 4 || v5 != 6)
+<a name='L42'>        abort ();
+<a name='L43'>      <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L44'>        abort ();
+<a name='L45'>    <font color='red'>}</font>
+<a name='L46'>  <font color='red'>}</font>
+<a name='L47'><font color='red'>}</font>
+<a name='L48'>
+<a name='L49'><b>void</b>
+<a name='L50'><a href='../R/133.html' title='Multiple refered from 21 places.'>f3</a> (<b>int</b> i, <b>int</b> j, <b>int</b> k)
+<a name='L51'><font color='red'>{</font>
+<a name='L52'>  <b>int</b> l = 6, m = 7, n = 8;
+<a name='L53'><font color='darkred'>#pragma</font> omp task <b>private</b>(j, m) shared(k, n) untied
+<a name='L54'>  <font color='red'>{</font>
+<a name='L55'>    j = 6;
+<a name='L56'>    m = 5;
+<a name='L57'>    <b>if</b> (++a != 19 || ++i != 9 || j != 6 || ++l != 7 || m != 5 || ++n != 9)
+<a name='L58'><font color='darkred'>      #pragma</font> omp atomic
+<a name='L59'>        k++;
+<a name='L60'>  <font color='red'>}</font>
+<a name='L61'><font color='darkred'>#pragma</font> omp taskwait
+<a name='L62'>  <b>if</b> (a != 19 || i != 8 || j != 26 || k != 0 || l != 6 || m != 7 || n != 9)
+<a name='L63'>    abort ();
+<a name='L64'><font color='red'>}</font>
+<a name='L65'>
+<a name='L66'><b>int</b>
+<a name='L67'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L68'><font color='red'>{</font>
+<a name='L69'>  <a href='../D/131.html' title='Multiple defined in 21 places.'>f1</a> (8, 26, 0);
+<a name='L70'>  <a href='../D/135.html' title='Multiple defined in 21 places.'>f2</a> ();
+<a name='L71'>  a = 18;
+<a name='L72'>  <a href='../D/136.html' title='Multiple defined in 17 places.'>f3</a> (8, 26, 0);
+<a name='L73'>  a = 18;
+<a name='L74'><font color='darkred'>#pragma</font> omp parallel num_threads(4)
+<a name='L75'>  <font color='red'>{</font>
+<a name='L76'><font color='darkred'>    #pragma</font> omp master
+<a name='L77'>      <font color='red'>{</font>
+<a name='L78'>        <a href='../D/131.html' title='Multiple defined in 21 places.'>f1</a> (8, 26, 0);
+<a name='L79'>        a = 18;
+<a name='L80'>        <a href='../D/136.html' title='Multiple defined in 17 places.'>f3</a> (8, 26, 0);
+<a name='L81'>      <font color='red'>}</font>
+<a name='L82'>  <font color='red'>}</font>
+<a name='L83'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L67'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

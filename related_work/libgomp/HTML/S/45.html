@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>config/linux/proc.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/proc.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L159'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L44' title='Defined at 44.'>cpuset_popcount</a>
+<li><a href='#L71' title='Defined at 71.'>gomp_init_num_threads</a>
+<li><a href='#L91' title='Defined at 91.'>get_num_procs</a>
+<li><a href='#L132' title='Defined at 132.'>gomp_dynamic_max_threads</a>
+<li><a href='#L159' title='Defined at 159.'>omp_get_num_procs</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010</font></i>
+<a name='L2'><i><font color='green'>   Free Software Foundation, Inc.</font></i>
+<a name='L3'><i><font color='green'>   Contributed by Jakub Jelinek &lt;jakub@redhat.com&gt;.</font></i>
+<a name='L4'><i><font color='green'></font></i>
+<a name='L5'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L6'><i><font color='green'></font></i>
+<a name='L7'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L8'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L9'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L10'><i><font color='green'>   any later version.</font></i>
+<a name='L11'><i><font color='green'></font></i>
+<a name='L12'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L13'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L14'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L15'><i><font color='green'>   more details.</font></i>
+<a name='L16'><i><font color='green'></font></i>
+<a name='L17'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L18'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L19'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L20'><i><font color='green'></font></i>
+<a name='L21'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L22'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L23'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L24'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L25'>
+<a name='L26'><i><font color='green'>/* This file contains system specific routines related to counting</font></i>
+<a name='L27'><i><font color='green'>   online processors and dynamic load balancing.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#ifndef</font> <a href='../D/100.html' title='Multiple defined in 5 places.'>_GNU_SOURCE</a>
+<a name='L30'><font color='darkred'>#define</font> <a href='../R/100.html' title='Multiple refered from 4 places.'>_GNU_SOURCE</a> 1
+<a name='L31'><font color='darkred'>#endif</font>
+<a name='L32'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L33'><font color='darkred'>#include</font> &lt;sched.h&gt;
+<a name='L34'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L35'><font color='darkred'>#include</font> &lt;unistd.h&gt;
+<a name='L36'><font color='darkred'>#ifdef</font> HAVE_GETLOADAVG
+<a name='L37'><font color='darkred'># ifdef</font> HAVE_SYS_LOADAVG_H
+<a name='L38'><font color='darkred'>#  include</font> &lt;sys/loadavg.h&gt;
+<a name='L39'><font color='darkred'># endif</font>
+<a name='L40'><font color='darkred'>#endif</font>
+<a name='L41'>
+<a name='L42'><font color='darkred'>#ifdef</font> HAVE_PTHREAD_AFFINITY_NP
+<a name='L43'><b>static</b> <b>unsigned</b> <b>long</b>
+<a name='L44'><a href='../R/117.html' title='Multiple refered from 2 places.'>cpuset_popcount</a> (cpu_set_t *cpusetp)
+<a name='L45'><font color='red'>{</font>
+<a name='L46'><font color='darkred'>#ifdef</font> CPU_COUNT
+<a name='L47'>  <i><font color='green'>/* glibc 2.6 and above provide a macro for this.  */</font></i>
+<a name='L48'>  <b>return</b> CPU_COUNT (cpusetp);
+<a name='L49'><font color='darkred'>#else</font>
+<a name='L50'>  size_t i;
+<a name='L51'>  <b>unsigned</b> <b>long</b> ret = 0;
+<a name='L52'>  <b>extern</b> <b>int</b> <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a>[<b>sizeof</b> (cpusetp-&gt;__bits[0]) == <b>sizeof</b> (<b>unsigned</b> <b>long</b> <b>int</b>)];
+<a name='L53'>
+<a name='L54'>  (<b>void</b>) <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a>;
+<a name='L55'>  <b>for</b> (i = 0; i &lt; <b>sizeof</b> (*cpusetp) / <b>sizeof</b> (cpusetp-&gt;__bits[0]); i++)
+<a name='L56'>    <font color='red'>{</font>
+<a name='L57'>      <b>unsigned</b> <b>long</b> <b>int</b> mask = cpusetp-&gt;__bits[i];
+<a name='L58'>      <b>if</b> (mask == 0)
+<a name='L59'>        <b>continue</b>;
+<a name='L60'>      ret += __builtin_popcountl (mask);
+<a name='L61'>    <font color='red'>}</font>
+<a name='L62'>  <b>return</b> ret;
+<a name='L63'><font color='darkred'>#endif</font>
+<a name='L64'><font color='red'>}</font>
+<a name='L65'><font color='darkred'>#endif</font>
+<a name='L66'>
+<a name='L67'><i><font color='green'>/* At startup, determine the default number of threads.  It would seem</font></i>
+<a name='L68'><i><font color='green'>   this should be related to the number of cpus online.  */</font></i>
+<a name='L69'>
+<a name='L70'><b>void</b>
+<a name='L71'><a href='../R/186.html' title='Multiple refered from 2 places.'>gomp_init_num_threads</a> (<b>void</b>)
+<a name='L72'><font color='red'>{</font>
+<a name='L73'><font color='darkred'>#ifdef</font> HAVE_PTHREAD_AFFINITY_NP
+<a name='L74'>  cpu_set_t cpuset;
+<a name='L75'>
+<a name='L76'>  <b>if</b> (pthread_getaffinity_np (pthread_self (), <b>sizeof</b> (cpuset), &amp;cpuset) == 0)
+<a name='L77'>    <font color='red'>{</font>
+<a name='L78'>      <i><font color='green'>/* Count only the CPUs this process can use.  */</font></i>
+<a name='L79'>      gomp_global_icv.nthreads_var = <a href='../S/45.html#L44' title='Defined at 44 in config/linux/proc.c.'>cpuset_popcount</a> (&amp;cpuset);
+<a name='L80'>      <b>if</b> (gomp_global_icv.nthreads_var == 0)
+<a name='L81'>        gomp_global_icv.nthreads_var = 1;
+<a name='L82'>      <b>return</b>;
+<a name='L83'>    <font color='red'>}</font>
+<a name='L84'><font color='darkred'>#endif</font>
+<a name='L85'><font color='darkred'>#ifdef</font> _SC_NPROCESSORS_ONLN
+<a name='L86'>  gomp_global_icv.nthreads_var = sysconf (_SC_NPROCESSORS_ONLN);
+<a name='L87'><font color='darkred'>#endif</font>
+<a name='L88'><font color='red'>}</font>
+<a name='L89'>
+<a name='L90'><b>static</b> <b>int</b>
+<a name='L91'><a href='../R/154.html' title='Multiple refered from 5 places.'>get_num_procs</a> (<b>void</b>)
+<a name='L92'><font color='red'>{</font>
+<a name='L93'><font color='darkred'>#ifdef</font> HAVE_PTHREAD_AFFINITY_NP
+<a name='L94'>  cpu_set_t cpuset;
+<a name='L95'>
+<a name='L96'>  <b>if</b> (gomp_cpu_affinity == NULL)
+<a name='L97'>    <font color='red'>{</font>
+<a name='L98'>      <i><font color='green'>/* Count only the CPUs this process can use.  */</font></i>
+<a name='L99'>      <b>if</b> (pthread_getaffinity_np (pthread_self (), <b>sizeof</b> (cpuset),
+<a name='L100'>                                  &amp;cpuset) == 0)
+<a name='L101'>        <font color='red'>{</font>
+<a name='L102'>          <b>int</b> ret = <a href='../S/45.html#L44' title='Defined at 44 in config/linux/proc.c.'>cpuset_popcount</a> (&amp;cpuset);
+<a name='L103'>          <b>return</b> ret != 0 ? ret : 1;
+<a name='L104'>        <font color='red'>}</font>
+<a name='L105'>    <font color='red'>}</font>
+<a name='L106'>  <b>else</b>
+<a name='L107'>    <font color='red'>{</font>
+<a name='L108'>      <i><font color='green'>/* We can't use pthread_getaffinity_np in this case</font></i>
+<a name='L109'><i><font color='green'>         (we have changed it ourselves, it binds to just one CPU).</font></i>
+<a name='L110'><i><font color='green'>         Count instead the number of different CPUs we are</font></i>
+<a name='L111'><i><font color='green'>         using.  gomp_init_affinity updated gomp_available_cpus to</font></i>
+<a name='L112'><i><font color='green'>         the number of CPUs in the GOMP_AFFINITY mask that we are</font></i>
+<a name='L113'><i><font color='green'>         allowed to use though.  */</font></i>
+<a name='L114'>      <b>return</b> gomp_available_cpus;
+<a name='L115'>    <font color='red'>}</font>
+<a name='L116'><font color='darkred'>#endif</font>
+<a name='L117'><font color='darkred'>#ifdef</font> _SC_NPROCESSORS_ONLN
+<a name='L118'>  <b>return</b> sysconf (_SC_NPROCESSORS_ONLN);
+<a name='L119'><font color='darkred'>#else</font>
+<a name='L120'>  <b>return</b> <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false)-&gt;nthreads_var;
+<a name='L121'><font color='darkred'>#endif</font>
+<a name='L122'><font color='red'>}</font>
+<a name='L123'>
+<a name='L124'><i><font color='green'>/* When OMP_DYNAMIC is set, at thread launch determine the number of</font></i>
+<a name='L125'><i><font color='green'>   threads we should spawn for this team.  */</font></i>
+<a name='L126'><i><font color='green'>/* ??? I have no idea what best practice for this is.  Surely some</font></i>
+<a name='L127'><i><font color='green'>   function of the number of processors that are *still* online and</font></i>
+<a name='L128'><i><font color='green'>   the load average.  Here I use the number of processors online</font></i>
+<a name='L129'><i><font color='green'>   minus the 15 minute load average.  */</font></i>
+<a name='L130'>
+<a name='L131'><b>unsigned</b>
+<a name='L132'><a href='../R/172.html' title='Multiple refered from 2 places.'>gomp_dynamic_max_threads</a> (<b>void</b>)
+<a name='L133'><font color='red'>{</font>
+<a name='L134'>  <b>unsigned</b> n_onln, loadavg, nthreads_var = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false)-&gt;nthreads_var;
+<a name='L135'>
+<a name='L136'>  n_onln = <a href='../D/157.html' title='Multiple defined in 2 places.'>get_num_procs</a> ();
+<a name='L137'>  <b>if</b> (n_onln &gt; nthreads_var)
+<a name='L138'>    n_onln = nthreads_var;
+<a name='L139'>
+<a name='L140'>  loadavg = 0;
+<a name='L141'><font color='darkred'>#ifdef</font> HAVE_GETLOADAVG
+<a name='L142'>  <font color='red'>{</font>
+<a name='L143'>    <b>double</b> dloadavg[3];
+<a name='L144'>    <b>if</b> (getloadavg (dloadavg, 3) == 3)
+<a name='L145'>      <font color='red'>{</font>
+<a name='L146'>        <i><font color='green'>/* Add 0.1 to get a kind of biased rounding.  */</font></i>
+<a name='L147'>        loadavg = dloadavg[2] + 0.1;
+<a name='L148'>      <font color='red'>}</font>
+<a name='L149'>  <font color='red'>}</font>
+<a name='L150'><font color='darkred'>#endif</font>
+<a name='L151'>
+<a name='L152'>  <b>if</b> (loadavg &gt;= n_onln)
+<a name='L153'>    <b>return</b> 1;
+<a name='L154'>  <b>else</b>
+<a name='L155'>    <b>return</b> n_onln - loadavg;
+<a name='L156'><font color='red'>}</font>
+<a name='L157'>
+<a name='L158'><b>int</b>
+<a name='L159'><a href='../R/321.html' title='Multiple refered from 2 places.'>omp_get_num_procs</a> (<b>void</b>)
+<a name='L160'><font color='red'>{</font>
+<a name='L161'>  <b>return</b> <a href='../D/157.html' title='Multiple defined in 2 places.'>get_num_procs</a> ();
+<a name='L162'><font color='red'>}</font>
+<a name='L163'>
+<a name='L164'>ialias (omp_get_num_procs)
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L159'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

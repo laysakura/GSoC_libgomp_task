@@ -1,0 +1,678 @@
+<html>
+<head>
+<title>loop.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/loop.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L616'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L35' title='Defined at 35.'>gomp_loop_init</a>
+<li><a href='#L97' title='Defined at 97.'>gomp_loop_static_start</a>
+<li><a href='#L114' title='Defined at 114.'>gomp_loop_dynamic_start</a>
+<li><a href='#L139' title='Defined at 139.'>gomp_loop_guided_start</a>
+<li><a href='#L164' title='Defined at 164.'>GOMP_loop_runtime_start</a>
+<li><a href='#L192' title='Defined at 192.'>gomp_loop_ordered_static_start</a>
+<li><a href='#L210' title='Defined at 210.'>gomp_loop_ordered_dynamic_start</a>
+<li><a href='#L235' title='Defined at 235.'>gomp_loop_ordered_guided_start</a>
+<li><a href='#L260' title='Defined at 260.'>GOMP_loop_ordered_runtime_start</a>
+<li><a href='#L299' title='Defined at 299.'>gomp_loop_static_next</a>
+<li><a href='#L305' title='Defined at 305.'>gomp_loop_dynamic_next</a>
+<li><a href='#L322' title='Defined at 322.'>gomp_loop_guided_next</a>
+<li><a href='#L339' title='Defined at 339.'>GOMP_loop_runtime_next</a>
+<li><a href='#L365' title='Defined at 365.'>gomp_loop_ordered_static_next</a>
+<li><a href='#L381' title='Defined at 381.'>gomp_loop_ordered_dynamic_next</a>
+<li><a href='#L399' title='Defined at 399.'>gomp_loop_ordered_guided_next</a>
+<li><a href='#L417' title='Defined at 417.'>GOMP_loop_ordered_runtime_next</a>
+<li><a href='#L439' title='Defined at 439.'>gomp_parallel_loop_start</a>
+<li><a href='#L453' title='Defined at 453.'>GOMP_parallel_loop_static_start</a>
+<li><a href='#L462' title='Defined at 462.'>GOMP_parallel_loop_dynamic_start</a>
+<li><a href='#L471' title='Defined at 471.'>GOMP_parallel_loop_guided_start</a>
+<li><a href='#L480' title='Defined at 480.'>GOMP_parallel_loop_runtime_start</a>
+<li><a href='#L494' title='Defined at 494.'>GOMP_loop_end</a>
+<li><a href='#L500' title='Defined at 500.'>GOMP_loop_end_nowait</a>
+<li><a href='#L512' title='Defined at 512.'>__typeof</a>
+<li><a href='#L548' title='Defined at 548.'>GOMP_loop_dynamic_start</a>
+<li><a href='#L555' title='Defined at 555.'>GOMP_loop_guided_start</a>
+<li><a href='#L562' title='Defined at 562.'>GOMP_loop_ordered_static_start</a>
+<li><a href='#L570' title='Defined at 570.'>GOMP_loop_ordered_dynamic_start</a>
+<li><a href='#L578' title='Defined at 578.'>GOMP_loop_ordered_guided_start</a>
+<li><a href='#L586' title='Defined at 586.'>GOMP_loop_static_next</a>
+<li><a href='#L592' title='Defined at 592.'>GOMP_loop_dynamic_next</a>
+<li><a href='#L598' title='Defined at 598.'>GOMP_loop_guided_next</a>
+<li><a href='#L604' title='Defined at 604.'>GOMP_loop_ordered_static_next</a>
+<li><a href='#L610' title='Defined at 610.'>GOMP_loop_ordered_dynamic_next</a>
+<li><a href='#L616' title='Defined at 616.'>GOMP_loop_ordered_guided_next</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file handles the LOOP (FOR/DO) construct.  */</font></i>
+<a name='L26'>
+<a name='L27'><font color='darkred'>#include</font> &lt;limits.h&gt;
+<a name='L28'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L29'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L30'>
+<a name='L31'>
+<a name='L32'><i><font color='green'>/* Initialize the given work share construct from the given arguments.  */</font></i>
+<a name='L33'>
+<a name='L34'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L35'><a href='../R/204.html' title='Multiple refered from 7 places.'>gomp_loop_init</a> (<b>struct</b> gomp_work_share *ws, <b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L36'>                <b>enum</b> gomp_schedule_type sched, <b>long</b> chunk_size)
+<a name='L37'><font color='red'>{</font>
+<a name='L38'>  ws-&gt;sched = sched;
+<a name='L39'>  ws-&gt;chunk_size = chunk_size;
+<a name='L40'>  <i><font color='green'>/* Canonicalize loops that have zero iterations to -&gt;next == -&gt;end.  */</font></i>
+<a name='L41'>  ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = ((incr &gt; 0 &amp;&amp; start &gt; <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>) || (incr &lt; 0 &amp;&amp; start &lt; <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L42'>            ? start : <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L43'>  ws-&gt;incr = incr;
+<a name='L44'>  ws-&gt;next = start;
+<a name='L45'>  <b>if</b> (sched == GFS_DYNAMIC)
+<a name='L46'>    <font color='red'>{</font>
+<a name='L47'>      ws-&gt;chunk_size *= incr;
+<a name='L48'>
+<a name='L49'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L50'>      <font color='red'>{</font>
+<a name='L51'>        <i><font color='green'>/* For dynamic scheduling prepare things to make each iteration</font></i>
+<a name='L52'><i><font color='green'>           faster.  */</font></i>
+<a name='L53'>        <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L54'>        <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L55'>        <b>long</b> nthreads = team ? team-&gt;nthreads : 1;
+<a name='L56'>
+<a name='L57'>        <b>if</b> (__builtin_expect (incr &gt; 0, 1))
+<a name='L58'>          <font color='red'>{</font>
+<a name='L59'>            <i><font color='green'>/* Cheap overflow protection.  */</font></i>
+<a name='L60'>            <b>if</b> (__builtin_expect ((nthreads | ws-&gt;chunk_size)
+<a name='L61'>                                  &gt;= 1UL &lt;&lt; (<b>sizeof</b> (<b>long</b>)
+<a name='L62'>                                             * __CHAR_BIT__ / 2 - 1), 0))
+<a name='L63'>              ws-&gt;mode = 0;
+<a name='L64'>            <b>else</b>
+<a name='L65'>              ws-&gt;mode = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> &lt; (LONG_MAX
+<a name='L66'>                                    - (nthreads + 1) * ws-&gt;chunk_size);
+<a name='L67'>          <font color='red'>}</font>
+<a name='L68'>        <i><font color='green'>/* Cheap overflow protection.  */</font></i>
+<a name='L69'>        <b>else</b> <b>if</b> (__builtin_expect ((nthreads | -ws-&gt;chunk_size)
+<a name='L70'>                                   &gt;= 1UL &lt;&lt; (<b>sizeof</b> (<b>long</b>)
+<a name='L71'>                                              * __CHAR_BIT__ / 2 - 1), 0))
+<a name='L72'>          ws-&gt;mode = 0;
+<a name='L73'>        <b>else</b>
+<a name='L74'>          ws-&gt;mode = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> &gt; (nthreads + 1) * -ws-&gt;chunk_size - LONG_MAX;
+<a name='L75'>      <font color='red'>}</font>
+<a name='L76'><font color='darkred'>#endif</font>
+<a name='L77'>    <font color='red'>}</font>
+<a name='L78'><font color='red'>}</font>
+<a name='L79'>
+<a name='L80'><i><font color='green'>/* The *_start routines are called when first encountering a loop construct</font></i>
+<a name='L81'><i><font color='green'>   that is not bound directly to a parallel construct.  The first thread </font></i>
+<a name='L82'><i><font color='green'>   that arrives will create the work-share construct; subsequent threads</font></i>
+<a name='L83'><i><font color='green'>   will see the construct exists and allocate work from it.</font></i>
+<a name='L84'><i><font color='green'></font></i>
+<a name='L85'><i><font color='green'>   START, END, INCR are the bounds of the loop; due to the restrictions of</font></i>
+<a name='L86'><i><font color='green'>   OpenMP, these values must be the same in every thread.  This is not </font></i>
+<a name='L87'><i><font color='green'>   verified (nor is it entirely verifiable, since START is not necessarily</font></i>
+<a name='L88'><i><font color='green'>   retained intact in the work-share data structure).  CHUNK_SIZE is the</font></i>
+<a name='L89'><i><font color='green'>   scheduling parameter; again this must be identical in all threads.</font></i>
+<a name='L90'><i><font color='green'></font></i>
+<a name='L91'><i><font color='green'>   Returns true if there's any work for this thread to perform.  If so,</font></i>
+<a name='L92'><i><font color='green'>   *ISTART and *IEND are filled with the bounds of the iteration block</font></i>
+<a name='L93'><i><font color='green'>   allocated to this thread.  Returns false if all work was assigned to</font></i>
+<a name='L94'><i><font color='green'>   other threads prior to this thread's arrival.  */</font></i>
+<a name='L95'>
+<a name='L96'><b>static</b> bool
+<a name='L97'><a href='../R/212.html' title='Multiple refered from 3 places.'>gomp_loop_static_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L98'>                        <b>long</b> *istart, <b>long</b> *iend)
+<a name='L99'><font color='red'>{</font>
+<a name='L100'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L101'>
+<a name='L102'>  thr-&gt;ts.static_trip = 0;
+<a name='L103'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (false))
+<a name='L104'>    <font color='red'>{</font>
+<a name='L105'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L106'>                      GFS_STATIC, chunk_size);
+<a name='L107'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L108'>    <font color='red'>}</font>
+<a name='L109'>
+<a name='L110'>  <b>return</b> !<a href='../S/419.html#L38' title='Defined at 38 in iter.c.'>gomp_iter_static_next</a> (istart, iend);
+<a name='L111'><font color='red'>}</font>
+<a name='L112'>
+<a name='L113'><b>static</b> bool
+<a name='L114'><a href='../R/201.html' title='Multiple refered from 2 places.'>gomp_loop_dynamic_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L115'>                         <b>long</b> *istart, <b>long</b> *iend)
+<a name='L116'><font color='red'>{</font>
+<a name='L117'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L118'>  bool ret;
+<a name='L119'>
+<a name='L120'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (false))
+<a name='L121'>    <font color='red'>{</font>
+<a name='L122'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L123'>                      GFS_DYNAMIC, chunk_size);
+<a name='L124'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L125'>    <font color='red'>}</font>
+<a name='L126'>
+<a name='L127'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L128'>  ret = <a href='../S/419.html#L180' title='Defined at 180 in iter.c.'>gomp_iter_dynamic_next</a> (istart, iend);
+<a name='L129'><font color='darkred'>#else</font>
+<a name='L130'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L131'>  ret = <a href='../S/419.html#L144' title='Defined at 144 in iter.c.'>gomp_iter_dynamic_next_locked</a> (istart, iend);
+<a name='L132'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L133'><font color='darkred'>#endif</font>
+<a name='L134'>
+<a name='L135'>  <b>return</b> ret;
+<a name='L136'><font color='red'>}</font>
+<a name='L137'>
+<a name='L138'><b>static</b> bool
+<a name='L139'><a href='../R/203.html' title='Multiple refered from 2 places.'>gomp_loop_guided_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L140'>                        <b>long</b> *istart, <b>long</b> *iend)
+<a name='L141'><font color='red'>{</font>
+<a name='L142'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L143'>  bool ret;
+<a name='L144'>
+<a name='L145'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (false))
+<a name='L146'>    <font color='red'>{</font>
+<a name='L147'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L148'>                      GFS_GUIDED, chunk_size);
+<a name='L149'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L150'>    <font color='red'>}</font>
+<a name='L151'>
+<a name='L152'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L153'>  ret = <a href='../S/419.html#L291' title='Defined at 291 in iter.c.'>gomp_iter_guided_next</a> (istart, iend);
+<a name='L154'><font color='darkred'>#else</font>
+<a name='L155'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L156'>  ret = <a href='../S/419.html#L257' title='Defined at 257 in iter.c.'>gomp_iter_guided_next_locked</a> (istart, iend);
+<a name='L157'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L158'><font color='darkred'>#endif</font>
+<a name='L159'>
+<a name='L160'>  <b>return</b> ret;
+<a name='L161'><font color='red'>}</font>
+<a name='L162'>
+<a name='L163'>bool
+<a name='L164'><a href='../S/420.html#L51' title='Refered from 51 in libgomp_g.h.'>GOMP_loop_runtime_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L165'>                         <b>long</b> *istart, <b>long</b> *iend)
+<a name='L166'><font color='red'>{</font>
+<a name='L167'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L168'>  <b>switch</b> (icv-&gt;run_sched_var)
+<a name='L169'>    <font color='red'>{</font>
+<a name='L170'>    <b>case</b> GFS_STATIC:
+<a name='L171'>      <b>return</b> <a href='../S/416.html#L97' title='Defined at 97 in loop.c.'>gomp_loop_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, icv-&gt;run_sched_modifier,
+<a name='L172'>                                     istart, iend);
+<a name='L173'>    <b>case</b> GFS_DYNAMIC:
+<a name='L174'>      <b>return</b> <a href='../S/416.html#L114' title='Defined at 114 in loop.c.'>gomp_loop_dynamic_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, icv-&gt;run_sched_modifier,
+<a name='L175'>                                      istart, iend);
+<a name='L176'>    <b>case</b> GFS_GUIDED:
+<a name='L177'>      <b>return</b> <a href='../S/416.html#L139' title='Defined at 139 in loop.c.'>gomp_loop_guided_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, icv-&gt;run_sched_modifier,
+<a name='L178'>                                     istart, iend);
+<a name='L179'>    <b>case</b> GFS_AUTO:
+<a name='L180'>      <i><font color='green'>/* For now map to schedule(static), later on we could play with feedback</font></i>
+<a name='L181'><i><font color='green'>         driven choice.  */</font></i>
+<a name='L182'>      <b>return</b> <a href='../S/416.html#L97' title='Defined at 97 in loop.c.'>gomp_loop_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, 0, istart, iend);
+<a name='L183'>    <b>default</b>:
+<a name='L184'>      abort ();
+<a name='L185'>    <font color='red'>}</font>
+<a name='L186'><font color='red'>}</font>
+<a name='L187'>
+<a name='L188'><i><font color='green'>/* The *_ordered_*_start routines are similar.  The only difference is that</font></i>
+<a name='L189'><i><font color='green'>   this work-share construct is initialized to expect an ORDERED section.  */</font></i>
+<a name='L190'>
+<a name='L191'><b>static</b> bool
+<a name='L192'><a href='../R/210.html' title='Multiple refered from 3 places.'>gomp_loop_ordered_static_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L193'>                                <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L194'><font color='red'>{</font>
+<a name='L195'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L196'>
+<a name='L197'>  thr-&gt;ts.static_trip = 0;
+<a name='L198'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (true))
+<a name='L199'>    <font color='red'>{</font>
+<a name='L200'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L201'>                      GFS_STATIC, chunk_size);
+<a name='L202'>      <a href='../S/2.html#L149' title='Defined at 149 in ordered.c.'>gomp_ordered_static_init</a> ();
+<a name='L203'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L204'>    <font color='red'>}</font>
+<a name='L205'>
+<a name='L206'>  <b>return</b> !<a href='../S/419.html#L38' title='Defined at 38 in iter.c.'>gomp_iter_static_next</a> (istart, iend);
+<a name='L207'><font color='red'>}</font>
+<a name='L208'>
+<a name='L209'><b>static</b> bool
+<a name='L210'><a href='../R/206.html' title='Multiple refered from 2 places.'>gomp_loop_ordered_dynamic_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L211'>                                 <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L212'><font color='red'>{</font>
+<a name='L213'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L214'>  bool ret;
+<a name='L215'>
+<a name='L216'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (true))
+<a name='L217'>    <font color='red'>{</font>
+<a name='L218'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L219'>                      GFS_DYNAMIC, chunk_size);
+<a name='L220'>      <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L221'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L222'>    <font color='red'>}</font>
+<a name='L223'>  <b>else</b>
+<a name='L224'>    <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L225'>
+<a name='L226'>  ret = <a href='../S/419.html#L144' title='Defined at 144 in iter.c.'>gomp_iter_dynamic_next_locked</a> (istart, iend);
+<a name='L227'>  <b>if</b> (ret)
+<a name='L228'>    <a href='../S/2.html#L35' title='Defined at 35 in ordered.c.'>gomp_ordered_first</a> ();
+<a name='L229'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L230'>
+<a name='L231'>  <b>return</b> ret;
+<a name='L232'><font color='red'>}</font>
+<a name='L233'>
+<a name='L234'><b>static</b> bool
+<a name='L235'><a href='../R/208.html' title='Multiple refered from 2 places.'>gomp_loop_ordered_guided_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L236'>                                <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L237'><font color='red'>{</font>
+<a name='L238'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L239'>  bool ret;
+<a name='L240'>
+<a name='L241'>  <b>if</b> (<a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (true))
+<a name='L242'>    <font color='red'>{</font>
+<a name='L243'>      <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (thr-&gt;ts.work_share, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L244'>                      GFS_GUIDED, chunk_size);
+<a name='L245'>      <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L246'>      <a href='../S/14.html#L495' title='Defined at 495 in libgomp.h.'>gomp_work_share_init_done</a> ();
+<a name='L247'>    <font color='red'>}</font>
+<a name='L248'>  <b>else</b>
+<a name='L249'>    <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L250'>
+<a name='L251'>  ret = <a href='../S/419.html#L257' title='Defined at 257 in iter.c.'>gomp_iter_guided_next_locked</a> (istart, iend);
+<a name='L252'>  <b>if</b> (ret)
+<a name='L253'>    <a href='../S/2.html#L35' title='Defined at 35 in ordered.c.'>gomp_ordered_first</a> ();
+<a name='L254'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L255'>
+<a name='L256'>  <b>return</b> ret;
+<a name='L257'><font color='red'>}</font>
+<a name='L258'>
+<a name='L259'>bool
+<a name='L260'><a href='../S/420.html#L59' title='Refered from 59 in libgomp_g.h.'>GOMP_loop_ordered_runtime_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L261'>                                 <b>long</b> *istart, <b>long</b> *iend)
+<a name='L262'><font color='red'>{</font>
+<a name='L263'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L264'>  <b>switch</b> (icv-&gt;run_sched_var)
+<a name='L265'>    <font color='red'>{</font>
+<a name='L266'>    <b>case</b> GFS_STATIC:
+<a name='L267'>      <b>return</b> <a href='../S/416.html#L192' title='Defined at 192 in loop.c.'>gomp_loop_ordered_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L268'>                                             icv-&gt;run_sched_modifier,
+<a name='L269'>                                             istart, iend);
+<a name='L270'>    <b>case</b> GFS_DYNAMIC:
+<a name='L271'>      <b>return</b> <a href='../S/416.html#L210' title='Defined at 210 in loop.c.'>gomp_loop_ordered_dynamic_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L272'>                                              icv-&gt;run_sched_modifier,
+<a name='L273'>                                              istart, iend);
+<a name='L274'>    <b>case</b> GFS_GUIDED:
+<a name='L275'>      <b>return</b> <a href='../S/416.html#L235' title='Defined at 235 in loop.c.'>gomp_loop_ordered_guided_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L276'>                                             icv-&gt;run_sched_modifier,
+<a name='L277'>                                             istart, iend);
+<a name='L278'>    <b>case</b> GFS_AUTO:
+<a name='L279'>      <i><font color='green'>/* For now map to schedule(static), later on we could play with feedback</font></i>
+<a name='L280'><i><font color='green'>         driven choice.  */</font></i>
+<a name='L281'>      <b>return</b> <a href='../S/416.html#L192' title='Defined at 192 in loop.c.'>gomp_loop_ordered_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L282'>                                             0, istart, iend);
+<a name='L283'>    <b>default</b>:
+<a name='L284'>      abort ();
+<a name='L285'>    <font color='red'>}</font>
+<a name='L286'><font color='red'>}</font>
+<a name='L287'>
+<a name='L288'><i><font color='green'>/* The *_next routines are called when the thread completes processing of </font></i>
+<a name='L289'><i><font color='green'>   the iteration block currently assigned to it.  If the work-share </font></i>
+<a name='L290'><i><font color='green'>   construct is bound directly to a parallel construct, then the iteration</font></i>
+<a name='L291'><i><font color='green'>   bounds may have been set up before the parallel.  In which case, this</font></i>
+<a name='L292'><i><font color='green'>   may be the first iteration for the thread.</font></i>
+<a name='L293'><i><font color='green'></font></i>
+<a name='L294'><i><font color='green'>   Returns true if there is work remaining to be performed; *ISTART and</font></i>
+<a name='L295'><i><font color='green'>   *IEND are filled with a new iteration block.  Returns false if all work</font></i>
+<a name='L296'><i><font color='green'>   has been assigned.  */</font></i>
+<a name='L297'>
+<a name='L298'><b>static</b> bool
+<a name='L299'><a href='../R/211.html' title='Multiple refered from 2 places.'>gomp_loop_static_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L300'><font color='red'>{</font>
+<a name='L301'>  <b>return</b> !<a href='../S/419.html#L38' title='Defined at 38 in iter.c.'>gomp_iter_static_next</a> (istart, iend);
+<a name='L302'><font color='red'>}</font>
+<a name='L303'>
+<a name='L304'><b>static</b> bool
+<a name='L305'><a href='../R/200.html' title='Multiple refered from 2 places.'>gomp_loop_dynamic_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L306'><font color='red'>{</font>
+<a name='L307'>  bool ret;
+<a name='L308'>
+<a name='L309'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L310'>  ret = <a href='../S/419.html#L180' title='Defined at 180 in iter.c.'>gomp_iter_dynamic_next</a> (istart, iend);
+<a name='L311'><font color='darkred'>#else</font>
+<a name='L312'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L313'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L314'>  ret = <a href='../S/419.html#L144' title='Defined at 144 in iter.c.'>gomp_iter_dynamic_next_locked</a> (istart, iend);
+<a name='L315'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L316'><font color='darkred'>#endif</font>
+<a name='L317'>
+<a name='L318'>  <b>return</b> ret;
+<a name='L319'><font color='red'>}</font>
+<a name='L320'>
+<a name='L321'><b>static</b> bool
+<a name='L322'><a href='../R/202.html' title='Multiple refered from 2 places.'>gomp_loop_guided_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L323'><font color='red'>{</font>
+<a name='L324'>  bool ret;
+<a name='L325'>
+<a name='L326'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L327'>  ret = <a href='../S/419.html#L291' title='Defined at 291 in iter.c.'>gomp_iter_guided_next</a> (istart, iend);
+<a name='L328'><font color='darkred'>#else</font>
+<a name='L329'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L330'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L331'>  ret = <a href='../S/419.html#L257' title='Defined at 257 in iter.c.'>gomp_iter_guided_next_locked</a> (istart, iend);
+<a name='L332'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L333'><font color='darkred'>#endif</font>
+<a name='L334'>
+<a name='L335'>  <b>return</b> ret;
+<a name='L336'><font color='red'>}</font>
+<a name='L337'>
+<a name='L338'>bool
+<a name='L339'><a href='../S/420.html#L64' title='Refered from 64 in libgomp_g.h.'>GOMP_loop_runtime_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L340'><font color='red'>{</font>
+<a name='L341'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L342'>  
+<a name='L343'>  <b>switch</b> (thr-&gt;ts.work_share-&gt;sched)
+<a name='L344'>    <font color='red'>{</font>
+<a name='L345'>    <b>case</b> GFS_STATIC:
+<a name='L346'>    <b>case</b> GFS_AUTO:
+<a name='L347'>      <b>return</b> <a href='../S/416.html#L299' title='Defined at 299 in loop.c.'>gomp_loop_static_next</a> (istart, iend);
+<a name='L348'>    <b>case</b> GFS_DYNAMIC:
+<a name='L349'>      <b>return</b> <a href='../S/416.html#L305' title='Defined at 305 in loop.c.'>gomp_loop_dynamic_next</a> (istart, iend);
+<a name='L350'>    <b>case</b> GFS_GUIDED:
+<a name='L351'>      <b>return</b> <a href='../S/416.html#L322' title='Defined at 322 in loop.c.'>gomp_loop_guided_next</a> (istart, iend);
+<a name='L352'>    <b>default</b>:
+<a name='L353'>      abort ();
+<a name='L354'>    <font color='red'>}</font>
+<a name='L355'><font color='red'>}</font>
+<a name='L356'>
+<a name='L357'><i><font color='green'>/* The *_ordered_*_next routines are called when the thread completes</font></i>
+<a name='L358'><i><font color='green'>   processing of the iteration block currently assigned to it.</font></i>
+<a name='L359'><i><font color='green'></font></i>
+<a name='L360'><i><font color='green'>   Returns true if there is work remaining to be performed; *ISTART and</font></i>
+<a name='L361'><i><font color='green'>   *IEND are filled with a new iteration block.  Returns false if all work</font></i>
+<a name='L362'><i><font color='green'>   has been assigned.  */</font></i>
+<a name='L363'>
+<a name='L364'><b>static</b> bool
+<a name='L365'><a href='../R/209.html' title='Multiple refered from 2 places.'>gomp_loop_ordered_static_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L366'><font color='red'>{</font>
+<a name='L367'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L368'>  <b>int</b> <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a>;
+<a name='L369'>
+<a name='L370'>  <a href='../S/2.html#L191' title='Defined at 191 in ordered.c.'>gomp_ordered_sync</a> ();
+<a name='L371'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L372'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> = <a href='../S/419.html#L38' title='Defined at 38 in iter.c.'>gomp_iter_static_next</a> (istart, iend);
+<a name='L373'>  <b>if</b> (<a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> &gt;= 0)
+<a name='L374'>    <a href='../S/2.html#L167' title='Defined at 167 in ordered.c.'>gomp_ordered_static_next</a> ();
+<a name='L375'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L376'>
+<a name='L377'>  <b>return</b> <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> == 0;
+<a name='L378'><font color='red'>}</font>
+<a name='L379'>
+<a name='L380'><b>static</b> bool
+<a name='L381'><a href='../R/205.html' title='Multiple refered from 2 places.'>gomp_loop_ordered_dynamic_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L382'><font color='red'>{</font>
+<a name='L383'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L384'>  bool ret;
+<a name='L385'>
+<a name='L386'>  <a href='../S/2.html#L191' title='Defined at 191 in ordered.c.'>gomp_ordered_sync</a> ();
+<a name='L387'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L388'>  ret = <a href='../S/419.html#L144' title='Defined at 144 in iter.c.'>gomp_iter_dynamic_next_locked</a> (istart, iend);
+<a name='L389'>  <b>if</b> (ret)
+<a name='L390'>    <a href='../S/2.html#L101' title='Defined at 101 in ordered.c.'>gomp_ordered_next</a> ();
+<a name='L391'>  <b>else</b>
+<a name='L392'>    <a href='../S/2.html#L66' title='Defined at 66 in ordered.c.'>gomp_ordered_last</a> ();
+<a name='L393'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L394'>
+<a name='L395'>  <b>return</b> ret;
+<a name='L396'><font color='red'>}</font>
+<a name='L397'>
+<a name='L398'><b>static</b> bool
+<a name='L399'><a href='../R/207.html' title='Multiple refered from 2 places.'>gomp_loop_ordered_guided_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L400'><font color='red'>{</font>
+<a name='L401'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L402'>  bool ret;
+<a name='L403'>
+<a name='L404'>  <a href='../S/2.html#L191' title='Defined at 191 in ordered.c.'>gomp_ordered_sync</a> ();
+<a name='L405'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L406'>  ret = <a href='../S/419.html#L257' title='Defined at 257 in iter.c.'>gomp_iter_guided_next_locked</a> (istart, iend);
+<a name='L407'>  <b>if</b> (ret)
+<a name='L408'>    <a href='../S/2.html#L101' title='Defined at 101 in ordered.c.'>gomp_ordered_next</a> ();
+<a name='L409'>  <b>else</b>
+<a name='L410'>    <a href='../S/2.html#L66' title='Defined at 66 in ordered.c.'>gomp_ordered_last</a> ();
+<a name='L411'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;thr-&gt;ts.work_share-&gt;lock);
+<a name='L412'>
+<a name='L413'>  <b>return</b> ret;
+<a name='L414'><font color='red'>}</font>
+<a name='L415'>
+<a name='L416'>bool
+<a name='L417'><a href='../S/420.html#L69' title='Refered from 69 in libgomp_g.h.'>GOMP_loop_ordered_runtime_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L418'><font color='red'>{</font>
+<a name='L419'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L420'>  
+<a name='L421'>  <b>switch</b> (thr-&gt;ts.work_share-&gt;sched)
+<a name='L422'>    <font color='red'>{</font>
+<a name='L423'>    <b>case</b> GFS_STATIC:
+<a name='L424'>    <b>case</b> GFS_AUTO:
+<a name='L425'>      <b>return</b> <a href='../S/416.html#L365' title='Defined at 365 in loop.c.'>gomp_loop_ordered_static_next</a> (istart, iend);
+<a name='L426'>    <b>case</b> GFS_DYNAMIC:
+<a name='L427'>      <b>return</b> <a href='../S/416.html#L381' title='Defined at 381 in loop.c.'>gomp_loop_ordered_dynamic_next</a> (istart, iend);
+<a name='L428'>    <b>case</b> GFS_GUIDED:
+<a name='L429'>      <b>return</b> <a href='../S/416.html#L399' title='Defined at 399 in loop.c.'>gomp_loop_ordered_guided_next</a> (istart, iend);
+<a name='L430'>    <b>default</b>:
+<a name='L431'>      abort ();
+<a name='L432'>    <font color='red'>}</font>
+<a name='L433'><font color='red'>}</font>
+<a name='L434'>
+<a name='L435'><i><font color='green'>/* The GOMP_parallel_loop_* routines pre-initialize a work-share construct</font></i>
+<a name='L436'><i><font color='green'>   to avoid one synchronization once we get into the loop.  */</font></i>
+<a name='L437'>
+<a name='L438'><b>static</b> <b>void</b>
+<a name='L439'><a href='../R/244.html' title='Multiple refered from 4 places.'>gomp_parallel_loop_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data,
+<a name='L440'>                          <b>unsigned</b> num_threads, <b>long</b> start, <b>long</b> end,
+<a name='L441'>                          <b>long</b> incr, <b>enum</b> gomp_schedule_type sched,
+<a name='L442'>                          <b>long</b> chunk_size)
+<a name='L443'><font color='red'>{</font>
+<a name='L444'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team;
+<a name='L445'>
+<a name='L446'>  num_threads = <a href='../S/21.html#L38' title='Defined at 38 in parallel.c.'>gomp_resolve_num_threads</a> (num_threads, 0);
+<a name='L447'>  team = <a href='../S/11.html#L136' title='Defined at 136 in team.c.'>gomp_new_team</a> (num_threads);
+<a name='L448'>  <a href='../S/416.html#L35' title='Defined at 35 in loop.c.'>gomp_loop_init</a> (&amp;team-&gt;work_shares[0], start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, sched, chunk_size);
+<a name='L449'>  <a href='../S/11.html#L252' title='Defined at 252 in team.c.'>gomp_team_start</a> (fn, data, num_threads, team);
+<a name='L450'><font color='red'>}</font>
+<a name='L451'>
+<a name='L452'><b>void</b>
+<a name='L453'><a href='../S/420.html#L71' title='Refered from 71 in libgomp_g.h.'>GOMP_parallel_loop_static_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data,
+<a name='L454'>                                 <b>unsigned</b> num_threads, <b>long</b> start, <b>long</b> end,
+<a name='L455'>                                 <b>long</b> incr, <b>long</b> chunk_size)
+<a name='L456'><font color='red'>{</font>
+<a name='L457'>  <a href='../S/416.html#L439' title='Defined at 439 in loop.c.'>gomp_parallel_loop_start</a> (fn, data, num_threads, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L458'>                            GFS_STATIC, chunk_size);
+<a name='L459'><font color='red'>}</font>
+<a name='L460'>
+<a name='L461'><b>void</b>
+<a name='L462'><a href='../S/420.html#L73' title='Refered from 73 in libgomp_g.h.'>GOMP_parallel_loop_dynamic_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data,
+<a name='L463'>                                  <b>unsigned</b> num_threads, <b>long</b> start, <b>long</b> end,
+<a name='L464'>                                  <b>long</b> incr, <b>long</b> chunk_size)
+<a name='L465'><font color='red'>{</font>
+<a name='L466'>  <a href='../S/416.html#L439' title='Defined at 439 in loop.c.'>gomp_parallel_loop_start</a> (fn, data, num_threads, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L467'>                            GFS_DYNAMIC, chunk_size);
+<a name='L468'><font color='red'>}</font>
+<a name='L469'>
+<a name='L470'><b>void</b>
+<a name='L471'><a href='../S/420.html#L75' title='Refered from 75 in libgomp_g.h.'>GOMP_parallel_loop_guided_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data,
+<a name='L472'>                                 <b>unsigned</b> num_threads, <b>long</b> start, <b>long</b> end,
+<a name='L473'>                                 <b>long</b> incr, <b>long</b> chunk_size)
+<a name='L474'><font color='red'>{</font>
+<a name='L475'>  <a href='../S/416.html#L439' title='Defined at 439 in loop.c.'>gomp_parallel_loop_start</a> (fn, data, num_threads, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L476'>                            GFS_GUIDED, chunk_size);
+<a name='L477'><font color='red'>}</font>
+<a name='L478'>
+<a name='L479'><b>void</b>
+<a name='L480'><a href='../S/420.html#L77' title='Refered from 77 in libgomp_g.h.'>GOMP_parallel_loop_runtime_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data,
+<a name='L481'>                                  <b>unsigned</b> num_threads, <b>long</b> start, <b>long</b> end,
+<a name='L482'>                                  <b>long</b> incr)
+<a name='L483'><font color='red'>{</font>
+<a name='L484'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L485'>  <a href='../S/416.html#L439' title='Defined at 439 in loop.c.'>gomp_parallel_loop_start</a> (fn, data, num_threads, start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr,
+<a name='L486'>                            icv-&gt;run_sched_var, icv-&gt;run_sched_modifier);
+<a name='L487'><font color='red'>}</font>
+<a name='L488'>
+<a name='L489'><i><font color='green'>/* The GOMP_loop_end* routines are called after the thread is told that</font></i>
+<a name='L490'><i><font color='green'>   all loop iterations are complete.  This first version synchronizes</font></i>
+<a name='L491'><i><font color='green'>   all threads; the nowait version does not.  */</font></i>
+<a name='L492'>
+<a name='L493'><b>void</b>
+<a name='L494'><a href='../R/22.html' title='Multiple refered from 5 places.'>GOMP_loop_end</a> (<b>void</b>)
+<a name='L495'><font color='red'>{</font>
+<a name='L496'>  <a href='../S/19.html#L205' title='Defined at 205 in work.c.'>gomp_work_share_end</a> ();
+<a name='L497'><font color='red'>}</font>
+<a name='L498'>
+<a name='L499'><b>void</b>
+<a name='L500'><a href='../R/23.html' title='Multiple refered from 2 places.'>GOMP_loop_end_nowait</a> (<b>void</b>)
+<a name='L501'><font color='red'>{</font>
+<a name='L502'>  <a href='../S/19.html#L235' title='Defined at 235 in work.c.'>gomp_work_share_end_nowait</a> ();
+<a name='L503'><font color='red'>}</font>
+<a name='L504'>
+<a name='L505'>
+<a name='L506'><i><font color='green'>/* We use static functions above so that we're sure that the "runtime"</font></i>
+<a name='L507'><i><font color='green'>   function can defer to the proper routine without interposition.  We</font></i>
+<a name='L508'><i><font color='green'>   export the static function with a strong alias when possible, or with</font></i>
+<a name='L509'><i><font color='green'>   a wrapper function otherwise.  */</font></i>
+<a name='L510'>
+<a name='L511'><font color='darkred'>#ifdef</font> HAVE_ATTRIBUTE_ALIAS
+<a name='L512'><b>extern</b> <a href='../S/417.html#L37' title='Refered from 37 in fortran.c.'>__typeof</a>(gomp_loop_static_start) GOMP_loop_static_start
+<a name='L513'>        <b>__attribute__</b>((alias ("gomp_loop_static_start")));
+<a name='L514'><b>extern</b> __typeof(gomp_loop_dynamic_start) GOMP_loop_dynamic_start
+<a name='L515'>        <b>__attribute__</b>((alias ("gomp_loop_dynamic_start")));
+<a name='L516'><b>extern</b> __typeof(gomp_loop_guided_start) GOMP_loop_guided_start
+<a name='L517'>        <b>__attribute__</b>((alias ("gomp_loop_guided_start")));
+<a name='L518'>
+<a name='L519'><b>extern</b> __typeof(gomp_loop_ordered_static_start) GOMP_loop_ordered_static_start
+<a name='L520'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_static_start")));
+<a name='L521'><b>extern</b> __typeof(gomp_loop_ordered_dynamic_start) GOMP_loop_ordered_dynamic_start
+<a name='L522'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_dynamic_start")));
+<a name='L523'><b>extern</b> __typeof(gomp_loop_ordered_guided_start) GOMP_loop_ordered_guided_start
+<a name='L524'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_guided_start")));
+<a name='L525'>
+<a name='L526'><b>extern</b> __typeof(gomp_loop_static_next) GOMP_loop_static_next
+<a name='L527'>        <b>__attribute__</b>((alias ("gomp_loop_static_next")));
+<a name='L528'><b>extern</b> __typeof(gomp_loop_dynamic_next) GOMP_loop_dynamic_next
+<a name='L529'>        <b>__attribute__</b>((alias ("gomp_loop_dynamic_next")));
+<a name='L530'><b>extern</b> __typeof(gomp_loop_guided_next) GOMP_loop_guided_next
+<a name='L531'>        <b>__attribute__</b>((alias ("gomp_loop_guided_next")));
+<a name='L532'>
+<a name='L533'><b>extern</b> __typeof(gomp_loop_ordered_static_next) GOMP_loop_ordered_static_next
+<a name='L534'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_static_next")));
+<a name='L535'><b>extern</b> __typeof(gomp_loop_ordered_dynamic_next) GOMP_loop_ordered_dynamic_next
+<a name='L536'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_dynamic_next")));
+<a name='L537'><b>extern</b> __typeof(gomp_loop_ordered_guided_next) GOMP_loop_ordered_guided_next
+<a name='L538'>        <b>__attribute__</b>((alias ("gomp_loop_ordered_guided_next")));
+<a name='L539'><font color='darkred'>#else</font>
+<a name='L540'>bool
+<a name='L541'>GOMP_loop_static_start (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L542'>                        <b>long</b> *istart, <b>long</b> *iend)
+<a name='L543'><font color='red'>{</font>
+<a name='L544'>  <b>return</b> <a href='../S/416.html#L97' title='Defined at 97 in loop.c.'>gomp_loop_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size, istart, iend);
+<a name='L545'><font color='red'>}</font>
+<a name='L546'>
+<a name='L547'>bool
+<a name='L548'><a href='../S/420.html#L49' title='Refered from 49 in libgomp_g.h.'>GOMP_loop_dynamic_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L549'>                         <b>long</b> *istart, <b>long</b> *iend)
+<a name='L550'><font color='red'>{</font>
+<a name='L551'>  <b>return</b> <a href='../S/416.html#L114' title='Defined at 114 in loop.c.'>gomp_loop_dynamic_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size, istart, iend);
+<a name='L552'><font color='red'>}</font>
+<a name='L553'>
+<a name='L554'>bool
+<a name='L555'><a href='../S/420.html#L50' title='Refered from 50 in libgomp_g.h.'>GOMP_loop_guided_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr, <b>long</b> chunk_size,
+<a name='L556'>                        <b>long</b> *istart, <b>long</b> *iend)
+<a name='L557'><font color='red'>{</font>
+<a name='L558'>  <b>return</b> <a href='../S/416.html#L139' title='Defined at 139 in loop.c.'>gomp_loop_guided_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size, istart, iend);
+<a name='L559'><font color='red'>}</font>
+<a name='L560'>
+<a name='L561'>bool
+<a name='L562'><a href='../S/420.html#L53' title='Refered from 53 in libgomp_g.h.'>GOMP_loop_ordered_static_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L563'>                                <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L564'><font color='red'>{</font>
+<a name='L565'>  <b>return</b> <a href='../S/416.html#L192' title='Defined at 192 in loop.c.'>gomp_loop_ordered_static_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size,
+<a name='L566'>                                         istart, iend);
+<a name='L567'><font color='red'>}</font>
+<a name='L568'>
+<a name='L569'>bool
+<a name='L570'><a href='../S/420.html#L55' title='Refered from 55 in libgomp_g.h.'>GOMP_loop_ordered_dynamic_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L571'>                                 <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L572'><font color='red'>{</font>
+<a name='L573'>  <b>return</b> <a href='../S/416.html#L210' title='Defined at 210 in loop.c.'>gomp_loop_ordered_dynamic_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size,
+<a name='L574'>                                          istart, iend);
+<a name='L575'><font color='red'>}</font>
+<a name='L576'>
+<a name='L577'>bool
+<a name='L578'><a href='../S/420.html#L57' title='Refered from 57 in libgomp_g.h.'>GOMP_loop_ordered_guided_start</a> (<b>long</b> start, <b>long</b> end, <b>long</b> incr,
+<a name='L579'>                                <b>long</b> chunk_size, <b>long</b> *istart, <b>long</b> *iend)
+<a name='L580'><font color='red'>{</font>
+<a name='L581'>  <b>return</b> <a href='../S/416.html#L235' title='Defined at 235 in loop.c.'>gomp_loop_ordered_guided_start</a> (start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, incr, chunk_size,
+<a name='L582'>                                         istart, iend);
+<a name='L583'><font color='red'>}</font>
+<a name='L584'>
+<a name='L585'>bool
+<a name='L586'><a href='../R/36.html' title='Multiple refered from 2 places.'>GOMP_loop_static_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L587'><font color='red'>{</font>
+<a name='L588'>  <b>return</b> <a href='../S/416.html#L299' title='Defined at 299 in loop.c.'>gomp_loop_static_next</a> (istart, iend);
+<a name='L589'><font color='red'>}</font>
+<a name='L590'>
+<a name='L591'>bool
+<a name='L592'><a href='../S/420.html#L62' title='Refered from 62 in libgomp_g.h.'>GOMP_loop_dynamic_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L593'><font color='red'>{</font>
+<a name='L594'>  <b>return</b> <a href='../S/416.html#L305' title='Defined at 305 in loop.c.'>gomp_loop_dynamic_next</a> (istart, iend);
+<a name='L595'><font color='red'>}</font>
+<a name='L596'>
+<a name='L597'>bool
+<a name='L598'><a href='../S/420.html#L63' title='Refered from 63 in libgomp_g.h.'>GOMP_loop_guided_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L599'><font color='red'>{</font>
+<a name='L600'>  <b>return</b> <a href='../S/416.html#L322' title='Defined at 322 in loop.c.'>gomp_loop_guided_next</a> (istart, iend);
+<a name='L601'><font color='red'>}</font>
+<a name='L602'>
+<a name='L603'>bool
+<a name='L604'><a href='../S/420.html#L66' title='Refered from 66 in libgomp_g.h.'>GOMP_loop_ordered_static_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L605'><font color='red'>{</font>
+<a name='L606'>  <b>return</b> <a href='../S/416.html#L365' title='Defined at 365 in loop.c.'>gomp_loop_ordered_static_next</a> (istart, iend);
+<a name='L607'><font color='red'>}</font>
+<a name='L608'>
+<a name='L609'>bool
+<a name='L610'><a href='../S/420.html#L67' title='Refered from 67 in libgomp_g.h.'>GOMP_loop_ordered_dynamic_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L611'><font color='red'>{</font>
+<a name='L612'>  <b>return</b> <a href='../S/416.html#L381' title='Defined at 381 in loop.c.'>gomp_loop_ordered_dynamic_next</a> (istart, iend);
+<a name='L613'><font color='red'>}</font>
+<a name='L614'>
+<a name='L615'>bool
+<a name='L616'><a href='../S/420.html#L68' title='Refered from 68 in libgomp_g.h.'>GOMP_loop_ordered_guided_next</a> (<b>long</b> *istart, <b>long</b> *iend)
+<a name='L617'><font color='red'>{</font>
+<a name='L618'>  <b>return</b> <a href='../S/416.html#L399' title='Defined at 399 in loop.c.'>gomp_loop_ordered_guided_next</a> (istart, iend);
+<a name='L619'><font color='red'>}</font>
+<a name='L620'><font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L616'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

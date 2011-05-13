@@ -1,0 +1,68 @@
+README - Readme file for the nano-threads library 4 release.
+________________________________________________________________________
+
+Copyright (c) 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2006
+
+BSC   - All Rights Reserved.
+CEPBA - All Rights Reserved.
+DAC   - All Rights Reserved.
+
+Nano-threads library, version 4.0, October 2006
+Nano-threads library, version 1.0, February 1997
+
+NANOS ESPRIT Project E21907
+INTONE IST Project IST-1999-20252
+POP IST Project IST-2001-33071
+
+BSC disclaims all warranties with regard to this software including all
+implied warranties of merchantability and fitness for a particular
+purpose.
+
+In no event shall BSC be liable for any special, indirect, or
+consequential damages or any damages whatsoever resulting from loss of
+use, data or profits, whether in action of contract negligence, or other
+tortious action, arising out of or in connection with the use or
+performance of this software.
+________________________________________________________________________
+
+Nano-threads library 4 release files:
+
+   ./README: Readme file (this one).
+
+   ./INSTALL: Library istalation instruction.
+
+   ./NEWS: New features, changes or fixes for this release.
+
+   ./src: Source code for the nano-threads library.
+
+   ./src/machine: Machine dependent source code for the nano-threads
+                  library.
+
+   ./tests: Test programs.
+
+Others issues to take into account.
+
+   Be sure to read NEWS (especially if this version is not an official
+   release) and INSTALL (for instructions on compilation and
+   installation).
+
+   Mail suggestions and bug reports to mercurium@bsc.es, always include
+   the nano-threads library version number, which you can get by running
+   `PROGRAM -nth --version' in a program linked with the library or you
+   can find the release in the NEWS file.
+
+Considerations about a new release.
+
+   In order to distribute a new version of the library is necesary to
+   change next files:
+
+  ./NEWS: Include new information about the release.
+
+  ./configure.ac: change the version number in the configure file.
+
+     AC_INIT(Nano-threads library, 4.x.x, mercurium@bsc.es)
+
+  ./src/Makefile.am: change the version number in linker flags.
+
+     libnthreads_la_LDFLAGS = -release 4.x.x
+

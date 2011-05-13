@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>config/linux/bar.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/bar.h</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L113'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='14.html#L49' title='Included from 49 in libgomp.h.'>INCLUDED FROM</a></h2>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L44' title='Defined at 44.'>gomp_barrier_init</a>
+<li><a href='#L51' title='Defined at 51.'>gomp_barrier_reinit</a>
+<li><a href='#L57' title='Defined at 57.'>gomp_barrier_destroy</a>
+<li><a href='#L70' title='Defined at 70.'>gomp_barrier_wait_start</a>
+<li><a href='#L80' title='Defined at 80.'>gomp_barrier_last_thread</a>
+<li><a href='#L89' title='Defined at 89.'>gomp_team_barrier_set_task_pending</a>
+<li><a href='#L95' title='Defined at 95.'>gomp_team_barrier_clear_task_pending</a>
+<li><a href='#L101' title='Defined at 101.'>gomp_team_barrier_set_waiting_for_tasks</a>
+<li><a href='#L107' title='Defined at 107.'>gomp_team_barrier_waiting_for_tasks</a>
+<li><a href='#L113' title='Defined at 113.'>gomp_team_barrier_done</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This is a Linux specific implementation of a barrier synchronization</font></i>
+<a name='L26'><i><font color='green'>   mechanism for libgomp.  This type is private to the library.  This </font></i>
+<a name='L27'><i><font color='green'>   implementation uses atomic instructions and the futex syscall.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#ifndef</font> <a href='../D/7.html' title='Multiple defined in 2 places.'>GOMP_BARRIER_H</a>
+<a name='L30'><font color='darkred'>#define</font> <a href='../R/7.html' title='Multiple refered from 2 places.'>GOMP_BARRIER_H</a> 1
+<a name='L31'>
+<a name='L32'><font color='darkred'>#include</font> "<a href='../I/6.html'>mutex.h</a>"
+<a name='L33'>
+<a name='L34'><b>typedef</b> <b>struct</b>
+<a name='L35'><font color='red'>{</font>
+<a name='L36'>  <i><font color='green'>/* Make sure total/generation is in a mostly read cacheline, while</font></i>
+<a name='L37'><i><font color='green'>     awaited in a separate cacheline.  */</font></i>
+<a name='L38'>  <b>unsigned</b> total <b>__attribute__</b>((aligned (64)));
+<a name='L39'>  <b>unsigned</b> generation;
+<a name='L40'>  <b>unsigned</b> awaited <b>__attribute__</b>((aligned (64)));
+<a name='L41'><font color='red'>}</font> <a href='../R/162.html' title='Multiple refered from 46 places.'>gomp_barrier_t</a>;
+<a name='L42'><b>typedef</b> <b>unsigned</b> <b>int</b> <a href='../R/161.html' title='Multiple refered from 18 places.'>gomp_barrier_state_t</a>;
+<a name='L43'>
+<a name='L44'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/158.html' title='Multiple refered from 3 places.'>gomp_barrier_init</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar, <b>unsigned</b> count)
+<a name='L45'><font color='red'>{</font>
+<a name='L46'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;total = count;
+<a name='L47'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;awaited = count;
+<a name='L48'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation = 0;
+<a name='L49'><font color='red'>}</font>
+<a name='L50'>
+<a name='L51'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/160.html' title='Multiple refered from 3 places.'>gomp_barrier_reinit</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar, <b>unsigned</b> count)
+<a name='L52'><font color='red'>{</font>
+<a name='L53'>  __sync_fetch_and_add (&amp;<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;awaited, count - <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;total);
+<a name='L54'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;total = count;
+<a name='L55'><font color='red'>}</font>
+<a name='L56'>
+<a name='L57'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/156.html' title='Multiple refered from 3 places.'>gomp_barrier_destroy</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L58'><font color='red'>{</font>
+<a name='L59'><font color='red'>}</font>
+<a name='L60'>
+<a name='L61'><b>extern</b> <b>void</b> <a href='../D/166.html' title='Multiple defined in 2 places.'>gomp_barrier_wait</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *);
+<a name='L62'><b>extern</b> <b>void</b> <a href='../D/168.html' title='Multiple defined in 2 places.'>gomp_barrier_wait_last</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *);
+<a name='L63'><b>extern</b> <b>void</b> <a href='../D/167.html' title='Multiple defined in 2 places.'>gomp_barrier_wait_end</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *, <a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a>);
+<a name='L64'><b>extern</b> <b>void</b> <a href='../D/290.html' title='Multiple defined in 2 places.'>gomp_team_barrier_wait</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *);
+<a name='L65'><b>extern</b> <b>void</b> <a href='../D/291.html' title='Multiple defined in 2 places.'>gomp_team_barrier_wait_end</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *,
+<a name='L66'>                                        <a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a>);
+<a name='L67'><b>extern</b> <b>void</b> <a href='../D/293.html' title='Multiple defined in 2 places.'>gomp_team_barrier_wake</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *, <b>int</b>);
+<a name='L68'>
+<a name='L69'><b>static</b> <b>inline</b> <a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a>
+<a name='L70'><a href='../R/166.html' title='Multiple refered from 6 places.'>gomp_barrier_wait_start</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L71'><font color='red'>{</font>
+<a name='L72'>  <b>unsigned</b> <b>int</b> ret = <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation &amp; ~3;
+<a name='L73'>  <i><font color='green'>/* Do we need any barrier here or is __sync_add_and_fetch acting</font></i>
+<a name='L74'><i><font color='green'>     as the needed LoadLoad barrier already?  */</font></i>
+<a name='L75'>  ret += __sync_add_and_fetch (&amp;<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;awaited, -1) == 0;
+<a name='L76'>  <b>return</b> ret;
+<a name='L77'><font color='red'>}</font>
+<a name='L78'>
+<a name='L79'><b>static</b> <b>inline</b> bool
+<a name='L80'><a href='../R/159.html' title='Multiple refered from 2 places.'>gomp_barrier_last_thread</a> (<a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a> state)
+<a name='L81'><font color='red'>{</font>
+<a name='L82'>  <b>return</b> state &amp; 1;
+<a name='L83'><font color='red'>}</font>
+<a name='L84'>
+<a name='L85'><i><font color='green'>/* All the inlines below must be called with team-&gt;task_lock</font></i>
+<a name='L86'><i><font color='green'>   held.  */</font></i>
+<a name='L87'>
+<a name='L88'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L89'><a href='../S/8.html#L176' title='Refered from 176 in task.c.'>gomp_team_barrier_set_task_pending</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L90'><font color='red'>{</font>
+<a name='L91'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation |= 1;
+<a name='L92'><font color='red'>}</font>
+<a name='L93'>
+<a name='L94'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L95'><a href='../R/272.html' title='Multiple refered from 2 places.'>gomp_team_barrier_clear_task_pending</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L96'><font color='red'>{</font>
+<a name='L97'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation &amp;= ~1;
+<a name='L98'><font color='red'>}</font>
+<a name='L99'>
+<a name='L100'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L101'><a href='../S/8.html#L204' title='Refered from 204 in task.c.'>gomp_team_barrier_set_waiting_for_tasks</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L102'><font color='red'>{</font>
+<a name='L103'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation |= 2;
+<a name='L104'><font color='red'>}</font>
+<a name='L105'>
+<a name='L106'><b>static</b> <b>inline</b> bool
+<a name='L107'><a href='../S/8.html#L268' title='Refered from 268 in task.c.'>gomp_team_barrier_waiting_for_tasks</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar)
+<a name='L108'><font color='red'>{</font>
+<a name='L109'>  <b>return</b> (<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation &amp; 2) != 0;
+<a name='L110'><font color='red'>}</font>
+<a name='L111'>
+<a name='L112'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L113'><a href='../R/273.html' title='Multiple refered from 2 places.'>gomp_team_barrier_done</a> (<a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> *bar, <a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a> state)
+<a name='L114'><font color='red'>{</font>
+<a name='L115'>  <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a>-&gt;generation = (state &amp; ~3) + 4;
+<a name='L116'><font color='red'>}</font>
+<a name='L117'>
+<a name='L118'><font color='darkred'>#endif</font> <i><font color='green'>/* GOMP_BARRIER_H */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a><a href='#L113'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

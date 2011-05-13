@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/omp_workshare2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/omp_workshare2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L16'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L16' title='Defined at 16.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/******************************************************************************</font></i>
+<a name='L2'><i><font color='green'>* FILE: omp_workshare2.c</font></i>
+<a name='L3'><i><font color='green'>* DESCRIPTION:</font></i>
+<a name='L4'><i><font color='green'>*   OpenMP Example - Sections Work-sharing - C/C++ Version</font></i>
+<a name='L5'><i><font color='green'>*   In this example, the OpenMP SECTION directive is used to assign</font></i>
+<a name='L6'><i><font color='green'>*   different array operations to threads that execute a SECTION. Each </font></i>
+<a name='L7'><i><font color='green'>*   thread receives its own copy of the result array to work with.</font></i>
+<a name='L8'><i><font color='green'>* AUTHOR: Blaise Barney  5/99</font></i>
+<a name='L9'><i><font color='green'>* LAST REVISED: 04/06/05</font></i>
+<a name='L10'><i><font color='green'>******************************************************************************/</font></i>
+<a name='L11'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L12'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L13'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L14'><font color='darkred'>#define</font> <a href='../R/80.html' title='Multiple refered from 167 places.'>N</a>     50
+<a name='L15'>
+<a name='L16'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>int</b> argc, <b>char</b> *argv[]) <font color='red'>{</font>
+<a name='L17'>
+<a name='L18'><b>int</b> i, nthreads, tid;
+<a name='L19'><b>float</b> a[<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>], b[<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>], c[<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>];
+<a name='L20'>
+<a name='L21'><i><font color='green'>/* Some initializations */</font></i>
+<a name='L22'><b>for</b> (i=0; i&lt;<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L23'>  a[i] = b[i] = i * 1.0;
+<a name='L24'>
+<a name='L25'><font color='darkred'>#pragma</font> omp parallel shared(a,b,nthreads) private(c,i,tid)
+<a name='L26'>  <font color='red'>{</font>
+<a name='L27'>  tid = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a>();
+<a name='L28'>  <b>if</b> (tid == 0)
+<a name='L29'>    <font color='red'>{</font>
+<a name='L30'>    nthreads = <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a>();
+<a name='L31'>    printf("Number of threads = %d\n", nthreads);
+<a name='L32'>    <font color='red'>}</font>
+<a name='L33'>  printf("Thread %d starting...\n",tid);
+<a name='L34'>
+<a name='L35'><font color='darkred'>  #pragma</font> omp sections nowait
+<a name='L36'>    <font color='red'>{</font>
+<a name='L37'><font color='darkred'>    #pragma</font> omp section
+<a name='L38'>      <font color='red'>{</font>
+<a name='L39'>      printf("Thread %d doing section 1\n",tid);
+<a name='L40'>      <b>for</b> (i=0; i&lt;<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L41'>        <font color='red'>{</font>
+<a name='L42'>        c[i] = a[i] + b[i];
+<a name='L43'>        printf("Thread %d: c[%d]= %f\n",tid,i,c[i]);
+<a name='L44'>        <font color='red'>}</font>
+<a name='L45'>      <font color='red'>}</font>
+<a name='L46'>
+<a name='L47'><font color='darkred'>    #pragma</font> omp section
+<a name='L48'>      <font color='red'>{</font>
+<a name='L49'>      printf("Thread %d doing section 2\n",tid);
+<a name='L50'>      <b>for</b> (i=0; i&lt;<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L51'>        <font color='red'>{</font>
+<a name='L52'>        c[i] = a[i] * b[i];
+<a name='L53'>        printf("Thread %d: c[%d]= %f\n",tid,i,c[i]);
+<a name='L54'>        <font color='red'>}</font>
+<a name='L55'>      <font color='red'>}</font>
+<a name='L56'>
+<a name='L57'>    <font color='red'>}</font>  <i><font color='green'>/* end of sections */</font></i>
+<a name='L58'>
+<a name='L59'>    printf("Thread %d done.\n",tid); 
+<a name='L60'>
+<a name='L61'>  <font color='red'>}</font>  <i><font color='green'>/* end of parallel section */</font></i>
+<a name='L62'>
+<a name='L63'>  <b>return</b> 0;
+<a name='L64'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L16'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

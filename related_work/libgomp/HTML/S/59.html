@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>config/linux/ptrlock.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/ptrlock.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L56'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L34' title='Defined at 34.'>gomp_ptrlock_get_slow</a>
+<li><a href='#L56' title='Defined at 56.'>gomp_ptrlock_set_slow</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Jakub Jelinek &lt;jakub@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This is a Linux specific implementation of a mutex synchronization</font></i>
+<a name='L26'><i><font color='green'>   mechanism for libgomp.  This type is private to the library.  This</font></i>
+<a name='L27'><i><font color='green'>   implementation uses atomic instructions and the futex syscall.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#include</font> &lt;endian.h&gt;
+<a name='L30'><font color='darkred'>#include</font> &lt;limits.h&gt;
+<a name='L31'><font color='darkred'>#include</font> "<a href='58.html'>wait.h</a>"
+<a name='L32'>
+<a name='L33'><b>void</b> *
+<a name='L34'><a href='../R/247.html' title='Multiple refered from 2 places.'>gomp_ptrlock_get_slow</a> (<a href='../D/261.html' title='Multiple defined in 2 places.'>gomp_ptrlock_t</a> *ptrlock)
+<a name='L35'><font color='red'>{</font>
+<a name='L36'>  <b>int</b> *intptr;
+<a name='L37'>  __sync_bool_compare_and_swap (ptrlock, 1, 2);
+<a name='L38'>
+<a name='L39'>  <i><font color='green'>/* futex works on ints, not pointers.</font></i>
+<a name='L40'><i><font color='green'>     But a valid work share pointer will be at least</font></i>
+<a name='L41'><i><font color='green'>     8 byte aligned, so it is safe to assume the low</font></i>
+<a name='L42'><i><font color='green'>     32-bits of the pointer won't contain values 1 or 2.  */</font></i>
+<a name='L43'>  <b>__asm</b> <b>volatile</b> ("" : "=r" (intptr) : "0" (ptrlock));
+<a name='L44'><font color='darkred'>#if</font> __BYTE_ORDER == __BIG_ENDIAN
+<a name='L45'>  <b>if</b> (<b>sizeof</b> (*ptrlock) &gt; <b>sizeof</b> (<b>int</b>))
+<a name='L46'>    intptr += (<b>sizeof</b> (*ptrlock) / <b>sizeof</b> (<b>int</b>)) - 1;
+<a name='L47'><font color='darkred'>#endif</font>
+<a name='L48'>  <b>do</b>
+<a name='L49'>    <a href='../S/58.html#L47' title='Defined at 47 in config/linux/wait.h.'>do_wait</a> (intptr, 2);
+<a name='L50'>  <b>while</b> (*intptr == 2);
+<a name='L51'>  <b>__asm</b> <b>volatile</b> ("" : : : "memory");
+<a name='L52'>  <b>return</b> *ptrlock;
+<a name='L53'><font color='red'>}</font>
+<a name='L54'>
+<a name='L55'><b>void</b>
+<a name='L56'><a href='../R/250.html' title='Multiple refered from 2 places.'>gomp_ptrlock_set_slow</a> (<a href='../D/261.html' title='Multiple defined in 2 places.'>gomp_ptrlock_t</a> *ptrlock, <b>void</b> *ptr)
+<a name='L57'><font color='red'>{</font>
+<a name='L58'>  <b>int</b> *intptr;
+<a name='L59'>
+<a name='L60'>  *ptrlock = ptr;
+<a name='L61'>  <b>__asm</b> <b>volatile</b> ("" : "=r" (intptr) : "0" (ptrlock));
+<a name='L62'><font color='darkred'>#if</font> __BYTE_ORDER == __BIG_ENDIAN
+<a name='L63'>  <b>if</b> (<b>sizeof</b> (*ptrlock) &gt; <b>sizeof</b> (<b>int</b>))
+<a name='L64'>    intptr += (<b>sizeof</b> (*ptrlock) / <b>sizeof</b> (<b>int</b>)) - 1;
+<a name='L65'><font color='darkred'>#endif</font>
+<a name='L66'>  <a href='../D/155.html' title='Multiple defined in 9 places.'>futex_wake</a> (intptr, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a>);
+<a name='L67'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L56'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

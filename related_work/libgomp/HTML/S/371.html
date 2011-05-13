@@ -1,0 +1,416 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/loop-6.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/loop-6.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L14'>[^]</a><a href='#L370'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L14' title='Defined at 14.'>set</a>
+<li><a href='#L30' title='Defined at 30.'>test1</a>
+<li><a href='#L98' title='Defined at 98.'>test2</a>
+<li><a href='#L166' title='Defined at 166.'>test3</a>
+<li><a href='#L234' title='Defined at 234.'>test4</a>
+<li><a href='#L302' title='Defined at 302.'>test5</a>
+<li><a href='#L370' title='Defined at 370.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L4'>
+<a name='L5'><b>extern</b> <b>void</b> abort (<b>void</b>);
+<a name='L6'>
+<a name='L7'><font color='darkred'>#define</font> <a href='../R/78.html' title='Multiple refered from 346 places.'>LLONG_MAX</a> __LONG_LONG_MAX__
+<a name='L8'><font color='darkred'>#define</font> <a href='../R/94.html' title='Multiple refered from 48 places.'>ULLONG_MAX</a> (<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> * 2ULL + 1)
+<a name='L9'><font color='darkred'>#define</font> <a href='../R/72.html' title='Multiple refered from 106 places.'>INT_MAX</a> __INT_MAX__
+<a name='L10'>
+<a name='L11'><b>int</b> arr[6 * 5];
+<a name='L12'>
+<a name='L13'><b>void</b>
+<a name='L14'><a href='../R/353.html' title='Multiple refered from 10 places.'>set</a> (<b>int</b> loopidx, <b>int</b> idx)
+<a name='L15'><font color='red'>{</font>
+<a name='L16'><font color='darkred'>#pragma</font> omp atomic
+<a name='L17'>  arr[loopidx * 5 + idx]++;
+<a name='L18'><font color='red'>}</font>
+<a name='L19'>
+<a name='L20'><font color='darkred'>#define</font> <a href='../R/111.html' title='Multiple refered from 464 places.'>check</a>(var, val, loopidx, idx) \
+<a name='L21'>  <b>if</b> (var == (val)) <a href='../D/409.html' title='Multiple defined in 4 places.'>set</a> (loopidx, idx); <b>else</b>
+<a name='L22'><font color='darkred'>#define</font> <a href='../R/371.html' title='Multiple refered from 169 places.'>test</a>(loopidx, count) \
+<a name='L23'>  <b>for</b> (idx = 0; idx &lt; 5; idx++) \
+<a name='L24'>    <b>if</b> (arr[loopidx * 5 + idx] != idx &lt; count) \
+<a name='L25'>      abort (); \
+<a name='L26'>    <b>else</b> \
+<a name='L27'>      arr[loopidx * 5 + idx] = 0
+<a name='L28'>
+<a name='L29'><b>int</b>
+<a name='L30'><a href='../R/372.html' title='Multiple refered from 16 places.'>test1</a> (<b>void</b>)
+<a name='L31'><font color='red'>{</font>
+<a name='L32'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 0, idx;
+<a name='L33'>
+<a name='L34'><font color='darkred'>#pragma</font> omp parallel reduction(+:e)
+<a name='L35'>  <font color='red'>{</font>
+<a name='L36'>    <b>long</b> <b>long</b> i;
+<a name='L37'>    <b>unsigned</b> <b>long</b> <b>long</b> j;
+<a name='L38'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L39'>    <b>for</b> (i = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001; i &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001; i += 10000)
+<a name='L40'>      <font color='red'>{</font>
+<a name='L41'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001, 0, 0)
+<a name='L42'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20001, 0, 1)
+<a name='L43'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001, 0, 2)
+<a name='L44'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L45'>      <font color='red'>}</font>
+<a name='L46'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L47'>    <b>for</b> (i = -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000; i &gt;= -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000; i -= 10000)
+<a name='L48'>      <font color='red'>{</font>
+<a name='L49'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000, 1, 0)
+<a name='L50'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 20000, 1, 1)
+<a name='L51'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000, 1, 2)
+<a name='L52'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L53'>      <font color='red'>}</font>
+<a name='L54'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L55'>    <b>for</b> (j = 20; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 70; j += <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L56'>      <font color='red'>{</font>
+<a name='L57'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, 20, 2, 0)
+<a name='L58'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L59'>      <font color='red'>}</font>
+<a name='L60'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L61'>    <b>for</b> (j = <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3; j &gt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 70ULL; j -= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L62'>      <font color='red'>{</font>
+<a name='L63'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3, 3, 0)
+<a name='L64'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L65'>      <font color='red'>}</font>
+<a name='L66'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L67'>    <b>for</b> (j = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL; j += 10000ULL)
+<a name='L68'>      <font color='red'>{</font>
+<a name='L69'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL, 4, 0)
+<a name='L70'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10000ULL, 4, 1)
+<a name='L71'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a>, 4, 2)
+<a name='L72'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL, 4, 3)
+<a name='L73'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L74'>      <font color='red'>}</font>
+<a name='L75'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(dynamic,1) nowait
+<a name='L76'>    <b>for</b> (i = -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL; i &lt;= <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 10000LL; i += <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 200LL)
+<a name='L77'>      <font color='red'>{</font>
+<a name='L78'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL, 5, 0)
+<a name='L79'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -2LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 200LL, 5, 1)
+<a name='L80'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 400LL, 5, 2)
+<a name='L81'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -20000LL + 600LL, 5, 3)
+<a name='L82'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 800LL, 5, 4)
+<a name='L83'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L84'>      <font color='red'>}</font>
+<a name='L85'>  <font color='red'>}</font>
+<a name='L86'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L87'>    abort ();
+<a name='L88'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (0, 3);
+<a name='L89'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (1, 3);
+<a name='L90'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (2, 1);
+<a name='L91'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (3, 1);
+<a name='L92'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (4, 4);
+<a name='L93'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (5, 5);
+<a name='L94'>  <b>return</b> 0;
+<a name='L95'><font color='red'>}</font>
+<a name='L96'>
+<a name='L97'><b>int</b>
+<a name='L98'><a href='../R/380.html' title='Multiple refered from 12 places.'>test2</a> (<b>void</b>)
+<a name='L99'><font color='red'>{</font>
+<a name='L100'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 0, idx;
+<a name='L101'>
+<a name='L102'><font color='darkred'>#pragma</font> omp parallel reduction(+:e)
+<a name='L103'>  <font color='red'>{</font>
+<a name='L104'>    <b>long</b> <b>long</b> i;
+<a name='L105'>    <b>unsigned</b> <b>long</b> <b>long</b> j;
+<a name='L106'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L107'>    <b>for</b> (i = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001; i &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001; i += 10000)
+<a name='L108'>      <font color='red'>{</font>
+<a name='L109'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001, 0, 0)
+<a name='L110'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20001, 0, 1)
+<a name='L111'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001, 0, 2)
+<a name='L112'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L113'>      <font color='red'>}</font>
+<a name='L114'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L115'>    <b>for</b> (i = -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000; i &gt;= -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000; i -= 10000)
+<a name='L116'>      <font color='red'>{</font>
+<a name='L117'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000, 1, 0)
+<a name='L118'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 20000, 1, 1)
+<a name='L119'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000, 1, 2)
+<a name='L120'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L121'>      <font color='red'>}</font>
+<a name='L122'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L123'>    <b>for</b> (j = 20; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 70; j += <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L124'>      <font color='red'>{</font>
+<a name='L125'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, 20, 2, 0)
+<a name='L126'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L127'>      <font color='red'>}</font>
+<a name='L128'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L129'>    <b>for</b> (j = <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3; j &gt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 70ULL; j -= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L130'>      <font color='red'>{</font>
+<a name='L131'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3, 3, 0)
+<a name='L132'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L133'>      <font color='red'>}</font>
+<a name='L134'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L135'>    <b>for</b> (j = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL; j += 10000ULL)
+<a name='L136'>      <font color='red'>{</font>
+<a name='L137'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL, 4, 0)
+<a name='L138'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10000ULL, 4, 1)
+<a name='L139'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a>, 4, 2)
+<a name='L140'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL, 4, 3)
+<a name='L141'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L142'>      <font color='red'>}</font>
+<a name='L143'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(guided,1) nowait
+<a name='L144'>    <b>for</b> (i = -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL; i &lt;= <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 10000LL; i += <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 200LL)
+<a name='L145'>      <font color='red'>{</font>
+<a name='L146'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL, 5, 0)
+<a name='L147'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -2LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 200LL, 5, 1)
+<a name='L148'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 400LL, 5, 2)
+<a name='L149'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -20000LL + 600LL, 5, 3)
+<a name='L150'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 800LL, 5, 4)
+<a name='L151'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L152'>      <font color='red'>}</font>
+<a name='L153'>  <font color='red'>}</font>
+<a name='L154'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L155'>    abort ();
+<a name='L156'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (0, 3);
+<a name='L157'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (1, 3);
+<a name='L158'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (2, 1);
+<a name='L159'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (3, 1);
+<a name='L160'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (4, 4);
+<a name='L161'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (5, 5);
+<a name='L162'>  <b>return</b> 0;
+<a name='L163'><font color='red'>}</font>
+<a name='L164'>
+<a name='L165'><b>int</b>
+<a name='L166'><a href='../R/381.html' title='Multiple refered from 11 places.'>test3</a> (<b>void</b>)
+<a name='L167'><font color='red'>{</font>
+<a name='L168'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 0, idx;
+<a name='L169'>
+<a name='L170'><font color='darkred'>#pragma</font> omp parallel reduction(+:e)
+<a name='L171'>  <font color='red'>{</font>
+<a name='L172'>    <b>long</b> <b>long</b> i;
+<a name='L173'>    <b>unsigned</b> <b>long</b> <b>long</b> j;
+<a name='L174'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L175'>    <b>for</b> (i = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001; i &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001; i += 10000)
+<a name='L176'>      <font color='red'>{</font>
+<a name='L177'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001, 0, 0)
+<a name='L178'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20001, 0, 1)
+<a name='L179'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001, 0, 2)
+<a name='L180'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L181'>      <font color='red'>}</font>
+<a name='L182'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L183'>    <b>for</b> (i = -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000; i &gt;= -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000; i -= 10000)
+<a name='L184'>      <font color='red'>{</font>
+<a name='L185'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000, 1, 0)
+<a name='L186'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 20000, 1, 1)
+<a name='L187'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000, 1, 2)
+<a name='L188'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L189'>      <font color='red'>}</font>
+<a name='L190'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L191'>    <b>for</b> (j = 20; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 70; j += <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L192'>      <font color='red'>{</font>
+<a name='L193'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, 20, 2, 0)
+<a name='L194'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L195'>      <font color='red'>}</font>
+<a name='L196'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L197'>    <b>for</b> (j = <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3; j &gt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 70ULL; j -= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L198'>      <font color='red'>{</font>
+<a name='L199'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3, 3, 0)
+<a name='L200'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L201'>      <font color='red'>}</font>
+<a name='L202'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L203'>    <b>for</b> (j = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL; j += 10000ULL)
+<a name='L204'>      <font color='red'>{</font>
+<a name='L205'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL, 4, 0)
+<a name='L206'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10000ULL, 4, 1)
+<a name='L207'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a>, 4, 2)
+<a name='L208'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL, 4, 3)
+<a name='L209'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L210'>      <font color='red'>}</font>
+<a name='L211'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>) nowait
+<a name='L212'>    <b>for</b> (i = -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL; i &lt;= <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 10000LL; i += <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 200LL)
+<a name='L213'>      <font color='red'>{</font>
+<a name='L214'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL, 5, 0)
+<a name='L215'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -2LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 200LL, 5, 1)
+<a name='L216'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 400LL, 5, 2)
+<a name='L217'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -20000LL + 600LL, 5, 3)
+<a name='L218'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 800LL, 5, 4)
+<a name='L219'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L220'>      <font color='red'>}</font>
+<a name='L221'>  <font color='red'>}</font>
+<a name='L222'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L223'>    abort ();
+<a name='L224'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (0, 3);
+<a name='L225'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (1, 3);
+<a name='L226'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (2, 1);
+<a name='L227'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (3, 1);
+<a name='L228'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (4, 4);
+<a name='L229'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (5, 5);
+<a name='L230'>  <b>return</b> 0;
+<a name='L231'><font color='red'>}</font>
+<a name='L232'>
+<a name='L233'><b>int</b>
+<a name='L234'><a href='../R/382.html' title='Multiple refered from 23 places.'>test4</a> (<b>void</b>)
+<a name='L235'><font color='red'>{</font>
+<a name='L236'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 0, idx;
+<a name='L237'>
+<a name='L238'><font color='darkred'>#pragma</font> omp parallel reduction(+:e)
+<a name='L239'>  <font color='red'>{</font>
+<a name='L240'>    <b>long</b> <b>long</b> i;
+<a name='L241'>    <b>unsigned</b> <b>long</b> <b>long</b> j;
+<a name='L242'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L243'>    <b>for</b> (i = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001; i &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001; i += 10000)
+<a name='L244'>      <font color='red'>{</font>
+<a name='L245'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001, 0, 0)
+<a name='L246'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20001, 0, 1)
+<a name='L247'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001, 0, 2)
+<a name='L248'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L249'>      <font color='red'>}</font>
+<a name='L250'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L251'>    <b>for</b> (i = -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000; i &gt;= -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000; i -= 10000)
+<a name='L252'>      <font color='red'>{</font>
+<a name='L253'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000, 1, 0)
+<a name='L254'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 20000, 1, 1)
+<a name='L255'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000, 1, 2)
+<a name='L256'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L257'>      <font color='red'>}</font>
+<a name='L258'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L259'>    <b>for</b> (j = 20; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 70; j += <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L260'>      <font color='red'>{</font>
+<a name='L261'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, 20, 2, 0)
+<a name='L262'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L263'>      <font color='red'>}</font>
+<a name='L264'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L265'>    <b>for</b> (j = <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3; j &gt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 70ULL; j -= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L266'>      <font color='red'>{</font>
+<a name='L267'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3, 3, 0)
+<a name='L268'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L269'>      <font color='red'>}</font>
+<a name='L270'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L271'>    <b>for</b> (j = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL; j += 10000ULL)
+<a name='L272'>      <font color='red'>{</font>
+<a name='L273'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL, 4, 0)
+<a name='L274'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10000ULL, 4, 1)
+<a name='L275'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a>, 4, 2)
+<a name='L276'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL, 4, 3)
+<a name='L277'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L278'>      <font color='red'>}</font>
+<a name='L279'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(<b>static</b>,1) nowait
+<a name='L280'>    <b>for</b> (i = -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL; i &lt;= <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 10000LL; i += <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 200LL)
+<a name='L281'>      <font color='red'>{</font>
+<a name='L282'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL, 5, 0)
+<a name='L283'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -2LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 200LL, 5, 1)
+<a name='L284'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 400LL, 5, 2)
+<a name='L285'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -20000LL + 600LL, 5, 3)
+<a name='L286'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 800LL, 5, 4)
+<a name='L287'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L288'>      <font color='red'>}</font>
+<a name='L289'>  <font color='red'>}</font>
+<a name='L290'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L291'>    abort ();
+<a name='L292'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (0, 3);
+<a name='L293'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (1, 3);
+<a name='L294'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (2, 1);
+<a name='L295'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (3, 1);
+<a name='L296'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (4, 4);
+<a name='L297'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (5, 5);
+<a name='L298'>  <b>return</b> 0;
+<a name='L299'><font color='red'>}</font>
+<a name='L300'>
+<a name='L301'><b>int</b>
+<a name='L302'><a href='../R/383.html' title='Multiple refered from 18 places.'>test5</a> (<b>void</b>)
+<a name='L303'><font color='red'>{</font>
+<a name='L304'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 0, idx;
+<a name='L305'>
+<a name='L306'><font color='darkred'>#pragma</font> omp parallel reduction(+:e)
+<a name='L307'>  <font color='red'>{</font>
+<a name='L308'>    <b>long</b> <b>long</b> i;
+<a name='L309'>    <b>unsigned</b> <b>long</b> <b>long</b> j;
+<a name='L310'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L311'>    <b>for</b> (i = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001; i &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001; i += 10000)
+<a name='L312'>      <font color='red'>{</font>
+<a name='L313'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 30001, 0, 0)
+<a name='L314'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20001, 0, 1)
+<a name='L315'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10001, 0, 2)
+<a name='L316'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L317'>      <font color='red'>}</font>
+<a name='L318'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L319'>    <b>for</b> (i = -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000; i &gt;= -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000; i -= 10000)
+<a name='L320'>      <font color='red'>{</font>
+<a name='L321'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 30000, 1, 0)
+<a name='L322'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 20000, 1, 1)
+<a name='L323'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000, 1, 2)
+<a name='L324'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L325'>      <font color='red'>}</font>
+<a name='L326'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L327'>    <b>for</b> (j = 20; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 70; j += <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L328'>      <font color='red'>{</font>
+<a name='L329'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, 20, 2, 0)
+<a name='L330'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L331'>      <font color='red'>}</font>
+<a name='L332'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L333'>    <b>for</b> (j = <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3; j &gt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 70ULL; j -= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 50ULL)
+<a name='L334'>      <font color='red'>{</font>
+<a name='L335'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/94.html' title='Multiple defined in 6 places.'>ULLONG_MAX</a> - 3, 3, 0)
+<a name='L336'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L337'>      <font color='red'>}</font>
+<a name='L338'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L339'>    <b>for</b> (j = <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL; j &lt;= <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL; j += 10000ULL)
+<a name='L340'>      <font color='red'>{</font>
+<a name='L341'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 20000ULL, 4, 0)
+<a name='L342'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> - 10000ULL, 4, 1)
+<a name='L343'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a>, 4, 2)
+<a name='L344'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (j, <a href='../D/78.html' title='Multiple defined in 6 places.'>LLONG_MAX</a> + 10000ULL, 4, 3)
+<a name='L345'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L346'>      <font color='red'>}</font>
+<a name='L347'><font color='darkred'>    #pragma</font> omp <b>for</b> schedule(runtime) nowait
+<a name='L348'>    <b>for</b> (i = -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL; i &lt;= <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 10000LL; i += <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> + 200LL)
+<a name='L349'>      <font color='red'>{</font>
+<a name='L350'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -3LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL, 5, 0)
+<a name='L351'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -2LL * <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 200LL, 5, 1)
+<a name='L352'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -<a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 400LL, 5, 2)
+<a name='L353'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, -20000LL + 600LL, 5, 3)
+<a name='L354'>        <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i, <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> - 20000LL + 800LL, 5, 4)
+<a name='L355'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = 1;
+<a name='L356'>      <font color='red'>}</font>
+<a name='L357'>  <font color='red'>}</font>
+<a name='L358'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>)
+<a name='L359'>    abort ();
+<a name='L360'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (0, 3);
+<a name='L361'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (1, 3);
+<a name='L362'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (2, 1);
+<a name='L363'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (3, 1);
+<a name='L364'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (4, 4);
+<a name='L365'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> (5, 5);
+<a name='L366'>  <b>return</b> 0;
+<a name='L367'><font color='red'>}</font>
+<a name='L368'>
+<a name='L369'><b>int</b>
+<a name='L370'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L371'><font color='red'>{</font>
+<a name='L372'>  <b>if</b> (2 * <b>sizeof</b> (<b>int</b>) != <b>sizeof</b> (<b>long</b> <b>long</b>))
+<a name='L373'>    <b>return</b> 0;
+<a name='L374'>  <a href='../D/430.html' title='Multiple defined in 12 places.'>test1</a> ();
+<a name='L375'>  <a href='../D/438.html' title='Multiple defined in 12 places.'>test2</a> ();
+<a name='L376'>  <a href='../D/439.html' title='Multiple defined in 11 places.'>test3</a> ();
+<a name='L377'>  <a href='../D/440.html' title='Multiple defined in 11 places.'>test4</a> ();
+<a name='L378'>  <a href='../S/414.html#L590' title='Defined at 590 in env.c.'>omp_set_schedule</a> (omp_sched_static, 0);
+<a name='L379'>  <a href='../D/441.html' title='Multiple defined in 6 places.'>test5</a> ();
+<a name='L380'>  <a href='../S/414.html#L590' title='Defined at 590 in env.c.'>omp_set_schedule</a> (omp_sched_static, 3);
+<a name='L381'>  <a href='../D/441.html' title='Multiple defined in 6 places.'>test5</a> ();
+<a name='L382'>  <a href='../S/414.html#L590' title='Defined at 590 in env.c.'>omp_set_schedule</a> (omp_sched_dynamic, 5);
+<a name='L383'>  <a href='../D/441.html' title='Multiple defined in 6 places.'>test5</a> ();
+<a name='L384'>  <a href='../S/414.html#L590' title='Defined at 590 in env.c.'>omp_set_schedule</a> (omp_sched_guided, 2);
+<a name='L385'>  <a href='../D/441.html' title='Multiple defined in 6 places.'>test5</a> ();
+<a name='L386'>  <b>return</b> 0;
+<a name='L387'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L14'>[^]</a><a href='#L370'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

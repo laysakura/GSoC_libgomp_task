@@ -1,0 +1,699 @@
+<html>
+<head>
+<title>env.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/env.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L74'>[^]</a><a href='#L643'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L74' title='Defined at 74.'>parse_schedule</a>
+<li><a href='#L149' title='Defined at 149.'>parse_unsigned_long</a>
+<li><a href='#L185' title='Defined at 185.'>parse_stacksize</a>
+<li><a href='#L246' title='Defined at 246.'>parse_spincount</a>
+<li><a href='#L319' title='Defined at 319.'>parse_boolean</a>
+<li><a href='#L351' title='Defined at 351.'>parse_wait_policy</a>
+<li><a href='#L386' title='Defined at 386.'>parse_affinity</a>
+<li><a href='#L474' title='Defined at 474.'>initialize_env</a>
+<li><a href='#L555' title='Defined at 555.'>omp_set_num_threads</a>
+<li><a href='#L562' title='Defined at 562.'>omp_set_dynamic</a>
+<li><a href='#L569' title='Defined at 569.'>omp_get_dynamic</a>
+<li><a href='#L576' title='Defined at 576.'>omp_set_nested</a>
+<li><a href='#L583' title='Defined at 583.'>omp_get_nested</a>
+<li><a href='#L590' title='Defined at 590.'>omp_set_schedule</a>
+<li><a href='#L615' title='Defined at 615.'>omp_get_schedule</a>
+<li><a href='#L623' title='Defined at 623.'>omp_get_max_threads</a>
+<li><a href='#L630' title='Defined at 630.'>omp_get_thread_limit</a>
+<li><a href='#L636' title='Defined at 636.'>omp_set_max_active_levels</a>
+<li><a href='#L643' title='Defined at 643.'>omp_get_max_active_levels</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010</font></i>
+<a name='L2'><i><font color='green'>   Free Software Foundation, Inc.</font></i>
+<a name='L3'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L4'><i><font color='green'></font></i>
+<a name='L5'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L6'><i><font color='green'></font></i>
+<a name='L7'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L8'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L9'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L10'><i><font color='green'>   any later version.</font></i>
+<a name='L11'><i><font color='green'></font></i>
+<a name='L12'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L13'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L14'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L15'><i><font color='green'>   more details.</font></i>
+<a name='L16'><i><font color='green'></font></i>
+<a name='L17'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L18'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L19'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L20'><i><font color='green'></font></i>
+<a name='L21'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L22'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L23'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L24'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L25'>
+<a name='L26'><i><font color='green'>/* This file defines the OpenMP internal control variables, and arranges</font></i>
+<a name='L27'><i><font color='green'>   for them to be initialized from environment variables at startup.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L30'><font color='darkred'>#include</font> "libgomp_f.h"
+<a name='L31'><font color='darkred'>#include</font> &lt;ctype.h&gt;
+<a name='L32'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L33'><font color='darkred'>#ifdef</font> STRING_WITH_STRINGS
+<a name='L34'><font color='darkred'># include</font> &lt;string.h&gt;
+<a name='L35'><font color='darkred'># include</font> &lt;strings.h&gt;
+<a name='L36'><font color='darkred'>#else</font>
+<a name='L37'><font color='darkred'># ifdef</font> HAVE_STRING_H
+<a name='L38'><font color='darkred'>#  include</font> &lt;string.h&gt;
+<a name='L39'><font color='darkred'># else</font>
+<a name='L40'><font color='darkred'>#  ifdef</font> HAVE_STRINGS_H
+<a name='L41'><font color='darkred'>#   include</font> &lt;strings.h&gt;
+<a name='L42'><font color='darkred'>#  endif</font>
+<a name='L43'><font color='darkred'># endif</font>
+<a name='L44'><font color='darkred'>#endif</font>
+<a name='L45'><font color='darkred'>#include</font> &lt;limits.h&gt;
+<a name='L46'><font color='darkred'>#include</font> &lt;errno.h&gt;
+<a name='L47'>
+<a name='L48'><font color='darkred'>#ifndef</font> HAVE_STRTOULL
+<a name='L49'><font color='darkred'># define</font> <a href='../S/414.html#L269' title='Refered from 269 in env.c.'>strtoull</a>(ptr, eptr, base) strtoul (ptr, eptr, base)
+<a name='L50'><font color='darkred'>#endif</font>
+<a name='L51'>
+<a name='L52'><b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> gomp_global_icv = <font color='red'>{</font>
+<a name='L53'>  .nthreads_var = 1,
+<a name='L54'>  .run_sched_var = GFS_DYNAMIC,
+<a name='L55'>  .run_sched_modifier = 1,
+<a name='L56'>  .dyn_var = false,
+<a name='L57'>  .nest_var = false
+<a name='L58'><font color='red'>}</font>;
+<a name='L59'>
+<a name='L60'><b>unsigned</b> <b>short</b> *gomp_cpu_affinity;
+<a name='L61'>size_t gomp_cpu_affinity_len;
+<a name='L62'><b>unsigned</b> <b>long</b> gomp_max_active_levels_var = <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a>;
+<a name='L63'><b>unsigned</b> <b>long</b> gomp_thread_limit_var = ULONG_MAX;
+<a name='L64'><b>unsigned</b> <b>long</b> gomp_remaining_threads_count;
+<a name='L65'><font color='darkred'>#ifndef</font> HAVE_SYNC_BUILTINS
+<a name='L66'><a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> gomp_remaining_threads_lock;
+<a name='L67'><font color='darkred'>#endif</font>
+<a name='L68'><b>unsigned</b> <b>long</b> gomp_available_cpus = 1, gomp_managed_threads = 1;
+<a name='L69'><b>unsigned</b> <b>long</b> <b>long</b> gomp_spin_count_var, gomp_throttled_spin_count_var;
+<a name='L70'>
+<a name='L71'><i><font color='green'>/* Parse the OMP_SCHEDULE environment variable.  */</font></i>
+<a name='L72'>
+<a name='L73'><b>static</b> <b>void</b>
+<a name='L74'><a href='../S/414.html#L482' title='Refered from 482 in env.c.'>parse_schedule</a> (<b>void</b>)
+<a name='L75'><font color='red'>{</font>
+<a name='L76'>  <b>char</b> *env, *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L77'>  <b>unsigned</b> <b>long</b> value;
+<a name='L78'>
+<a name='L79'>  env = getenv ("OMP_SCHEDULE");
+<a name='L80'>  <b>if</b> (env == NULL)
+<a name='L81'>    <b>return</b>;
+<a name='L82'>
+<a name='L83'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L84'>    ++env;
+<a name='L85'>  <b>if</b> (strncasecmp (env, "static", 6) == 0)
+<a name='L86'>    <font color='red'>{</font>
+<a name='L87'>      gomp_global_icv.run_sched_var = GFS_STATIC;
+<a name='L88'>      env += 6;
+<a name='L89'>    <font color='red'>}</font>
+<a name='L90'>  <b>else</b> <b>if</b> (strncasecmp (env, "dynamic", 7) == 0)
+<a name='L91'>    <font color='red'>{</font>
+<a name='L92'>      gomp_global_icv.run_sched_var = GFS_DYNAMIC;
+<a name='L93'>      env += 7;
+<a name='L94'>    <font color='red'>}</font>
+<a name='L95'>  <b>else</b> <b>if</b> (strncasecmp (env, "guided", 6) == 0)
+<a name='L96'>    <font color='red'>{</font>
+<a name='L97'>      gomp_global_icv.run_sched_var = GFS_GUIDED;
+<a name='L98'>      env += 6;
+<a name='L99'>    <font color='red'>}</font>
+<a name='L100'>  <b>else</b> <b>if</b> (strncasecmp (env, "auto", 4) == 0)
+<a name='L101'>    <font color='red'>{</font>
+<a name='L102'>      gomp_global_icv.run_sched_var = GFS_AUTO;
+<a name='L103'>      env += 4;
+<a name='L104'>    <font color='red'>}</font>
+<a name='L105'>  <b>else</b>
+<a name='L106'>    <b>goto</b> unknown;
+<a name='L107'>
+<a name='L108'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L109'>    ++env;
+<a name='L110'>  <b>if</b> (*env == '\0')
+<a name='L111'>    <b>return</b>;
+<a name='L112'>  <b>if</b> (*env++ != ',')
+<a name='L113'>    <b>goto</b> unknown;
+<a name='L114'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L115'>    ++env;
+<a name='L116'>  <b>if</b> (*env == '\0')
+<a name='L117'>    <b>goto</b> invalid;
+<a name='L118'>
+<a name='L119'>  errno = 0;
+<a name='L120'>  value = strtoul (env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 10);
+<a name='L121'>  <b>if</b> (errno)
+<a name='L122'>    <b>goto</b> invalid;
+<a name='L123'>
+<a name='L124'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L125'>    ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L126'>  <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L127'>    <b>goto</b> invalid;
+<a name='L128'>
+<a name='L129'>  <b>if</b> ((<b>int</b>)value != value)
+<a name='L130'>    <b>goto</b> invalid;
+<a name='L131'>
+<a name='L132'>  gomp_global_icv.run_sched_modifier = value;
+<a name='L133'>  <b>return</b>;
+<a name='L134'>
+<a name='L135'> unknown:
+<a name='L136'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Unknown value for environment variable OMP_SCHEDULE");
+<a name='L137'>  <b>return</b>;
+<a name='L138'>
+<a name='L139'> invalid:
+<a name='L140'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for chunk size in "
+<a name='L141'>              "environment variable OMP_SCHEDULE");
+<a name='L142'>  <b>return</b>;
+<a name='L143'><font color='red'>}</font>
+<a name='L144'>
+<a name='L145'><i><font color='green'>/* Parse an unsigned long environment variable.  Return true if one was</font></i>
+<a name='L146'><i><font color='green'>   present and it was successfully parsed.  */</font></i>
+<a name='L147'>
+<a name='L148'><b>static</b> bool
+<a name='L149'><a href='../R/347.html' title='Multiple refered from 3 places.'>parse_unsigned_long</a> (<b>const</b> <b>char</b> *name, <b>unsigned</b> <b>long</b> *pvalue, bool allow_zero)
+<a name='L150'><font color='red'>{</font>
+<a name='L151'>  <b>char</b> *env, *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L152'>  <b>unsigned</b> <b>long</b> value;
+<a name='L153'>
+<a name='L154'>  env = getenv (name);
+<a name='L155'>  <b>if</b> (env == NULL)
+<a name='L156'>    <b>return</b> false;
+<a name='L157'>
+<a name='L158'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L159'>    ++env;
+<a name='L160'>  <b>if</b> (*env == '\0')
+<a name='L161'>    <b>goto</b> invalid;
+<a name='L162'>
+<a name='L163'>  errno = 0;
+<a name='L164'>  value = strtoul (env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 10);
+<a name='L165'>  <b>if</b> (errno || (<b>long</b>) value &lt;= 0 - allow_zero)
+<a name='L166'>    <b>goto</b> invalid;
+<a name='L167'>
+<a name='L168'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L169'>    ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L170'>  <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L171'>    <b>goto</b> invalid;
+<a name='L172'>
+<a name='L173'>  *pvalue = value;
+<a name='L174'>  <b>return</b> true;
+<a name='L175'>
+<a name='L176'> invalid:
+<a name='L177'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for environment variable %s", name);
+<a name='L178'>  <b>return</b> false;
+<a name='L179'><font color='red'>}</font>
+<a name='L180'>
+<a name='L181'><i><font color='green'>/* Parse the OMP_STACKSIZE environment varible.  Return true if one was</font></i>
+<a name='L182'><i><font color='green'>   present and it was successfully parsed.  */</font></i>
+<a name='L183'>
+<a name='L184'><b>static</b> bool
+<a name='L185'><a href='../R/346.html' title='Multiple refered from 2 places.'>parse_stacksize</a> (<b>const</b> <b>char</b> *name, <b>unsigned</b> <b>long</b> *pvalue)
+<a name='L186'><font color='red'>{</font>
+<a name='L187'>  <b>char</b> *env, *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L188'>  <b>unsigned</b> <b>long</b> value, shift = 10;
+<a name='L189'>
+<a name='L190'>  env = getenv (name);
+<a name='L191'>  <b>if</b> (env == NULL)
+<a name='L192'>    <b>return</b> false;
+<a name='L193'>
+<a name='L194'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L195'>    ++env;
+<a name='L196'>  <b>if</b> (*env == '\0')
+<a name='L197'>    <b>goto</b> invalid;
+<a name='L198'>
+<a name='L199'>  errno = 0;
+<a name='L200'>  value = strtoul (env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 10);
+<a name='L201'>  <b>if</b> (errno)
+<a name='L202'>    <b>goto</b> invalid;
+<a name='L203'>
+<a name='L204'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L205'>    ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L206'>  <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L207'>    <font color='red'>{</font>
+<a name='L208'>      <b>switch</b> (tolower ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L209'>        <font color='red'>{</font>
+<a name='L210'>        <b>case</b> 'b':
+<a name='L211'>          shift = 0;
+<a name='L212'>          <b>break</b>;
+<a name='L213'>        <b>case</b> 'k':
+<a name='L214'>          <b>break</b>;
+<a name='L215'>        <b>case</b> 'm':
+<a name='L216'>          shift = 20;
+<a name='L217'>          <b>break</b>;
+<a name='L218'>        <b>case</b> 'g':
+<a name='L219'>          shift = 30;
+<a name='L220'>          <b>break</b>;
+<a name='L221'>        <b>default</b>:
+<a name='L222'>          <b>goto</b> invalid;
+<a name='L223'>        <font color='red'>}</font>
+<a name='L224'>      ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L225'>      <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L226'>        ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L227'>      <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L228'>        <b>goto</b> invalid;
+<a name='L229'>    <font color='red'>}</font>
+<a name='L230'>
+<a name='L231'>  <b>if</b> (((value &lt;&lt; shift) &gt;&gt; shift) != value)
+<a name='L232'>    <b>goto</b> invalid;
+<a name='L233'>
+<a name='L234'>  *pvalue = value &lt;&lt; shift;
+<a name='L235'>  <b>return</b> true;
+<a name='L236'>
+<a name='L237'> invalid:
+<a name='L238'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for environment variable %s", name);
+<a name='L239'>  <b>return</b> false;
+<a name='L240'><font color='red'>}</font>
+<a name='L241'>
+<a name='L242'><i><font color='green'>/* Parse the GOMP_SPINCOUNT environment varible.  Return true if one was</font></i>
+<a name='L243'><i><font color='green'>   present and it was successfully parsed.  */</font></i>
+<a name='L244'>
+<a name='L245'><b>static</b> bool
+<a name='L246'><a href='../S/414.html#L501' title='Refered from 501 in env.c.'>parse_spincount</a> (<b>const</b> <b>char</b> *name, <b>unsigned</b> <b>long</b> <b>long</b> *pvalue)
+<a name='L247'><font color='red'>{</font>
+<a name='L248'>  <b>char</b> *env, *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L249'>  <b>unsigned</b> <b>long</b> <b>long</b> value, mult = 1;
+<a name='L250'>
+<a name='L251'>  env = getenv (name);
+<a name='L252'>  <b>if</b> (env == NULL)
+<a name='L253'>    <b>return</b> false;
+<a name='L254'>
+<a name='L255'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L256'>    ++env;
+<a name='L257'>  <b>if</b> (*env == '\0')
+<a name='L258'>    <b>goto</b> invalid;
+<a name='L259'>
+<a name='L260'>  <b>if</b> (strncasecmp (env, "infinite", 8) == 0
+<a name='L261'>      || strncasecmp (env, "infinity", 8) == 0)
+<a name='L262'>    <font color='red'>{</font>
+<a name='L263'>      value = ~0ULL;
+<a name='L264'>      <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = env + 8;
+<a name='L265'>      <b>goto</b> check_tail;
+<a name='L266'>    <font color='red'>}</font>
+<a name='L267'>
+<a name='L268'>  errno = 0;
+<a name='L269'>  value = <a href='../S/414.html#L49' title='Defined at 49 in env.c.'>strtoull</a> (env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 10);
+<a name='L270'>  <b>if</b> (errno)
+<a name='L271'>    <b>goto</b> invalid;
+<a name='L272'>
+<a name='L273'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L274'>    ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L275'>  <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L276'>    <font color='red'>{</font>
+<a name='L277'>      <b>switch</b> (tolower ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L278'>        <font color='red'>{</font>
+<a name='L279'>        <b>case</b> 'k':
+<a name='L280'>          mult = 1000LL;
+<a name='L281'>          <b>break</b>;
+<a name='L282'>        <b>case</b> 'm':
+<a name='L283'>          mult = 1000LL * 1000LL;
+<a name='L284'>          <b>break</b>;
+<a name='L285'>        <b>case</b> 'g':
+<a name='L286'>          mult = 1000LL * 1000LL * 1000LL;
+<a name='L287'>          <b>break</b>;
+<a name='L288'>        <b>case</b> 't':
+<a name='L289'>          mult = 1000LL * 1000LL * 1000LL * 1000LL;
+<a name='L290'>          <b>break</b>;
+<a name='L291'>        <b>default</b>:
+<a name='L292'>          <b>goto</b> invalid;
+<a name='L293'>        <font color='red'>}</font>
+<a name='L294'>      ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L295'>     check_tail:
+<a name='L296'>      <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>))
+<a name='L297'>        ++<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L298'>      <b>if</b> (*<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> != '\0')
+<a name='L299'>        <b>goto</b> invalid;
+<a name='L300'>    <font color='red'>}</font>
+<a name='L301'>
+<a name='L302'>  <b>if</b> (value &gt; ~0ULL / mult)
+<a name='L303'>    value = ~0ULL;
+<a name='L304'>  <b>else</b>
+<a name='L305'>    value *= mult;
+<a name='L306'>
+<a name='L307'>  *pvalue = value;
+<a name='L308'>  <b>return</b> true;
+<a name='L309'>
+<a name='L310'> invalid:
+<a name='L311'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for environment variable %s", name);
+<a name='L312'>  <b>return</b> false;
+<a name='L313'><font color='red'>}</font>
+<a name='L314'>
+<a name='L315'><i><font color='green'>/* Parse a boolean value for environment variable NAME and store the</font></i>
+<a name='L316'><i><font color='green'>   result in VALUE.  */</font></i>
+<a name='L317'>
+<a name='L318'><b>static</b> <b>void</b>
+<a name='L319'><a href='../R/343.html' title='Multiple refered from 2 places.'>parse_boolean</a> (<b>const</b> <b>char</b> *name, bool *value)
+<a name='L320'><font color='red'>{</font>
+<a name='L321'>  <b>const</b> <b>char</b> *env;
+<a name='L322'>
+<a name='L323'>  env = getenv (name);
+<a name='L324'>  <b>if</b> (env == NULL)
+<a name='L325'>    <b>return</b>;
+<a name='L326'>
+<a name='L327'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L328'>    ++env;
+<a name='L329'>  <b>if</b> (strncasecmp (env, "true", 4) == 0)
+<a name='L330'>    <font color='red'>{</font>
+<a name='L331'>      *value = true;
+<a name='L332'>      env += 4;
+<a name='L333'>    <font color='red'>}</font>
+<a name='L334'>  <b>else</b> <b>if</b> (strncasecmp (env, "false", 5) == 0)
+<a name='L335'>    <font color='red'>{</font>
+<a name='L336'>      *value = false;
+<a name='L337'>      env += 5;
+<a name='L338'>    <font color='red'>}</font>
+<a name='L339'>  <b>else</b>
+<a name='L340'>    env = "X";
+<a name='L341'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L342'>    ++env;
+<a name='L343'>  <b>if</b> (*env != '\0')
+<a name='L344'>    <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for environment variable %s", name);
+<a name='L345'><font color='red'>}</font>
+<a name='L346'>
+<a name='L347'><i><font color='green'>/* Parse the OMP_WAIT_POLICY environment variable and store the</font></i>
+<a name='L348'><i><font color='green'>   result in gomp_active_wait_policy.  */</font></i>
+<a name='L349'>
+<a name='L350'><b>static</b> <b>int</b>
+<a name='L351'><a href='../S/414.html#L500' title='Refered from 500 in env.c.'>parse_wait_policy</a> (<b>void</b>)
+<a name='L352'><font color='red'>{</font>
+<a name='L353'>  <b>const</b> <b>char</b> *env;
+<a name='L354'>  <b>int</b> ret = -1;
+<a name='L355'>
+<a name='L356'>  env = getenv ("OMP_WAIT_POLICY");
+<a name='L357'>  <b>if</b> (env == NULL)
+<a name='L358'>    <b>return</b> -1;
+<a name='L359'>
+<a name='L360'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L361'>    ++env;
+<a name='L362'>  <b>if</b> (strncasecmp (env, "active", 6) == 0)
+<a name='L363'>    <font color='red'>{</font>
+<a name='L364'>      ret = 1;
+<a name='L365'>      env += 6;
+<a name='L366'>    <font color='red'>}</font>
+<a name='L367'>  <b>else</b> <b>if</b> (strncasecmp (env, "passive", 7) == 0)
+<a name='L368'>    <font color='red'>{</font>
+<a name='L369'>      ret = 0;
+<a name='L370'>      env += 7;
+<a name='L371'>    <font color='red'>}</font>
+<a name='L372'>  <b>else</b>
+<a name='L373'>    env = "X";
+<a name='L374'>  <b>while</b> (isspace ((<b>unsigned</b> <b>char</b>) *env))
+<a name='L375'>    ++env;
+<a name='L376'>  <b>if</b> (*env == '\0')
+<a name='L377'>    <b>return</b> ret;
+<a name='L378'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for environment variable OMP_WAIT_POLICY");
+<a name='L379'>  <b>return</b> -1;
+<a name='L380'><font color='red'>}</font>
+<a name='L381'>
+<a name='L382'><i><font color='green'>/* Parse the GOMP_CPU_AFFINITY environment varible.  Return true if one was</font></i>
+<a name='L383'><i><font color='green'>   present and it was successfully parsed.  */</font></i>
+<a name='L384'>
+<a name='L385'><b>static</b> bool
+<a name='L386'><a href='../S/414.html#L498' title='Refered from 498 in env.c.'>parse_affinity</a> (<b>void</b>)
+<a name='L387'><font color='red'>{</font>
+<a name='L388'>  <b>char</b> *env, *<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L389'>  <b>unsigned</b> <b>long</b> cpu_beg, cpu_end, cpu_stride;
+<a name='L390'>  <b>unsigned</b> <b>short</b> *cpus = NULL;
+<a name='L391'>  size_t allocated = 0, used = 0, needed;
+<a name='L392'>
+<a name='L393'>  env = getenv ("GOMP_CPU_AFFINITY");
+<a name='L394'>  <b>if</b> (env == NULL)
+<a name='L395'>    <b>return</b> false;
+<a name='L396'>
+<a name='L397'>  <b>do</b>
+<a name='L398'>    <font color='red'>{</font>
+<a name='L399'>      <b>while</b> (*env == ' ' || *env == '\t')
+<a name='L400'>        env++;
+<a name='L401'>
+<a name='L402'>      cpu_beg = strtoul (env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 0);
+<a name='L403'>      cpu_end = cpu_beg;
+<a name='L404'>      cpu_stride = 1;
+<a name='L405'>      <b>if</b> (env == <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> || cpu_beg &gt;= 65536)
+<a name='L406'>        <b>goto</b> invalid;
+<a name='L407'>
+<a name='L408'>      env = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L409'>      <b>if</b> (*env == '-')
+<a name='L410'>        <font color='red'>{</font>
+<a name='L411'>          cpu_end = strtoul (++env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 0);
+<a name='L412'>          <b>if</b> (env == <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> || cpu_end &gt;= 65536 || cpu_end &lt; cpu_beg)
+<a name='L413'>            <b>goto</b> invalid;
+<a name='L414'>
+<a name='L415'>          env = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L416'>          <b>if</b> (*env == ':')
+<a name='L417'>            <font color='red'>{</font>
+<a name='L418'>              cpu_stride = strtoul (++env, &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, 0);
+<a name='L419'>              <b>if</b> (env == <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> || cpu_stride == 0 || cpu_stride &gt;= 65536)
+<a name='L420'>                <b>goto</b> invalid;
+<a name='L421'>
+<a name='L422'>              env = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L423'>            <font color='red'>}</font>
+<a name='L424'>        <font color='red'>}</font>
+<a name='L425'>
+<a name='L426'>      needed = (cpu_end - cpu_beg) / cpu_stride + 1;
+<a name='L427'>      <b>if</b> (used + needed &gt;= allocated)
+<a name='L428'>        <font color='red'>{</font>
+<a name='L429'>          <b>unsigned</b> <b>short</b> *new_cpus;
+<a name='L430'>
+<a name='L431'>          <b>if</b> (allocated &lt; 64)
+<a name='L432'>            allocated = 64;
+<a name='L433'>          <b>if</b> (allocated &gt; needed)
+<a name='L434'>            allocated &lt;&lt;= 1;
+<a name='L435'>          <b>else</b>
+<a name='L436'>            allocated += 2 * needed;
+<a name='L437'>          new_cpus = realloc (cpus, allocated * <b>sizeof</b> (<b>unsigned</b> <b>short</b>));
+<a name='L438'>          <b>if</b> (new_cpus == NULL)
+<a name='L439'>            <font color='red'>{</font>
+<a name='L440'>              free (cpus);
+<a name='L441'>              <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("not enough memory to store GOMP_CPU_AFFINITY list");
+<a name='L442'>              <b>return</b> false;
+<a name='L443'>            <font color='red'>}</font>
+<a name='L444'>
+<a name='L445'>          cpus = new_cpus;
+<a name='L446'>        <font color='red'>}</font>
+<a name='L447'>
+<a name='L448'>      <b>while</b> (needed--)
+<a name='L449'>        <font color='red'>{</font>
+<a name='L450'>          cpus[used++] = cpu_beg;
+<a name='L451'>          cpu_beg += cpu_stride;
+<a name='L452'>        <font color='red'>}</font>
+<a name='L453'>
+<a name='L454'>      <b>while</b> (*env == ' ' || *env == '\t')
+<a name='L455'>        env++;
+<a name='L456'>
+<a name='L457'>      <b>if</b> (*env == ',')
+<a name='L458'>        env++;
+<a name='L459'>      <b>else</b> <b>if</b> (*env == '\0')
+<a name='L460'>        <b>break</b>;
+<a name='L461'>    <font color='red'>}</font>
+<a name='L462'>  <b>while</b> (1);
+<a name='L463'>
+<a name='L464'>  gomp_cpu_affinity = cpus;
+<a name='L465'>  gomp_cpu_affinity_len = used;
+<a name='L466'>  <b>return</b> true;
+<a name='L467'>
+<a name='L468'> invalid:
+<a name='L469'>  <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Invalid value for enviroment variable GOMP_CPU_AFFINITY");
+<a name='L470'>  <b>return</b> false;
+<a name='L471'><font color='red'>}</font>
+<a name='L472'>
+<a name='L473'><b>static</b> <b>void</b> <b>__attribute__</b>((constructor))
+<a name='L474'>initialize_env (<b>void</b>)
+<a name='L475'><font color='red'>{</font>
+<a name='L476'>  <b>unsigned</b> <b>long</b> stacksize;
+<a name='L477'>  <b>int</b> wait_policy;
+<a name='L478'>
+<a name='L479'>  <i><font color='green'>/* Do a compile time check that mkomp_h.pl did good job.  */</font></i>
+<a name='L480'>  omp_check_defines ();
+<a name='L481'>
+<a name='L482'>  <a href='../S/414.html#L74' title='Defined at 74 in env.c.'>parse_schedule</a> ();
+<a name='L483'>  <a href='../S/414.html#L319' title='Defined at 319 in env.c.'>parse_boolean</a> ("OMP_DYNAMIC", &amp;gomp_global_icv.dyn_var);
+<a name='L484'>  <a href='../S/414.html#L319' title='Defined at 319 in env.c.'>parse_boolean</a> ("OMP_NESTED", &amp;gomp_global_icv.nest_var);
+<a name='L485'>  <a href='../S/414.html#L149' title='Defined at 149 in env.c.'>parse_unsigned_long</a> ("OMP_MAX_ACTIVE_LEVELS", &amp;gomp_max_active_levels_var,
+<a name='L486'>                       true);
+<a name='L487'>  <a href='../S/414.html#L149' title='Defined at 149 in env.c.'>parse_unsigned_long</a> ("OMP_THREAD_LIMIT", &amp;gomp_thread_limit_var, false);
+<a name='L488'>  <b>if</b> (gomp_thread_limit_var != ULONG_MAX)
+<a name='L489'>    gomp_remaining_threads_count = gomp_thread_limit_var - 1;
+<a name='L490'><font color='darkred'>#ifndef</font> HAVE_SYNC_BUILTINS
+<a name='L491'>  <a href='../D/239.html' title='Multiple defined in 3 places.'>gomp_mutex_init</a> (&amp;gomp_remaining_threads_lock);
+<a name='L492'><font color='darkred'>#endif</font>
+<a name='L493'>  <a href='../D/196.html' title='Multiple defined in 4 places.'>gomp_init_num_threads</a> ();
+<a name='L494'>  gomp_available_cpus = gomp_global_icv.nthreads_var;
+<a name='L495'>  <b>if</b> (!<a href='../S/414.html#L149' title='Defined at 149 in env.c.'>parse_unsigned_long</a> ("OMP_NUM_THREADS", &amp;gomp_global_icv.nthreads_var,
+<a name='L496'>                            false))
+<a name='L497'>    gomp_global_icv.nthreads_var = gomp_available_cpus;
+<a name='L498'>  <b>if</b> (<a href='../S/414.html#L386' title='Defined at 386 in env.c.'>parse_affinity</a> ())
+<a name='L499'>    <a href='../D/188.html' title='Multiple defined in 2 places.'>gomp_init_affinity</a> ();
+<a name='L500'>  wait_policy = <a href='../S/414.html#L351' title='Defined at 351 in env.c.'>parse_wait_policy</a> ();
+<a name='L501'>  <b>if</b> (!<a href='../S/414.html#L246' title='Defined at 246 in env.c.'>parse_spincount</a> ("GOMP_SPINCOUNT", &amp;gomp_spin_count_var))
+<a name='L502'>    <font color='red'>{</font>
+<a name='L503'>      <i><font color='green'>/* Using a rough estimation of 100000 spins per msec,</font></i>
+<a name='L504'><i><font color='green'>         use 5 min blocking for OMP_WAIT_POLICY=active,</font></i>
+<a name='L505'><i><font color='green'>         3 msec blocking when OMP_WAIT_POLICY is not specificed</font></i>
+<a name='L506'><i><font color='green'>         and 0 when OMP_WAIT_POLICY=passive.</font></i>
+<a name='L507'><i><font color='green'>         Depending on the CPU speed, this can be e.g. 5 times longer</font></i>
+<a name='L508'><i><font color='green'>         or 5 times shorter.  */</font></i>
+<a name='L509'>      <b>if</b> (wait_policy &gt; 0)
+<a name='L510'>        gomp_spin_count_var = 30000000000LL;
+<a name='L511'>      <b>else</b> <b>if</b> (wait_policy &lt; 0)
+<a name='L512'>        gomp_spin_count_var = 300000LL;
+<a name='L513'>    <font color='red'>}</font>
+<a name='L514'>  <i><font color='green'>/* gomp_throttled_spin_count_var is used when there are more libgomp</font></i>
+<a name='L515'><i><font color='green'>     managed threads than available CPUs.  Use very short spinning.  */</font></i>
+<a name='L516'>  <b>if</b> (wait_policy &gt; 0)
+<a name='L517'>    gomp_throttled_spin_count_var = 1000LL;
+<a name='L518'>  <b>else</b> <b>if</b> (wait_policy &lt; 0)
+<a name='L519'>    gomp_throttled_spin_count_var = 100LL;
+<a name='L520'>  <b>if</b> (gomp_throttled_spin_count_var &gt; gomp_spin_count_var)
+<a name='L521'>    gomp_throttled_spin_count_var = gomp_spin_count_var;
+<a name='L522'>
+<a name='L523'>  <i><font color='green'>/* Not strictly environment related, but ordering constructors is tricky.  */</font></i>
+<a name='L524'>  pthread_attr_init (&amp;gomp_thread_attr);
+<a name='L525'>  pthread_attr_setdetachstate (&amp;gomp_thread_attr, PTHREAD_CREATE_DETACHED);
+<a name='L526'>
+<a name='L527'>  <b>if</b> (<a href='../S/414.html#L185' title='Defined at 185 in env.c.'>parse_stacksize</a> ("OMP_STACKSIZE", &amp;stacksize)
+<a name='L528'>      || <a href='../S/414.html#L185' title='Defined at 185 in env.c.'>parse_stacksize</a> ("GOMP_STACKSIZE", &amp;stacksize))
+<a name='L529'>    <font color='red'>{</font>
+<a name='L530'>      <b>int</b> err;
+<a name='L531'>
+<a name='L532'>      err = pthread_attr_setstacksize (&amp;gomp_thread_attr, stacksize);
+<a name='L533'>
+<a name='L534'><font color='darkred'>#ifdef</font> PTHREAD_STACK_MIN
+<a name='L535'>      <b>if</b> (err == EINVAL)
+<a name='L536'>        <font color='red'>{</font>
+<a name='L537'>          <b>if</b> (stacksize &lt; PTHREAD_STACK_MIN)
+<a name='L538'>            <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Stack size less than minimum of %luk",
+<a name='L539'>                        PTHREAD_STACK_MIN / 1024ul
+<a name='L540'>                        + (PTHREAD_STACK_MIN % 1024 != 0));
+<a name='L541'>          <b>else</b>
+<a name='L542'>            <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Stack size larger than system limit");
+<a name='L543'>        <font color='red'>}</font>
+<a name='L544'>      <b>else</b>
+<a name='L545'><font color='darkred'>#endif</font>
+<a name='L546'>      <b>if</b> (err != 0)
+<a name='L547'>        <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> ("Stack size change failed: %s", strerror (err));
+<a name='L548'>    <font color='red'>}</font>
+<a name='L549'><font color='red'>}</font>
+<a name='L550'>
+<a name='L551'>
+<a name='L552'><i><font color='green'>/* The public OpenMP API routines that access these variables.  */</font></i>
+<a name='L553'>
+<a name='L554'><b>void</b>
+<a name='L555'><a href='../R/338.html' title='Multiple refered from 32 places.'>omp_set_num_threads</a> (<b>int</b> n)
+<a name='L556'><font color='red'>{</font>
+<a name='L557'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L558'>  icv-&gt;nthreads_var = (n &gt; 0 ? n : 1);
+<a name='L559'><font color='red'>}</font>
+<a name='L560'>
+<a name='L561'><b>void</b>
+<a name='L562'><a href='../R/335.html' title='Multiple refered from 60 places.'>omp_set_dynamic</a> (<b>int</b> val)
+<a name='L563'><font color='red'>{</font>
+<a name='L564'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L565'>  icv-&gt;dyn_var = val;
+<a name='L566'><font color='red'>}</font>
+<a name='L567'>
+<a name='L568'><b>int</b>
+<a name='L569'><a href='../R/316.html' title='Multiple refered from 3 places.'>omp_get_dynamic</a> (<b>void</b>)
+<a name='L570'><font color='red'>{</font>
+<a name='L571'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L572'>  <b>return</b> icv-&gt;dyn_var;
+<a name='L573'><font color='red'>}</font>
+<a name='L574'>
+<a name='L575'><b>void</b>
+<a name='L576'><a href='../R/337.html' title='Multiple refered from 17 places.'>omp_set_nested</a> (<b>int</b> val)
+<a name='L577'><font color='red'>{</font>
+<a name='L578'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L579'>  icv-&gt;nest_var = val;
+<a name='L580'><font color='red'>}</font>
+<a name='L581'>
+<a name='L582'><b>int</b>
+<a name='L583'><a href='../R/320.html' title='Multiple refered from 4 places.'>omp_get_nested</a> (<b>void</b>)
+<a name='L584'><font color='red'>{</font>
+<a name='L585'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L586'>  <b>return</b> icv-&gt;nest_var;
+<a name='L587'><font color='red'>}</font>
+<a name='L588'>
+<a name='L589'><b>void</b>
+<a name='L590'><a href='../R/339.html' title='Multiple refered from 38 places.'>omp_set_schedule</a> (omp_sched_t kind, <b>int</b> modifier)
+<a name='L591'><font color='red'>{</font>
+<a name='L592'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L593'>  <b>switch</b> (kind)
+<a name='L594'>    <font color='red'>{</font>
+<a name='L595'>    <b>case</b> omp_sched_static:
+<a name='L596'>      <b>if</b> (modifier &lt; 1)
+<a name='L597'>        modifier = 0;
+<a name='L598'>      icv-&gt;run_sched_modifier = modifier;
+<a name='L599'>      <b>break</b>;
+<a name='L600'>    <b>case</b> omp_sched_dynamic:
+<a name='L601'>    <b>case</b> omp_sched_guided:
+<a name='L602'>      <b>if</b> (modifier &lt; 1)
+<a name='L603'>        modifier = 1;
+<a name='L604'>      icv-&gt;run_sched_modifier = modifier;
+<a name='L605'>      <b>break</b>;
+<a name='L606'>    <b>case</b> omp_sched_auto:
+<a name='L607'>      <b>break</b>;
+<a name='L608'>    <b>default</b>:
+<a name='L609'>      <b>return</b>;
+<a name='L610'>    <font color='red'>}</font>
+<a name='L611'>  icv-&gt;run_sched_var = kind;
+<a name='L612'><font color='red'>}</font>
+<a name='L613'>
+<a name='L614'><b>void</b>
+<a name='L615'><a href='../R/323.html' title='Multiple refered from 4 places.'>omp_get_schedule</a> (omp_sched_t *kind, <b>int</b> *modifier)
+<a name='L616'><font color='red'>{</font>
+<a name='L617'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L618'>  *kind = icv-&gt;run_sched_var;
+<a name='L619'>  *modifier = icv-&gt;run_sched_modifier;
+<a name='L620'><font color='red'>}</font>
+<a name='L621'>
+<a name='L622'><b>int</b>
+<a name='L623'><a href='../R/319.html' title='Multiple refered from 12 places.'>omp_get_max_threads</a> (<b>void</b>)
+<a name='L624'><font color='red'>{</font>
+<a name='L625'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L626'>  <b>return</b> icv-&gt;nthreads_var;
+<a name='L627'><font color='red'>}</font>
+<a name='L628'>
+<a name='L629'><b>int</b>
+<a name='L630'><a href='../R/325.html' title='Multiple refered from 2 places.'>omp_get_thread_limit</a> (<b>void</b>)
+<a name='L631'><font color='red'>{</font>
+<a name='L632'>  <b>return</b> gomp_thread_limit_var &gt; <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> ? <a href='../D/72.html' title='Multiple defined in 6 places.'>INT_MAX</a> : gomp_thread_limit_var;
+<a name='L633'><font color='red'>}</font>
+<a name='L634'>
+<a name='L635'><b>void</b>
+<a name='L636'><a href='../R/336.html' title='Multiple refered from 6 places.'>omp_set_max_active_levels</a> (<b>int</b> max_levels)
+<a name='L637'><font color='red'>{</font>
+<a name='L638'>  <b>if</b> (max_levels &gt;= 0)
+<a name='L639'>    gomp_max_active_levels_var = max_levels;
+<a name='L640'><font color='red'>}</font>
+<a name='L641'>
+<a name='L642'><b>int</b>
+<a name='L643'><a href='../R/318.html' title='Multiple refered from 5 places.'>omp_get_max_active_levels</a> (<b>void</b>)
+<a name='L644'><font color='red'>{</font>
+<a name='L645'>  <b>return</b> gomp_max_active_levels_var;
+<a name='L646'><font color='red'>}</font>
+<a name='L647'>
+<a name='L648'>ialias (omp_set_dynamic)
+<a name='L649'>ialias (omp_set_nested)
+<a name='L650'>ialias (omp_set_num_threads)
+<a name='L651'>ialias (omp_get_dynamic)
+<a name='L652'>ialias (omp_get_nested)
+<a name='L653'>ialias (omp_set_schedule)
+<a name='L654'>ialias (omp_get_schedule)
+<a name='L655'>ialias (omp_get_max_threads)
+<a name='L656'>ialias (omp_get_thread_limit)
+<a name='L657'>ialias (omp_set_max_active_levels)
+<a name='L658'>ialias (omp_get_max_active_levels)
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L74'>[^]</a><a href='#L643'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

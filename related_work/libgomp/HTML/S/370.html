@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/copyin-2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/copyin-2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L12'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L12' title='Defined at 12.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'><i><font color='green'>/* { dg-options "-O2" } */</font></i>
+<a name='L3'><i><font color='green'>/* { dg-require-effective-target tls_runtime } */</font></i>
+<a name='L4'>
+<a name='L5'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L6'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L7'>
+<a name='L8'><b>struct</b> <font color='red'>{</font> <b>int</b> t; <b>char</b> buf[64]; <font color='red'>}</font> thr = <font color='red'>{</font> 32, "" <font color='red'>}</font>;
+<a name='L9'><font color='darkred'>#pragma</font> omp threadprivate (thr)
+<a name='L10'>
+<a name='L11'><b>int</b>
+<a name='L12'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L13'><font color='red'>{</font>
+<a name='L14'>  <b>int</b> l = 0;
+<a name='L15'>
+<a name='L16'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L17'>  <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> (6);
+<a name='L18'>
+<a name='L19'><font color='darkred'>#pragma</font> omp parallel copyin (thr) reduction (||:l)
+<a name='L20'>  <font color='red'>{</font>
+<a name='L21'>    l = thr.t != 32;
+<a name='L22'>    thr.t = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> () + 11;
+<a name='L23'>  <font color='red'>}</font>
+<a name='L24'>
+<a name='L25'>  <b>if</b> (l || thr.t != 11)
+<a name='L26'>    abort ();
+<a name='L27'>
+<a name='L28'><font color='darkred'>#pragma</font> omp parallel reduction (||:l)
+<a name='L29'>  l = thr.t != <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> () + 11;
+<a name='L30'>
+<a name='L31'>  <b>if</b> (l)
+<a name='L32'>    abort ();
+<a name='L33'>  <b>return</b> 0;
+<a name='L34'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L12'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

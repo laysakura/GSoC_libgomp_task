@@ -1,0 +1,145 @@
+libnthreads_pfm_la-nth_dwf_sched.lo: nth_dwf_sched.c ../config.h \
+ nth_sched.h nth_desc.h nth_config.h machine/i386-linux/nthmd_config.h \
+ nth_version.h nth_queue.h nth_spin.h nth_qt.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdarg.h \
+ nth_list.h nth_profiling.h machine/i386-linux/nthmd_clock.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdint.h \
+ /usr/include/stdint.h /usr/include/features.h \
+ /usr/include/bits/predefs.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h /usr/include/bits/wchar.h nth_instrument.h \
+ nth_taskdeps.h /usr/include/pthread.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/sched.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stddef.h \
+ /usr/include/time.h /usr/include/bits/sched.h /usr/include/bits/time.h \
+ /usr/include/xlocale.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/setjmp.h nth_data.h /usr/include/sys/resource.h \
+ /usr/include/bits/resource.h /usr/include/sys/times.h nth_support.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/sys/types.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h
+
+../config.h:
+
+nth_sched.h:
+
+nth_desc.h:
+
+nth_config.h:
+
+machine/i386-linux/nthmd_config.h:
+
+nth_version.h:
+
+nth_queue.h:
+
+nth_spin.h:
+
+nth_qt.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdarg.h:
+
+nth_list.h:
+
+nth_profiling.h:
+
+machine/i386-linux/nthmd_clock.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/bits/wchar.h:
+
+nth_instrument.h:
+
+nth_taskdeps.h:
+
+/usr/include/pthread.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stddef.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/setjmp.h:
+
+nth_data.h:
+
+/usr/include/sys/resource.h:
+
+/usr/include/bits/resource.h:
+
+/usr/include/sys/times.h:
+
+nth_support.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/alloca.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:

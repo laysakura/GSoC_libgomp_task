@@ -1,0 +1,277 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/for-3.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/for-3.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L19'>[^]</a><a href='#L191'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L19' title='Defined at 19.'>begin</a>
+<li><a href='#L21' title='Defined at 21.'>end</a>
+<li><a href='#L27' title='Defined at 27.'>baz</a>
+<li><a href='#L35' title='Defined at 35.'>f1</a>
+<li><a href='#L44' title='Defined at 44.'>f2</a>
+<li><a href='#L55' title='Defined at 55.'>f3</a>
+<li><a href='#L65' title='Defined at 65.'>f4</a>
+<li><a href='#L75' title='Defined at 75.'>f5</a>
+<li><a href='#L85' title='Defined at 85.'>f6</a>
+<li><a href='#L99' title='Defined at 99.'>f7</a>
+<li><a href='#L110' title='Defined at 110.'>f8</a>
+<li><a href='#L120' title='Defined at 120.'>f9</a>
+<li><a href='#L130' title='Defined at 130.'>f10</a>
+<li><a href='#L141' title='Defined at 141.'>f11</a>
+<li><a href='#L158' title='Defined at 158.'>f12</a>
+<li><a href='#L191' title='Defined at 191.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;vector&gt;
+<a name='L4'><font color='darkred'>#include</font> &lt;cstdlib&gt;
+<a name='L5'>
+<a name='L6'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L7'><b>class</b> <a href='../R/73.html' title='Multiple refered from 48 places.'>J</a>
+<a name='L8'><font color='red'>{</font>
+<a name='L9'><b>public</b>:
+<a name='L10'>  <b>typedef</b> <b>typename</b> std::vector&lt;T&gt;::<a href='../R/114.html' title='Multiple refered from 22 places.'>const_iterator</a> const_iterator;
+<a name='L11'>  <a href='../D/73.html' title='Multiple defined in 7 places.'>J</a>(<b>const</b> const_iterator &amp;x, <b>const</b> const_iterator &amp;y) : b (x), <a href='../R/124.html' title='Multiple refered from 432 places.'>e</a> (y) <font color='red'>{</font><font color='red'>}</font>
+<a name='L12'>  <b>const</b> <a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &amp;<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> ();
+<a name='L13'>  <b>const</b> <a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &amp;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> ();
+<a name='L14'><b>private</b>:
+<a name='L15'>  <a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> b, <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L16'><font color='red'>}</font>;
+<a name='L17'>
+<a name='L18'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L19'><b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &amp;<a href='../D/73.html' title='Multiple defined in 7 places.'>J</a>&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../R/109.html' title='Multiple refered from 84 places.'>begin</a> () <font color='red'>{</font> <b>return</b> b; <font color='red'>}</font>
+<a name='L20'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L21'><b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &amp;<a href='../D/73.html' title='Multiple defined in 7 places.'>J</a>&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../R/125.html' title='Multiple refered from 201 places.'>end</a> () <font color='red'>{</font> <b>return</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>; <font color='red'>}</font>
+<a name='L22'>
+<a name='L23'><b>int</b> results[2000];
+<a name='L24'>
+<a name='L25'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L26'><b>void</b>
+<a name='L27'><a href='../R/108.html' title='Multiple refered from 93 places.'>baz</a> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;i)
+<a name='L28'><font color='red'>{</font>
+<a name='L29'>  <b>if</b> (*i &lt; 0 || *i &gt;= 2000)
+<a name='L30'>    std::abort ();
+<a name='L31'>  results[*i]++;
+<a name='L32'><font color='red'>}</font>
+<a name='L33'>
+<a name='L34'><b>void</b>
+<a name='L35'><a href='../R/128.html' title='Multiple refered from 25 places.'>f1</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L36'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L37'><font color='red'>{</font>
+<a name='L38'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L39'>  <b>for</b> (std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i = x; i &lt;= y; i += 6)
+<a name='L40'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L41'><font color='red'>}</font>
+<a name='L42'>
+<a name='L43'><b>void</b>
+<a name='L44'><a href='../R/132.html' title='Multiple refered from 22 places.'>f2</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L45'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L46'><font color='red'>{</font>
+<a name='L47'>  std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i;
+<a name='L48'><font color='darkred'>#pragma</font> omp parallel <b>for</b> <b>private</b>(i)
+<a name='L49'>  <b>for</b> (i = x; i &lt; y - 1; i = 1 - 6 + 7 + i)
+<a name='L50'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L51'><font color='red'>}</font>
+<a name='L52'>
+<a name='L53'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L54'><b>void</b>
+<a name='L55'><a href='../R/133.html' title='Multiple refered from 21 places.'>f3</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L56'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L57'><font color='red'>{</font>
+<a name='L58'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (dynamic, 6)
+<a name='L59'>  <b>for</b> (std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i = x; i &lt;= y; i = i + 9 - 8)
+<a name='L60'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L61'><font color='red'>}</font>
+<a name='L62'>
+<a name='L63'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L64'><b>void</b>
+<a name='L65'><a href='../R/134.html' title='Multiple refered from 14 places.'>f4</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L66'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L67'><font color='red'>{</font>
+<a name='L68'>  std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i;
+<a name='L69'><font color='darkred'>#pragma</font> omp parallel <b>for</b> lastprivate(i)
+<a name='L70'>  <b>for</b> (i = x + 2000 - 64; i &gt; y + 10; --i)
+<a name='L71'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L72'><font color='red'>}</font>
+<a name='L73'>
+<a name='L74'><b>void</b>
+<a name='L75'><a href='../R/135.html' title='Multiple refered from 10 places.'>f5</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L76'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L77'><font color='red'>{</font>
+<a name='L78'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (<b>static</b>, 10)
+<a name='L79'>  <b>for</b> (std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i = x + 2000 - 64; i &gt; y + 10; i -= 10)
+<a name='L80'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L81'><font color='red'>}</font>
+<a name='L82'>
+<a name='L83'><b>template</b> &lt;<b>int</b> N&gt;
+<a name='L84'><b>void</b>
+<a name='L85'><a href='../R/136.html' title='Multiple refered from 10 places.'>f6</a> (<b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L86'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L87'><font color='red'>{</font>
+<a name='L88'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (runtime)
+<a name='L89'>  <b>for</b> (std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i = x + 2000 - 64;
+<a name='L90'>       i &gt; y + 10; i = i - 12 + 2)
+<a name='L91'>    <font color='red'>{</font>
+<a name='L92'>      std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> j = i + <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>;
+<a name='L93'>      <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (j);
+<a name='L94'>    <font color='red'>}</font>
+<a name='L95'><font color='red'>}</font>
+<a name='L96'>
+<a name='L97'><b>template</b> &lt;<b>int</b> N&gt;
+<a name='L98'><b>void</b>
+<a name='L99'><a href='../R/137.html' title='Multiple refered from 8 places.'>f7</a> (std::vector&lt;<b>int</b>&gt;::const_iterator i,
+<a name='L100'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;x,
+<a name='L101'>    <b>const</b> std::vector&lt;<b>int</b>&gt;::const_iterator &amp;y)
+<a name='L102'><font color='red'>{</font>
+<a name='L103'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (dynamic, 6)
+<a name='L104'>  <b>for</b> (i = x - 10; i &lt;= y + 10; i += <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>)
+<a name='L105'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L106'><font color='red'>}</font>
+<a name='L107'>
+<a name='L108'><b>template</b> &lt;<b>int</b> N&gt;
+<a name='L109'><b>void</b>
+<a name='L110'><a href='../R/138.html' title='Multiple refered from 7 places.'>f8</a> (<a href='../D/73.html' title='Multiple defined in 7 places.'>J</a>&lt;<b>int</b>&gt; j)
+<a name='L111'><font color='red'>{</font>
+<a name='L112'>  std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i;
+<a name='L113'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (dynamic, 40)
+<a name='L114'>  <b>for</b> (i = j.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> (); i &lt;= j.<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> () + <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i += 2)
+<a name='L115'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L116'><font color='red'>}</font>
+<a name='L117'>
+<a name='L118'><b>template</b> &lt;<b>typename</b> T, <b>int</b> N&gt;
+<a name='L119'><b>void</b>
+<a name='L120'><a href='../R/139.html' title='Multiple refered from 10 places.'>f9</a> (<b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::const_iterator &amp;x,
+<a name='L121'>    <b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::const_iterator &amp;y)
+<a name='L122'><font color='red'>{</font>
+<a name='L123'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (<b>static</b>, 25)
+<a name='L124'>  <b>for</b> (<b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i = x; i &lt;= y; i = i + <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>)
+<a name='L125'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L126'><font color='red'>}</font>
+<a name='L127'>
+<a name='L128'><b>template</b> &lt;<b>typename</b> T, <b>int</b> N&gt;
+<a name='L129'><b>void</b>
+<a name='L130'><a href='../R/129.html' title='Multiple refered from 11 places.'>f10</a> (<b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::const_iterator &amp;x,
+<a name='L131'>     <b>const</b> <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::const_iterator &amp;y)
+<a name='L132'><font color='red'>{</font>
+<a name='L133'>  <b>typename</b> std::vector&lt;<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> i;
+<a name='L134'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L135'>  <b>for</b> (i = x; i &gt; y; i = i + <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>)
+<a name='L136'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L137'><font color='red'>}</font>
+<a name='L138'>
+<a name='L139'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L140'><b>void</b>
+<a name='L141'><a href='../R/130.html' title='Multiple refered from 10 places.'>f11</a> (<b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;x, <b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;y)
+<a name='L142'><font color='red'>{</font>
+<a name='L143'><font color='darkred'>#pragma</font> omp parallel
+<a name='L144'>  <font color='red'>{</font>
+<a name='L145'><font color='darkred'>#pragma</font> omp <b>for</b> nowait schedule (<b>static</b>, 2)
+<a name='L146'>    <b>for</b> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i = x; i &lt;= y; i += 3)
+<a name='L147'>      <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L148'><font color='darkred'>#pragma</font> omp single
+<a name='L149'>    <font color='red'>{</font>
+<a name='L150'>      <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> j = y + 3;
+<a name='L151'>      <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (j);
+<a name='L152'>    <font color='red'>}</font>
+<a name='L153'>  <font color='red'>}</font>
+<a name='L154'><font color='red'>}</font>
+<a name='L155'>
+<a name='L156'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L157'><b>void</b>
+<a name='L158'><a href='../R/131.html' title='Multiple refered from 10 places.'>f12</a> (<b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;x, <b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;y)
+<a name='L159'><font color='red'>{</font>
+<a name='L160'>  <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i;
+<a name='L161'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (dynamic, 130)
+<a name='L162'>  <b>for</b> (i = x; i &gt; y; --i)
+<a name='L163'>    <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L164'><font color='red'>}</font>
+<a name='L165'>
+<a name='L166'><b>template</b> &lt;<b>int</b> N&gt;
+<a name='L167'><b>struct</b> <a href='../R/74.html' title='Multiple refered from 7 places.'>K</a>
+<a name='L168'><font color='red'>{</font>
+<a name='L169'>  <b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L170'>  <b>static</b> <b>void</b>
+<a name='L171'>  f13 (<b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;x, <b>const</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> &amp;y)
+<a name='L172'>  <font color='red'>{</font>
+<a name='L173'><font color='darkred'>#pragma</font> omp parallel <b>for</b> schedule (runtime)
+<a name='L174'>    <b>for</b> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i = x; i &lt;= y + <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i += <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>)
+<a name='L175'>      <a href='../D/111.html' title='Multiple defined in 11 places.'>baz</a> (i);
+<a name='L176'>  <font color='red'>}</font>
+<a name='L177'><font color='red'>}</font>;
+<a name='L178'>
+<a name='L179'><font color='darkred'>#define</font> <a href='../R/111.html' title='Multiple refered from 464 places.'>check</a>(expr) \
+<a name='L180'>  <b>for</b> (<b>int</b> i = 0; i &lt; 2000; i++)                        \
+<a name='L181'>    <b>if</b> (expr)                                           \
+<a name='L182'>      <font color='red'>{</font>                                                 \
+<a name='L183'>        <b>if</b> (results[i] != 1)                            \
+<a name='L184'>          std::abort ();                                \
+<a name='L185'>        results[i] = 0;                                 \
+<a name='L186'>      <font color='red'>}</font>                                                 \
+<a name='L187'>    <b>else</b> <b>if</b> (results[i])                                \
+<a name='L188'>      std::abort ()
+<a name='L189'>
+<a name='L190'><b>int</b>
+<a name='L191'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L192'><font color='red'>{</font>
+<a name='L193'>  std::vector&lt;<b>int</b>&gt; a(2000);
+<a name='L194'>  std::vector&lt;<b>long</b>&gt; b(2000);
+<a name='L195'>  <b>for</b> (<b>int</b> i = 0; i &lt; 2000; i++)
+<a name='L196'>    <font color='red'>{</font>
+<a name='L197'>      a[i] = i;
+<a name='L198'>      b[i] = i;
+<a name='L199'>    <font color='red'>}</font>
+<a name='L200'>  <a href='../D/131.html' title='Multiple defined in 21 places.'>f1</a> (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 10, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1990);
+<a name='L201'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 10 &amp;&amp; i &lt;= 1990 &amp;&amp; (i - 10) % 6 == 0);
+<a name='L202'>  <a href='../D/135.html' title='Multiple defined in 21 places.'>f2</a> (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 0, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1999);
+<a name='L203'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &lt; 1998 &amp;&amp; (i &amp; 1) == 0);
+<a name='L204'>  <a href='../D/136.html' title='Multiple defined in 17 places.'>f3</a>&lt;<b>char</b>&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 20, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1837);
+<a name='L205'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 20 &amp;&amp; i &lt;= 1837);
+<a name='L206'>  <a href='../D/137.html' title='Multiple defined in 13 places.'>f4</a>&lt;<b>int</b>&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 0, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 30);
+<a name='L207'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt; 40 &amp;&amp; i &lt;= 2000 - 64);
+<a name='L208'>  <a href='../D/138.html' title='Multiple defined in 10 places.'>f5</a> (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 0, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 100);
+<a name='L209'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 116 &amp;&amp; i &lt;= 2000 - 64 &amp;&amp; (i - 116) % 10 == 0);
+<a name='L210'>  <a href='../D/139.html' title='Multiple defined in 10 places.'>f6</a>&lt;-10&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 10, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 110);
+<a name='L211'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 116 &amp;&amp; i &lt;= 2000 - 64 &amp;&amp; (i - 116) % 10 == 0);
+<a name='L212'>  <a href='../D/140.html' title='Multiple defined in 8 places.'>f7</a>&lt;6&gt; (std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> (), a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 12,
+<a name='L213'>         a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1800);
+<a name='L214'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 2 &amp;&amp; i &lt;= 1808 &amp;&amp; (i - 2) % 6 == 0);
+<a name='L215'>  <a href='../D/141.html' title='Multiple defined in 7 places.'>f8</a>&lt;121&gt; (<a href='../D/73.html' title='Multiple defined in 7 places.'>J</a>&lt;<b>int</b>&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 14, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1803));
+<a name='L216'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 14 &amp;&amp; i &lt;= 1924 &amp;&amp; (i &amp; 1) == 0);
+<a name='L217'>  <a href='../D/142.html' title='Multiple defined in 7 places.'>f9</a>&lt;<b>int</b>, 7&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 33, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1967);
+<a name='L218'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 33 &amp;&amp; i &lt;= 1967 &amp;&amp; (i - 33) % 7 == 0);
+<a name='L219'>  <a href='../D/132.html' title='Multiple defined in 7 places.'>f10</a>&lt;<b>int</b>, -7&gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1939, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 17);
+<a name='L220'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 21 &amp;&amp; i &lt;= 1939 &amp;&amp; (i - 21) % 7 == 0);
+<a name='L221'>  <a href='../D/133.html' title='Multiple defined in 6 places.'>f11</a>&lt;std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 16, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1981);
+<a name='L222'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 16 &amp;&amp; i &lt;= 1984 &amp;&amp; (i - 16) % 3 == 0);
+<a name='L223'>  <a href='../D/134.html' title='Multiple defined in 6 places.'>f12</a>&lt;std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1761, a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 37);
+<a name='L224'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt; 37 &amp;&amp; i &lt;= 1761);
+<a name='L225'>  <a href='../D/74.html' title='Multiple defined in 4 places.'>K</a>&lt;5&gt;::f13&lt;std::vector&lt;<b>int</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1,
+<a name='L226'>                                                a.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1935);
+<a name='L227'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 1 &amp;&amp; i &lt;= 1936 &amp;&amp; (i - 1) % 5 == 0);
+<a name='L228'>  <a href='../D/142.html' title='Multiple defined in 7 places.'>f9</a>&lt;<b>long</b>, 7&gt; (b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 33, b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1967);
+<a name='L229'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 33 &amp;&amp; i &lt;= 1967 &amp;&amp; (i - 33) % 7 == 0);
+<a name='L230'>  <a href='../D/132.html' title='Multiple defined in 7 places.'>f10</a>&lt;<b>long</b>, -7&gt; (b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1939, b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 17);
+<a name='L231'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 21 &amp;&amp; i &lt;= 1939 &amp;&amp; (i - 21) % 7 == 0);
+<a name='L232'>  <a href='../D/133.html' title='Multiple defined in 6 places.'>f11</a>&lt;std::vector&lt;<b>long</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 16, b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1981);
+<a name='L233'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 16 &amp;&amp; i &lt;= 1984 &amp;&amp; (i - 16) % 3 == 0);
+<a name='L234'>  <a href='../D/134.html' title='Multiple defined in 6 places.'>f12</a>&lt;std::vector&lt;<b>long</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1761, b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 37);
+<a name='L235'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt; 37 &amp;&amp; i &lt;= 1761);
+<a name='L236'>  <a href='../D/74.html' title='Multiple defined in 4 places.'>K</a>&lt;5&gt;::f13&lt;std::vector&lt;<b>long</b>&gt;::<a href='../S/90.html#L10' title='Defined at 10 in testsuite/libgomp.c++/for-3.C.'>const_iterator</a> &gt; (b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1,
+<a name='L237'>                                                 b.<a href='../D/112.html' title='Multiple defined in 7 places.'>begin</a> () + 1935);
+<a name='L238'>  <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> (i &gt;= 1 &amp;&amp; i &lt;= 1936 &amp;&amp; (i - 1) % 5 == 0);
+<a name='L239'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L19'>[^]</a><a href='#L191'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

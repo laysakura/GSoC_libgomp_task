@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/reduction-4.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/reduction-4.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L5'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L5' title='Defined at 5.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L2'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L3'>
+<a name='L4'><b>int</b>
+<a name='L5'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L6'><font color='red'>{</font>
+<a name='L7'>  <b>int</b> i = 0, j = 0, k = 0, l = 0;
+<a name='L8'><font color='darkred'>#pragma</font> omp parallel num_threads(4) reduction(-:i) reduction(|:k) \
+<a name='L9'>                     reduction(^:l)
+<a name='L10'>  <font color='red'>{</font>
+<a name='L11'>    <b>if</b> (i != 0 || k != 0 || l != 0)
+<a name='L12'><font color='darkred'>#pragma</font> omp atomic
+<a name='L13'>      j |= 1;
+<a name='L14'>  
+<a name='L15'>    <b>if</b> (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 4)
+<a name='L16'><font color='darkred'>#pragma</font> omp atomic
+<a name='L17'>      j |= 2;
+<a name='L18'>
+<a name='L19'>    i = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();
+<a name='L20'>    k = 1 &lt;&lt; (2 * i);
+<a name='L21'>    l = 0xea &lt;&lt; (3 * i);
+<a name='L22'>  <font color='red'>}</font>
+<a name='L23'>
+<a name='L24'>  <b>if</b> (j &amp; 1)
+<a name='L25'>    abort ();
+<a name='L26'>  <b>if</b> ((j &amp; 2) == 0)
+<a name='L27'>    <font color='red'>{</font>
+<a name='L28'>      <b>if</b> (i != (0 + 1 + 2 + 3))
+<a name='L29'>        abort ();
+<a name='L30'>      <b>if</b> (k != 0x55)
+<a name='L31'>        abort ();
+<a name='L32'>      <b>if</b> (l != 0x1e93a)
+<a name='L33'>        abort ();
+<a name='L34'>    <font color='red'>}</font>
+<a name='L35'>  <b>return</b> 0;
+<a name='L36'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L5'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

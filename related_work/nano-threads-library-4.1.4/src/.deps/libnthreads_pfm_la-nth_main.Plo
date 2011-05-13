@@ -1,0 +1,262 @@
+libnthreads_pfm_la-nth_main.lo: nth_main.c nth_config.h \
+ machine/i386-linux/nthmd_config.h nth_version.h ../config.h nthreads.h \
+ nth_desc.h nth_queue.h nth_spin.h nth_qt.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdarg.h \
+ nth_list.h nth_profiling.h machine/i386-linux/nthmd_clock.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdint.h \
+ /usr/include/stdint.h /usr/include/features.h \
+ /usr/include/bits/predefs.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h /usr/include/bits/wchar.h nth_instrument.h \
+ nth_taskdeps.h /usr/include/pthread.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/sched.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stddef.h \
+ /usr/include/time.h /usr/include/bits/sched.h /usr/include/bits/time.h \
+ /usr/include/xlocale.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/setjmp.h nth_main.h nth_data.h \
+ /usr/include/sys/resource.h /usr/include/bits/resource.h \
+ /usr/include/sys/times.h nth_stack.h nth_alloc.h nth_sched.h \
+ nth_support.h /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/sys/types.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/alloca.h /usr/include/stdio.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h nth_gv.h /usr/include/getopt.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include-fixed/limits.h \
+ /home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/math.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+ /usr/include/bits/inf.h /usr/include/bits/nan.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ /usr/include/bits/mathinline.h /usr/include/signal.h \
+ /usr/include/bits/signum.h /usr/include/bits/siginfo.h \
+ /usr/include/bits/sigaction.h /usr/include/bits/sigcontext.h \
+ /usr/include/bits/sigstack.h /usr/include/sys/ucontext.h \
+ /usr/include/bits/sigthread.h /usr/include/string.h \
+ /usr/include/bits/string.h /usr/include/bits/string2.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/linux/unistd.h /usr/include/asm/unistd.h \
+ /usr/include/asm/unistd_32.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h
+
+nth_config.h:
+
+machine/i386-linux/nthmd_config.h:
+
+nth_version.h:
+
+../config.h:
+
+nthreads.h:
+
+nth_desc.h:
+
+nth_queue.h:
+
+nth_spin.h:
+
+nth_qt.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdarg.h:
+
+nth_list.h:
+
+nth_profiling.h:
+
+machine/i386-linux/nthmd_clock.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/bits/wchar.h:
+
+nth_instrument.h:
+
+nth_taskdeps.h:
+
+/usr/include/pthread.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include/stddef.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/bits/setjmp.h:
+
+nth_main.h:
+
+nth_data.h:
+
+/usr/include/sys/resource.h:
+
+/usr/include/bits/resource.h:
+
+/usr/include/sys/times.h:
+
+nth_stack.h:
+
+nth_alloc.h:
+
+nth_sched.h:
+
+nth_support.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/alloca.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+nth_gv.h:
+
+/usr/include/getopt.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include-fixed/limits.h:
+
+/home/sho/software/gcc/lib/gcc/i686-pc-linux-gnu/4.7.0/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/math.h:
+
+/usr/include/bits/huge_val.h:
+
+/usr/include/bits/huge_valf.h:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/include/bits/inf.h:
+
+/usr/include/bits/nan.h:
+
+/usr/include/bits/mathdef.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/bits/mathinline.h:
+
+/usr/include/signal.h:
+
+/usr/include/bits/signum.h:
+
+/usr/include/bits/siginfo.h:
+
+/usr/include/bits/sigaction.h:
+
+/usr/include/bits/sigcontext.h:
+
+/usr/include/bits/sigstack.h:
+
+/usr/include/sys/ucontext.h:
+
+/usr/include/bits/sigthread.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/linux/unistd.h:
+
+/usr/include/asm/unistd.h:
+
+/usr/include/asm/unistd_32.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:

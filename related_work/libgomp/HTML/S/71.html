@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/loop-5.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/loop-5.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L4'>[^]</a><a href='#L10'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L4' title='Defined at 4.'>f1</a>
+<li><a href='#L5' title='Defined at 5.'>f2</a>
+<li><a href='#L6' title='Defined at 6.'>f3</a>
+<li><a href='#L10' title='Defined at 10.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L2'>
+<a name='L3'><b>int</b> <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a>;
+<a name='L4'><b>int</b> <a href='../R/128.html' title='Multiple refered from 25 places.'>f1</a>() <font color='red'>{</font> <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> |= 1; <b>return</b> 1; <font color='red'>}</font>
+<a name='L5'><b>int</b> <a href='../R/132.html' title='Multiple refered from 22 places.'>f2</a>() <font color='red'>{</font> <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> |= 2; <b>return</b> 11; <font color='red'>}</font>
+<a name='L6'><b>int</b> <a href='../R/133.html' title='Multiple refered from 21 places.'>f3</a>() <font color='red'>{</font> <a href='../D/114.html' title='Multiple defined in 14 places.'>check</a> |= 4; <b>return</b> 2; <font color='red'>}</font>
+<a name='L7'>
+<a name='L8'><b>int</b> a[12];
+<a name='L9'>
+<a name='L10'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L11'><font color='red'>{</font>
+<a name='L12'><font color='darkred'>  #pragma</font> omp <b>for</b>
+<a name='L13'>  <b>for</b> (<b>int</b> i = <a href='../D/131.html' title='Multiple defined in 21 places.'>f1</a>(); i &lt;= <a href='../D/135.html' title='Multiple defined in 21 places.'>f2</a>(); i += <a href='../D/136.html' title='Multiple defined in 17 places.'>f3</a>())
+<a name='L14'>    a[i] = 1;
+<a name='L15'>
+<a name='L16'>  <b>for</b> (<b>int</b> i = 0; i &lt; 12; ++i)
+<a name='L17'>    <b>if</b> (a[i] != (i &amp; 1))
+<a name='L18'>      abort ();
+<a name='L19'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L4'>[^]</a><a href='#L10'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

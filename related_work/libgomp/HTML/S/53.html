@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>config/linux/x86/futex.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/<a href='../files/432.html'>x86</a>/futex.h</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L33'>[^]</a><a href='#L150'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='58.html#L45' title='Included from 45 in config/linux/wait.h.'>INCLUDED FROM</a></h2>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L33' title='Defined at 33.'>futex_wait</a>
+<li><a href='#L58' title='Defined at 58.'>futex_wake</a>
+<li><a href='#L86' title='Defined at 86.'>sys_futex0</a>
+<li><a href='#L103' title='Defined at 103.'>sys_futex0</a>
+<li><a href='#L118' title='Defined at 118.'>futex_wait</a>
+<li><a href='#L130' title='Defined at 130.'>futex_wake</a>
+<li><a href='#L144' title='Defined at 144.'>cpu_relax</a>
+<li><a href='#L150' title='Defined at 150.'>atomic_write_barrier</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* Provide target-specific access to the futex system call.  */</font></i>
+<a name='L26'>
+<a name='L27'><font color='darkred'>#ifdef</font> __LP64__
+<a name='L28'><font color='darkred'># ifndef</font> <a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>
+<a name='L29'><font color='darkred'>#  define</font> <a href='../R/88.html' title='Multiple refered from 22 places.'>SYS_futex</a>     202
+<a name='L30'><font color='darkred'># endif</font>
+<a name='L31'>
+<a name='L32'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L33'><a href='../S/58.html#L58' title='Refered from 58 in config/linux/wait.h.'>futex_wait</a> (<b>int</b> *addr, <b>int</b> val)
+<a name='L34'><font color='red'>{</font>
+<a name='L35'>  <b>register</b> <b>long</b> r10 <b>__asm__</b>("%r10");
+<a name='L36'>  <b>long</b> res;
+<a name='L37'>
+<a name='L38'>  r10 = 0;
+<a name='L39'>  <b>__asm</b> <b>volatile</b> ("syscall"
+<a name='L40'>                  : "=a" (res)
+<a name='L41'>                  : "0" (<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "D" (addr), "S" (gomp_futex_wait),
+<a name='L42'>                    "d" (val), "r" (r10)
+<a name='L43'>                  : "r11", "rcx", "memory");
+<a name='L44'>  <b>if</b> (__builtin_expect (res == -ENOSYS, 0))
+<a name='L45'>    <font color='red'>{</font>
+<a name='L46'>      gomp_futex_wait &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L47'>      gomp_futex_wake &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L48'>      r10 = 0;
+<a name='L49'>      <b>__asm</b> <b>volatile</b> ("syscall"
+<a name='L50'>                      : "=a" (res)
+<a name='L51'>                      : "0" (<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "D" (addr), "S" (gomp_futex_wait),
+<a name='L52'>                        "d" (val), "r" (r10)
+<a name='L53'>                      : "r11", "rcx", "memory");
+<a name='L54'>    <font color='red'>}</font>
+<a name='L55'><font color='red'>}</font>
+<a name='L56'>
+<a name='L57'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L58'><a href='../R/152.html' title='Multiple refered from 7 places.'>futex_wake</a> (<b>int</b> *addr, <b>int</b> count)
+<a name='L59'><font color='red'>{</font>
+<a name='L60'>  <b>long</b> res;
+<a name='L61'>
+<a name='L62'>  <b>__asm</b> <b>volatile</b> ("syscall"
+<a name='L63'>                  : "=a" (res)
+<a name='L64'>                  : "0" (<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "D" (addr), "S" (gomp_futex_wake),
+<a name='L65'>                    "d" (count)
+<a name='L66'>                  : "r11", "rcx", "memory");
+<a name='L67'>  <b>if</b> (__builtin_expect (res == -ENOSYS, 0))
+<a name='L68'>    <font color='red'>{</font>
+<a name='L69'>      gomp_futex_wait &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L70'>      gomp_futex_wake &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L71'>      <b>__asm</b> <b>volatile</b> ("syscall"
+<a name='L72'>                      : "=a" (res)
+<a name='L73'>                      : "0" (<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "D" (addr), "S" (gomp_futex_wake),
+<a name='L74'>                        "d" (count)
+<a name='L75'>                      : "r11", "rcx", "memory");
+<a name='L76'>    <font color='red'>}</font>
+<a name='L77'><font color='red'>}</font>
+<a name='L78'><font color='darkred'>#else</font>
+<a name='L79'><font color='darkred'># ifndef</font> <a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>
+<a name='L80'><font color='darkred'>#  define</font> <a href='../R/88.html' title='Multiple refered from 22 places.'>SYS_futex</a>     240
+<a name='L81'><font color='darkred'># endif</font>
+<a name='L82'>
+<a name='L83'><font color='darkred'># ifdef</font> __PIC__
+<a name='L84'>
+<a name='L85'><b>static</b> <b>inline</b> <b>long</b>
+<a name='L86'><a href='../R/370.html' title='Multiple refered from 22 places.'>sys_futex0</a> (<b>int</b> *addr, <b>int</b> op, <b>int</b> val)
+<a name='L87'><font color='red'>{</font>
+<a name='L88'>  <b>long</b> res;
+<a name='L89'>
+<a name='L90'>  <b>__asm</b> <b>volatile</b> ("xchgl\t%%ebx, %2\n\t"
+<a name='L91'>                  "int\t$0x80\n\t"
+<a name='L92'>                  "xchgl\t%%ebx, %2"
+<a name='L93'>                  : "=a" (res)
+<a name='L94'>                  : "0"(<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "r" (addr), "c"(op),
+<a name='L95'>                    "d"(val), "S"(0)
+<a name='L96'>                  : "memory");
+<a name='L97'>  <b>return</b> res;
+<a name='L98'><font color='red'>}</font>
+<a name='L99'>
+<a name='L100'><font color='darkred'># else</font>
+<a name='L101'>
+<a name='L102'><b>static</b> <b>inline</b> <b>long</b>
+<a name='L103'><a href='../R/370.html' title='Multiple refered from 22 places.'>sys_futex0</a> (<b>int</b> *addr, <b>int</b> op, <b>int</b> val)
+<a name='L104'><font color='red'>{</font>
+<a name='L105'>  <b>long</b> res;
+<a name='L106'>
+<a name='L107'>  <b>__asm</b> <b>volatile</b> ("int $0x80"
+<a name='L108'>                  : "=a" (res)
+<a name='L109'>                  : "0"(<a href='../D/88.html' title='Multiple defined in 3 places.'>SYS_futex</a>), "b" (addr), "c"(op),
+<a name='L110'>                    "d"(val), "S"(0)
+<a name='L111'>                  : "memory");
+<a name='L112'>  <b>return</b> res;
+<a name='L113'><font color='red'>}</font>
+<a name='L114'>
+<a name='L115'><font color='darkred'># endif</font> <i><font color='green'>/* __PIC__ */</font></i>
+<a name='L116'>
+<a name='L117'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L118'><a href='../S/58.html#L58' title='Refered from 58 in config/linux/wait.h.'>futex_wait</a> (<b>int</b> *addr, <b>int</b> val)
+<a name='L119'><font color='red'>{</font>
+<a name='L120'>  <b>long</b> res = <a href='../D/427.html' title='Multiple defined in 7 places.'>sys_futex0</a> (addr, gomp_futex_wait, val);
+<a name='L121'>  <b>if</b> (__builtin_expect (res == -ENOSYS, 0))
+<a name='L122'>    <font color='red'>{</font>
+<a name='L123'>      gomp_futex_wait &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L124'>      gomp_futex_wake &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L125'>      <a href='../D/427.html' title='Multiple defined in 7 places.'>sys_futex0</a> (addr, gomp_futex_wait, val);
+<a name='L126'>    <font color='red'>}</font>
+<a name='L127'><font color='red'>}</font>
+<a name='L128'>
+<a name='L129'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L130'><a href='../R/152.html' title='Multiple refered from 7 places.'>futex_wake</a> (<b>int</b> *addr, <b>int</b> count)
+<a name='L131'><font color='red'>{</font>
+<a name='L132'>  <b>long</b> res = <a href='../D/427.html' title='Multiple defined in 7 places.'>sys_futex0</a> (addr, gomp_futex_wake, count);
+<a name='L133'>  <b>if</b> (__builtin_expect (res == -ENOSYS, 0))
+<a name='L134'>    <font color='red'>{</font>
+<a name='L135'>      gomp_futex_wait &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L136'>      gomp_futex_wake &amp;= ~<a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L137'>      <a href='../D/427.html' title='Multiple defined in 7 places.'>sys_futex0</a> (addr, gomp_futex_wake, count);
+<a name='L138'>    <font color='red'>}</font>
+<a name='L139'><font color='red'>}</font>
+<a name='L140'>
+<a name='L141'><font color='darkred'>#endif</font> <i><font color='green'>/* __LP64__ */</font></i>
+<a name='L142'>
+<a name='L143'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L144'><a href='../S/58.html#L57' title='Refered from 57 in config/linux/wait.h.'>cpu_relax</a> (<b>void</b>)
+<a name='L145'><font color='red'>{</font>
+<a name='L146'>  <b>__asm</b> <b>volatile</b> ("rep; nop" : : : "memory");
+<a name='L147'><font color='red'>}</font>
+<a name='L148'>
+<a name='L149'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L150'><a href='../R/106.html' title='Multiple refered from 2 places.'>atomic_write_barrier</a> (<b>void</b>)
+<a name='L151'><font color='red'>{</font>
+<a name='L152'>  __sync_synchronize ();
+<a name='L153'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L33'>[^]</a><a href='#L150'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,111 @@
+いきなりlibgompにマージするのではなく，自分の考えたデータ構造をexplicitに使うようなプログラムで性能を見るのがよさそう
+
+二重のparallel構文とかどうすんの?つーかparallel構文とかsingle構文で何をすべきか分かってない
+nested parallel directive に関する仕様がやたら分かりづらい．
+
+* 目標
+  まずは最低限動くものを作る．後々実装するだろうけど，カットするfeatures
+  - cutoff
+  - untied task
+  - barrier 対応
+  - 何かうまいこと親子関係に注意してworkstealしたらdata localityが担保できるらしいじゃん?それ
+  - task queue の緻密なlock戦略．この辺は中島さんの論文が最高によい
+  - work-firstなscheduler,とそれに伴うcontext switch
+    - work firstだと，親taskが子taskを生成した瞬間に，親をsuspendして子の実行を始めなければならない．
+      つまり，task構文がスケジューリングポイントになる
+  - nested parallel directive
+  - overheadを減らすため，ところどころ関数じゃなくてmacroにする
+    - static inline void __attribute__((always_inline)) fun(args) とかでヘッダに関数定義すればおkっぽい
+  - assert()の代わりに，ユーザに有用なエラーメッセージ
+  - unlikely マクロとか使えたら使う
+
+
+* 概念図
+  #+CAPTION: 概念図(4コアの場合)
+  #+LABEL: fig:abstruct
+  #+BEGIN_SRC ditaa :file abstruct.png :cmdline -s 2.5
+
+ +------+                   +------+                     +------+                       +------+
+ |      |                   |      |                     |      |                       |      |
+ | CPU0 |                   | CPU1 |                     | CPU2 |                       | CPU3 |
+ |      |                   |      |                     |      |                       |      |
+ +--+---+                   +---+--+                     +---+--+                       +---+--+
+    | affinity                  |                            |                              |
++---+-------------+        +----+------------+          +----+------------+            +----+------------+
+|  user thread    |        |  user thread    |          |  user thread    |            |  user thread    |
+|                 |        |                 |          |                 |            |                 |
+|  pop/push       |        |  pop/push       |          |  pop/push       |            |  pop/push       |
+|   +--+          |        |   +--+          |          |   +--+          |            |   +--+          |
+|   |  |          |        |   |  |          |          |   |  |          |            |   |  |          |
+|   +--+          |        |   +--+          |          |   +--+          |            |   +--+          |
+|   |  |          |        |   |  |          |          |   |  |          |            |   |  |          |
+|   +--+  deque   |        |   +--+  deque   |          |   +--+  deque   |            |   +--+  deque   |
+|   |  |          |        |   |  |          |          |   |  |          |            |   |  |          |
+|   +--+          |        |   +--+          |          |   +--+          |            |   +--+          |
+|   |  |          |        |   |  |          |          |   |  |          |            |   |  |          |
+|   +--+          |        |   +--+          |          |   +--+          |            |   +--+          |
+|  take(steal)    |        |  take(steal)    |          |  take(steal)    |            |  take(steal)    |
++--------+--------+        +--------+--------+          +--------+--------+            +---------+-------+
+         |   point                  |                            |                               |
+         v                          v                            v                               v
++--------+--------+        +-----------------+          +-----------------+            +-----------------+
+|  kernel thread  |        |  kernel thread  |          |  kernel thread  |            |  kernel thread  |
+|  = pthread      |        |  = pthread      |          |  = pthread      |            |  = pthread      |
+|                 |        |                 |          |                 |            |                 |
+| +-----------+   |        | +-----------+   |          | +-----------+   |            | +-----------+   |
+| |           |   |        | |           |   |          | |           |   |            | |           |   |
+| +-----------+   |        | +-----------+   |          | +-----------+   |            | +-----------+   |
+| |           |   |        | |           |   |          | |           |   |            | |           |   |
+| +-----------+   |        | +-----------+   |          | +-----------+   |            | +-----------+   |
+|  call-stack     |        |  call-stack     |          |  call-stack     |            |  call-stack     |
++-----------------+        +-----------------+          +-----------------+            +-----------------+
+
+  #+END_SRC
+
+
+* Data structures
+** task
+   - 実行すべきコード(outlinedなやつ)と引数
+   - volatile num_children: 子taskの数．これが0になったらtaskwait終了．
+     これを増減させるのは，各子の役割にするのが綺麗．
+   - parent: 親taskへのポインタ．親のnum_childrenの増減などに使う．
+
+** user thread (worker)
+   CPUコアと同じ数だけ存在するのが理想．実際にはOMP_NUM_THREADSとかに左右される
+   - task queue: taskを入れるdeque．この中の全てのtaskはworksteal対象
+     (breadth-first scheduling における tied taskはsuspendすることがないので)．
+   - kernel thread へのポインタ: queueから出したtaskはこいつに実行してもらう
+   - task queue が空になった際に実行する処理へのポインタ:
+     空の時は，work stealingをする処理をずっとさせておく
+   - thread id: master thread の0からスタートするあれ
+
+** kernel thread
+   user thread と同じ数だけ存在する(1:1対応)．pthreadが実体．
+   pthread_setaffinity_np() とかで1つのCPUコアにbindさせる．
+   (他のプロセスとの)context switchはkernel schedulerに任せ，callstackはpthreadのものをそのまま使う
+
+** team
+   user thread の集合を管理
+   - master_thread: master_threadへのポインタ
+
+** task private queue
+   task のdeque．双方向リストで実装(配列は，1つずらしとかがあるので向いてない)．
+   と思ったが，リストはnext,prevポインタのメモリ使用が気になる．配列をとことん抽象化させようと思う．
+   具体的にはこんな感じ．
+   まず特定のサイズの配列を確保する．インターフェースはhead/tailに対するアクセスだけなので，taskが挿入されるごとにhead/tail
+   のindexをズラしていけばおk．dequeのサイズ自体が足りなくなったら配列のサイズを大きくする(MassiveThreadsでは実装諦めてたw)
+   - dequeに対して抽象的なアクセスを可能にするメソッド群
+   - mutex: 排他制御の鍵
+
+* Events
+** work stealing
+   1. 自分以外のworkerをランダムに選ぶ
+   2. そのworkerがworkstealingを許可していれば，そのworkerのdequeをロックし，taskを奪うことを試みる．
+   3. 2が成功すればwork stealing 終了．失敗すれば1に戻る
+
+   2は多少掘り下げる必要がある．「許可」の条件を，「taskが一個以上dequeに残っている」とし，taskを奪う動作をするときに
+   もしかしたら既にdequeにtaskはいないことも仮定するようにする．こうすれば，dequeに対するlockを最小限にすることができるのではないか
+
+
+** Meeting tied task directive
+** Meeting taskwait directive

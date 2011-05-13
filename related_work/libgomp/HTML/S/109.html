@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/ctor-10.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/ctor-10.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L49'>[^]</a><a href='#L64'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L49' title='Defined at 49.'>foo</a>
+<li><a href='#L64' title='Defined at 64.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L2'><i><font color='green'>// { dg-require-effective-target tls_runtime }</font></i>
+<a name='L3'>
+<a name='L4'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L5'><font color='darkred'>#include</font> &lt;assert.h&gt;
+<a name='L6'>
+<a name='L7'><font color='darkred'>#define</font> <a href='../R/80.html' title='Multiple refered from 167 places.'>N</a> 10
+<a name='L8'><font color='darkred'>#define</font> <a href='../R/90.html' title='Multiple refered from 14 places.'>THR</a> 4
+<a name='L9'>
+<a name='L10'><b>struct</b> <a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>
+<a name='L11'><font color='red'>{</font>
+<a name='L12'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>();
+<a name='L13'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>const</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> &amp;);
+<a name='L14'>  ~<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>();
+<a name='L15'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>&amp; <b>operator</b>=(<b>const</b> B &amp;);
+<a name='L16'>  <b>void</b> <a href='../D/125.html' title='Multiple defined in 6 places.'>doit</a>();
+<a name='L17'>  <b>static</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> *base;
+<a name='L18'>  <b>static</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> *threadbase;
+<a name='L19'><font color='darkred'>#pragma</font> omp threadprivate(threadbase)
+<a name='L20'><font color='red'>}</font>;
+<a name='L21'>
+<a name='L22'><a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> *<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::base;
+<a name='L23'><a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> *<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::threadbase;
+<a name='L24'><b>static</b> <b>unsigned</b> cmask[<a href='../D/90.html' title='Multiple defined in 3 places.'>THR</a>];
+<a name='L25'><b>static</b> <b>unsigned</b> dmask[<a href='../D/90.html' title='Multiple defined in 3 places.'>THR</a>];
+<a name='L26'>
+<a name='L27'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>()
+<a name='L28'><font color='red'>{</font>
+<a name='L29'>  assert (base == 0);
+<a name='L30'><font color='red'>}</font>
+<a name='L31'>
+<a name='L32'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>(<b>const</b> <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> &amp;b)
+<a name='L33'><font color='red'>{</font>
+<a name='L34'>  <b>unsigned</b> index = &amp;b - base;
+<a name='L35'>  assert (index &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>);
+<a name='L36'>  cmask[<a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a>()] |= 1u &lt;&lt; index;
+<a name='L37'><font color='red'>}</font>
+<a name='L38'>
+<a name='L39'><a href='../R/2.html' title='Multiple refered from 178 places.'>B</a>::~<a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>()
+<a name='L40'><font color='red'>{</font>
+<a name='L41'>  <b>if</b> (threadbase)
+<a name='L42'>    <font color='red'>{</font>
+<a name='L43'>      <b>unsigned</b> index = <b>this</b> - threadbase;
+<a name='L44'>      assert (index &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>);
+<a name='L45'>      dmask[<a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a>()] |= 1u &lt;&lt; index;
+<a name='L46'>    <font color='red'>}</font>
+<a name='L47'><font color='red'>}</font>
+<a name='L48'>
+<a name='L49'><b>void</b> <a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a>()
+<a name='L50'><font color='red'>{</font>
+<a name='L51'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a> b[<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>];
+<a name='L52'>
+<a name='L53'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::base = b;
+<a name='L54'>
+<a name='L55'><font color='darkred'>  #pragma</font> omp parallel firstprivate(b)
+<a name='L56'>    <font color='red'>{</font>
+<a name='L57'>      assert (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () == <a href='../D/90.html' title='Multiple defined in 3 places.'>THR</a>);
+<a name='L58'>      <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::threadbase = b;
+<a name='L59'>    <font color='red'>}</font>
+<a name='L60'>
+<a name='L61'>  <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>::threadbase = 0;
+<a name='L62'><font color='red'>}</font>
+<a name='L63'>
+<a name='L64'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L65'><font color='red'>{</font>
+<a name='L66'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L67'>  <a href='../S/414.html#L555' title='Defined at 555 in env.c.'>omp_set_num_threads</a> (<a href='../D/90.html' title='Multiple defined in 3 places.'>THR</a>);
+<a name='L68'>  <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a>();
+<a name='L69'>
+<a name='L70'>  <b>for</b> (<b>int</b> i = 0; i &lt; <a href='../D/90.html' title='Multiple defined in 3 places.'>THR</a>; ++i)
+<a name='L71'>    <font color='red'>{</font>
+<a name='L72'>      <b>unsigned</b> xmask = (1u &lt;&lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>) - 1;
+<a name='L73'>      assert (cmask[i] == xmask);
+<a name='L74'>      assert (dmask[i] == xmask);
+<a name='L75'>    <font color='red'>}</font>
+<a name='L76'>
+<a name='L77'>  <b>return</b> 0;
+<a name='L78'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L49'>[^]</a><a href='#L64'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>
