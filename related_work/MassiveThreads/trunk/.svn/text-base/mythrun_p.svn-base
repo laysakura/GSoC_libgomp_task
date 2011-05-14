@@ -1,0 +1,5 @@
+#!/bin/sh
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`cat dyninst-path.txt` \
+DYNINSTAPI_RT_LIB=`cat dyninst-path.txt`/libdyninstAPI_RT.so.1 \
+$@
