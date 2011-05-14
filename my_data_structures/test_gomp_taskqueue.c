@@ -1,35 +1,38 @@
+#define _GNU_SOURCE
 #include "gomp_taskqueue.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <assert.h>
 
-#define NUM_THREADS 4
-
-typedef struct _for_parallel_access_to_q {
-  gomp_taskqueue* q;
+typedef struct _worker {
+  cpu_set_t cpu;
+  gomp_taskqueue* my_taskq;
+  gomp_taskqueue* victim_taskq;
   gomp_task* tasks;
-  int* retreived_values;
-  size_t retreived_values_index;
-} for_parallel_access_to_q;
+} worker;
 
 
 void* parallel_push(void* s)
 {
-  for_parallel_access_to_q* data = (for_parallel_access_to_q*)s;
+  worker* data = (worker*)s;
   int i;
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
-    gomp_taskqueue_push(data->q, &data->tasks[i]);
+  pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
+
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+    gomp_taskqueue_push(data->my_taskq, &data->tasks[i]);
   }
   return NULL;
 }
 void* parallel_pop(void* s)
 {
-  for_parallel_access_to_q* data = (for_parallel_access_to_q*)s;
+  worker* data = (worker*)s;
   gomp_task* task;
   int i;
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
-    task = gomp_taskqueue_pop(data->q);
+  pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
+
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+    task = gomp_taskqueue_pop(data->my_taskq);
     if (task)
       printf("%d\n", task->_num_children); /* These values are evaluated by `make test' script */
   }
@@ -37,11 +40,13 @@ void* parallel_pop(void* s)
 }
 void* parallel_take(void* s)
 {
-  for_parallel_access_to_q* data = (for_parallel_access_to_q*)s;
+  worker* data = (worker*)s;
   gomp_task* task;
   int i;
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
-    task = gomp_taskqueue_take(data->q);
+  pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
+
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+    task = gomp_taskqueue_take(data->victim_taskq);
     if (task)
       printf("%d\n", task->_num_children);  /* These values are evaluated by `make test' script */
   }
@@ -57,16 +62,18 @@ int main()
   gomp_task *tasks;
 
   /* for parallel use */
-  gomp_taskqueue* pq;
-  pthread_t tid[NUM_THREADS];
-  for_parallel_access_to_q data;
+  gomp_taskqueue *taskq0, *taskq1;
+  cpu_set_t cpuset;
+  pthread_t tid_pop, tid_push, tid_take;
+  worker worker0, worker1;
 
   /* initializations for test */
   tasks = malloc(sizeof(gomp_task) * GOMP_TASKQUEUE_INIT_SIZE * 100);
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
     tasks[i]._num_children = i;
   q = gomp_taskqueue_new();
-  pq = gomp_taskqueue_new();
+  taskq0 = gomp_taskqueue_new();
+  taskq1 = gomp_taskqueue_new();
 
   /* push+pop */
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
@@ -86,18 +93,25 @@ int main()
 
 
   /* push/pop/take (parallel) */
-  data.q = pq;
-  data.tasks = tasks;
+  CPU_ZERO(&cpuset);
+  CPU_SET(0, &cpuset);
+  worker0.cpu = cpuset;
+  worker0.my_taskq = taskq0;
+  worker0.tasks = tasks;
 
-  pthread_create(&tid[0], NULL, parallel_push, &data);
-  pthread_create(&tid[1], NULL, parallel_pop, &data);
-  /* pthread_create(&tid[2], NULL, parallel_push, &data); */
-  pthread_create(&tid[3], NULL, parallel_take, &data);
+  CPU_ZERO(&cpuset);
+  CPU_SET(1, &cpuset);
+  worker1.cpu = cpuset;
+  worker1.my_taskq = taskq1;
+  worker1.victim_taskq = taskq0;
 
-  pthread_join(tid[0], NULL);
-  pthread_join(tid[1], NULL);
-  /* pthread_join(tid[2], NULL); */
-  pthread_join(tid[3], NULL);
+  pthread_create(&tid_push, NULL, parallel_push, &worker0);
+  pthread_create(&tid_pop, NULL, parallel_pop, &worker0);
+  pthread_create(&tid_take, NULL, parallel_take, &worker1);
+
+  pthread_join(tid_push, NULL);
+  pthread_join(tid_pop, NULL);
+  pthread_join(tid_take, NULL);
 
 
   /* 現状，CPUは200%に達していなさそうだが，これはlockを取っているためと考えられる．
@@ -105,7 +119,8 @@ int main()
 
 
   /* finalization for test */
-  gomp_taskqueue_delete(pq);
+  gomp_taskqueue_delete(taskq0);
+  gomp_taskqueue_delete(taskq1);
   gomp_taskqueue_delete(q);
   free(tasks);
 

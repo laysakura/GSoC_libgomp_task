@@ -26,7 +26,7 @@ test:
 # Each number should be in a range
 	@expr 0 \<= $(shell sort -g test_gomp_taskqueue.log |head -n 1) > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
-	@expr $(shell sort -g test_gomp_taskqueue.log |head -n 1) \<= 262144 > /dev/null ; \
+	@expr $(shell sort -g test_gomp_taskqueue.log |head -n 1) \<= 1310720 > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
 
 .SUFFIXES: .c .exe
