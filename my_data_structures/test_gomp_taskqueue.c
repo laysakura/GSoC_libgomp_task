@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <assert.h>
+#include <utmpx.h>
 
 typedef struct _worker {
   cpu_set_t cpu;
@@ -34,7 +35,7 @@ void* parallel_pop(void* s)
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
     task = gomp_taskqueue_pop(data->my_taskq);
     if (task)
-      printf("%d\n", task->_num_children); /* These values are evaluated by `make test' script */
+      printf("%d pop CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
   }
   return NULL;
 }
@@ -48,7 +49,7 @@ void* parallel_take(void* s)
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
     task = gomp_taskqueue_take(data->victim_taskq);
     if (task)
-      printf("%d\n", task->_num_children);  /* These values are evaluated by `make test' script */
+      printf("%d take CPU%d\n", task->_num_children, sched_getcpu());  /* These values are evaluated by `make test' script */
   }
   return NULL;
 }
