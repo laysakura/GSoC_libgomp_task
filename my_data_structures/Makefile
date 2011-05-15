@@ -31,7 +31,7 @@ test:
 # Each number should be in a range
 	expr 0 \<= $(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
-	expr $(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') \<= 1310720 > /dev/null ; \
+	expr $(shell sort -g test_gomp_taskqueue.log |tail -n 1 |awk '{print $$1}') \<= 1310720 > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
 
 .SUFFIXES: .c .exe
