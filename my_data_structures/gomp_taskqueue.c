@@ -3,14 +3,10 @@
 #include <string.h>
 #include <assert.h>
 
-
-
-
-
-
+#if defined DEBUG && defined DEBUG_LOG
 #include <time.h>
 #include <stdio.h>
-
+#endif
 
 
 
@@ -42,13 +38,18 @@ void gomp_taskqueue_delete(gomp_taskqueue* this)
    (Push doesn't need lock to taskqueue) */
 void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 {
+#if defined DEBUG && defined DEBUG_LOG
   struct timespec tp;
+#endif
 
   this->_taskqueue[this->_top] = task;
   ++this->_top;
+  __sync_synchronize();  /* write to _top and taskqueue */
 
+#if defined DEBUG && defined DEBUG_LOG
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
-  fprintf(stderr, "%d.%9ld| Push:%d lock:no top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, this->_taskqueue[this->_top - 1]->_num_children, this->_top - 1, (unsigned)&this->_top, this->_base, sched_getcpu());
+  fprintf(stderr, "%d.%9ld| Push:%d lock:no top:%d base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, this->_taskqueue[this->_top - 1]->_num_children, this->_top - 1, this->_base, sched_getcpu());
+#endif
 
   /* Extend the size of deque when `top' exceeds it. */
   if (__builtin_expect(this->_top >= this->_num_queue_cells, 0))
@@ -57,19 +58,20 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 
       pthread_mutex_lock(&this->_lock);
 
+      __sync_synchronize();  /* read _base */
       base = this->_base;
 
       this->_num_queue_cells *= 2;
       this->_taskqueue = realloc(this->_taskqueue, sizeof(gomp_task*) * this->_num_queue_cells);
       assert(this->_taskqueue);
 
-      /* memmove(&this->_taskqueue[0], &this->_taskqueue[base], */
-      /*         sizeof(gomp_task*) * (this->_top - base)); */
+      memmove(&this->_taskqueue[0], &this->_taskqueue[base],
+              sizeof(gomp_task*) * (this->_top - base));
 
-      /* this->_top = this->_top - base; */
-      /* this->_base = 0; */
-      /* __sync_synchronize();         /\* Ensure writing to _top and _base. */
-      /*                                  TODO: Use atomic_write_barrier() in libgomp instead. *\/ */
+      this->_top = this->_top - base;
+      this->_base = 0;
+      __sync_synchronize();         /* Ensure writing to _top and _base.
+                                       TODO: Use atomic_write_barrier() in libgomp instead. */
 
       pthread_mutex_unlock(&this->_lock);
     }
@@ -79,10 +81,13 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
    This is a thread safe function. */
 gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
 {
+#if defined DEBUG && defined DEBUG_LOG
   struct timespec tp;
+#endif
   gomp_task* res;
   size_t base;
 
+  __sync_synchronize();  /* read _base */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -93,15 +98,20 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       /* Pop without lock */
       --this->_top;
       res = this->_taskqueue[this->_top];
+      __sync_synchronize();  /* write to _top and taskqueue */
 
+#if defined DEBUG && defined DEBUG_LOG
       clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
-      fprintf(stderr, "%d.%9ld| Pop:%d lock:no top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, (unsigned)&this->_top, base, sched_getcpu());
+      fprintf(stderr, "%d.%9ld| Pop:%d lock:no top:%d base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, base, sched_getcpu());
+#endif
+
       return res;
     }
 
   /* Need lock because other worker thread can steal the task to pop. */
   pthread_mutex_lock(&this->_lock);
 
+  __sync_synchronize();  /* read _base */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -109,21 +119,17 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       pthread_mutex_unlock(&this->_lock);
       return NULL;
     }
-  else if (__builtin_expect(this->_top - base < 0, 0))
-    {
-      /* move _top and _base to the initial position
-         when `take' occurs too much. */
-      this->_top = this->_base = 0;
-      pthread_mutex_unlock(&this->_lock);
-      return NULL;
-    }
   else
     {
       --this->_top;
       res = this->_taskqueue[this->_top];
+      __sync_synchronize();  /* write to _top and taskqueue */
 
+#if defined DEBUG && defined DEBUG_LOG
       clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
-      fprintf(stderr, "%d.%9ld| Pop:%d lock:yes top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, (unsigned)&this->_top, base, sched_getcpu());
+      fprintf(stderr, "%d.%9ld| Pop:%d lock:yes top:%d base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, base, sched_getcpu());
+#endif
+
       pthread_mutex_unlock(&this->_lock);
       return res;
     }
@@ -134,7 +140,9 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
    possibly by more than one threads at the same time. */
 gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
 {
+#if defined DEBUG && defined DEBUG_LOG
   struct timespec tp;
+#endif
   gomp_task* res;
   size_t top;
 
@@ -165,8 +173,11 @@ gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
   __sync_synchronize();         /* Ensure writing to _base.
                                    TODO: Use atomic_write_barrier() in libgomp instead. */
 
+#if defined DEBUG && defined DEBUG_LOG
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
   fprintf(stderr, "%d.%9ld| Take:%d lock:yes top:%d base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, top, this->_base - 1, sched_getcpu());
+#endif
+
   pthread_mutex_unlock(&this->_lock);
   return res;
 }
