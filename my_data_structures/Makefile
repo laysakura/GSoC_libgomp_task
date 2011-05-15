@@ -19,14 +19,14 @@ clean:
 
 .PHONY: test
 test:
-	@./test_gomp_taskqueue > test_gomp_taskqueue.log
+	@./test_gomp_taskqueue > test_gomp_taskqueue.log 2> /dev/null
 # Numbers inserted in taskqueue are different
 	@expr $(shell wc -l < test_gomp_taskqueue.log) = $(shell sort -g test_gomp_taskqueue.log |uniq |wc -l) > /dev/null; \
 	if [ $$? -ne 0 ]; then echo "Some duplicated numbers." ; fi
 # Each number should be in a range
-	@expr 0 \<= $(shell sort -g test_gomp_taskqueue.log |head -n 1) > /dev/null ; \
+	@expr 0 \<= $(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
-	@expr $(shell sort -g test_gomp_taskqueue.log |head -n 1) \<= 1310720 > /dev/null ; \
+	@expr $(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') \<= 1310720 > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range." ; fi
 
 .SUFFIXES: .c .exe
