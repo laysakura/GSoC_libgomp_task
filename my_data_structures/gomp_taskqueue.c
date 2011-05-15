@@ -8,7 +8,6 @@
 
 
 
-
 #include <stdio.h>
 
 
@@ -96,7 +95,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       res = this->_taskqueue[this->_top];
       __sync_synchronize();         /* Ensure writing to _top.
                                        TODO: Use atomic_write_barrier() in libgomp instead. */
-      fprintf(stderr, "Pop:%d lock:no from_top:%d num_tasks:%d\n", res->_num_children, this->_top, this->_top - base);
+      fprintf(stderr, "Pop:%d lock:no top:%d base:%d cpu:%d\n", res->_num_children, this->_top, base, sched_getcpu());
       return res;
     }
 
@@ -126,7 +125,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       res = this->_taskqueue[this->_top];
       __sync_synchronize();         /* Ensure writing to _top.
                                        TODO: Use atomic_write_barrier() in libgomp instead. */
-      fprintf(stderr, "Pop:%d lock:yes from_top:%d num_tasks:%d\n", res->_num_children, this->_top, this->_top - base);
+      fprintf(stderr, "Pop:%d lock:yes top:%d base:%d cpu:%d\n", res->_num_children, this->_top, base, sched_getcpu());
       pthread_mutex_unlock(&this->_lock);
       return res;
     }
@@ -167,7 +166,7 @@ gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
   __sync_synchronize();         /* Ensure writing to _base.
                                    TODO: Use atomic_write_barrier() in libgomp instead. */
 
-  fprintf(stderr, "Take:%d lock:yes from_base:%d num_tasks:%d\n", res->_num_children, this->_base - 1, top - this->_base);
+  fprintf(stderr, "Take:%d lock:yes top:%d base:%d cpu:%d\n", res->_num_children, top, this->_base - 1, sched_getcpu());
   pthread_mutex_unlock(&this->_lock);
   return res;
 }
