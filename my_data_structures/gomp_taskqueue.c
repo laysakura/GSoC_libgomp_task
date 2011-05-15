@@ -118,6 +118,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
          when `take' occurs too much. */
       this->_top = this->_base = 0;
       pthread_mutex_unlock(&this->_lock);
+      return NULL;
     }
   else
     {
