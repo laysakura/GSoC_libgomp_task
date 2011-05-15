@@ -47,6 +47,8 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
   __sync_synchronize();         /* Ensure writing to _taskqueue and _top.
                                    TODO: Use atomic_write_barrier() in libgomp instead. */
 
+  fprintf(stderr, "Push:%d lock:no top:%d base:%d cpu:%d\n", this->_taskqueue[this->_top - 1]->_num_children, this->_top - 1, this->_base, sched_getcpu());
+
   /* Extend the size of deque when `top' exceeds it. */
   if (__builtin_expect(this->_top >= this->_num_queue_cells, 0))
     {

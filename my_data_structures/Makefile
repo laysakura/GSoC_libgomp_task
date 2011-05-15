@@ -23,7 +23,7 @@ clean:
 
 .PHONY: debug
 debug:
-	./test_gomp_taskqueue > test_gomp_taskqueue.log 2> debug.log
+	@make test
 	sort -g test_gomp_taskqueue.log > sorted.log ; sort -g test_gomp_taskqueue.log |uniq > sorted_uniq.log ; diff sorted.log  sorted_uniq.log
 
 .PHONY: test
@@ -31,18 +31,36 @@ test: test_gomp_taskqueue
 	@echo ""
 	@echo "You ALWAYS need to Recompile test_gomp_taskqueue.c to make -D TESTVAL_* enable."
 # Create logfile first since $(shell)  is extracted before all other commands
-	$(shell ./test_gomp_taskqueue > test_gomp_taskqueue.log 2> /dev/null)
+	$(shell ./test_gomp_taskqueue > test_gomp_taskqueue.log 2> debug.log)
 
-# Numbers inserted in taskqueue are different
-	@expr $(shell wc -l < test_gomp_taskqueue.log) = $(shell sort -g test_gomp_taskqueue.log |awk '{print $$1}' |uniq |wc -l) > /dev/null; \
-	if [ $$? -ne 0 ]; then echo "Some duplicated numbers [NG]" ; fi
+# Count number of unique digits
+	@LINES=$(shell wc -l < test_gomp_taskqueue.log) ;UNIQS=$(shell sort -g test_gomp_taskqueue.log |awk '{print $$1}' |uniq |wc -l) ;EXPECT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; \
+	if [ $$UNIQS -lt $$EXPECT ]; then \
+		if [ $$LINES -ne $$UNIQS ]; then \
+			echo "Unique numbers are fewer than expected due to duplicated values [NG]" ; \
+		else \
+			echo "Unique numbers are fewer than expected due to skipping cells of taskqueue [NG]" ; \
+		fi ; \
+	elif [ $$UNIQS -eq $$EXPECT ]; then \
+		echo "Unique numbers are the same as expected [OK]" ; \
+	else \
+		echo "I DON'T KNOW WHAT IS HAPPNING TO UNIQUE NUMBER [NG]" ;\
+	fi
 
 # Each number should be in a range
 	@MIN=$(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') ; expr 0 \<= $$MIN > /dev/null ; \
-	if [ $$? -ne 0 ]; then echo "A number out of range [NG]" ; else echo "Minimum number is $$MIN [OK]" ; fi
-
-	@MAX=$(shell sort -g test_gomp_taskqueue.log |tail -n 1 |awk '{print $$1}') ;UPPER_LIMIT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; expr \( $$MAX + 1 \) = $$UPPER_LIMIT > /dev/null ; \
-	if [ $$? -ne 0 ]; then echo "A number exceeded upper limit $$UPPER_LIMIT [NG]" ; else echo "Maximum number is $$MAX while upper limit is $$UPPER_LIMIT [OK]" ; fi
+	if [ $$? -ne 0 ]; then \
+		echo "A number out of range [NG]" ; \
+	else \
+		echo "Minimum number is $$MIN [OK]" ; \
+	fi
+	@MAX=$(shell sort -g test_gomp_taskqueue.log |tail -n 1 |awk '{print $$1}') ;UPPER_LIMIT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; \
+	expr \( $$MAX + 1 \) = $$UPPER_LIMIT > /dev/null ; \
+	if [ $$? -ne 0 ]; then \
+		echo "Maximum number $$MAX is different from expected value upper limit $$UPPER_LIMIT - 1 [NG]" ; \
+	else \
+		echo "Maximum number is $$MAX while upper limit is $$UPPER_LIMIT [OK]" ; \
+	fi
 
 test_gomp_taskqueue: gomp_taskqueue.o test_gomp_taskqueue.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)

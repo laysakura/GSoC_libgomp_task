@@ -15,6 +15,7 @@ typedef struct _worker {
   gomp_taskqueue* my_taskq;
   gomp_taskqueue* victim_taskq;
   gomp_task* tasks;
+  int* stopped_pushing;
 } worker;
 
 
@@ -27,35 +28,36 @@ void* parallel_push(void* s)
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i) {
     gomp_taskqueue_push(data->my_taskq, &data->tasks[i]);
   }
+  *data->stopped_pushing = 1;
   return NULL;
 }
 void* parallel_pop(void* s)
 {
   worker* data = (worker*)s;
   gomp_task* task;
-  int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i) {
+  while (1) {
     task = gomp_taskqueue_pop(data->my_taskq);
     if (task)
       printf("%d pop CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+    if (*data->stopped_pushing == 1 && !task)
+      return NULL;
   }
-  return NULL;
 }
 void* parallel_take(void* s)
 {
   worker* data = (worker*)s;
   gomp_task* task;
-  int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i) {
+  while (1) {
     task = gomp_taskqueue_take(data->victim_taskq);
     if (task)
       printf("%d take CPU%d\n", task->_num_children, sched_getcpu());  /* These values are evaluated by `make test' script */
+    if (*data->stopped_pushing == 1 && !task)
+      return NULL;
   }
-  return NULL;
 }
 
 int main()
@@ -71,6 +73,7 @@ int main()
   cpu_set_t cpuset;
   pthread_t tid_pop, tid_push, tid_take;
   worker worker0, worker1;
+  int stopped_pushing = 0;
 
   /* initializations for test */
   tasks = malloc(sizeof(gomp_task) * GOMP_TASKQUEUE_INIT_SIZE * 100);
@@ -103,19 +106,21 @@ int main()
   worker0.cpu = cpuset;
   worker0.my_taskq = taskq0;
   worker0.tasks = tasks;
+  worker0.stopped_pushing = &stopped_pushing;
 
   CPU_ZERO(&cpuset);
   CPU_SET(1, &cpuset);
   worker1.cpu = cpuset;
   worker1.my_taskq = taskq1;
   worker1.victim_taskq = taskq0;
+  worker1.stopped_pushing = &stopped_pushing;
 
   pthread_create(&tid_push, NULL, parallel_push, &worker0);
-  pthread_create(&tid_pop, NULL, parallel_pop, &worker0);
+  /* pthread_create(&tid_pop, NULL, parallel_pop, &worker0); */
   pthread_create(&tid_take, NULL, parallel_take, &worker1);
 
   pthread_join(tid_push, NULL);
-  pthread_join(tid_pop, NULL);
+  /* pthread_join(tid_pop, NULL); */
   pthread_join(tid_take, NULL);
 
 
