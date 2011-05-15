@@ -7,6 +7,12 @@
 
 /* Constants */
 #define GOMP_TASKQUEUE_INIT_SIZE 131072 /* just same as MassiveThreads */
+#define GOMP_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE 2  /* When the number of tasks
+                                                             in a deque is smaller than
+                                                             this value, it is dangerous
+                                                             to pop a task without lock
+                                                             because other worker thread
+                                                             can steal the task to pop. */
 
 
 /* Task queue specification:
@@ -18,9 +24,9 @@
  *           ^                       ^
  *          base                    top
  *   (incremented                     (incremented
- *       on take,                         on push
- *    decremented                     decremented
- *       on put)                          on pop)
+ *       on take,)                        on push
+ *                                    decremented
+ *                                        on pop)
  *
  *
  * This is the same shape as the DEQ of FJTaskRunner.
@@ -48,16 +54,14 @@
  * the size of array many times.
  *
  * The number of tasks in the deque is always calculated by
- *    top - base
- * Note that both `base' and `top' are set to 0 when no task
- * is in the deque.
+ *    top - base.
  */
 
 typedef struct _gomp_taskqueue {
   gomp_task** _taskqueue;       /* array of gomp_task* */
-  size_t _top;         /* written only by its worker */
+  volatile size_t _top;         /* written only by its worker */
   volatile size_t _base;        /* written only by other workers with mutex lock */
-  size_t _num_queue_cells;     /* written only by its worker */
+  volatile size_t _num_queue_cells;     /* written only by its worker */
   pthread_mutex_t _lock;
 } gomp_taskqueue;
 
