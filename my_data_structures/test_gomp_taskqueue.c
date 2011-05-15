@@ -20,7 +20,7 @@ void* parallel_push(void* s)
   int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
     gomp_taskqueue_push(data->my_taskq, &data->tasks[i]);
   }
   return NULL;
@@ -32,7 +32,7 @@ void* parallel_pop(void* s)
   int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
     task = gomp_taskqueue_pop(data->my_taskq);
     if (task)
       printf("%d pop CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
@@ -46,7 +46,7 @@ void* parallel_take(void* s)
   int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 10; ++i) {
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 2; ++i) {
     task = gomp_taskqueue_take(data->victim_taskq);
     if (task)
       printf("%d take CPU%d\n", task->_num_children, sched_getcpu());  /* These values are evaluated by `make test' script */
