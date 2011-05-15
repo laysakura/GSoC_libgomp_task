@@ -46,8 +46,6 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 
   this->_taskqueue[this->_top] = task;
   ++this->_top;
-  __sync_synchronize();         /* Ensure writing to _taskqueue and _top.
-                                   TODO: Use atomic_write_barrier() in libgomp instead. */
 
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
   fprintf(stderr, "%d.%9ld| Push:%d lock:no top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, this->_taskqueue[this->_top - 1]->_num_children, this->_top - 1, (unsigned)&this->_top, this->_base, sched_getcpu());
@@ -59,8 +57,6 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 
       pthread_mutex_lock(&this->_lock);
 
-      __sync_synchronize();    /* Ensure visibility of _base written from other worker thread.
-                                  TODO: Use atomic_write_barrier() in libgomp instead. */
       base = this->_base;
 
       this->_num_queue_cells *= 2;
@@ -87,8 +83,6 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
   gomp_task* res;
   size_t base;
 
-  __sync_synchronize();    /* Ensure visibility of _base written from other worker thread.
-                              TODO: Use atomic_write_barrier() in libgomp instead. */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -99,8 +93,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       /* Pop without lock */
       --this->_top;
       res = this->_taskqueue[this->_top];
-      __sync_synchronize();         /* Ensure writing to _top.
-                                       TODO: Use atomic_write_barrier() in libgomp instead. */
+
       clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
       fprintf(stderr, "%d.%9ld| Pop:%d lock:no top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, (unsigned)&this->_top, base, sched_getcpu());
       return res;
@@ -109,8 +102,6 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
   /* Need lock because other worker thread can steal the task to pop. */
   pthread_mutex_lock(&this->_lock);
 
-  __sync_synchronize();    /* Ensure visibility of _base written from other worker thread.
-                              TODO: Use atomic_write_barrier() in libgomp instead. */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -130,8 +121,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
     {
       --this->_top;
       res = this->_taskqueue[this->_top];
-      __sync_synchronize();         /* Ensure writing to _top.
-                                       TODO: Use atomic_write_barrier() in libgomp instead. */
+
       clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
       fprintf(stderr, "%d.%9ld| Pop:%d lock:yes top:%d(%x) base:%d cpu:%d\n", (int)tp.tv_sec, (long int)tp.tv_nsec, res->_num_children, this->_top, (unsigned)&this->_top, base, sched_getcpu());
       pthread_mutex_unlock(&this->_lock);
