@@ -41,7 +41,7 @@ test: test_gomp_taskqueue
 	@MIN=$(shell sort -g test_gomp_taskqueue.log |head -n 1 |awk '{print $$1}') ; expr 0 \<= $$MIN > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number out of range [NG]" ; else echo "Minimum number is $$MIN [OK]" ; fi
 
-	@MAX=$(shell sort -g test_gomp_taskqueue.log |tail -n 1 |awk '{print $$1}') ;UPPER_LIMIT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; expr $$MAX \<= $$UPPER_LIMIT > /dev/null ; \
+	@MAX=$(shell sort -g test_gomp_taskqueue.log |tail -n 1 |awk '{print $$1}') ;UPPER_LIMIT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; expr \( $$MAX + 1 \) = $$UPPER_LIMIT > /dev/null ; \
 	if [ $$? -ne 0 ]; then echo "A number exceeded upper limit $$UPPER_LIMIT [NG]" ; else echo "Maximum number is $$MAX while upper limit is $$UPPER_LIMIT [OK]" ; fi
 
 test_gomp_taskqueue: gomp_taskqueue.o test_gomp_taskqueue.c
