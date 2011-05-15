@@ -116,12 +116,12 @@ int main()
   worker1.stopped_pushing = &stopped_pushing;
 
   pthread_create(&tid_push, NULL, parallel_push, &worker0);
-  /* pthread_create(&tid_pop, NULL, parallel_pop, &worker0); */
-  pthread_create(&tid_take, NULL, parallel_take, &worker1);
+  pthread_create(&tid_pop, NULL, parallel_pop, &worker0);
+  /* pthread_create(&tid_take, NULL, parallel_take, &worker1); */
 
   pthread_join(tid_push, NULL);
-  /* pthread_join(tid_pop, NULL); */
-  pthread_join(tid_take, NULL);
+  pthread_join(tid_pop, NULL);
+  /* pthread_join(tid_take, NULL); */
 
 
   /* 現状，CPUは200%に達していなさそうだが，これはlockを取っているためと考えられる．

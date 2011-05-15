@@ -2,7 +2,7 @@
 
 CC=gcc
 CFLAGS = -Wall -O0 -g -DDEBUG
-LDFLAGS = -lpthread
+LDFLAGS = -lpthread -lrt
 INCLUDES =
 
 SRCS = $(wildcard *.c)
@@ -24,6 +24,7 @@ clean:
 .PHONY: debug
 debug:
 	@make test
+	sort -g debug.log |cat > debug.log.tmp ; mv debug.log.tmp debug.log
 	sort -g test_gomp_taskqueue.log > sorted.log ; sort -g test_gomp_taskqueue.log |uniq > sorted_uniq.log ; diff sorted.log  sorted_uniq.log
 
 .PHONY: test
@@ -37,7 +38,7 @@ test: test_gomp_taskqueue
 	@LINES=$(shell wc -l < test_gomp_taskqueue.log) ;UNIQS=$(shell sort -g test_gomp_taskqueue.log |awk '{print $$1}' |uniq |wc -l) ;EXPECT=$(shell expr 131072 \* $(TESTVAL_EXTENDS)) ; \
 	if [ $$UNIQS -lt $$EXPECT ]; then \
 		if [ $$LINES -ne $$UNIQS ]; then \
-			echo "Unique numbers are fewer than expected due to duplicated values [NG]" ; \
+			echo "Unique numbers ($$UNIQS) are fewer than expected ($$EXPECT) due to duplicated values [NG]" ; \
 		else \
 			echo "Unique numbers are fewer than expected due to skipping cells of taskqueue [NG]" ; \
 		fi ; \
