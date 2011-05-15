@@ -63,13 +63,13 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
       this->_taskqueue = realloc(this->_taskqueue, sizeof(gomp_task*) * this->_num_queue_cells);
       assert(this->_taskqueue);
 
-      memmove(&this->_taskqueue[0], &this->_taskqueue[base],
-              sizeof(gomp_task*) * (this->_top - base));
+      /* memmove(&this->_taskqueue[0], &this->_taskqueue[base], */
+      /*         sizeof(gomp_task*) * (this->_top - base)); */
 
-      this->_top = this->_top - base;
-      this->_base = 0;
-      __sync_synchronize();         /* Ensure writing to _top and _base.
-                                       TODO: Use atomic_write_barrier() in libgomp instead. */
+      /* this->_top = this->_top - base; */
+      /* this->_base = 0; */
+      /* __sync_synchronize();         /\* Ensure writing to _top and _base. */
+      /*                                  TODO: Use atomic_write_barrier() in libgomp instead. *\/ */
 
       pthread_mutex_unlock(&this->_lock);
     }
