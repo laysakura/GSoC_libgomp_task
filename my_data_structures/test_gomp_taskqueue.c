@@ -18,6 +18,7 @@ typedef struct _worker {
   gomp_task* tasks;
   struct _worker* workers;
   long num_workers;
+  int logged_worker;
 } worker;
 
 
@@ -34,16 +35,16 @@ void* parallel_push_pop_take(void* s)
     gomp_taskqueue_push(data->my_taskq, &data->tasks[2*i]);
     gomp_taskqueue_push(data->my_taskq, &data->tasks[2*i + 1]);
     task = gomp_taskqueue_pop(data->my_taskq);
-    if (task && data->id == 0)
-      printf("%d pop by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+    if (task && data->id == data->logged_worker)
+      printf("%d is popped by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
   }
 
   /* All tasks are created, now just consume then (with other worker queue).
      If no task is in the queue, steal from others. */
   while (1) {
     task = gomp_taskqueue_pop(data->my_taskq);
-    if (task && data->id == 0)
-      printf("%d pop by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+    if (task && data->id == data->logged_worker)
+      printf("%d is popped by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
     if (!task)
       {
         do
@@ -52,8 +53,8 @@ void* parallel_push_pop_take(void* s)
           }
         while (victim == data->id);
         task = gomp_taskqueue_take(data->workers[victim].my_taskq);
-        if (task && victim == 0)
-          printf("%d take by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+        if (task && victim == data->logged_worker)
+          printf("%d is taken by CPU%d from CPU%d\n", task->_num_children, sched_getcpu(), (int)victim); /* These values are evaluated by `make test' script */
         else
           return NULL;
 
@@ -75,6 +76,7 @@ int main()
   cpu_set_t cpuset;
   pthread_t tids[num_cpu];
   worker workers[num_cpu];
+  int logged_worker = random() % num_cpu;
 
   /* initializations for test */
   tasks = malloc(sizeof(gomp_task) * GOMP_TASKQUEUE_INIT_SIZE * 100);
@@ -102,6 +104,8 @@ int main()
 
 
   /* Emulate workers */
+  fprintf(stderr, "==========\nWith %d CPUs\n===========\n", (int)num_cpu);
+
   for (i = 0; i < num_cpu; ++i) {
     CPU_ZERO(&cpuset);
     CPU_SET(i, &cpuset);
@@ -111,6 +115,7 @@ int main()
     workers[i].tasks = tasks;
     workers[i].workers = workers;
     workers[i].num_workers = num_cpu;
+    workers[i].logged_worker = logged_worker;
 
     pthread_create(&tids[i], NULL, parallel_push_pop_take, &workers[i]);
   }
