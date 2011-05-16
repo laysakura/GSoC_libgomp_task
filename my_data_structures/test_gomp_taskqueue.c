@@ -5,6 +5,7 @@
 #include <pthread.h>
 #include <assert.h>
 #include <utmpx.h>
+#include <unistd.h>
 
 #ifndef TESTVAL_EXTENDS  /* It may be defined by Makefile */
 #define TESTVAL_EXTENDS 1
@@ -14,8 +15,9 @@ typedef struct _worker {
   int id;
   cpu_set_t cpu;
   gomp_taskqueue* my_taskq;
-  gomp_taskqueue* victim_taskq;
   gomp_task* tasks;
+  struct _worker* workers;
+  long num_workers;
 } worker;
 
 
@@ -23,6 +25,7 @@ void* parallel_push_pop_take(void* s)
 {
   worker* data = (worker*)s;
   gomp_task* task;
+  size_t victim;
   int i;
   pthread_setaffinity_np(pthread_self(), sizeof(data->cpu), &data->cpu);
 
@@ -32,7 +35,7 @@ void* parallel_push_pop_take(void* s)
     gomp_taskqueue_push(data->my_taskq, &data->tasks[2*i + 1]);
     task = gomp_taskqueue_pop(data->my_taskq);
     if (task && data->id == 0)
-      printf("%d pop CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+      printf("%d pop by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
   }
 
   /* All tasks are created, now just consume then (with other worker queue).
@@ -40,14 +43,20 @@ void* parallel_push_pop_take(void* s)
   while (1) {
     task = gomp_taskqueue_pop(data->my_taskq);
     if (task && data->id == 0)
-      printf("%d pop CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+      printf("%d pop by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
     if (!task)
       {
-        task = gomp_taskqueue_take(data->victim_taskq);
-        if (task)
-          printf("%d take CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
+        do
+          {
+            victim = random() % data->num_workers;
+          }
+        while (victim == data->id);
+        task = gomp_taskqueue_take(data->workers[victim].my_taskq);
+        if (task && victim == 0)
+          printf("%d take by CPU%d\n", task->_num_children, sched_getcpu()); /* These values are evaluated by `make test' script */
         else
           return NULL;
+
       }
   }
 }
@@ -61,62 +70,57 @@ int main()
   gomp_task *tasks;
 
   /* for parallel use */
-  gomp_taskqueue *taskq0, *taskq1;
+  long num_cpu = sysconf(_SC_NPROCESSORS_CONF);
+  gomp_taskqueue *taskqs[num_cpu];
   cpu_set_t cpuset;
-  pthread_t tid0, tid1;
-  worker worker0, worker1;
+  pthread_t tids[num_cpu];
+  worker workers[num_cpu];
 
   /* initializations for test */
   tasks = malloc(sizeof(gomp_task) * GOMP_TASKQUEUE_INIT_SIZE * 100);
   for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
     tasks[i]._num_children = i;
   q = gomp_taskqueue_new();
-  taskq0 = gomp_taskqueue_new();
-  taskq1 = gomp_taskqueue_new();
+  for (i = 0; i < num_cpu; ++i)
+    taskqs[i] = gomp_taskqueue_new();
 
-  /* /\* push+pop *\/ */
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
-    gomp_taskqueue_push(q, &tasks[i]);
-  for (i = GOMP_TASKQUEUE_INIT_SIZE * 100 - 1; i >= 0 ; --i)
-    assert(gomp_taskqueue_pop(q)->_num_children == i);
-  /* pop for empty deque */
-  assert(gomp_taskqueue_pop(q) == NULL);
+  /* push+pop */
+  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
+  /*   gomp_taskqueue_push(q, &tasks[i]); */
+  /* for (i = GOMP_TASKQUEUE_INIT_SIZE * 100 - 1; i >= 0 ; --i) */
+  /*   assert(gomp_taskqueue_pop(q)->_num_children == i); */
+  /* /\* pop for empty deque *\/ */
+  /* assert(gomp_taskqueue_pop(q) == NULL); */
 
-  /* push+take */
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
-    gomp_taskqueue_push(q, &tasks[i]);
-  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
-    assert(gomp_taskqueue_take(q)->_num_children == i);
-  /* take for empty deque */
-  assert(gomp_taskqueue_take(q) == NULL);
+  /* /\* push+take *\/ */
+  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
+  /*   gomp_taskqueue_push(q, &tasks[i]); */
+  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
+  /*   assert(gomp_taskqueue_take(q)->_num_children == i); */
+  /* /\* take for empty deque *\/ */
+  /* assert(gomp_taskqueue_take(q) == NULL); */
 
 
-  /* Emulate 2 worker queues */
-  CPU_ZERO(&cpuset);
-  CPU_SET(0, &cpuset);
-  worker0.cpu = cpuset;
-  worker0.id = 0;
-  worker0.my_taskq = taskq0;
-  worker0.victim_taskq = taskq1;
-  worker0.tasks = tasks;
+  /* Emulate workers */
+  for (i = 0; i < num_cpu; ++i) {
+    CPU_ZERO(&cpuset);
+    CPU_SET(i, &cpuset);
+    workers[i].cpu = cpuset;
+    workers[i].id = i;
+    workers[i].my_taskq = taskqs[i];
+    workers[i].tasks = tasks;
+    workers[i].workers = workers;
+    workers[i].num_workers = num_cpu;
 
-  CPU_ZERO(&cpuset);
-  CPU_SET(1, &cpuset);
-  worker1.cpu = cpuset;
-  worker1.id = 1;
-  worker1.my_taskq = taskq1;
-  worker1.victim_taskq = taskq0;
-  worker1.tasks = tasks;
+    pthread_create(&tids[i], NULL, parallel_push_pop_take, &workers[i]);
+  }
+  for (i = 0; i < num_cpu; ++i)
+    pthread_join(tids[i], NULL);
 
-  pthread_create(&tid0, NULL, parallel_push_pop_take, &worker0);
-  pthread_create(&tid1, NULL, parallel_push_pop_take, &worker1);
-
-  pthread_join(tid0, NULL);
-  pthread_join(tid1, NULL);
 
   /* finalization for test */
-  gomp_taskqueue_delete(taskq0);
-  gomp_taskqueue_delete(taskq1);
+  for (i = 0; i < num_cpu; ++i)
+    gomp_taskqueue_delete(taskqs[i]);
   gomp_taskqueue_delete(q);
   free(tasks);
 
