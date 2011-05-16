@@ -1,7 +1,7 @@
 # CC is set by $ export CC=hoge
 
-CC=gcc
-CFLAGS = -Wall -O0 -g -DDEBUG
+CC = gcc
+CFLAGS = -Wall -O2 -g -DDEBUG
 LDFLAGS = -lpthread -lrt
 INCLUDES =
 

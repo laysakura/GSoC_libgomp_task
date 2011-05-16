@@ -87,20 +87,20 @@ int main()
     taskqs[i] = gomp_taskqueue_new();
 
   /* push+pop */
-  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
-  /*   gomp_taskqueue_push(q, &tasks[i]); */
-  /* for (i = GOMP_TASKQUEUE_INIT_SIZE * 100 - 1; i >= 0 ; --i) */
-  /*   assert(gomp_taskqueue_pop(q)->_num_children == i); */
-  /* /\* pop for empty deque *\/ */
-  /* assert(gomp_taskqueue_pop(q) == NULL); */
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
+    gomp_taskqueue_push(q, &tasks[i]);
+  for (i = GOMP_TASKQUEUE_INIT_SIZE * 100 - 1; i >= 0 ; --i)
+    assert(gomp_taskqueue_pop(q)->_num_children == i);
+  /* pop for empty deque */
+  assert(gomp_taskqueue_pop(q) == NULL);
 
-  /* /\* push+take *\/ */
-  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
-  /*   gomp_taskqueue_push(q, &tasks[i]); */
-  /* for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i) */
-  /*   assert(gomp_taskqueue_take(q)->_num_children == i); */
-  /* /\* take for empty deque *\/ */
-  /* assert(gomp_taskqueue_take(q) == NULL); */
+  /* push+take */
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
+    gomp_taskqueue_push(q, &tasks[i]);
+  for (i = 0; i < GOMP_TASKQUEUE_INIT_SIZE * 100; ++i)
+    assert(gomp_taskqueue_take(q)->_num_children == i);
+  /* take for empty deque */
+  assert(gomp_taskqueue_take(q) == NULL);
 
 
   /* Emulate workers */
