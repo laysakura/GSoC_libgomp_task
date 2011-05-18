@@ -1,0 +1,1325 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix
+END
+i2sgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2sgemmx.f
+END
+matmul_i1s4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1s4.c
+END
+matmul_di4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_di4.c
+END
+i4sgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i4sgemmx.f
+END
+js4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/js4gemmx.f
+END
+matmul_iz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_iz@.c
+END
+matmul_i1j.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1j.c
+END
+matmul_s4i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4i4.c
+END
+MATMUL_SS4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SS4.F90
+END
+MATMUL_C4C.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4C.F90
+END
+matmul_ji4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ji4.c
+END
+matmul_l1l.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l1l.c
+END
+matmul_di@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_di@.c
+END
+matmul_sz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_sz@.c
+END
+matmul_si2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_si2.c
+END
+l1l4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l1l4gemmx.f
+END
+MATMUL_CC.F90
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CC.F90
+END
+matmul_i1z.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_i1z.c
+END
+MATMUL_S4C.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4C.F90
+END
+MATMUL_C4S.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4S.F90
+END
+dgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/dgemmx.f
+END
+i1jgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1jgemmx.f
+END
+i2jgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2jgemmx.f
+END
+matmul_zi4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zi4.c
+END
+i4jgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i4jgemmx.f
+END
+s4dgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/s4dgemmx.f
+END
+lgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/lgemmx.f
+END
+idgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/idgemmx@.f
+END
+lgemmx.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/lgemmx.h
+END
+matmul_c4j.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4j.c
+END
+MATMUL_SC.F90
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SC.F90
+END
+MATMUL_CS.F90
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CS.F90
+END
+matmul_zi@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_zi@.c
+END
+MATMUL_S4S.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4S.F90
+END
+matmul_i4j.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4j.c
+END
+matmul_dd@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_dd@.c
+END
+matmul_l4l.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l4l.c
+END
+matmul_ll4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ll4.c
+END
+matrix.gmakeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matrix.gmakeinclude
+END
+isgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/isgemmx@.f
+END
+matmul_jd@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_jd@.c
+END
+l2l4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l2l4gemmx.f
+END
+matmul_c4z.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4z.c
+END
+matmul_c4i1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4i1.c
+END
+matmul_s4j.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4j.c
+END
+MATMUL_SS.F90
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SS.F90
+END
+cgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/cgemmx.f
+END
+matmul_i2i2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2i2.c
+END
+matmul_i1i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1i4.c
+END
+matmul_i4z.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4z.c
+END
+matmul_i4i2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4i2.c
+END
+matmul_ll@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ll@.c
+END
+matmul_cc4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cc4.c
+END
+l1lgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l1lgemmx.f
+END
+l2lgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l2lgemmx.f
+END
+matmul_l2l2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l2l2.c
+END
+matmul_i1c.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1c.c
+END
+matmul_l1l4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l1l4.c
+END
+matmul_di1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_di1.c
+END
+l4lgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l4lgemmx.f
+END
+matmul_l4l2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l4l2.c
+END
+matmul_zd@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zd@.c
+END
+jdgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jdgemmx@.f
+END
+matmul_s4i1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4i1.c
+END
+matmul_s4z.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4z.c
+END
+matmul_ji1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ji1.c
+END
+sgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/sgemmx.f
+END
+matmul_cc@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cc@.c
+END
+c4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/c4gemmx.f
+END
+i1i4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1i4gemmx.f
+END
+matmul_cs4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cs4.c
+END
+matmul_sc4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_sc4.c
+END
+matmul_ic@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_ic@.c
+END
+s4sgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/s4sgemmx.f
+END
+matmul_i1s.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1s.c
+END
+l1l2gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l1l2gemmx.f
+END
+jsgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jsgemmx@.f
+END
+i4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i4gemmx.f
+END
+l4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l4gemmx.f
+END
+i1s4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1s4gemmx.f
+END
+matmul_zi1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zi1.c
+END
+matmul_cs@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cs@.c
+END
+matmul_sc@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_sc@.c
+END
+matrix.mh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matrix.mh
+END
+s4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/s4gemmx.f
+END
+matmul_c4c.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4c.c
+END
+MATMUL_C4C4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4C4.F90
+END
+matmul_ss4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ss4.c
+END
+jgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jgemmx.f
+END
+matmul_is@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_is@.c
+END
+matmul_i4c.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4c.c
+END
+matmul_i2j.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2j.c
+END
+matmul_ss@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ss@.c
+END
+matmul_ll1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ll1.c
+END
+sdgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/sdgemmx@.f
+END
+matmul_c4s.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4s.c
+END
+MATMUL_S4C4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4C4.F90
+END
+MATMUL_C4S4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4S4.F90
+END
+MATMUL_CC4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CC4dispatch.c
+END
+i2i4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2i4gemmx.f
+END
+matmul_l2l.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l2l.c
+END
+matmul_s4c.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4c.c
+END
+matmul_dj@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_dj@.c
+END
+matmul_i4s.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4s.c
+END
+matmul_i2c4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2c4.c
+END
+matmul_c4i2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4i2.c
+END
+matmul_i1i1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1i1.c
+END
+i2s4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2s4gemmx.f
+END
+matmul_i4c4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4c4.c
+END
+matmul_jj@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_jj@.c
+END
+matmul_i2z.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2z.c
+END
+MATMUL_SC4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SC4dispatch.c
+END
+MATMUL_S4S4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4S4.F90
+END
+MATMUL_CS4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CS4dispatch.c
+END
+matmul_l1l1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l1l1.c
+END
+matmul_s4s.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4s.c
+END
+matmul_i1d.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1d.c
+END
+matmul_dz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_dz@.c
+END
+matmul_di2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_di2.c
+END
+matmul_ci4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ci4.c
+END
+jdgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jdgemmx.f
+END
+matmul_i2s4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2s4.c
+END
+matmul_s4i2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4i2.c
+END
+matmul_i4s4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4s4.c
+END
+matmul_jz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_jz@.c
+END
+matmul_zj@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zj@.c
+END
+matmul_ji2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ji2.c
+END
+i1i2gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1i2gemmx.f
+END
+sdgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/sdgemmx.f
+END
+MATMUL_SS4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SS4dispatch.c
+END
+MATMUL_C4Cdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4Cdispatch.c
+END
+matmul_ci@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_ci@.c
+END
+i2gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2gemmx.f
+END
+l2gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l2gemmx.f
+END
+matmul_si4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_si4.c
+END
+matmul_ii@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_ii@.c
+END
+matmul_zz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zz@.c
+END
+matmul_zi2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_zi2.c
+END
+MATMUL_CCdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CCdispatch.c
+END
+dgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/dgemmx@.f
+END
+MATMUL_S4Cdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4Cdispatch.c
+END
+MATMUL_C4Sdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4Sdispatch.c
+END
+matmul_c4d.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4d.c
+END
+igemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/igemmx@.f
+END
+jgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jgemmx@.f
+END
+matmul_si@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_si@.c
+END
+matmul_i2c.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2c.c
+END
+lgemmx@.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/lgemmx@.f
+END
+cgemvx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/cgemvx.f
+END
+matmul_i4d.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4d.c
+END
+mmx_fort.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/mmx_fort.h
+END
+MATMUL_SCdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SCdispatch.c
+END
+MATMUL_CSdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CSdispatch.c
+END
+matmul_cd@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cd@.c
+END
+MATMUL_S4Sdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4Sdispatch.c
+END
+matmul_ll2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ll2.c
+END
+mmx_c.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/mmx_c.h
+END
+matmul_s4d.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4d.c
+END
+i1gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1gemmx.f
+END
+xgemmx.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/xgemmx.h
+END
+matmul_id@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_id@.c
+END
+matmul_c4c4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4c4.c
+END
+matmul_i2s.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2s.c
+END
+sgemvx.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/sgemvx.f
+END
+l1gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/l1gemmx.f
+END
+jsgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/jsgemmx.f
+END
+mmx_dlutil.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/mmx_dlutil.c
+END
+c4gemvx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/c4gemvx.f
+END
+matmul_i1i2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1i2.c
+END
+mmx_dlutil.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/mmx_dlutil.h
+END
+MATMUL_SSdispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SSdispatch.c
+END
+i4s4gemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i4s4gemmx.f
+END
+matmul_sd@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_sd@.c
+END
+matmul_i2i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2i4.c
+END
+matmul_i4i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4i4.c
+END
+matmul_dc4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_dc4.c
+END
+matmul_l1l2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l1l2.c
+END
+matmul_ci1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ci1.c
+END
+matmul_c4s4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4s4.c
+END
+matmul_l2l4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l2l4.c
+END
+matmul_s4c4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4c4.c
+END
+matmul_l4l4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l4l4.c
+END
+matmul_jc4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_jc4.c
+END
+s4gemvx.f
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/s4gemvx.f
+END
+matmul_dc@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_dc@.c
+END
+matmul_ds4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ds4.c
+END
+matmul_jc@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_jc@.c
+END
+matmul_si1.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_si1.c
+END
+matmul_s4s4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_s4s4.c
+END
+i1dgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1dgemmx.f
+END
+i2dgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i2dgemmx.f
+END
+matmul_js4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_js4.c
+END
+matmul_zc4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zc4.c
+END
+i4dgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i4dgemmx.f
+END
+matmul_ds@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ds@.c
+END
+f90_mmult_error.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/f90_mmult_error.c
+END
+matmul_js@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_js@.c
+END
+matmul_zc@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zc@.c
+END
+MATMUL_C4C4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4C4dispatch.c
+END
+matmul_i2d.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul_i2d.c
+END
+matmul_zs4.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zs4.c
+END
+matmul.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/matmul.h
+END
+MATMUL_CC4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CC4.F90
+END
+matmul_cj@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cj@.c
+END
+matmul_zs@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_zs@.c
+END
+MATMUL_S4C4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4C4dispatch.c
+END
+MATMUL_C4S4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_C4S4dispatch.c
+END
+matmul_i1c4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i1c4.c
+END
+matmul_c4i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_c4i4.c
+END
+matmul_i2i1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i2i1.c
+END
+MATMUL_SC4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_SC4.F90
+END
+MATMUL_CS4.F90
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_CS4.F90
+END
+matmul_i4i1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_i4i1.c
+END
+matmul_l2l1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l2l1.c
+END
+matmul_cz@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_cz@.c
+END
+matmul_l4l1.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_l4l1.c
+END
+matmul_sj@.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_sj@.c
+END
+matmul_ci2.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libfi/matrix/matmul_ci2.c
+END
+MATMUL_S4S4dispatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/MATMUL_S4S4dispatch.c
+END
+i1sgemmx.f
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/matrix/i1sgemmx.f
+END

@@ -1,0 +1,749 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/Makefile.in
+END
+xexit.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xexit.c
+END
+setenv.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/setenv.c
+END
+strcasecmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strcasecmp.c
+END
+memmove.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/memmove.c
+END
+strsignal.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strsignal.c
+END
+getpagesize.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getpagesize.c
+END
+config.table
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/config.table
+END
+xstrerror.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xstrerror.c
+END
+memchr.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/memchr.c
+END
+basename.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/basename.c
+END
+libiberty.texi
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/libiberty.texi
+END
+bcopy.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/bcopy.c
+END
+config.h-vms
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/config.h-vms
+END
+ffs.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/ffs.c
+END
+bcmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/bcmp.c
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/configure.ac
+END
+physmem.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/physmem.c
+END
+strerror.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strerror.c
+END
+getopt1.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getopt1.c
+END
+md5.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/md5.c
+END
+obstack.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/obstack.c
+END
+strrchr.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strrchr.c
+END
+config.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/config.in
+END
+pex-djgpp.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-djgpp.c
+END
+vfprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vfprintf.c
+END
+makefile.vms
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/makefile.vms
+END
+fnmatch.txh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/fnmatch.txh
+END
+maint-tool
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/maint-tool
+END
+copying-lib.texi
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/copying-lib.texi
+END
+fdmatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/fdmatch.c
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/ChangeLog
+END
+rename.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/rename.c
+END
+partition.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/partition.c
+END
+xstrdup.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xstrdup.c
+END
+mempcpy.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/mempcpy.c
+END
+hashtab.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/hashtab.c
+END
+sigsetmask.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/sigsetmask.c
+END
+vsprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vsprintf.c
+END
+lrealpath.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/lrealpath.c
+END
+spaces.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/spaces.c
+END
+cp-demint.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/cp-demint.c
+END
+bzero.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/bzero.c
+END
+strdup.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strdup.c
+END
+vmsbuild.com
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vmsbuild.com
+END
+splay-tree.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/splay-tree.c
+END
+xatexit.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xatexit.c
+END
+pex-common.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-common.h
+END
+sort.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/sort.c
+END
+vfork.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vfork.c
+END
+vsnprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vsnprintf.c
+END
+fopen_unlocked.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/fopen_unlocked.c
+END
+tmpnam.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/tmpnam.c
+END
+atexit.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/atexit.c
+END
+dyn-string.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/dyn-string.c
+END
+functions.texi
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/functions.texi
+END
+argv.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/argv.c
+END
+xmalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xmalloc.c
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/configure
+END
+obstacks.texi
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/obstacks.texi
+END
+safe-ctype.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/safe-ctype.c
+END
+waitpid.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/waitpid.c
+END
+getopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getopt.c
+END
+pexecute.txh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pexecute.txh
+END
+snprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/snprintf.c
+END
+insque.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/insque.c
+END
+_doprnt.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/_doprnt.c
+END
+strchr.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strchr.c
+END
+index.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/index.c
+END
+bsearch.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/bsearch.c
+END
+concat.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/concat.c
+END
+strtoul.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strtoul.c
+END
+getcwd.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getcwd.c
+END
+pex-unix.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-unix.c
+END
+gather-docs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/gather-docs
+END
+make-relative-prefix.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/make-relative-prefix.c
+END
+stpcpy.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/stpcpy.c
+END
+strncasecmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strncasecmp.c
+END
+choose-temp.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/choose-temp.c
+END
+objalloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/objalloc.c
+END
+memcpy.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/memcpy.c
+END
+getpwd.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getpwd.c
+END
+copysign.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/copysign.c
+END
+make-temp-file.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/make-temp-file.c
+END
+pex-mpw.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-mpw.c
+END
+fibheap.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/fibheap.c
+END
+stpncpy.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/stpncpy.c
+END
+strstr.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strstr.c
+END
+mkstemps.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/mkstemps.c
+END
+mpw.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/mpw.c
+END
+mpw-make.sed
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/mpw-make.sed
+END
+regex.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/regex.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/README
+END
+cp-demangle.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/cp-demangle.c
+END
+vasprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vasprintf.c
+END
+memcmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/memcmp.c
+END
+floatformat.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/floatformat.c
+END
+pex-msdos.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-msdos.c
+END
+strtod.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strtod.c
+END
+xmemdup.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/xmemdup.c
+END
+fnmatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/fnmatch.c
+END
+random.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/random.c
+END
+cp-demangle.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/cp-demangle.h
+END
+putenv.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/putenv.c
+END
+getruntime.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/getruntime.c
+END
+hex.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/hex.c
+END
+ternary.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/ternary.c
+END
+msdos.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/msdos.c
+END
+asprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/asprintf.c
+END
+strncmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strncmp.c
+END
+lbasename.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/lbasename.c
+END
+strtol.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/strtol.c
+END
+vprintf.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/vprintf.c
+END
+cplus-dem.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/cplus-dem.c
+END
+rindex.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/rindex.c
+END
+memset.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/memset.c
+END
+mpw-config.in
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/mpw-config.in
+END
+alloca.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/alloca.c
+END
+clock.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/clock.c
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/aclocal.m4
+END
+COPYING.LIB
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/COPYING.LIB
+END
+pex-win32.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-win32.c
+END
+calloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/calloc.c
+END
+pex-os2.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libiberty/pex-os2.c
+END

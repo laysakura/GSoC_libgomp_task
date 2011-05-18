@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi
+END
+atx.F
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/atx.F
+END
+atx@ckstrm.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/atx@ckstrm.c
+END
+cs_atx.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/cs_atx.c
+END
+cs_atxc.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/cs_atxc.h
+END
+multi.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/multi.makeinclude
+END
+cs_fatx.f
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/cs_fatx.f
+END
+multi.mh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/multi/multi.mh
+END

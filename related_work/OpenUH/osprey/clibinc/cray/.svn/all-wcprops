@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/clibinc/cray
+END
+mtlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/mtlock.h
+END
+streamsafe.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/streamsafe.h
+END
+fortio.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/fortio.h
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/Makefile.gbase
+END
+nlcatmsg.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/clibinc/cray/nlcatmsg.h
+END
+libuni_mk.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/libuni_mk.h
+END
+fndc.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/fndc.h
+END
+solaris.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/solaris.h
+END
+fmtconv.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/fmtconv.h
+END
+nassert.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/nassert.h
+END
+assign.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/assign.h
+END
+io_byteswap.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/io_byteswap.h
+END
+dopevec.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/dopevec.h
+END
+portdefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/portdefs.h
+END
+libuni_cos.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/libuni_cos.h
+END
+format.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/format.h
+END
+clibinc_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/clibinc/cray/clibinc_config.h
+END

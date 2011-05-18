@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio
+END
+waio.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/waio.makeinclude
+END
+wclose.f
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wclose.f
+END
+wmove.f
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wmove.f
+END
+readwa.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/readwa.c
+END
+waio.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/waio.h
+END
+chkunit.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/chkunit.c
+END
+drutil.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/drutil.F
+END
+wunit.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wunit.c
+END
+dr.f
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/dr.f
+END
+getwa.f
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/getwa.f
+END
+wfind.f
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wfind.f
+END
+wflush.f
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wflush.f
+END
+wgetb.f
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wgetb.f
+END
+wavars.fh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wavars.fh
+END
+errwa.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/errwa.c
+END
+waio.mh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/waio.mh
+END
+ms.f
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/ms.f
+END
+writewa.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/writewa.c
+END
+iclktck.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/iclktck.c
+END
+wdset.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/wdset.c
+END
+winit.f
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/waio/winit.f
+END

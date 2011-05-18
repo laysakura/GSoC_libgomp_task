@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/sh
+END
+rtems.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/rtems.h
+END
+crti.asm
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/crti.asm
+END
+sshmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sshmedia.h
+END
+sh-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sh-protos.h
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/linux.h
+END
+crtn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/crtn.asm
+END
+t-sh64
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/t-sh64
+END
+ushmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/sh/ushmedia.h
+END
+crt1.asm
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/crt1.asm
+END
+sh.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sh.c
+END
+elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/elf.h
+END
+shmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/shmedia.h
+END
+sh.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sh.h
+END
+t-linux
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/t-linux
+END
+lib1funcs.asm
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/lib1funcs.asm
+END
+t-elf
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/t-elf
+END
+rtemself.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/rtemself.h
+END
+sh.md
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sh.md
+END
+sh64.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/sh64.h
+END
+t-sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/sh/t-sh
+END

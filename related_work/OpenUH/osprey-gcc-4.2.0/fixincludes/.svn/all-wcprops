@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/configure
+END
+mkfixinc.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/mkfixinc.sh
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/Makefile.in
+END
+fixinc.in
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixinc.in
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/ChangeLog
+END
+server.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/server.c
+END
+fixincl.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixincl.tpl
+END
+fixtests.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixtests.c
+END
+server.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/server.h
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/README
+END
+fixlib.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixlib.c
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/config.h.in
+END
+fixincl.x
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixincl.x
+END
+fixlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixlib.h
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/configure.ac
+END
+fixfixes.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixfixes.c
+END
+procopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/procopen.c
+END
+genfixes
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/genfixes
+END
+mkheaders.in
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/mkheaders.in
+END
+inclhack.def
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/inclhack.def
+END
+system.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/system.h
+END
+check.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/check.tpl
+END
+README-fixinc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/README-fixinc
+END
+fixincl.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixincl.c
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/aclocal.m4
+END
+fixopts.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/fixincludes/fixopts.c
+END

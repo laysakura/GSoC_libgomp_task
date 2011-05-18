@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/cpu/powerpc
+END
+cpu_defines.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/cpu/powerpc/cpu_defines.h
+END
+atomic_word.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/cpu/powerpc/atomic_word.h
+END

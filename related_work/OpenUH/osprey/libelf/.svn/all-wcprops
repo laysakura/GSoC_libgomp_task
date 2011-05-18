@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelf
+END
+mkinstalldirs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/mkinstalldirs
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/configure
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/Makefile.in
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/VERSION
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/configure.in
+END
+README.ekopath
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/README.ekopath
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/ChangeLog
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/config.guess
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelf/config.h
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/config.sub
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/README
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelf/Makefile.gbase
+END
+acconfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/acconfig.h
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/config.h.in
+END
+MANIFEST
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/MANIFEST
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/INSTALL
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/aclocal.m4
+END
+COPYING.LIB
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/COPYING.LIB
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/install-sh
+END
+stamp-h.in
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelf/stamp-h.in
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag
+END
+G4Mag_EqRhs.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4Mag_EqRhs.hh
+END
+testG4Mag.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/testG4Mag.cpp
+END
+G4Mag_EqRhs.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4Mag_EqRhs.cpp
+END
+G4MagneticField.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4MagneticField.hh
+END
+G4MagneticField.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4MagneticField.cpp
+END
+G4Mag_UsualEqRhs.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4Mag_UsualEqRhs.hh
+END
+G4Mag_UsualEqRhs.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/G4Mag_UsualEqRhs.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4Mag/Makefile
+END

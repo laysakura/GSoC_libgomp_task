@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro
+END
+contribute.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/contribute.html
+END
+PROBLEMS
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/PROBLEMS
+END
+porting-howto.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/porting-howto.html
+END
+confdeps.png
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/confdeps.png
+END
+license.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/license.html
+END
+porting.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/porting.html
+END
+confdeps.dot
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/confdeps.dot
+END
+C++STYLE
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/C++STYLE
+END
+porting.texi
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/porting.texi
+END
+headers_cc.txt
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/headers_cc.txt
+END
+concept_check.diff
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/concept_check.diff
+END
+BUGS
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/BUGS
+END
+howto.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/howto.html
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/TODO
+END
+RELEASE-NOTES
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/RELEASE-NOTES
+END
+HEADER_POLICY
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/HEADER_POLICY
+END
+configury.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/configury.html
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/COPYING
+END
+DESIGN
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/DESIGN
+END
+CHECKLIST
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/CHECKLIST
+END
+BADNAMES
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/BADNAMES
+END
+COPYING.DOC
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/docs/html/17_intro/COPYING.DOC
+END

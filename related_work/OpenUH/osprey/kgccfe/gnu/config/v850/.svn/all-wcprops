@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850
+END
+rtems.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/rtems.h
+END
+v850.md
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/v850.md
+END
+t-v850
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/t-v850
+END
+v850-c.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/v850-c.c
+END
+v850.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/v850.c
+END
+lib1funcs.asm
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/lib1funcs.asm
+END
+v850.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/v850.h
+END
+v850-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/v850/v850-protos.h
+END

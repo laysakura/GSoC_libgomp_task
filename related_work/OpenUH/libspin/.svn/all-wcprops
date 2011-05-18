@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/open64/!svn/ver/3591/branches/OpenUH/libspin
+END
+gspin-list.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-list.h
+END
+gspin-base-types.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-base-types.h
+END
+.hgignore
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/.hgignore
+END
+gspin-tel.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-tel.c
+END
+gspin-tel.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/libspin/gspin-tel.h
+END
+gspin-alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/gspin-alloc.c
+END
+.hgtags
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/.hgtags
+END
+.hgforce
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/.hgforce
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/README
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/Makefile.gbase
+END
+gspin-alloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-alloc.h
+END
+gspin-tree.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/libspin/gspin-tree.c
+END
+gspin-assert.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/gspin-assert.c
+END
+.hg_archival.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/.hg_archival.txt
+END
+gspin-tree.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/libspin/gspin-tree.h
+END
+gspin-assert.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-assert.h
+END
+gspin-io.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-io.c
+END
+gspin-mempool.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-mempool.c
+END
+gspin-test-driver.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/libspin/gspin-test-driver.c
+END
+gspin-list.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-list.c
+END
+gspin-io.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-io.h
+END
+gspin-mempool.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/gspin-mempool.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/libspin/Makefile
+END

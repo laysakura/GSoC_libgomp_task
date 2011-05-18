@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k
+END
+openbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/openbsd.h
+END
+t-m68kbare
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-m68kbare
+END
+m68k-aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k-aout.h
+END
+m68k.md
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k.md
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/linux.h
+END
+m68020-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68020-elf.h
+END
+m68k-modes.def
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k-modes.def
+END
+fpgnulib.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/fpgnulib.c
+END
+t-uclinux
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-uclinux
+END
+t-openbsd
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-openbsd
+END
+t-rtems
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-rtems
+END
+m68kemb.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68kemb.h
+END
+m68k-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k-protos.h
+END
+t-crtstuff
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-crtstuff
+END
+m68kelf.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68kelf.h
+END
+crti.s
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/crti.s
+END
+coff.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/coff.h
+END
+lb1sf68.asm
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/lb1sf68.asm
+END
+t-slibgcc-elf-ver
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-slibgcc-elf-ver
+END
+m68k.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k.c
+END
+crtn.s
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/crtn.s
+END
+rtemself.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/rtemself.h
+END
+m68k-none.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k-none.h
+END
+netbsd-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/netbsd-elf.h
+END
+m68k.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/m68k.h
+END
+math-68881.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/math-68881.h
+END
+t-m68kelf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/t-m68kelf
+END
+uclinux.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68k/uclinux.h
+END

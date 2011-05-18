@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/ia64
+END
+proc_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/ia64/proc_si.cxx
+END
+proc_properties.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/targ_info/proc/ia64/proc_properties.cxx
+END
+itanium_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/ia64/itanium_si.cxx
+END
+proc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/targ_info/proc/ia64/proc.cxx
+END

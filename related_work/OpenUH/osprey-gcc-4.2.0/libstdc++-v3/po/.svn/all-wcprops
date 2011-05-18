@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/Makefile.in
+END
+fr.po
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/fr.po
+END
+de.po
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/de.po
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/Makefile.am
+END
+string_literals.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/string_literals.cc
+END
+POTFILES.in
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/POTFILES.in
+END
+libstdc++.pot
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/po/libstdc++.pot
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/doc
+END
+EH_IMPLEMENTATION
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/doc/EH_IMPLEMENTATION
+END
+KernelCompile
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/doc/KernelCompile
+END
+HOW-TO-DEBUG-OPEN64
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/doc/HOW-TO-DEBUG-OPEN64
+END
+EH_RUNTIME_FRAMEWORK
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/doc/EH_RUNTIME_FRAMEWORK
+END
+KERNEL-COMPILATION
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/doc/KERNEL-COMPILATION
+END
+PPC32-BACKEND
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/doc/PPC32-BACKEND
+END

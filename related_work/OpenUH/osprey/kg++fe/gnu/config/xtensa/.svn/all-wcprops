@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa
+END
+xtensa.md
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/xtensa.md
+END
+t-xtensa
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/t-xtensa
+END
+xtensa.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/xtensa.c
+END
+lib1funcs.asm
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/lib1funcs.asm
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/linux.h
+END
+lib2funcs.S
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/lib2funcs.S
+END
+xtensa.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/xtensa.h
+END
+xtensa-config.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/xtensa-config.h
+END
+elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/elf.h
+END
+xtensa-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/xtensa/xtensa-protos.h
+END

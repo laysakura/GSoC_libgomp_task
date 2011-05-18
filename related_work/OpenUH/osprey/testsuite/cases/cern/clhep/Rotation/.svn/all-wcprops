@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/Rotation
+END
+Rotation.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/Rotation/Rotation.cpp
+END
+testRotation.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/Rotation/testRotation.cpp
+END
+Rotation.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/Rotation/Rotation.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/Rotation/Makefile
+END

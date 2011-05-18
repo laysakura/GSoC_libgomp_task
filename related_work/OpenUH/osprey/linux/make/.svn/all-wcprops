@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/linux/make
+END
+gcommondefs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/linux/make/gcommondefs
+END
+releasedefs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/linux/make/releasedefs
+END
+gcommonrules
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/linux/make/gcommonrules
+END

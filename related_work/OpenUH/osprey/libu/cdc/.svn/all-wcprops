@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc
+END
+p6460.f
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/p6460.f
+END
+cdc.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cdc.makeinclude
+END
+cdc.mh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cdc.mh
+END
+cray2nve.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cray2nve.f
+END
+nve2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/nve2cray.f
+END
+cdc2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cdc2cray.f
+END
+cray2cdc.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cray2cdc.f
+END
+cray2eta.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/cray2eta.f
+END
+eta2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/cdc/eta2cray.f
+END

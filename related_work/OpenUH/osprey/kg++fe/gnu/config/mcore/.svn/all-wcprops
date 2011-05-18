@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/mcore
+END
+mcore-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore-elf.h
+END
+mcore-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore-protos.h
+END
+crti.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/crti.asm
+END
+gfloat.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/gfloat.h
+END
+mcore.md
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore.md
+END
+crtn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/crtn.asm
+END
+lib1.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/lib1.asm
+END
+mcore.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore.c
+END
+t-mcore
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/t-mcore
+END
+t-mcore-pe
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/t-mcore-pe
+END
+mcore.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore.h
+END
+mcore-pe.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/mcore/mcore-pe.h
+END

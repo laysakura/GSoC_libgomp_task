@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts
+END
+symmetry.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/symmetry.h
+END
+decstation.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/decstation.h
+END
+i386sco.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/i386sco.h
+END
+tahoe.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/tahoe.h
+END
+mipsbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/mipsbsd.h
+END
+i860mach3.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/i860mach3.h
+END
+riscos.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/riscos.h
+END
+m88kmach3.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/m88kmach3.h
+END
+m68kaux.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/m68kaux.h
+END
+m68klinux.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/m68klinux.h
+END
+i386mach3.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/i386mach3.h
+END
+alphalinux.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/alphalinux.h
+END
+vaxult2.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/vaxult2.h
+END
+delta68.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/delta68.h
+END
+i386linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/i386linux.h
+END
+alphavms.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/alphavms.h
+END
+news.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/news.h
+END
+dpx2.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/dpx2.h
+END
+i386bsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/i386bsd.h
+END
+news-mips.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/news-mips.h
+END
+hp300bsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/hp300bsd.h
+END
+vaxult.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/vaxult.h
+END
+mipsmach3.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/mipsmach3.h
+END
+pc532mach.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/pc532mach.h
+END
+vaxbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/bfd/hosts/vaxbsd.h
+END

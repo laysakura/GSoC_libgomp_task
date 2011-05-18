@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/include/cmplrs
+END
+elf_interfaces.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/elf_interfaces.h
+END
+f_errno.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/f_errno.h
+END
+make_depend.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/include/cmplrs/make_depend.h
+END
+host.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/host.h
+END
+leb128.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/include/cmplrs/leb128.h
+END
+xlate.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/xlate.h
+END
+rcodes.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/rcodes.h
+END
+cif_c.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/cif_c.h
+END
+dwarf_addr_finder.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/dwarf_addr_finder.h
+END
+events.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/events.h
+END
+fb.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/include/cmplrs/fb.h
+END
+newinst.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/newinst.h
+END
+array_alloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/include/cmplrs/array_alloc.h
+END

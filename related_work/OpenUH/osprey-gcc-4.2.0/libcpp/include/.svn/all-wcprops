@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include
+END
+cpplib.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include/cpplib.h
+END
+symtab.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include/symtab.h
+END
+line-map.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include/line-map.h
+END
+cpp-id-data.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include/cpp-id-data.h
+END
+mkdeps.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libcpp/include/mkdeps.h
+END

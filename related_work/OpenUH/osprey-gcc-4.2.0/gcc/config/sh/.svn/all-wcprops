@@ -1,0 +1,497 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh
+END
+t-netbsd
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-netbsd
+END
+symbian.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/symbian.c
+END
+sshmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sshmedia.h
+END
+t-mlib-sh3e
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh3e
+END
+sh-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh-protos.h
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/linux.h
+END
+divtab-sh4.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/divtab-sh4.c
+END
+linux-atomic.asm
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/linux-atomic.asm
+END
+superh.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/superh.h
+END
+elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/elf.h
+END
+sh4.md
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh4.md
+END
+coff.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/coff.h
+END
+t-mlib-sh5-32media
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-32media
+END
+lib1funcs.asm
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/lib1funcs.asm
+END
+t-1e
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-1e
+END
+embed-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/embed-elf.h
+END
+newlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/newlib.h
+END
+t-mlib-sh5-64media
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-64media
+END
+t-sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-sh
+END
+symbian-pre.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/symbian-pre.h
+END
+t-mlib-sh2a-single-only
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2a-single-only
+END
+t-mlib-sh1
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh1
+END
+t-mlib-sh2
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2
+END
+t-mlib-sh3
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh3
+END
+t-mlib-sh4
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4
+END
+crti.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/crti.asm
+END
+rtems.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/rtems.h
+END
+t-mlib-sh4a
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4a
+END
+t-vxworks
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-vxworks
+END
+crtn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/crtn.asm
+END
+t-mlib-sh5-32media-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-32media-nofpu
+END
+divtab.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/divtab.c
+END
+kaos-sh.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/kaos-sh.h
+END
+divcost-analysis
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/divcost-analysis
+END
+t-mlib-sh2a-single
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2a-single
+END
+sh4a.md
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh4a.md
+END
+t-mlib-sh4a-single
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4a-single
+END
+shmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/shmedia.h
+END
+t-netbsd-sh5-64
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-netbsd-sh5-64
+END
+t-mlib-sh4a-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4a-nofpu
+END
+libgcc-excl.ver
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/libgcc-excl.ver
+END
+sh64.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh64.h
+END
+symbian-post.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/symbian-post.h
+END
+sh-c.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh-c.c
+END
+sh.opt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh.opt
+END
+predicates.md
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/predicates.md
+END
+t-sh64
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-sh64
+END
+ushmedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/ushmedia.h
+END
+linux-unwind.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/linux-unwind.h
+END
+sh.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh.c
+END
+t-rtems
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-rtems
+END
+t-mlib-sh4al
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4al
+END
+t-mlib-sh4-single
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4-single
+END
+sh.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh.h
+END
+t-mlib-sh5-compact
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-compact
+END
+t-superh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-superh
+END
+shmedia.md
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/shmedia.md
+END
+t-linux64
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-linux64
+END
+lib1funcs.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/lib1funcs.h
+END
+sh-modes.def
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh-modes.def
+END
+t-mlib-sh4-single-only
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4-single-only
+END
+t-mlib-sh2a
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2a
+END
+t-mlib-sh4a-single-only
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4a-single-only
+END
+t-mlib-sh2e
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2e
+END
+little.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/little.h
+END
+lib1funcs-Os-4-200.asm
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/lib1funcs-Os-4-200.asm
+END
+crt1.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/crt1.asm
+END
+sh1.md
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh1.md
+END
+t-mlib-sh5-compact-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-compact-nofpu
+END
+libgcc-glibc.ver
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/libgcc-glibc.ver
+END
+t-mlib-sh5-64media-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh5-64media-nofpu
+END
+t-linux
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-linux
+END
+t-symbian
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-symbian
+END
+t-mlib-sh2a-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh2a-nofpu
+END
+t-mlib-sh4-nofpu
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-mlib-sh4-nofpu
+END
+superh64.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/superh64.h
+END
+t-elf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/t-elf
+END
+superh.opt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/superh.opt
+END
+rtemself.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/rtemself.h
+END
+netbsd-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/netbsd-elf.h
+END
+sh.md
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/sh.md
+END
+vxworks.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/sh/vxworks.h
+END

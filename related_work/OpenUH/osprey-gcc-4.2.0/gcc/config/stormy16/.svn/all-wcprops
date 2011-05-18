@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16
+END
+predicates.md
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/predicates.md
+END
+stormy16.md
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16.md
+END
+stormy16.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16.c
+END
+stormy16.opt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16.opt
+END
+t-stormy16
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/t-stormy16
+END
+stormy-abi
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy-abi
+END
+stormy16.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16.h
+END
+stormy16-lib2.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16-lib2.c
+END
+stormy16-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/stormy16/stormy16-protos.h
+END

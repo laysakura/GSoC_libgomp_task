@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu
+END
+numeric_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/numeric_members.cc
+END
+collate_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/collate_members.cc
+END
+ctype_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/ctype_members.cc
+END
+c_locale.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/c_locale.cc
+END
+codecvt_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/codecvt_members.cc
+END
+messages_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/messages_members.cc
+END
+c_locale.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/c_locale.h
+END
+messages_members.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/messages_members.h
+END
+c++locale_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/c++locale_internal.h
+END
+monetary_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/monetary_members.cc
+END
+time_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/time_members.cc
+END
+time_members.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/gnu/time_members.h
+END

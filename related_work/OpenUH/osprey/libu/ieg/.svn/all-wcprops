@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libu/ieg
+END
+ieg.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg.makeinclude
+END
+cray2ied.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2ied.f
+END
+ied2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ied2cray.f
+END
+mips2ia.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libu/ieg/mips2ia.F
+END
+ieg2cray_c.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg2cray_c.c
+END
+cray2ieg.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2ieg.f
+END
+mips2cry.F
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/mips2cry.F
+END
+cry2mips.F
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cry2mips.F
+END
+mips2ieg.F
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/mips2ieg.F
+END
+craytran.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/craytran.c
+END
+iud2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/iud2cray.f
+END
+cray2iud.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2iud.f
+END
+ieg.mh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg.mh
+END
+cray2ieu.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2ieu.f
+END
+ia2mips.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libu/ieg/ia2mips.F
+END
+cray2ieg_c.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2ieg_c.c
+END
+ieg2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg2cray.f
+END
+ieg.gmakeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libu/ieg/ieg.gmakeinclude
+END
+ied2cray_f.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ied2cray_f.f
+END
+cray2ied_f.f
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2ied_f.f
+END
+inttran.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libu/ieg/inttran.c
+END
+cri2cry.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cri2cry.F
+END
+cry2cri.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cry2cri.F
+END
+cray2cri.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cray2cri.f
+END
+cri2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cri2cray.f
+END
+gchrpck.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/gchrpck.c
+END
+ieg2mips.F
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg2mips.F
+END
+ieu2cray.f
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieu2cray.f
+END
+ieg2cri.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieg2cri.F
+END
+cri2ieg.F
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/cri2ieg.F
+END
+ieeetran.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/ieeetran.c
+END
+mipstran.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/ieg/mipstran.c
+END

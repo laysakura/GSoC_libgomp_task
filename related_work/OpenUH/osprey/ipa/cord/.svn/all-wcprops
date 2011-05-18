@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/ipa/cord
+END
+cord_epilogue
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/ipa/cord/cord_epilogue
+END
+ipa_cord.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/ipa/cord/ipa_cord.cxx
+END
+cord_prologue
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/ipa/cord/cord_prologue
+END
+obj_info.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/ipa/cord/obj_info.cxx
+END
+obj_info.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/ipa/cord/obj_info.h
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/ipa/cord/Makefile.gbase
+END

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access
+END
+ekapi_subset.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_subset.cxx
+END
+ekapi_itanium.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_itanium.cxx
+END
+ti_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ti_init.c
+END
+ti_si_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ti_si_types.h
+END
+ekapi_bundle.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_bundle.cxx
+END
+ekapi_operands.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_operands.cxx
+END
+ekapi_lits.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_lits.cxx
+END
+ti_init.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ti_init.h
+END
+ekapi_util.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_util.cxx
+END
+ekapi_cache_info.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_cache_info.cxx
+END
+ti_si.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ti_si.h
+END
+ekapi_register.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_register.cxx
+END
+ekapi_enums.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_enums.cxx
+END
+ekapi_ia64.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_ia64.h
+END
+ekapi_opcode_access.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_opcode_access.cxx
+END
+ekapi_itanium.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_itanium.h
+END
+ekapi_properties.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_properties.cxx
+END
+ekapi_bundle.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_bundle.h
+END
+ekapi_bypass.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_bypass.cxx
+END
+ekapi_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/access/ekapi_util.h
+END

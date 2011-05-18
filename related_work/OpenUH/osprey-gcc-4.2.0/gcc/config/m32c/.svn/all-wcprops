@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c
+END
+cond.md
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/cond.md
+END
+predicates.md
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/predicates.md
+END
+m32c.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c.c
+END
+minmax.md
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/minmax.md
+END
+blkmov.md
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/blkmov.md
+END
+m32c.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c.h
+END
+m32c-pragma.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c-pragma.c
+END
+m32c-lib1.S
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c-lib1.S
+END
+prologue.md
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/prologue.md
+END
+m32c.abi
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c.abi
+END
+bitops.md
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/bitops.md
+END
+muldiv.md
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/muldiv.md
+END
+mov.md
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/mov.md
+END
+addsub.md
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/addsub.md
+END
+m32c.md
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c.md
+END
+m32c.opt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c.opt
+END
+t-m32c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/t-m32c
+END
+m32c-modes.def
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c-modes.def
+END
+jump.md
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/jump.md
+END
+m32c-lib2.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c-lib2.c
+END
+shift.md
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/shift.md
+END
+m32c-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/m32c/m32c-protos.h
+END

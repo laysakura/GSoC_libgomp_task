@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/rpc
+END
+svc.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/rpc/svc.h
+END
+xdr.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/rpc/xdr.h
+END
+auth.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/rpc/auth.h
+END
+rpc.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/rpc/rpc.h
+END

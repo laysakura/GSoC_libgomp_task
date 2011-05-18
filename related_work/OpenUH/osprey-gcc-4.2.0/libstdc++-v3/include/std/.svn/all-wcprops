@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std
+END
+std_valarray.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_valarray.h
+END
+std_iostream.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_iostream.h
+END
+std_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_queue.h
+END
+std_algorithm.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_algorithm.h
+END
+std_streambuf.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_streambuf.h
+END
+std_iterator.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_iterator.h
+END
+std_ios.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_ios.h
+END
+std_bitset.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_bitset.h
+END
+std_iosfwd.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_iosfwd.h
+END
+std_set.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_set.h
+END
+std_iomanip.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_iomanip.h
+END
+std_locale.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_locale.h
+END
+std_limits.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_limits.h
+END
+std_fstream.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_fstream.h
+END
+std_functional.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_functional.h
+END
+std_numeric.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_numeric.h
+END
+std_vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_vector.h
+END
+std_deque.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_deque.h
+END
+std_stdexcept.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_stdexcept.h
+END
+std_utility.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_utility.h
+END
+std_istream.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_istream.h
+END
+std_stack.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_stack.h
+END
+std_string.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_string.h
+END
+std_complex.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_complex.h
+END
+std_memory.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_memory.h
+END
+std_ostream.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_ostream.h
+END
+std_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_list.h
+END
+std_map.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_map.h
+END
+std_sstream.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/std/std_sstream.h
+END

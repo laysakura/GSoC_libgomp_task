@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/irix
+END
+atomicity.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/irix/atomicity.h
+END
+atomic_word.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/irix/atomic_word.h
+END

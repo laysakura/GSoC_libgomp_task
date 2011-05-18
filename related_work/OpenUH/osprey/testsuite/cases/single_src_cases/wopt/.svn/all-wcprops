@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt
+END
+bug_523_case.C
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/bug_523_case.C
+END
+bug_560_testcase.C
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/bug_560_testcase.C
+END
+bug_336_case.c
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/bug_336_case.c
+END
+bug_458_case.f90
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/bug_458_case.f90
+END
+bug_482_testcase.c
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/bug_482_testcase.c
+END
+P09022_mini.correct.log
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/P09022_mini.correct.log
+END
+P09022_mini.C
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/P09022_mini.C
+END
+P25054_mini.C
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/P25054_mini.C
+END
+redundant_cvtl.correct.log
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/redundant_cvtl.correct.log
+END
+redundant_cvtl.c
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/wopt/redundant_cvtl.c
+END

@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000
+END
+eabi.asm
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabi.asm
+END
+rs6000.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rs6000.h
+END
+darwin-tramp.asm
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/darwin-tramp.asm
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/linux.h
+END
+t-darwin
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-darwin
+END
+t-ppcos
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-ppcos
+END
+ppc-asm.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/ppc-asm.h
+END
+eabi.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabi.h
+END
+vxppc.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/vxppc.h
+END
+eabiaix.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabiaix.h
+END
+t-aix43
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-aix43
+END
+t-rs6000
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-rs6000
+END
+t-rtems
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-rtems
+END
+xcoff.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/xcoff.h
+END
+altivec-defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/altivec-defs.h
+END
+eabialtivec.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabialtivec.h
+END
+eabisim.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabisim.h
+END
+sysv4le.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/sysv4le.h
+END
+tramp.asm
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/tramp.asm
+END
+sol-ci.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/sol-ci.asm
+END
+sol-cn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/sol-cn.asm
+END
+t-linux64
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-linux64
+END
+aix41.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix41.h
+END
+aix43.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix43.h
+END
+beos.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/beos.h
+END
+t-newas
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-newas
+END
+t-ppcgas
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-ppcgas
+END
+gnu.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/gnu.h
+END
+lynx.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/lynx.h
+END
+rtems.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rtems.h
+END
+softfloat.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/softfloat.h
+END
+aix3newas.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix3newas.h
+END
+rs6000.md
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rs6000.md
+END
+t-beos
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-beos
+END
+rs6000-c.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rs6000-c.c
+END
+crtsavres.asm
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/crtsavres.asm
+END
+linuxaltivec.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/linuxaltivec.h
+END
+mach.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/mach.h
+END
+linux64.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/linux64.h
+END
+t-ppccomm
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/t-ppccomm
+END
+freebsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/freebsd.h
+END
+milli.exp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/milli.exp
+END
+rs6000-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rs6000-protos.h
+END
+netbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/netbsd.h
+END
+aix.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix.h
+END
+eabi-ci.asm
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabi-ci.asm
+END
+darwin.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/darwin.h
+END
+rs6000.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/rs6000.c
+END
+aix31.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix31.h
+END
+aix51.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/aix51.h
+END
+altivec.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/altivec.h
+END
+eabi-cn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/eabi-cn.asm
+END
+sysv4.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/rs6000/sysv4.h
+END

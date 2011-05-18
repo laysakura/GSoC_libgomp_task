@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/m32r
+END
+m32r.md
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/m32r.md
+END
+m32r.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/m32r.c
+END
+t-m32r
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/t-m32r
+END
+m32r.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/m32r.h
+END
+initfini.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/initfini.c
+END
+m32r-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/m32r/m32r-protos.h
+END

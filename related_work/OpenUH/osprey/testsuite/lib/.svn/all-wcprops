@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib
+END
+bb.ld
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/bb.ld
+END
+parse_timefile.exp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/parse_timefile.exp
+END
+test_multifile.exp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/test_multifile.exp
+END
+common.ld
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/common.ld
+END
+diff_runlog.sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/diff_runlog.sh
+END
+update_compiler.exp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/update_compiler.exp
+END
+parse_conf.exp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/parse_conf.exp
+END
+test_utils.exp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/test_utils.exp
+END
+codesize.sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/codesize.sh
+END
+do_cmd.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/lib/do_cmd.sh
+END

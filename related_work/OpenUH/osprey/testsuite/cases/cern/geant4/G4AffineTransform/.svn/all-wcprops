@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4AffineTransform
+END
+testG4AffineTransform.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4AffineTransform/testG4AffineTransform.cpp
+END
+G4AffineTransform.icc
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4AffineTransform/G4AffineTransform.icc
+END
+G4AffineTransform.hh
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4AffineTransform/G4AffineTransform.hh
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/geant4/G4AffineTransform/Makefile
+END

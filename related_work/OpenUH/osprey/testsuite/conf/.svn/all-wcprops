@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf
+END
+gcc-O3.conf
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/gcc-O3.conf
+END
+gcc.conf
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/gcc.conf
+END
+open64-ipa-O2.conf
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/open64-ipa-O2.conf
+END
+open64-ipa-O3.conf
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/open64-ipa-O3.conf
+END
+mails.conf
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/mails.conf
+END
+open64-O2.conf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/open64-O2.conf
+END
+gcc-O2.conf
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/gcc-O2.conf
+END
+open64-O3.conf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/conf/open64-O3.conf
+END

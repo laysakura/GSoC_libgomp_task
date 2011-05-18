@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k
+END
+ns32k.md
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/ns32k.md
+END
+tek6000.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/tek6000.h
+END
+tek6100.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/tek6100.h
+END
+encore.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/encore.h
+END
+ns32k.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/ns32k.c
+END
+tek6200.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/tek6200.h
+END
+pc532.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/pc532.h
+END
+pc532-min.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/pc532-min.h
+END
+netbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/netbsd.h
+END
+ns32k.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/ns32k.h
+END
+pc532-mach.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/pc532-mach.h
+END
+ns32k-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/ns32k-protos.h
+END
+sequent.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/sequent.h
+END
+merlin.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/ns32k/merlin.h
+END

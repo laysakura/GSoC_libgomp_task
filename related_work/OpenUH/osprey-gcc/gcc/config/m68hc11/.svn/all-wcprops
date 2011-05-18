@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11
+END
+t-m68hc11-gas
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/t-m68hc11-gas
+END
+m68hc11-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc11-protos.h
+END
+larith.asm
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/larith.asm
+END
+m68hc11.md
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc11.md
+END
+m68hc11.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc11.c
+END
+m68hc11.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc11.h
+END
+m68hc11-crt0.S
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc11-crt0.S
+END
+m68hc12.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/m68hc11/m68hc12.h
+END

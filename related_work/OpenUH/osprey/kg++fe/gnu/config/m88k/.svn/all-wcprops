@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/m88k
+END
+openbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/openbsd.h
+END
+t-dgux-gas
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-dgux-gas
+END
+m88k-aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k-aout.h
+END
+luna.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/luna.h
+END
+dguxbcs.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/dguxbcs.h
+END
+tekXD88.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/tekXD88.h
+END
+m88k.md
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k.md
+END
+m88k-coff.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k-coff.h
+END
+t-m88k
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-m88k
+END
+t-sysv4
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-sysv4
+END
+dolphin.ld
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/dolphin.ld
+END
+dolph.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/dolph.h
+END
+dgux.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/dgux.h
+END
+tekXD88.ld
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/tekXD88.ld
+END
+t-dguxbcs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-dguxbcs
+END
+t-luna
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-luna
+END
+t-m88k-gas
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-m88k-gas
+END
+t-tekXD88
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-tekXD88
+END
+m88k-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k-protos.h
+END
+m88k-move.sh
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k-move.sh
+END
+dgux.ld
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/dgux.ld
+END
+t-dolph
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-dolph
+END
+m88k.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k.c
+END
+t-dgux
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-dgux
+END
+t-luna-gas
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-luna-gas
+END
+aout-dbx.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/aout-dbx.h
+END
+sysv3.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/sysv3.h
+END
+m88k.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/m88k.h
+END
+sysv4.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/sysv4.h
+END
+t-bug
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kg++fe/gnu/config/m88k/t-bug
+END

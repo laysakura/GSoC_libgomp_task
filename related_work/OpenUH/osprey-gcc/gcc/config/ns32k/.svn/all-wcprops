@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k
+END
+ns32k.md
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/ns32k.md
+END
+__unordsf2.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/__unordsf2.c
+END
+ns32k.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/ns32k.c
+END
+t-ns32k
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/t-ns32k
+END
+__unorddf2.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/__unorddf2.c
+END
+STATUS
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/STATUS
+END
+netbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/netbsd.h
+END
+ns32k.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/ns32k.h
+END
+NOTES
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/NOTES
+END
+ns32k-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/ns32k/ns32k-protos.h
+END

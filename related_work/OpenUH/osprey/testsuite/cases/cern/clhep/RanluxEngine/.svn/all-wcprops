@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine
+END
+RanluxEngine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/RanluxEngine.cpp
+END
+testRanluxEngine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/testRanluxEngine.cpp
+END
+RanluxEngine.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/RanluxEngine.h
+END
+RandomEngine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/RandomEngine.cpp
+END
+RandomEngine.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/RandomEngine.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/clhep/RanluxEngine/Makefile
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc
+END
+labelvalues-20090307.c
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc/labelvalues-20090307.c
+END
+bug_168_testcase.c
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc/bug_168_testcase.c
+END
+mmx_bug_514.c
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc/mmx_bug_514.c
+END
+mmx_bug_516.c
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc/mmx_bug_516.c
+END
+mmx_bug_517.c
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/single_src_cases/misc/mmx_bug_517.c
+END

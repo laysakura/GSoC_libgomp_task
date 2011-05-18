@@ -1,0 +1,425 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc
+END
+t-sol2
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sol2
+END
+sunos4.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sunos4.h
+END
+sun4o3.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sun4o3.h
+END
+litecoff.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/litecoff.h
+END
+lynx-ng.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/lynx-ng.h
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/linux.h
+END
+vxsparc64.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/vxsparc64.h
+END
+t-vxsparc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-vxsparc
+END
+t-splet
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-splet
+END
+sp64-aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sp64-aout.h
+END
+openbsd1-64.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/openbsd1-64.h
+END
+elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/elf.h
+END
+sol2-64.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-64.h
+END
+aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/aout.h
+END
+sol2-c1.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-c1.asm
+END
+sol2-g1.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-g1.asm
+END
+t-halos
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-halos
+END
+sparc.md
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sparc.md
+END
+t-chorus-elf
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-chorus-elf
+END
+sun4gas.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sun4gas.h
+END
+vxsparc.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/vxsparc.h
+END
+splet.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/splet.h
+END
+rtems.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/rtems.h
+END
+sparc-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sparc-protos.h
+END
+sp86x-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sp86x-elf.h
+END
+sparc.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sparc.c
+END
+linux-aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/linux-aout.h
+END
+vxsim.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/vxsim.h
+END
+sol2-bi.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-bi.h
+END
+sparc.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sparc.h
+END
+bsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/bsd.h
+END
+linux64.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/linux64.h
+END
+sol2-gld-bi.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-gld-bi.h
+END
+crtfastmath.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/crtfastmath.c
+END
+t-vxsparc64
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-vxsparc64
+END
+t-sparcbare
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sparcbare
+END
+lb1spc.asm
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/lb1spc.asm
+END
+sol2.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2.h
+END
+sol2-gld.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-gld.h
+END
+liteelf.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/liteelf.h
+END
+sol27-sld.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol27-sld.h
+END
+lb1spl.asm
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/lb1spl.asm
+END
+lite.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/lite.h
+END
+sp64-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sp64-elf.h
+END
+t-sparclite
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sparclite
+END
+sol2-ci.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-ci.asm
+END
+t-sp86x
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sp86x
+END
+openbsd64.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/openbsd64.h
+END
+t-openbsd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-openbsd
+END
+pbd.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/pbd.h
+END
+sol2-cn.asm
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-cn.asm
+END
+libgcc-sparc-glibc.ver
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/libgcc-sparc-glibc.ver
+END
+sol2-gas-bi.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sol2-gas-bi.h
+END
+t-linux64
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-linux64
+END
+t-crtfm
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-crtfm
+END
+t-sunos41
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sunos41
+END
+lynx.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/lynx.h
+END
+openbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/openbsd.h
+END
+sp86x-aout.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sp86x-aout.h
+END
+biarch64.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/biarch64.h
+END
+t-netbsd64
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-netbsd64
+END
+hal.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/hal.h
+END
+gmon-sol2.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/gmon-sol2.c
+END
+freebsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/freebsd.h
+END
+netbsd.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/netbsd.h
+END
+t-sol2-64
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-sol2-64
+END
+t-elf
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/t-elf
+END
+rtemself.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/rtemself.h
+END
+netbsd-elf.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/netbsd-elf.h
+END
+sysv4.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/config/sparc/sysv4.h
+END

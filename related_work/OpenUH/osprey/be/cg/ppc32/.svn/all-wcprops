@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32
+END
+op_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/op_targ.h
+END
+olive_convert_wn.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/olive_convert_wn.cxx
+END
+cg_loop_recur.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_loop_recur.cxx
+END
+cgtarget_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cgtarget_arch.h
+END
+tn_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/tn_targ.h
+END
+cgemit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cgemit_targ.cxx
+END
+register_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/register_targ.h
+END
+cgdriver_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cgdriver_arch.h
+END
+pqs.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/pqs.h
+END
+cg_grouping.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_grouping.h
+END
+cg_swp_target.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_swp_target.cxx
+END
+cg_sas.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_sas.cxx
+END
+cgtarget.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cgtarget.cxx
+END
+cg_flags_arch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_flags_arch.cxx
+END
+rule_float.brg
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_float.brg
+END
+ebo_special.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/ebo_special.cxx
+END
+rule_llbit.brg
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_llbit.brg
+END
+exp_intrn_info.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/exp_intrn_info.h
+END
+olive_convert_wn.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/olive_convert_wn.h
+END
+rule_double.brg
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_double.brg
+END
+cg_swp_bundle.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_swp_bundle.cxx
+END
+exp_predicate.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/exp_predicate.cxx
+END
+olive_convert_longlong.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/olive_convert_longlong.cxx
+END
+rule_longlong.brg
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_longlong.brg
+END
+expand.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/expand.cxx
+END
+gramgen.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/gramgen.cxx
+END
+olive_expand_expr.brg
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/olive_expand_expr.brg
+END
+pqs_cg_ia64.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/pqs_cg_ia64.h
+END
+cg_sas.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cg_sas.h
+END
+rule_int.brg
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_int.brg
+END
+cgdwarf_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/cgdwarf_targ.cxx
+END
+register_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/register_targ.cxx
+END
+olive_convert_longlong.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/olive_convert_longlong.h
+END
+exp_divrem.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/exp_divrem.cxx
+END
+pqs.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/pqs.cxx
+END
+entry_exit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/entry_exit_targ.cxx
+END
+exp_loadstore.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/exp_loadstore.cxx
+END
+pqsstubs.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/pqsstubs.h
+END
+exp_branch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/exp_branch.cxx
+END
+pqs_cg.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/pqs_cg.cxx
+END
+rule_bit.brg
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ppc32/rule_bit.brg
+END

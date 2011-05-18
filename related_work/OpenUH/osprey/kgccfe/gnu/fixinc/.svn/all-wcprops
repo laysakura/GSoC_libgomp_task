@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/fixinc
+END
+mkfixinc.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/mkfixinc.sh
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/Makefile.in
+END
+gnu-regex.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/fixinc/gnu-regex.c
+END
+fixinc.dgux
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.dgux
+END
+gnu-regex.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/gnu-regex.h
+END
+server.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/server.c
+END
+fixinc.wrap
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.wrap
+END
+fixincl.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixincl.tpl
+END
+fixinc.ptx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.ptx
+END
+fixtests.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixtests.c
+END
+server.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/server.h
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/README
+END
+fixlib.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixlib.c
+END
+fixinc.interix
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.interix
+END
+fixincl.x
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixincl.x
+END
+fixlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixlib.h
+END
+fixincl.sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixincl.sh
+END
+fixfixes.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixfixes.c
+END
+procopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/procopen.c
+END
+genfixes
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/genfixes
+END
+inclhack.def
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/inclhack.def
+END
+check.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/check.tpl
+END
+fixincl.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixincl.c
+END
+fixinc.svr4
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.svr4
+END
+fixinc.winnt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/fixinc.winnt
+END

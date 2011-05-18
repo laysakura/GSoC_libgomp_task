@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopen64rt
+END
+fastcopy_gh.s
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopen64rt/fastcopy_gh.s
+END
+malloc_opt.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopen64rt/malloc_opt.c
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopen64rt/Makefile.gbase
+END

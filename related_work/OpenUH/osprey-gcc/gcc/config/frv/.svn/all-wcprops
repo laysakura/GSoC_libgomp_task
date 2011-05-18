@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv
+END
+frvbegin.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frvbegin.c
+END
+frv.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv.h
+END
+ulltod.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/ulltod.c
+END
+linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/linux.h
+END
+ulltof.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/ulltof.c
+END
+cmovd.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/cmovd.c
+END
+frv.md
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv.md
+END
+cmovh.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/cmovh.c
+END
+t-frv
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/t-frv
+END
+umodi.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/umodi.c
+END
+frv-modes.def
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv-modes.def
+END
+t-linux
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/t-linux
+END
+frv-asm.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv-asm.h
+END
+lib1funcs.asm
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/lib1funcs.asm
+END
+frvend.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frvend.c
+END
+uitod.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/uitod.c
+END
+frv-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv-protos.h
+END
+uitof.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/uitof.c
+END
+modi.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/modi.c
+END
+libgcc-frv.ver
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/libgcc-frv.ver
+END
+frv-abi.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv-abi.h
+END
+cmovw.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/cmovw.c
+END
+frv.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/frv/frv.c
+END

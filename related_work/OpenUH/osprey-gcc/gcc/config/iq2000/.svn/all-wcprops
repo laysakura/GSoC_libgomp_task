@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000
+END
+iq2000.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/iq2000.h
+END
+iq2000-protos.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/iq2000-protos.h
+END
+lib2extra-funcs.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/lib2extra-funcs.c
+END
+iq2000.md
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/iq2000.md
+END
+abi
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/abi
+END
+iq2000.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/iq2000.c
+END
+t-iq2000
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/gcc/config/iq2000/t-iq2000
+END

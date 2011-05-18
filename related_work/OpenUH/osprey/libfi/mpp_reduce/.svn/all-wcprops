@@ -1,0 +1,2441 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce
+END
+maxval_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_5.c
+END
+prod_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p2@.f
+END
+any_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p3@.f
+END
+all_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p5@.f
+END
+count_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p3@.f
+END
+sum_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s7@.f
+END
+minval_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s5@.f
+END
+prod_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_6.c
+END
+any_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p.h
+END
+sum_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p2@.f
+END
+minloc_p_1@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_1@.f
+END
+maxval_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p3@.f
+END
+any_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s3@.f
+END
+any_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p7@.f
+END
+count_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s3@.f
+END
+prod_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s5@.f
+END
+count_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p7@.f
+END
+all_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_3@.fh
+END
+prod_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s.h
+END
+all_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_7@.fh
+END
+sum_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s2@.f
+END
+sum_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p6@.f
+END
+minval_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p4@.f
+END
+sum_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_4.c
+END
+maxval_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s6@.f
+END
+minval_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_5@.fh
+END
+sum_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_6.c
+END
+all_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_7.c
+END
+minloc_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_4@.fh
+END
+any_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p2@.f
+END
+count_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p2@.f
+END
+prod_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p4@.f
+END
+minloc_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_3.c
+END
+minval_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s4@.f
+END
+maxloc_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_6.c
+END
+minloc_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_5.c
+END
+all_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s3@.f
+END
+count_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_2.c
+END
+all_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p7@.f
+END
+prod_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_5@.fh
+END
+maxval_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_4.c
+END
+maxloc_s_3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_3@.f
+END
+minval_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_3.c
+END
+any_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_3.c
+END
+all_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p.h
+END
+minloc_s_7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_7@.f
+END
+count_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_4.c
+END
+maxval_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_6.c
+END
+prod_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s4@.f
+END
+maxval_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p5@.f
+END
+any_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s5@.f
+END
+prod_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_7.c
+END
+all_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s7@.f
+END
+count_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s5@.f
+END
+minval_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p.h
+END
+count_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s.h
+END
+minval_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p3@.f
+END
+minloc_nomask_1@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_1@.fh
+END
+all_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p2@.f
+END
+sum_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s4@.f
+END
+minloc_s_2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_2@.f
+END
+maxloc_p_3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_3@.f
+END
+minloc_nomask_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_5@.fh
+END
+maxval_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s5@.f
+END
+maxloc_nomask_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_3@.fh
+END
+sum_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_4@.fh
+END
+minloc_p_7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_7@.f
+END
+maxloc_nomask_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_7@.fh
+END
+setup_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_2@.fh
+END
+mpp_reduce_dep.mh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/mpp_reduce_dep.mh
+END
+prod_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p3@.f
+END
+setup_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_6@.fh
+END
+any_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p4@.f
+END
+all_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s2@.f
+END
+all_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p6@.f
+END
+count_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p4@.f
+END
+sum_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_5.c
+END
+minval_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s6@.f
+END
+maxval_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_2@.fh
+END
+all_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_2.c
+END
+any_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_5@.fh
+END
+sum_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_7.c
+END
+count_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_5@.fh
+END
+maxval_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_6@.fh
+END
+maxloc_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_2@.fh
+END
+sum_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p3@.f
+END
+minloc_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_4.c
+END
+maxloc_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_6@.fh
+END
+minloc_p_2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_2@.f
+END
+maxval_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p4@.f
+END
+maxloc_s_1.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_1.c
+END
+any_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s4@.f
+END
+minval_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_2.c
+END
+count_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s4@.f
+END
+any_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_2.c
+END
+prod_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s6@.f
+END
+maxloc_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_7.c
+END
+minloc_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_6.c
+END
+count_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_3.c
+END
+maxval_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_5.c
+END
+minval_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_4.c
+END
+any_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_4.c
+END
+count_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_5.c
+END
+maxval_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_7.c
+END
+sum_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s3@.f
+END
+sum_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p7@.f
+END
+minval_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p5@.f
+END
+mpp_reduce.mh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/mpp_reduce.mh
+END
+prod_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_2.c
+END
+maxloc_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s.h
+END
+maxval_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s7@.f
+END
+any_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p3@.f
+END
+count_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p3@.f
+END
+prod_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p5@.f
+END
+minval_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s5@.f
+END
+all_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s4@.f
+END
+maxloc_s_4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_4@.f
+END
+all_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_4@.fh
+END
+sum_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p2@.f
+END
+prod_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s5@.f
+END
+maxval_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s2@.f
+END
+maxval_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p6@.f
+END
+minval_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_2@.fh
+END
+sum_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_6.c
+END
+any_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s6@.f
+END
+count_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s6@.f
+END
+all_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_3.c
+END
+minval_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_6@.fh
+END
+minloc_1@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_1@.fh
+END
+minloc_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_5@.fh
+END
+minval_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p4@.f
+END
+minloc_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_5.c
+END
+all_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p3@.f
+END
+maxloc_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_2.c
+END
+prod_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_2@.fh
+END
+sum_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s5@.f
+END
+minval_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_3.c
+END
+minloc_s_3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_3@.f
+END
+maxloc_p_4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_4@.f
+END
+any_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_3.c
+END
+maxval_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s6@.f
+END
+minloc_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_7.c
+END
+count_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_4.c
+END
+prod_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_6@.fh
+END
+sum_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s.h
+END
+maxval_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_6.c
+END
+minval_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_5.c
+END
+any_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_5.c
+END
+count_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_6.c
+END
+prod_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p4@.f
+END
+any_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p5@.f
+END
+all_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s3@.f
+END
+all_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p7@.f
+END
+count_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p5@.f
+END
+prod_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_3.c
+END
+minval_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s7@.f
+END
+any_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s.h
+END
+mpp_reduce.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/mpp_reduce.makeinclude
+END
+sum_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p4@.f
+END
+minloc_p_3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_3@.f
+END
+minloc_nomask_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_2@.fh
+END
+maxval_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p5@.f
+END
+any_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s5@.f
+END
+count_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s5@.f
+END
+prod_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s7@.f
+END
+minloc_nomask_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_6@.fh
+END
+maxloc_nomask_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_4@.fh
+END
+sum_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_5@.fh
+END
+setup_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_3@.fh
+END
+setup_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_7@.fh
+END
+all_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p2@.f
+END
+sum_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s4@.f
+END
+minval_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s2@.f
+END
+minval_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p6@.f
+END
+all_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_2.c
+END
+any_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_2@.fh
+END
+sum_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_7.c
+END
+count_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_2@.fh
+END
+maxval_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_3@.fh
+END
+all_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_4.c
+END
+any_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_6@.fh
+END
+count_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_6@.fh
+END
+maxval_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_7@.fh
+END
+maxloc_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_3@.fh
+END
+maxloc_p_1.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_1.c
+END
+any_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p4@.f
+END
+prod_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s2@.f
+END
+maxloc_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_7@.fh
+END
+count_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p4@.f
+END
+prod_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p6@.f
+END
+minloc_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_6.c
+END
+maxloc_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_3.c
+END
+minval_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s6@.f
+END
+minval_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_4.c
+END
+any_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_4.c
+END
+all_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s5@.f
+END
+count_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_5.c
+END
+maxloc_s_5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_5@.f
+END
+maxval_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_7.c
+END
+minval_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_6.c
+END
+any_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_6.c
+END
+all_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s.h
+END
+sum_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p3@.f
+END
+count_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_7.c
+END
+prod_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_2.c
+END
+minloc_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p.h
+END
+prod_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s6@.f
+END
+maxval_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s3@.f
+END
+maxval_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p7@.f
+END
+prod_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_4.c
+END
+any_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s7@.f
+END
+maxval_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p.h
+END
+count_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s7@.f
+END
+minval_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s.h
+END
+minval_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p5@.f
+END
+all_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p4@.f
+END
+sum_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s6@.f
+END
+maxloc_p_5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_5@.f
+END
+minloc_s_4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_4@.f
+END
+maxval_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s7@.f
+END
+all_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_5@.fh
+END
+prod_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p5@.f
+END
+maxval_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p2@.f
+END
+any_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s2@.f
+END
+any_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p6@.f
+END
+all_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s4@.f
+END
+count_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s2@.f
+END
+sum_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_2.c
+END
+count_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p6@.f
+END
+all_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_3.c
+END
+minval_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_3@.fh
+END
+minloc_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_2@.fh
+END
+minval_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_7@.fh
+END
+all_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_5.c
+END
+minloc_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_6@.fh
+END
+minloc_s_1.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_1.c
+END
+maxloc_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_2.c
+END
+sum_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p5@.f
+END
+maxval_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s2@.f
+END
+minloc_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_7.c
+END
+minloc_p_4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_4@.f
+END
+maxval_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p6@.f
+END
+prod_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_3@.fh
+END
+maxloc_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_4.c
+END
+any_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s6@.f
+END
+count_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s6@.f
+END
+minval_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_5.c
+END
+any_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_5.c
+END
+maxval_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_2.c
+END
+prod_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_7@.fh
+END
+count_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_6.c
+END
+minval_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_7.c
+END
+any_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_7.c
+END
+all_w_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p3@.f
+END
+sum_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s5@.f
+END
+prod_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_3.c
+END
+minval_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s3@.f
+END
+minval_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p7@.f
+END
+prod_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_5.c
+END
+any_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p5@.f
+END
+prod_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s3@.f
+END
+count_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p5@.f
+END
+prod_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p7@.f
+END
+minloc_nomask_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_3@.fh
+END
+maxloc_nomask_1@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_1@.fh
+END
+sum_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_2@.fh
+END
+minval_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s7@.f
+END
+prod_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p.h
+END
+minloc_nomask_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_7@.fh
+END
+maxloc_nomask_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_5@.fh
+END
+sum_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_6@.fh
+END
+all_i_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s6@.f
+END
+maxloc_s_6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_6@.f
+END
+setup_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_4@.fh
+END
+sum_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p4@.f
+END
+minval_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p2@.f
+END
+prod_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s7@.f
+END
+sum_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_3.c
+END
+maxval_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s4@.f
+END
+all_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_4.c
+END
+any_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_3@.fh
+END
+count_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_3@.fh
+END
+maxval_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_4@.fh
+END
+any_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_7@.fh
+END
+all_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_6.c
+END
+count_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_7@.fh
+END
+prod_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p2@.f
+END
+maxloc_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_4@.fh
+END
+minval_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s2@.f
+END
+minloc_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_2.c
+END
+maxloc_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_3.c
+END
+minval_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p6@.f
+END
+all_i_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p5@.f
+END
+maxloc_s_1@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_1@.f
+END
+sum_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s7@.f
+END
+maxloc_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_5.c
+END
+maxloc_p_6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_6@.f
+END
+minloc_s_5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_5@.f
+END
+minval_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_6.c
+END
+any_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_6.c
+END
+maxval_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_3.c
+END
+count_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p_7.c
+END
+prod_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s2@.f
+END
+prod_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p6@.f
+END
+maxval_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p3@.f
+END
+prod_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_4.c
+END
+any_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s3@.f
+END
+any_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p7@.f
+END
+all_w_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s5@.f
+END
+count_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s3@.f
+END
+count_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p7@.f
+END
+prod_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_6.c
+END
+count_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_p.h
+END
+sum_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s2@.f
+END
+sum_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p6@.f
+END
+maxloc_p_1@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_1@.f
+END
+maxval_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s3@.f
+END
+minloc_p_5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_5@.f
+END
+maxval_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p7@.f
+END
+any_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s7@.f
+END
+count_w_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s7@.f
+END
+all_w_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_2@.fh
+END
+all_w_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_6@.fh
+END
+any_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_p2@.f
+END
+all_w_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_p4@.f
+END
+count_i_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_p2@.f
+END
+sum_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_2.c
+END
+sum_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_s6@.f
+END
+minval_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_s4@.f
+END
+sum_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_4.c
+END
+minval_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_4@.fh
+END
+mpp_reduce_dep.makeinclude
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/mpp_reduce_dep.makeinclude
+END
+all_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_5.c
+END
+minloc_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_3@.fh
+END
+minloc_p_1.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_1.c
+END
+all_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_s_7.c
+END
+minloc_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_7@.fh
+END
+maxval_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_p2@.f
+END
+any_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_s2@.f
+END
+minloc_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_3.c
+END
+maxloc_p_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_4.c
+END
+any_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_p6@.f
+END
+count_w_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_s2@.f
+END
+prod_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_s4@.f
+END
+count_w_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_p6@.f
+END
+maxval_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_2.c
+END
+prod_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_4@.fh
+END
+maxloc_s_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_6.c
+END
+count_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_2.c
+END
+minval_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_p_7.c
+END
+any_p_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_p_7.c
+END
+all_i_s7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s7@.f
+END
+maxval_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s_4.c
+END
+maxloc_s_7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_7@.f
+END
+sum_w_p5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_p5@.f
+END
+minval_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_i_p3@.f
+END
+maxloc_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p.h
+END
+prod_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_p_5.c
+END
+minloc_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s.h
+END
+maxval_i_s5@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_s5@.f
+END
+prod_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_s_7.c
+END
+maxval_s.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_s.h
+END
+prod_i_p3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_i_p3@.f
+END
+minval_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_s3@.f
+END
+minval_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p7@.f
+END
+minloc_nomask_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_nomask_4@.fh
+END
+maxloc_nomask_2@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_2@.fh
+END
+all_i_s2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_s2@.f
+END
+sum_w_3@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_3@.fh
+END
+all_i_p6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_i_p6@.f
+END
+maxloc_s_2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_2@.f
+END
+maxloc_p_7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_7@.f
+END
+maxloc_nomask_6@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_nomask_6@.fh
+END
+minloc_s_6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_6@.f
+END
+sum_w_7@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_w_7@.fh
+END
+setup_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/setup_5@.fh
+END
+prod_w_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_s3@.f
+END
+prod_w_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/prod_w_p7@.f
+END
+sum_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p_3.c
+END
+maxval_i_p4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_i_p4@.f
+END
+any_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_i_s4@.f
+END
+all_w_s6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_w_s6@.f
+END
+count_i_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_i_s4@.f
+END
+sum_s_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_s_5.c
+END
+any_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_w_4@.fh
+END
+all_p_6.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/all_p_6.c
+END
+count_w_4@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_w_4@.fh
+END
+maxval_w_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_5@.fh
+END
+maxloc_1@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_1@.fh
+END
+minval_w_p2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_w_p2@.f
+END
+minloc_p_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_2.c
+END
+maxloc_5@.fh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_5@.fh
+END
+sum_i_s3@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_s3@.f
+END
+sum_i_p7@.f
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_i_p7@.f
+END
+minloc_s_1@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_1@.f
+END
+maxloc_p_5.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_5.c
+END
+maxloc_p_2@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_p_2@.f
+END
+minloc_s_4.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_s_4.c
+END
+maxval_w_s4@.f
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_w_s4@.f
+END
+minloc_p_6@.f
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minloc_p_6@.f
+END
+sum_p.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/sum_p.h
+END
+maxval_p_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxval_p_3.c
+END
+minval_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/minval_s_2.c
+END
+any_s_2.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/any_s_2.c
+END
+maxloc_s_7.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/maxloc_s_7.c
+END
+count_s_3.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libfi/mpp_reduce/count_s_3.c
+END

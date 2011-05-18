@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/windiss
+END
+ctype_noninline.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/windiss/ctype_noninline.h
+END
+ctype_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/windiss/ctype_base.h
+END
+os_defines.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/windiss/os_defines.h
+END
+ctype_inline.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os/windiss/ctype_inline.h
+END

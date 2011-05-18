@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm
+END
+vlogtab.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/vlogtab.c
+END
+logtab.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/logtab.c
+END
+cabs.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/cabs.c
+END
+vexptab.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/vexptab.c
+END
+common.exports
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/common.exports
+END
+complex.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/complex.h
+END
+mips3.exports
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/mips3.exports
+END
+vlogf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vlogf.c
+END
+cabsf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/cabsf.c
+END
+vatanf.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vatanf.c
+END
+vexpftab.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/vexpftab.c
+END
+vacosf.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vacosf.c
+END
+vexp.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vexp.c
+END
+exptab.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/exptab.c
+END
+vsinf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vsinf.c
+END
+vsqrtf.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vsqrtf.c
+END
+fmod.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/fmod.c
+END
+drem.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/drem.c
+END
+vexpf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vexpf.c
+END
+expftab.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/expftab.c
+END
+powtab.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/powtab.c
+END
+atan2ftab.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/atan2ftab.c
+END
+vcis.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vcis.c
+END
+vlogftab.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/vlogftab.c
+END
+vlog.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vlog.c
+END
+vlog10.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vlog10.c
+END
+vtan.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vtan.c
+END
+vatan.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vatan.c
+END
+vcos.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vcos.c
+END
+vcisf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vcisf.c
+END
+vacos.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vacos.c
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/Makefile.gbase
+END
+logftab.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/logftab.c
+END
+vlog10f.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vlog10f.c
+END
+vtanf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vtanf.c
+END
+libmv.vs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/libmv.vs
+END
+vsin.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vsin.c
+END
+vsqrt.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vsqrt.c
+END
+vcosf.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vcosf.c
+END
+vasin.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vasin.c
+END
+vasinf.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/vasinf.c
+END
+libm.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libm/libm.h
+END
+atan2tab.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/atan2tab.c
+END
+libmx.exports
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libm/libmx.exports
+END

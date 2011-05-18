@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse
+END
+TMatrixTSparse.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/TMatrixTSparse.h
+END
+TMatrixTBase.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/TMatrixTBase.cpp
+END
+TMatrixTSparse.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/TMatrixTSparse.cpp
+END
+testTMatrixTSparse.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/testTMatrixTSparse.cpp
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/Makefile
+END
+TMatrixTBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/testsuite/cases/cern/root/TMatrixTSparse/TMatrixTBase.h
+END

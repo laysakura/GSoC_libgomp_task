@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/libiberty/testsuite
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/libiberty/testsuite/Makefile.in
+END
+test-demangle.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/libiberty/testsuite/test-demangle.c
+END
+demangle-expected
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/libiberty/testsuite/demangle-expected
+END

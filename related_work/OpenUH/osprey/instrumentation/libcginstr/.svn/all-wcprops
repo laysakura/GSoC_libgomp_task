@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/instrumentation/libcginstr
+END
+cg_instru_lib.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/instrumentation/libcginstr/cg_instru_lib.cxx
+END
+cg_instru_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/instrumentation/libcginstr/cg_instru_lib.h
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/instrumentation/libcginstr/Makefile.gbase
+END

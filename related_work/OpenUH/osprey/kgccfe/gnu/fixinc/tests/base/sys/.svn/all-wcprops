@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys
+END
+time.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/time.h
+END
+byteorder.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/byteorder.h
+END
+param.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/param.h
+END
+limits.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/limits.h
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/types.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/machine.h
+END
+wait.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/wait.h
+END
+ioctl.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/ioctl.h
+END
+stat.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/stat.h
+END
+utsname.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/utsname.h
+END
+signal.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/signal.h
+END
+file.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/file.h
+END
+asm.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/asm.h
+END
+times.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/times.h
+END
+spinlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/spinlock.h
+END
+cdefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/cdefs.h
+END
+mman.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sys/mman.h
+END

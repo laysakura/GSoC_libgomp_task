@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base
+END
+strings.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/strings.h
+END
+math.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/math.h
+END
+widec.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/widec.h
+END
+fixinc-test-limits.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/fixinc-test-limits.h
+END
+time.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/time.h
+END
+libgen.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/libgen.h
+END
+assert.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/assert.h
+END
+reg_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/reg_types.h
+END
+curses.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/curses.h
+END
+fcntl.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/fcntl.h
+END
+unistd.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/unistd.h
+END
+malloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/malloc.h
+END
+sym.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/sym.h
+END
+regex.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/regex.h
+END
+ctrl-quotes-def-1.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/ctrl-quotes-def-1.h
+END
+stdio_tag.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/stdio_tag.h
+END
+testing.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/testing.h
+END
+tinfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/tinfo.h
+END
+io-quotes-def-1.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/io-quotes-def-1.h
+END
+inttypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/inttypes.h
+END
+stdlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/stdlib.h
+END
+stdio.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/stdio.h
+END
+c_asm.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/c_asm.h
+END
+pthread.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/kgccfe/gnu/fixinc/tests/base/pthread.h
+END

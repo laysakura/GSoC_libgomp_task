@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds
+END
+assoc_container.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/assoc_container.hpp
+END
+list_update_policy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/list_update_policy.hpp
+END
+exception.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/exception.hpp
+END
+tree_policy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/tree_policy.hpp
+END
+tag_and_trait.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/tag_and_trait.hpp
+END
+hash_policy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/hash_policy.hpp
+END
+trie_policy.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/trie_policy.hpp
+END
+priority_queue.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/priority_queue.hpp
+END

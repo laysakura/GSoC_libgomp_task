@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator
+END
+mt_allocator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator/mt_allocator_base.h
+END
+malloc_allocator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator/malloc_allocator_base.h
+END
+new_allocator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator/new_allocator_base.h
+END
+pool_allocator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator/pool_allocator_base.h
+END
+bitmap_allocator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/allocator/bitmap_allocator_base.h
+END

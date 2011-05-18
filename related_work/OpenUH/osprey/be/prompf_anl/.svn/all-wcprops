@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl
+END
+anl_varlist.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_varlist.cxx
+END
+anl_file_mngr.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_file_mngr.h
+END
+anl_region_construct.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_region_construct.cxx
+END
+anl_pragma_attribute.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_pragma_attribute.cxx
+END
+anl_driver.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_driver.cxx
+END
+anl_diagnostics.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_diagnostics.h
+END
+anl_srcpos.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_srcpos.h
+END
+Exported
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/Exported
+END
+anl_pragma_construct.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_pragma_construct.h
+END
+anl_func_entry.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_func_entry.h
+END
+anl_loop_construct.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_loop_construct.h
+END
+anl_file_mngr.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_file_mngr.cxx
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/Makefile.gbase
+END
+anl_cbuf.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_cbuf.h
+END
+w2cf_translator.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/w2cf_translator.h
+END
+anl_diagnostics.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_diagnostics.cxx
+END
+anl_srcpos.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_srcpos.cxx
+END
+anl_varlist.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_varlist.h
+END
+anl_pragma_construct.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_pragma_construct.cxx
+END
+anl_func_entry.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_func_entry.cxx
+END
+anl_region_construct.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_region_construct.h
+END
+anl_loop_construct.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/anl_loop_construct.cxx
+END
+anl_lno_dump.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1239/branches/OpenUH/osprey/be/prompf_anl/anl_lno_dump.cxx
+END
+anl_common.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_common.h
+END
+anl_cbuf.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_cbuf.cxx
+END
+anl_pragma_attribute.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_pragma_attribute.h
+END
+anl_driver.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/prompf_anl/anl_driver.h
+END
+w2cf_translator.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/prompf_anl/w2cf_translator.cxx
+END

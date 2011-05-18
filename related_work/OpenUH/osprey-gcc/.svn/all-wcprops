@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc
+END
+config-ml.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/config-ml.in
+END
+ltcf-c.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ltcf-c.sh
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc/configure
+END
+config.rpath
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/config.rpath
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/Makefile.in
+END
+libtool.m4
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/libtool.m4
+END
+symlink-tree
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/symlink-tree
+END
+depcomp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/depcomp
+END
+compile
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/compile
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/config.guess
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/config.sub
+END
+ltmain.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ltmain.sh
+END
+README.pathscale
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/README.pathscale
+END
+mkdep
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/mkdep
+END
+ltcf-gcj.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ltcf-gcj.sh
+END
+ABOUT-NLS
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ABOUT-NLS
+END
+ltconfig
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ltconfig
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/COPYING
+END
+ChangeLog.tree-ssa
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ChangeLog.tree-ssa
+END
+Makefile.def
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/Makefile.def
+END
+Makefile.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/Makefile.tpl
+END
+README.SCO
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/README.SCO
+END
+mkinstalldirs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/mkinstalldirs
+END
+move-if-change
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/move-if-change
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/configure.in
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ChangeLog
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/README
+END
+ltcf-cxx.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ltcf-cxx.sh
+END
+missing
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/missing
+END
+MAINTAINERS
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/MAINTAINERS
+END
+COPYING.LIB
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/COPYING.LIB
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/install-sh
+END
+ylwrap
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey-gcc/ylwrap
+END

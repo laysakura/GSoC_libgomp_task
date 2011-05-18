@@ -1,0 +1,98 @@
+10
+
+dir
+3606
+http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/testsuite/cases/single_src_cases
+http://svn.open64.net/svnroot/open64
+
+
+
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ead328b1-e903-0410-a19d-eacee4b031f6
+
+wgen
+dir
+
+single_src_cases.exp
+file
+
+
+
+
+2011-05-17T07:40:32.739210Z
+714cb807a7ccff3cce46a00c18c994e4
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+798
+
+kg++fe
+dir
+
+kgccfe
+dir
+
+compat
+dir
+
+lno
+dir
+
+cg
+dir
+
+ipa
+dir
+
+wopt
+dir
+
+misc
+dir
+
+vho
+dir
+
+crayf90
+dir
+
+com
+dir
+

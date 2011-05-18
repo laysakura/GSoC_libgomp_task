@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3591/branches/OpenUH/osprey/wgen
+END
+wgen_spin_symbol.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/wgen/wgen_spin_symbol.cxx
+END
+i386.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/i386.h
+END
+omp_directive.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/omp_directive.h
+END
+wgen_omp_check_stack.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/wgen_omp_check_stack.h
+END
+wgen_tracing.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_tracing.h
+END
+wgen_stmt.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_stmt.h
+END
+wgen_omp_directives.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/wgen_omp_directives.cxx
+END
+c_int_model.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/c_int_model.c
+END
+wgen_expr.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/wgen_expr.cxx
+END
+c_int_model.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/c_int_model.h
+END
+wgen_spin_symbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_spin_symbol.h
+END
+erfe.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/erfe.h
+END
+erauxdesc.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/erauxdesc.h
+END
+wgen_dst.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_dst.cxx
+END
+wgen_misc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_misc.cxx
+END
+wgen_omp_directives.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/wgen_omp_directives.h
+END
+wgen_expr.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/wgen_expr.h
+END
+wgen_decl.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/wgen/wgen_decl.cxx
+END
+omp_directive.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/omp_directive.cxx
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/Makefile.gbase
+END
+wgen_omp_check_stack.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_omp_check_stack.cxx
+END
+erfe.desc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/erfe.desc
+END
+mips.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/mips.h
+END
+wgen_dst.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/wgen_dst.h
+END
+wgen_misc.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_misc.h
+END
+gspin-wgen-interface.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/wgen/gspin-wgen-interface.h
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/main.c
+END
+omp_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/omp_types.h
+END
+wgen_tracing.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_tracing.cxx
+END
+wgen_stmt.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/wgen/wgen_stmt.cxx
+END
+varasm.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/varasm.c
+END
+wgen_decl.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/wgen/wgen_decl.h
+END

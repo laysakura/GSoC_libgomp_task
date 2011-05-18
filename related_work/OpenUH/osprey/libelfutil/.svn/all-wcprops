@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil
+END
+lebdecodes32.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebdecodes32.c
+END
+lebdecodeu32.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebdecodeu32.c
+END
+xlateTypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlateTypes.h
+END
+pro_table.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/pro_table.c
+END
+xlate_init_fd.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_init_fd.c
+END
+xlate_expand_reg.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_expand_reg.c
+END
+xlate_block_search.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_block_search.c
+END
+xlate_named_init_fd.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_named_init_fd.c
+END
+disassembler.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/disassembler.c
+END
+lebencodes64.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebencodes64.c
+END
+pro_encode.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/pro_encode.c
+END
+xlate_pro_add_reg_info.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_add_reg_info.c
+END
+xlate_block_index.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_block_index.c
+END
+syn.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/syn.h
+END
+lebencodeu64.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebencodeu64.c
+END
+xlate_pro_add_info.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_add_info.c
+END
+xlate_pro_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_init.c
+END
+con_decode.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/con_decode.c
+END
+con_table.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/con_table.c
+END
+xlate_proTypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_proTypes.h
+END
+xlate_get_info.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_get_info.c
+END
+xlate_get_range.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_get_range.c
+END
+xlateincl.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlateincl.h
+END
+xlate_update_for_movement.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_update_for_movement.c
+END
+xlate_get_all_reg.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_get_all_reg.c
+END
+lebdecodes64.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebdecodes64.c
+END
+xlate_get_reg_internal.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_get_reg_internal.c
+END
+lebdecodeu64.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebdecodeu64.c
+END
+lebencodes32.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebencodes32.c
+END
+xlate_get_reg.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_get_reg.c
+END
+lebencodeu32.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/lebencodeu32.c
+END
+xlate_pro_externs.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_pro_externs.h
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/Makefile.gbase
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/README
+END
+xlate_pro_add_range_internal.c
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlate_pro_add_range_internal.c
+END
+xlatebase.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlatebase.h
+END
+xlate_pro_disk_header.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_disk_header.c
+END
+xlate_pro_disk_next_block.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_disk_next_block.c
+END
+xlate_pro_add_range.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_pro_add_range.c
+END
+xlate_address.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_address.c
+END
+xlate_init_elf.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_init_elf.c
+END
+xlatexterns.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libelfutil/xlatexterns.h
+END
+xlate_named_init_elf.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_named_init_elf.c
+END
+xlate_expand_reg2.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libelfutil/xlate_expand_reg2.c
+END

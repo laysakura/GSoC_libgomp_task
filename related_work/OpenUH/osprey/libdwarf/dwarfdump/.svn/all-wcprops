@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump
+END
+install.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/install.sh
+END
+tag_attr.list
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/tag_attr.list
+END
+at_list.awk
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/at_list.awk
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/configure
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/Makefile.in
+END
+DWARFDUMPCOPYRIGHT
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/DWARFDUMPCOPYRIGHT
+END
+print_sections.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/print_sections.c
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/configure.in
+END
+tag_attr.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/tag_attr.c
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/ChangeLog
+END
+dwarfdump.1
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/dwarfdump.1
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/config.guess
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/config.h
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/config.sub
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/README
+END
+print_die.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/print_die.c
+END
+makename.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/makename.c
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/config.h.in
+END
+print_reloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/print_reloc.c
+END
+makename.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/makename.h
+END
+tag_tree.list
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/tag_tree.list
+END
+dwarf_names.awk
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/dwarf_names.awk
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/COPYING
+END
+globals.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/globals.h
+END
+dwarfdump.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libdwarf/dwarfdump/dwarfdump.c
+END
+tag_tree.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/tag_tree.c
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libdwarf/dwarfdump/NEWS
+END

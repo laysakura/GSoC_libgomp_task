@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e
+END
+ieee_expon_h_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_h_h.c
+END
+ieee_binary_scale_r_i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_r_i4.c
+END
+ieee_next_after_h_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_h_d.c
+END
+ieee_next_after_d_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_d_h.c
+END
+ieee_remainder_d_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_d_d.c
+END
+ieee_binary_scale_r_i8.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_r_i8.c
+END
+ieee_next_after_h_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_h_h.c
+END
+ieee_expon_d_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_d_r.c
+END
+ieee_expon_r_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_r_d.c
+END
+ieee_remainder_h_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_h_d.c
+END
+ieee_remainder_d_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_d_h.c
+END
+ieee_expon_h_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_h_r.c
+END
+ieee_expon_r_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_r_h.c
+END
+i3eintrin.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/i3eintrin.h
+END
+ieee_next_after_r_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_r_d.c
+END
+ieee_next_after_d_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_d_r.c
+END
+ieee_remainder_h_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_h_h.c
+END
+ieee_next_after_r_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_r_h.c
+END
+ieee_next_after_h_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_h_r.c
+END
+ieee_remainder_r_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_r_d.c
+END
+ieee_remainder_d_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_d_r.c
+END
+ieee_expon_r_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_r_r.c
+END
+ieee_remainder_h_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_h_r.c
+END
+ieee_remainder_r_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_r_h.c
+END
+ieee_next_after_r_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_r_r.c
+END
+ieee_remainder_r_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainder_r_r.c
+END
+ieee_remainderd.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainderd.c
+END
+ieee_remainderr.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_remainderr.c
+END
+ieee_binary_scale_d_i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_d_i4.c
+END
+ieee_binary_scale_d_i8.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_d_i8.c
+END
+ieee_binary_scale_h_i4.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_h_i4.c
+END
+ieee_expon_d_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_d_d.c
+END
+ieee_binary_scale_h_i8.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_binary_scale_h_i8.c
+END
+ieee_expon_d_h.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_d_h.c
+END
+ieee_expon_h_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_expon_h_d.c
+END
+ieee_next_after_d_d.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/libu/util/i3e/ieee_next_after_d_d.c
+END

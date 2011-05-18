@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/open64/!svn/ver/3581/branches/OpenUH/osprey/be/whirl2c
+END
+w2cf_symtab.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2cf_symtab.cxx
+END
+ty2c.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/ty2c.cxx
+END
+w2cf_parentize.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2cf_parentize.cxx
+END
+PUinfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/PUinfo.h
+END
+wn2c_pragma.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/wn2c_pragma.h
+END
+init2c.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/init2c.cxx
+END
+Exported
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/whirl2c/Exported
+END
+whirl2c.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/whirl2c.c
+END
+w2c_driver.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2c_driver.h
+END
+token_buffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/token_buffer.h
+END
+w2cf_symtab.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2cf_symtab.h
+END
+ty2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/ty2c.h
+END
+w2cf_parentize.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2cf_parentize.h
+END
+diagnostics.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/diagnostics.cxx
+END
+wn2c.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3581/branches/OpenUH/osprey/be/whirl2c/wn2c.cxx
+END
+st2c.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/st2c.cxx
+END
+init2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/init2c.h
+END
+whirl2c_main.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/whirl2c_main.cxx
+END
+wn_attr.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3581/branches/OpenUH/osprey/be/whirl2c/wn_attr.cxx
+END
+common_include.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/common_include.h
+END
+whirl2c_common.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/whirl2c_common.cxx
+END
+stab_attr.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/stab_attr.cxx
+END
+tcon2c.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/tcon2c.cxx
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/Makefile.gbase
+END
+diagnostics.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/diagnostics.h
+END
+wn2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/wn2c.h
+END
+PUinfo.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/PUinfo.cxx
+END
+st2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/st2c.h
+END
+wn2c_pragma.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/wn2c_pragma.cxx
+END
+init.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/init.cxx
+END
+wn_attr.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3581/branches/OpenUH/osprey/be/whirl2c/wn_attr.h
+END
+w2c_driver.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/w2c_driver.cxx
+END
+whirl2c_common.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/whirl2c_common.h
+END
+stab_attr.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/stab_attr.h
+END
+token_buffer.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/token_buffer.cxx
+END
+tcon2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/whirl2c/tcon2c.h
+END

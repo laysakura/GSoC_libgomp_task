@@ -5,11 +5,12 @@ nested parallel directive に関する仕様がやたら分かりづらい．
 
 * 目標
   まずは最低限動くものを作る．後々実装するだろうけど，カットするfeatures
+  - team の実装．なくても限定的なプログラム(ex:fib)であれば動く
   - cutoff
   - untied task
+  - if(0) の実装
   - barrier 対応
   - 何かうまいこと親子関係に注意してworkstealしたらdata localityが担保できるらしいじゃん?それ
-  - task queue の緻密なlock戦略．この辺は中島さんの論文が最高によい
   - work-firstなscheduler,とそれに伴うcontext switch
     - work firstだと，親taskが子taskを生成した瞬間に，親をsuspendして子の実行を始めなければならない．
       つまり，task構文がスケジューリングポイントになる
@@ -17,7 +18,6 @@ nested parallel directive に関する仕様がやたら分かりづらい．
   - overheadを減らすため，ところどころ関数じゃなくてmacroにする
     - static inline void __attribute__((always_inline)) fun(args) とかでヘッダに関数定義すればおkっぽい
   - assert()の代わりに，ユーザに有用なエラーメッセージ
-  - unlikely マクロとか使えたら使う
 
 
 * 概念図
@@ -69,6 +69,8 @@ nested parallel directive に関する仕様がやたら分かりづらい．
    - volatile num_children: 子taskの数．これが0になったらtaskwait終了．
      これを増減させるのは，各子の役割にするのが綺麗．
    - parent: 親taskへのポインタ．親のnum_childrenの増減などに使う．
+   *子taskの実行結果はどのように取得するか*
+
 
 ** user thread (worker)
    CPUコアと同じ数だけ存在するのが理想．実際にはOMP_NUM_THREADSとかに左右される
@@ -105,6 +107,17 @@ nested parallel directive に関する仕様がやたら分かりづらい．
 
    2は多少掘り下げる必要がある．「許可」の条件を，「taskが一個以上dequeに残っている」とし，taskを奪う動作をするときに
    もしかしたら既にdequeにtaskはいないことも仮定するようにする．こうすれば，dequeに対するlockを最小限にすることができるのではないか
+
+** taskwait
+   *taskwaitの処理って，worker threadひとつ使ってするもの?流石にthreadもったいなくない?*
+   -> それはあり得ない．勿体無いどころかすぐにthread足りなくなって実行が止まる
+   確か，taskwaitになった場合の動作はOpenMP spec にも書いてた気がする
+
+   taskwait directive にぶち当たったら，while(1)を走らせ，以下の処理をする
+   1. taskwait にぶち当たった task を特定．以下，親と呼ぶ
+   2. 親の子どもが全て実行を終えている(オブジェクト的に死んでいる)か確認
+   3. 子どもが皆死んでいれば，親も死ぬ
+   4. 生きていれば，2からループ
 
 
 ** Meeting tied task directive

@@ -1,0 +1,10 @@
+K 13
+svn:mergeinfo
+V 276
+/branches/config/osprey/libopenmp:3003-3087
+/branches/nextgenalias/osprey/libopenmp:2766-3433
+/branches/open64-booster/osprey/libopenmp:2027-3263
+/branches/open64-ppc32/osprey/libopenmp:2293-2750
+/branches/openmp3.0/osprey/libopenmp:3478-3556
+/trunk/osprey/libopenmp:1120-3590
+END

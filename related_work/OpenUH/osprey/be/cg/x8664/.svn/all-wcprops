@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/open64/!svn/ver/3591/branches/OpenUH/osprey/be/cg/x8664
+END
+expand.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/cg/x8664/expand.cxx
+END
+op_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/op_targ.h
+END
+cgtarget_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/cgtarget_arch.h
+END
+cg_loop_recur.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cg_loop_recur.cxx
+END
+tn_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/tn_targ.h
+END
+cg_sched.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/cg_sched.h
+END
+pqs_cg_ia64.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/pqs_cg_ia64.h
+END
+cgemit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/cg/x8664/cgemit_targ.cxx
+END
+register_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/register_targ.h
+END
+cgdriver_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cgdriver_arch.h
+END
+cg_swp_target.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cg_swp_target.cxx
+END
+cg_grouping.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cg_grouping.h
+END
+pqs.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/pqs.h
+END
+cgdwarf_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3591/branches/OpenUH/osprey/be/cg/x8664/cgdwarf_targ.cxx
+END
+cg_sched.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/cg_sched.cxx
+END
+cg_convert_x87.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/cg_convert_x87.cxx
+END
+cgtarget.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/cg/x8664/cgtarget.cxx
+END
+register_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/register_targ.cxx
+END
+cg_flags_arch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cg_flags_arch.cxx
+END
+exp_divrem.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/exp_divrem.cxx
+END
+pqs.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/pqs.cxx
+END
+cg_misc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/cg_misc.cxx
+END
+ebo_special.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3591/branches/OpenUH/osprey/be/cg/x8664/ebo_special.cxx
+END
+entry_exit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/entry_exit_targ.cxx
+END
+exp_loadstore.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/cg/x8664/exp_loadstore.cxx
+END
+exp_branch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/x8664/exp_branch.cxx
+END
+cg_swp_bundle.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/cg_swp_bundle.cxx
+END
+exp_predicate.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/exp_predicate.cxx
+END
+pqs_cg.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/x8664/pqs_cg.cxx
+END

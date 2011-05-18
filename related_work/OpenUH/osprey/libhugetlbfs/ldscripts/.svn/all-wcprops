@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts
+END
+elf_i386.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_i386.xBDT
+END
+elf64ppc.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf64ppc.xBDT
+END
+elf_x86_64.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_x86_64.xBDT
+END
+elf32ppclinux.xB
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf32ppclinux.xB
+END
+elf_i386_1G.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_i386_1G.xBDT
+END
+elf_i386.xB
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_i386.xB
+END
+elf64ppc.xB
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf64ppc.xB
+END
+elf_x86_64_1G.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_x86_64_1G.xBDT
+END
+elf_x86_64.xB
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf_x86_64.xB
+END
+elf32ppclinux.xBDT
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libhugetlbfs/ldscripts/elf32ppclinux.xBDT
+END

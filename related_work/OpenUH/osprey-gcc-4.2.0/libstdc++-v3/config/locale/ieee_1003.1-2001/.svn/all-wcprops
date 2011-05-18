@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/ieee_1003.1-2001
+END
+c_locale.cc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/ieee_1003.1-2001/c_locale.cc
+END
+messages_members.cc
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/ieee_1003.1-2001/messages_members.cc
+END
+c_locale.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/ieee_1003.1-2001/c_locale.h
+END
+messages_members.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/locale/ieee_1003.1-2001/messages_members.h
+END

@@ -1,0 +1,461 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl
+END
+tic30aout.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/tic30aout.sc
+END
+elfm68hc11.sc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfm68hc11.sc
+END
+w65.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/w65.sc
+END
+elf_chaos.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elf_chaos.sc
+END
+elf32avr.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elf32avr.sc
+END
+avr.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/avr.sc
+END
+st2000.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/st2000.sc
+END
+crisaout.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/crisaout.sc
+END
+mcorepe.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/mcorepe.sc
+END
+h8300sxn.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300sxn.sc
+END
+xstormy16.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/xstormy16.sc
+END
+elfd10v.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfd10v.sc
+END
+pe.sc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/pe.sc
+END
+mips.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/mips.sc
+END
+elfi370.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfi370.sc
+END
+armcoff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/armcoff.sc
+END
+h8300sx.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300sx.sc
+END
+m88kbcs.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/m88kbcs.sc
+END
+tic30coff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/tic30coff.sc
+END
+h8500m.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8500m.sc
+END
+psos.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/psos.sc
+END
+i860coff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i860coff.sc
+END
+alpha.sc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/alpha.sc
+END
+tic80coff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/tic80coff.sc
+END
+dlx.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/dlx.sc
+END
+elfxtensa.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfxtensa.sc
+END
+m68klynx.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/m68klynx.sc
+END
+i386beos.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i386beos.sc
+END
+i386lynx.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i386lynx.sc
+END
+h8500.sc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8500.sc
+END
+ip2k.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/ip2k.sc
+END
+a29k.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/a29k.sc
+END
+ppcpe.sc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/ppcpe.sc
+END
+aout.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/aout.sc
+END
+sh.sc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/sh.sc
+END
+h8300h.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300h.sc
+END
+tic54xcoff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/tic54xcoff.sc
+END
+aix.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/aix.sc
+END
+m68kcoff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/m68kcoff.sc
+END
+sparclynx.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/sparclynx.sc
+END
+ebmon29k.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/ebmon29k.sc
+END
+i960.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i960.sc
+END
+i386coff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i386coff.sc
+END
+h8300hn.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300hn.sc
+END
+sa29200.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/sa29200.sc
+END
+elfd30v.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfd30v.sc
+END
+h8300sn.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300sn.sc
+END
+elf32msp430_3.sc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elf32msp430_3.sc
+END
+sparccoff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/sparccoff.sc
+END
+h8500c.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8500c.sc
+END
+iq2000.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/iq2000.sc
+END
+epocpe.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/epocpe.sc
+END
+hppaelf.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/hppaelf.sc
+END
+elfm68hc12.sc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elfm68hc12.sc
+END
+z8000.sc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/z8000.sc
+END
+elf32msp430.sc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elf32msp430.sc
+END
+nw.sc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/nw.sc
+END
+i386go32.sc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i386go32.sc
+END
+or32.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/or32.sc
+END
+h8300s.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300s.sc
+END
+vanilla.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/vanilla.sc
+END
+h8500s.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8500s.sc
+END
+mmo.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/mmo.sc
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/README
+END
+tic4xcoff.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/tic4xcoff.sc
+END
+i386msdos.sc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/i386msdos.sc
+END
+riscix.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/riscix.sc
+END
+mipsbsd.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/mipsbsd.sc
+END
+h8300.sc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8300.sc
+END
+v850.sc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/v850.sc
+END
+m68kaux.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/m68kaux.sc
+END
+h8500b.sc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/h8500b.sc
+END
+elf.sc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/elf.sc
+END
+delta68.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/delta68.sc
+END
+armaout.sc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/armaout.sc
+END
+pj.sc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/cygnus/ld/scripttempl/pj.sc
+END

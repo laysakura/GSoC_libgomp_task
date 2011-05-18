@@ -1,0 +1,52 @@
+10
+
+dir
+3606
+http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/common/targ_info/isa
+http://svn.open64.net/svnroot/open64
+
+
+
+2011-05-01T01:22:24.876121Z
+3578
+dreachem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ead328b1-e903-0410-a19d-eacee4b031f6
+
+x8664
+dir
+
+NVISA
+dir
+
+pr1
+dir
+
+ia64
+dir
+
+ppc32
+dir
+
+MIPS
+dir
+
+SL
+dir
+
+loongson
+dir
+

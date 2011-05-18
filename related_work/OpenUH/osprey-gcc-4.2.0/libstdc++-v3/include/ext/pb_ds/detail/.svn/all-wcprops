@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail
+END
+types_traits.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/types_traits.hpp
+END
+container_base_dispatch.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/container_base_dispatch.hpp
+END
+cond_dealtor.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/cond_dealtor.hpp
+END
+map_debug_base.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/map_debug_base.hpp
+END
+priority_queue_base_dispatch.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/priority_queue_base_dispatch.hpp
+END
+constructors_destructor_fn_imps.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/constructors_destructor_fn_imps.hpp
+END
+type_utils.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/type_utils.hpp
+END
+basic_types.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/basic_types.hpp
+END
+tree_trace_base.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/tree_trace_base.hpp
+END
+standard_policies.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/include/ext/pb_ds/detail/standard_policies.hpp
+END

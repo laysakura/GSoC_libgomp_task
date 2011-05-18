@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson
+END
+op_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/op_targ.h
+END
+cg_loop_recur.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cg_loop_recur.cxx
+END
+cgtarget_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cgtarget_arch.h
+END
+profile_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/profile_util.h
+END
+tn_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/tn_targ.h
+END
+edge_profile.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/edge_profile.cxx
+END
+cgemit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cgemit_targ.cxx
+END
+register_targ.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/register_targ.h
+END
+cgdriver_arch.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cgdriver_arch.h
+END
+pqs.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/pqs.h
+END
+cg_grouping.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cg_grouping.h
+END
+cg_swp_target.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cg_swp_target.cxx
+END
+cgtarget.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cgtarget.cxx
+END
+ipfec_options.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/ipfec_options.cxx
+END
+cg_flags_arch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cg_flags_arch.cxx
+END
+ebo_special.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/ebo_special.cxx
+END
+dump_feedback.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/dump_feedback.cxx
+END
+edge_profile.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/edge_profile.h
+END
+lgra_opt_spill.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/lgra_opt_spill.cxx
+END
+cg_swp_bundle.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cg_swp_bundle.cxx
+END
+ipfec_defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/ipfec_defs.h
+END
+exp_predicate.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/exp_predicate.cxx
+END
+expand.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/expand.cxx
+END
+pqs_cg_ia64.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/pqs_cg_ia64.h
+END
+ipfec_options.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/ipfec_options.h
+END
+cgdwarf_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/cgdwarf_targ.cxx
+END
+profile_util.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/profile_util.cxx
+END
+dump_feedback.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/dump_feedback.h
+END
+lgra_opt_spill.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/lgra_opt_spill.h
+END
+register_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/register_targ.cxx
+END
+exp_divrem.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/exp_divrem.cxx
+END
+pqs.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/pqs.cxx
+END
+expand.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/expand.h
+END
+entry_exit_targ.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/entry_exit_targ.cxx
+END
+exp_loadstore.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/exp_loadstore.cxx
+END
+exp_branch.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/exp_branch.cxx
+END
+db_dump.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/db_dump.cxx
+END
+pqs_cg.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/loongson/pqs_cg.cxx
+END

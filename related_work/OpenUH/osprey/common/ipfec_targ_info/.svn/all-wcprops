@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info
+END
+mckinley_knobsfile.knb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/mckinley_knobsfile.knb
+END
+v11-itanium-extra.knb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/v11-itanium-extra.knb
+END
+v12-itanium-extra.knb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/v12-itanium-extra.knb
+END
+v26-itanium-41-external.knb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/v26-itanium-41-external.knb
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/ipfec_targ_info/Makefile.gbase
+END
+ipfec_targ_gen.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/common/ipfec_targ_info/ipfec_targ_gen.cxx
+END

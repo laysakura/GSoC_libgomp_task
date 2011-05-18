@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS
+END
+proc_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/proc_si.cxx
+END
+proc_properties.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/proc_properties.cxx
+END
+sb1_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/sb1_si.cxx
+END
+sl1_dsp_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/sl1_dsp_si.cxx
+END
+sl2_mcore_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/sl2_mcore_si.cxx
+END
+sl1_pcore_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/sl1_pcore_si.cxx
+END
+proc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/proc.cxx
+END
+sl2_pcore_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/sl2_pcore_si.cxx
+END
+r10000_si.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/proc/MIPS/r10000_si.cxx
+END

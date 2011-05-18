@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS
+END
+isa_decode.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_decode.cxx
+END
+isa_subset.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_subset.cxx
+END
+isa_enums.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_enums.cxx
+END
+isa_registers.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_registers.cxx
+END
+isa_bundle.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_bundle.cxx
+END
+isa_lits.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_lits.cxx
+END
+isa_operands.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_operands.cxx
+END
+isa_hazards.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_hazards.cxx
+END
+isa_print.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_print.cxx
+END
+isa_properties.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_properties.cxx
+END
+isa_pack.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_pack.cxx
+END
+isa_pseudo.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa_pseudo.cxx
+END
+isa.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/common/targ_info/isa/MIPS/isa.cxx
+END

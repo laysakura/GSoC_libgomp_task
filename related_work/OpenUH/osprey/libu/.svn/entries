@@ -1,0 +1,107 @@
+10
+
+dir
+3606
+http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libu
+http://svn.open64.net/svnroot/open64
+
+
+
+2011-05-01T01:22:24.876121Z
+3578
+dreachem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ead328b1-e903-0410-a19d-eacee4b031f6
+
+ffio
+dir
+
+numconv
+dir
+
+tblmgr
+dir
+
+cdc
+dir
+
+aqio
+dir
+
+multi
+dir
+
+Makefile.gbase
+file
+
+
+
+
+2011-05-17T07:40:36.283227Z
+19b2a14f07ea0819ea5a5c7ffecab91d
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10178
+
+waio
+dir
+
+errmsg
+dir
+
+trbk
+dir
+
+ieg
+dir
+
+vms
+dir
+
+ibm
+dir
+
+clib
+dir
+
+util
+dir
+
+sci
+dir
+

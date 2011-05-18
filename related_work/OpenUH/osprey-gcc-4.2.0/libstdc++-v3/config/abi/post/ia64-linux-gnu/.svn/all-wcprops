@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/abi/post/ia64-linux-gnu
+END
+baseline_symbols.txt
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/abi/post/ia64-linux-gnu/baseline_symbols.txt
+END

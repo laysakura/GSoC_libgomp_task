@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svnroot/open64/!svn/ver/3604/branches/OpenUH
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure
+END
+RELEASE-4.2
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/RELEASE-4.2
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3603/branches/OpenUH/Makefile.in
+END
+README.src
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/README.src
+END
+defs.mk
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/defs.mk
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/config.guess
+END
+README.openuh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/open64/!svn/ver/3601/branches/OpenUH/README.openuh
+END
+README.Pro64.src
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/README.Pro64.src
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/config.sub
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/README
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure.ac
+END
+pro64.spec
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/pro64.spec
+END
+open64.spec
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/open64.spec
+END
+README.Pro64
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/README.Pro64
+END
+install_compiler.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/install_compiler.sh
+END
+MAINTAINERS
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/MAINTAINERS
+END
+INSTALL.cross.sl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/INSTALL.cross.sl
+END
+HOWTO-INSTALL-OPEN64
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/HOWTO-INSTALL-OPEN64
+END
+install-sh
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/install-sh
+END
