@@ -211,3 +211,16 @@ for ( i = 0; i < n; i++) *solutions += csols[i];
     外部ライブラリに任せてswapcontextしている
 * MassiveThreads src
   dequeはJavaのFork/Join(FjTaskRunner)を参考にしているらしい
+
+** 各taskのresultの扱い
+   new_thread->result=(*fn)(new_thread->result);
+   とし，ストレートにtask構造体(myth_thread)のメンバにresultをいれている．
+
+   この処理をしているのは誰? 各workerのpthreadは，実際どのようにして各taskを実行しているの? 無限ループかな?
+   -> ビンゴ
+   //Main loop of scheduler
+   static void myth_sched_loop(void)
+   これが pthread_create() された myth_worker_thread_fn() の中で呼ばれている
+
+   この中で，myth_running_env_t env;に対し新しいtaskのenvを与え，アセンブリでswap contextしている．
+   俺がやるときは，アセンブリは使えないので，スケジューラループをpthreadで回し続け，その中で各taskのfuncを呼ぶ．

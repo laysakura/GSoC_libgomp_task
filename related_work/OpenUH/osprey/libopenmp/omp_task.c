@@ -78,7 +78,7 @@ int __ompc_task_create(omp_task_func taskfunc, void* fp, int may_delay, int is_t
 
   /* update number of children - use atomic operation if possible */
   int x;
-  x = __ompc_atomic_inc(&__omp_current_task->num_children);
+  x = __ompc_atomic_inc(&__omp_current_task->num_children);  /* ここは真似したい．でもatomic_incはアセンブリで実現されてる */
   __ompc_atomic_inc(&__omp_level_1_team_manager.num_tasks);
 
   __ompc_task_switch(__omp_current_task, newtask);
