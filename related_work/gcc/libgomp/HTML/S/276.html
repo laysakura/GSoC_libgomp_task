@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/collapse-3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/collapse-3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L8'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L8' title='Defined at 8.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'><i><font color='green'>/* { dg-options "-O2 -std=gnu99" } */</font></i>
+<a name='L3'>
+<a name='L4'><font color='darkred'>#include</font> &lt;string.h&gt;
+<a name='L5'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L6'>
+<a name='L7'><b>int</b>
+<a name='L8'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L9'><font color='red'>{</font>
+<a name='L10'>  <b>int</b> i2, l = 0;
+<a name='L11'>  <b>int</b> a[3][3][3];
+<a name='L12'>
+<a name='L13'>  memset (a, '\0', <b>sizeof</b> (a));
+<a name='L14'><font color='darkred'>  #pragma</font> omp parallel <b>for</b> collapse(4 - 1) schedule(<b>static</b>, 4)
+<a name='L15'>    <b>for</b> (<b>int</b> i = 0; i &lt; 2; i++)
+<a name='L16'>      <b>for</b> (<b>int</b> j = 0; j &lt; 2; j++)
+<a name='L17'>        <b>for</b> (<b>int</b> k = 0; k &lt; 2; k++)
+<a name='L18'>          a[i][j][k] = i + j * 4 + k * 16;
+<a name='L19'><font color='darkred'>  #pragma</font> omp parallel
+<a name='L20'>    <font color='red'>{</font>
+<a name='L21'><font color='darkred'>      #pragma</font> omp <b>for</b> collapse(2) reduction(|:l)
+<a name='L22'>        <b>for</b> (i2 = 0; i2 &lt; 2; i2++)
+<a name='L23'>          <b>for</b> (<b>int</b> j = 0; j &lt; 2; j++)
+<a name='L24'>            <b>for</b> (<b>int</b> k = 0; k &lt; 2; k++)
+<a name='L25'>              <b>if</b> (a[i2][j][k] != i2 + j * 4 + k * 16)
+<a name='L26'>                l = 1;
+<a name='L27'>    <font color='red'>}</font>
+<a name='L28'>  <b>if</b> (l)
+<a name='L29'>    abort ();
+<a name='L30'>  <b>return</b> 0;
+<a name='L31'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L8'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

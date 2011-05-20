@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/for-6.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/for-6.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L9'>[^]</a><a href='#L89'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L9' title='Defined at 9.'>f0</a>
+<li><a href='#L36' title='Defined at 36.'>f1</a>
+<li><a href='#L45' title='Defined at 45.'>f2</a>
+<li><a href='#L53' title='Defined at 53.'>f3</a>
+<li><a href='#L64' title='Defined at 64.'>f4</a>
+<li><a href='#L73' title='Defined at 73.'>f5</a>
+<li><a href='#L81' title='Defined at 81.'>f6</a>
+<li><a href='#L89' title='Defined at 89.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// PR c++/38348</font></i>
+<a name='L2'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L3'>
+<a name='L4'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L5'><b>int</b> cnt;
+<a name='L6'>
+<a name='L7'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L8'><b>void</b>
+<a name='L9'><a href='../R/127.html' title='Multiple refered from 16 places.'>f0</a> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>, <b>int</b>)
+<a name='L10'><font color='red'>{</font>
+<a name='L11'>  abort ();
+<a name='L12'><font color='red'>}</font>
+<a name='L13'>
+<a name='L14'><b>template</b> &lt;&gt;
+<a name='L15'><b>void</b>
+<a name='L16'><a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a>&lt;<b>int</b>&gt; (<b>int</b>, <b>int</b> type)
+<a name='L17'><font color='red'>{</font>
+<a name='L18'>  <b>if</b> (type != 0)
+<a name='L19'>    abort ();
+<a name='L20'><font color='darkred'>#pragma</font> omp atomic
+<a name='L21'>  cnt++;
+<a name='L22'><font color='red'>}</font>
+<a name='L23'>
+<a name='L24'><b>template</b> &lt;&gt;
+<a name='L25'><b>void</b>
+<a name='L26'><a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a>&lt;<b>const</b> <b>char</b> *&gt; (<b>const</b> <b>char</b> *, <b>int</b> type)
+<a name='L27'><font color='red'>{</font>
+<a name='L28'>  <b>if</b> (type != 1)
+<a name='L29'>    abort ();
+<a name='L30'><font color='darkred'>#pragma</font> omp atomic
+<a name='L31'>  cnt++;
+<a name='L32'><font color='red'>}</font>
+<a name='L33'>
+<a name='L34'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L35'><b>void</b>
+<a name='L36'><a href='../R/128.html' title='Multiple refered from 25 places.'>f1</a> ()
+<a name='L37'><font color='red'>{</font>
+<a name='L38'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L39'>  <b>for</b> (<b>int</b> i = 0; i &lt; 10; i++)
+<a name='L40'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 0);
+<a name='L41'><font color='red'>}</font>
+<a name='L42'>
+<a name='L43'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L44'><b>void</b>
+<a name='L45'><a href='../R/132.html' title='Multiple refered from 22 places.'>f2</a> ()
+<a name='L46'><font color='red'>{</font>
+<a name='L47'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L48'>  <b>for</b> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i = <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> (0); i &lt; <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> (10); i += <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> (1))
+<a name='L49'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 0);
+<a name='L50'><font color='red'>}</font>
+<a name='L51'>
+<a name='L52'><b>void</b>
+<a name='L53'><a href='../R/133.html' title='Multiple refered from 21 places.'>f3</a> ()
+<a name='L54'><font color='red'>{</font>
+<a name='L55'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L56'>  <b>for</b> (<b>int</b> i = 0; i &lt; 10; i++)
+<a name='L57'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 0);
+<a name='L58'><font color='red'>}</font>
+<a name='L59'>
+<a name='L60'><b>const</b> <b>char</b> *p = "abcdefghij";
+<a name='L61'>
+<a name='L62'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L63'><b>void</b>
+<a name='L64'><a href='../R/134.html' title='Multiple refered from 14 places.'>f4</a> ()
+<a name='L65'><font color='red'>{</font>
+<a name='L66'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L67'>  <b>for</b> (<b>const</b> <b>char</b> *i = p; i &lt; p + 10; i += 1)
+<a name='L68'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 1);
+<a name='L69'><font color='red'>}</font>
+<a name='L70'>
+<a name='L71'><b>template</b> &lt;<b>typename</b> T&gt;
+<a name='L72'><b>void</b>
+<a name='L73'><a href='../R/135.html' title='Multiple refered from 10 places.'>f5</a> ()
+<a name='L74'><font color='red'>{</font>
+<a name='L75'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L76'>  <b>for</b> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i = <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> (p); i &lt; <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> (p + 10); i += 1)
+<a name='L77'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 1);
+<a name='L78'><font color='red'>}</font>
+<a name='L79'>
+<a name='L80'><b>void</b>
+<a name='L81'><a href='../R/136.html' title='Multiple refered from 10 places.'>f6</a> ()
+<a name='L82'><font color='red'>{</font>
+<a name='L83'><font color='darkred'>#pragma</font> omp parallel <b>for</b>
+<a name='L84'>  <b>for</b> (<b>const</b> <b>char</b> *i = p; i &lt; p + 10; i++)
+<a name='L85'>    <a href='../D/130.html' title='Multiple defined in 2 places.'>f0</a> (i, 1);
+<a name='L86'><font color='red'>}</font>
+<a name='L87'>
+<a name='L88'><b>int</b>
+<a name='L89'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L90'><font color='red'>{</font>
+<a name='L91'>  <a href='../D/131.html' title='Multiple defined in 21 places.'>f1</a>&lt;<b>int</b>&gt; ();
+<a name='L92'>  <b>if</b> (cnt != 10)
+<a name='L93'>    abort ();
+<a name='L94'>  <a href='../D/135.html' title='Multiple defined in 21 places.'>f2</a>&lt;<b>int</b>&gt; ();
+<a name='L95'>  <b>if</b> (cnt != 20)
+<a name='L96'>    abort ();
+<a name='L97'>  <a href='../D/136.html' title='Multiple defined in 17 places.'>f3</a> ();
+<a name='L98'>  <b>if</b> (cnt != 30)
+<a name='L99'>    abort ();
+<a name='L100'>  <a href='../D/137.html' title='Multiple defined in 13 places.'>f4</a>&lt;<b>int</b>&gt; ();
+<a name='L101'>  <b>if</b> (cnt != 40)
+<a name='L102'>    abort ();
+<a name='L103'>  <a href='../D/138.html' title='Multiple defined in 10 places.'>f5</a>&lt;<b>const</b> <b>char</b> *&gt; ();
+<a name='L104'>  <b>if</b> (cnt != 50)
+<a name='L105'>    abort ();
+<a name='L106'>  <a href='../D/139.html' title='Multiple defined in 10 places.'>f6</a> ();
+<a name='L107'>  <b>if</b> (cnt != 60)
+<a name='L108'>    abort ();
+<a name='L109'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L9'>[^]</a><a href='#L89'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

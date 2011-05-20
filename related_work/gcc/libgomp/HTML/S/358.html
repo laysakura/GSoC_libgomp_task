@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/appendix-a/a.33.3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/<a href='../files/439.html'>appendix-a</a>/a.33.3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L7' title='Defined at 7.'>new_lock</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do compile } */</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L4'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L5'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L6'><a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *
+<a name='L7'>new_lock ()
+<a name='L8'><font color='red'>{</font>
+<a name='L9'>  <a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock_ptr;
+<a name='L10'><font color='darkred'>#pragma</font> omp single copyprivate(lock_ptr)
+<a name='L11'>  <font color='red'>{</font>
+<a name='L12'>    lock_ptr = (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) malloc (<b>sizeof</b> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a>));
+<a name='L13'>    omp_init_lock (lock_ptr);
+<a name='L14'>  <font color='red'>}</font>
+<a name='L15'>  <b>return</b> lock_ptr;
+<a name='L16'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L7'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/nqueens-1.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/nqueens-1.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L39'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L13' title='Defined at 13.'>nqueens</a>
+<li><a href='#L39' title='Defined at 39.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'><i><font color='green'>/* { dg-options "-O2 -fopenmp" } */</font></i>
+<a name='L3'><i><font color='green'>/* { dg-require-effective-target tls_runtime } */</font></i>
+<a name='L4'>
+<a name='L5'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L6'><font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L7'><font color='darkred'>#include</font> &lt;string.h&gt;
+<a name='L8'>
+<a name='L9'><b>int</b> cnt;
+<a name='L10'><font color='darkred'>#pragma</font> omp threadprivate (cnt)
+<a name='L11'>
+<a name='L12'><b>void</b>
+<a name='L13'><a href='../R/313.html' title='Multiple refered from 3 places.'>nqueens</a> (<b>char</b> *a, <b>int</b> n, <b>int</b> pos)
+<a name='L14'><font color='red'>{</font>
+<a name='L15'>  <i><font color='green'>/* b[i] = j means the queen in i-th row is in column j.  */</font></i>
+<a name='L16'>  <b>char</b> b[pos + 1];
+<a name='L17'>  <b>int</b> i, j;
+<a name='L18'>  memcpy (b, a, pos);
+<a name='L19'>  <b>for</b> (i = 0; i &lt; n; i++)
+<a name='L20'>    <font color='red'>{</font>
+<a name='L21'>      <b>for</b> (j = 0; j &lt; pos; j++)
+<a name='L22'>        <b>if</b> (b[j] == i || b[j] == i + pos - j || i == b[j] + pos - j)
+<a name='L23'>          <b>break</b>;
+<a name='L24'>      <b>if</b> (j &lt; pos)
+<a name='L25'>        <b>continue</b>;
+<a name='L26'>      <b>if</b> (pos == n - 1)
+<a name='L27'>        <i><font color='green'>/* Found a solution.  Could output it here.  */</font></i>
+<a name='L28'>        ++cnt;
+<a name='L29'>      <b>else</b>
+<a name='L30'>        <font color='red'>{</font>
+<a name='L31'>          b[pos] = i;
+<a name='L32'><font color='darkred'>          #pragma</font> omp task
+<a name='L33'>            <a href='../S/342.html#L13' title='Defined at 13 in testsuite/libgomp.c/nqueens-1.c.'>nqueens</a> (b, n, pos + 1);
+<a name='L34'>        <font color='red'>}</font>
+<a name='L35'>    <font color='red'>}</font>
+<a name='L36'><font color='red'>}</font>
+<a name='L37'>
+<a name='L38'><b>int</b>
+<a name='L39'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>int</b> argc, <b>char</b> **argv)
+<a name='L40'><font color='red'>{</font>
+<a name='L41'>  <b>int</b> n = 8;
+<a name='L42'>  <b>if</b> (argc &gt;= 2)
+<a name='L43'>    n = strtoul (argv[1], NULL, 0);
+<a name='L44'>  <b>if</b> (n &lt; 1 || n &gt; 127)
+<a name='L45'>    <font color='red'>{</font>
+<a name='L46'>      fprintf (stderr, "invalid count %d\n", n);
+<a name='L47'>      <b>return</b> 1;
+<a name='L48'>    <font color='red'>}</font>
+<a name='L49'>  cnt = 0;
+<a name='L50'>  <b>double</b> stime = <a href='../D/372.html' title='Multiple defined in 2 places.'>omp_get_wtime</a> ();
+<a name='L51'>  <a href='../S/342.html#L13' title='Defined at 13 in testsuite/libgomp.c/nqueens-1.c.'>nqueens</a> ("", n, 0);
+<a name='L52'>  printf ("serial   N %d solutions # %d time %f\n", n, cnt, <a href='../D/372.html' title='Multiple defined in 2 places.'>omp_get_wtime</a> () - stime);
+<a name='L53'><font color='darkred'>  #pragma</font> omp parallel
+<a name='L54'>    cnt = 0;
+<a name='L55'>  stime = <a href='../D/372.html' title='Multiple defined in 2 places.'>omp_get_wtime</a> ();
+<a name='L56'>  <b>int</b> tempcnt = 0;
+<a name='L57'><font color='darkred'>  #pragma</font> omp parallel reduction (+:tempcnt)
+<a name='L58'>    <font color='red'>{</font>
+<a name='L59'><font color='darkred'>      #pragma</font> omp single
+<a name='L60'>        <a href='../S/342.html#L13' title='Defined at 13 in testsuite/libgomp.c/nqueens-1.c.'>nqueens</a> ("", n, 0);
+<a name='L61'>      tempcnt = cnt;
+<a name='L62'>    <font color='red'>}</font>
+<a name='L63'>  cnt = tempcnt;
+<a name='L64'>  printf ("parallel N %d solutions # %d time %f\n", n, cnt, <a href='../D/372.html' title='Multiple defined in 2 places.'>omp_get_wtime</a> () - stime);
+<a name='L65'>  <b>return</b> 0;
+<a name='L66'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L39'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -2,8 +2,12 @@
 #define _GOMP_TASK_H_
 
 
-typedef struct _gomp_task {
-  volatile unsigned int _num_children;
+typedef struct gomp_task {
+  void* result;
+  
+
+  struct gomp_task* parent;
+  struct gomp_task** children;
 } gomp_task;
 
 

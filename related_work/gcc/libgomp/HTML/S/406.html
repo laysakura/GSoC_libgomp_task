@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>testsuite/libgomp.graphite/force-parallel-5.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/440.html'>libgomp.graphite</a>/force-parallel-5.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L26'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L6' title='Defined at 6.'>foo</a>
+<li><a href='#L26' title='Defined at 26.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Triangle loops.  */</font></i>
+<a name='L2'><b>void</b> abort (<b>void</b>);
+<a name='L3'>
+<a name='L4'><font color='darkred'>#define</font> <a href='../R/80.html' title='Multiple refered from 167 places.'>N</a> 500
+<a name='L5'>
+<a name='L6'><b>void</b> <a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a>(<b>void</b>)
+<a name='L7'><font color='red'>{</font>
+<a name='L8'>  <b>int</b> i,j;
+<a name='L9'>  <b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[3*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>], <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[3*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>];
+<a name='L10'>
+<a name='L11'>  <b>for</b> (i = 0; i &lt; 3*<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L12'>    <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[i] = <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[i] = i;
+<a name='L13'>
+<a name='L14'>  <b>for</b> (i = 1; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L15'>    <b>for</b> (j = 1; j &lt; i; j++)
+<a name='L16'>      <i><font color='green'>/* This loop carried no dependency, it fails</font></i>
+<a name='L17'><i><font color='green'>         at code generation part.*/</font></i>
+<a name='L18'>      <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[j+<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>] = <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[j] + j;
+<a name='L19'>
+<a name='L20'>  <b>for</b> (i = 1; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; i++)
+<a name='L21'>    <b>for</b> (j = 1; j &lt; i; j++)
+<a name='L22'>      <b>if</b> (<a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>[j+<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>] != <a href='../D/2.html' title='Multiple defined in 33 places.'>B</a>[j] + j)
+<a name='L23'>        abort();
+<a name='L24'><font color='red'>}</font>
+<a name='L25'>
+<a name='L26'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>(<b>void</b>)
+<a name='L27'><font color='red'>{</font>
+<a name='L28'>  <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a>();
+<a name='L29'>
+<a name='L30'>  <b>return</b> 0;
+<a name='L31'><font color='red'>}</font>
+<a name='L32'>
+<a name='L33'><i><font color='green'>/* Check that parallel code generation part make the right answer.  */</font></i>
+<a name='L34'><i><font color='green'>/* { dg-final { scan-tree-dump-times "2 loops carried no dependency" 1 "graphite" } } */</font></i>
+<a name='L35'><i><font color='green'>/* { dg-final { cleanup-tree-dump "graphite" } } */</font></i>
+<a name='L36'><i><font color='green'>/* { dg-final { scan-tree-dump-times "loopfn.0" 5 "optimized" } } */</font></i>
+<a name='L37'><i><font color='green'>/* { dg-final { scan-tree-dump-times "loopfn.1" 5 "optimized" } } */</font></i>
+<a name='L38'><i><font color='green'>/* { dg-final { cleanup-tree-dump "parloops" } } */</font></i>
+<a name='L39'><i><font color='green'>/* { dg-final { cleanup-tree-dump "optimized" } } */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a><a href='#L26'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/single-2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/single-2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L4'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L4' title='Defined at 4.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L2'>
+<a name='L3'><b>int</b>
+<a name='L4'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L5'><font color='red'>{</font>
+<a name='L6'>  <b>int</b> i;
+<a name='L7'>  i = 4;
+<a name='L8'><font color='darkred'>#pragma</font> omp single copyprivate (i)
+<a name='L9'>  <font color='red'>{</font>
+<a name='L10'>    i = 6;
+<a name='L11'>  <font color='red'>}</font>
+<a name='L12'>  <b>if</b> (i != 6)
+<a name='L13'>    abort ();
+<a name='L14'>  <b>return</b> 0;
+<a name='L15'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L4'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

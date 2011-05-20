@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>bar</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/54.html#L39'>bar</a>                39 config/linux/bar.c       bar-&gt;awaited = bar-&gt;total;
+<a href='../S/54.html#L41'>bar</a>                41 config/linux/bar.c       bar-&gt;generation += 4;
+<a href='../S/54.html#L42'>bar</a>                42 config/linux/bar.c       futex_wake ((int *) &amp;bar-&gt;generation, INT_MAX);
+<a href='../S/54.html#L49'>bar</a>                49 config/linux/bar.c 	do_wait ((int *) &amp;bar-&gt;generation, generation);
+<a href='../S/54.html#L50'>bar</a>                50 config/linux/bar.c       while (bar-&gt;generation == generation);
+<a href='../S/54.html#L57'>bar</a>                57 config/linux/bar.c   gomp_barrier_wait_end (bar, gomp_barrier_wait_start (bar));
+<a href='../S/54.html#L70'>bar</a>                70 config/linux/bar.c   gomp_barrier_state_t state = gomp_barrier_wait_start (bar);
+<a href='../S/54.html#L72'>bar</a>                72 config/linux/bar.c     gomp_barrier_wait_end (bar, state);
+<a href='../S/54.html#L78'>bar</a>                78 config/linux/bar.c   futex_wake ((int *) &amp;bar-&gt;generation, count == 0 ? INT_MAX : count);
+<a href='../S/54.html#L91'>bar</a>                91 config/linux/bar.c       bar-&gt;awaited = bar-&gt;total;
+<a href='../S/54.html#L100'>bar</a>               100 config/linux/bar.c 	  bar-&gt;generation = state + 3;
+<a href='../S/54.html#L101'>bar</a>               101 config/linux/bar.c 	  futex_wake ((int *) &amp;bar-&gt;generation, INT_MAX);
+<a href='../S/54.html#L109'>bar</a>               109 config/linux/bar.c       do_wait ((int *) &amp;bar-&gt;generation, generation);
+<a href='../S/54.html#L110'>bar</a>               110 config/linux/bar.c       if (__builtin_expect (bar-&gt;generation &amp; 1, 0))
+<a href='../S/54.html#L112'>bar</a>               112 config/linux/bar.c       if ((bar-&gt;generation &amp; 2))
+<a href='../S/54.html#L115'>bar</a>               115 config/linux/bar.c   while (bar-&gt;generation != state + 4);
+<a href='../S/54.html#L121'>bar</a>               121 config/linux/bar.c   gomp_team_barrier_wait_end (bar, gomp_barrier_wait_start (bar));
+<a href='../S/65.html#L46'>bar</a>                46 config/linux/bar.h   bar-&gt;total = count;
+<a href='../S/65.html#L47'>bar</a>                47 config/linux/bar.h   bar-&gt;awaited = count;
+<a href='../S/65.html#L48'>bar</a>                48 config/linux/bar.h   bar-&gt;generation = 0;
+<a href='../S/65.html#L53'>bar</a>                53 config/linux/bar.h   __sync_fetch_and_add (&amp;bar-&gt;awaited, count - bar-&gt;total);
+<a href='../S/65.html#L54'>bar</a>                54 config/linux/bar.h   bar-&gt;total = count;
+<a href='../S/65.html#L72'>bar</a>                72 config/linux/bar.h   unsigned int ret = bar-&gt;generation &amp; ~3;
+<a href='../S/65.html#L75'>bar</a>                75 config/linux/bar.h   ret += __sync_add_and_fetch (&amp;bar-&gt;awaited, -1) == 0;
+<a href='../S/65.html#L91'>bar</a>                91 config/linux/bar.h   bar-&gt;generation |= 1;
+<a href='../S/65.html#L97'>bar</a>                97 config/linux/bar.h   bar-&gt;generation &amp;= ~1;
+<a href='../S/65.html#L103'>bar</a>               103 config/linux/bar.h   bar-&gt;generation |= 2;
+<a href='../S/65.html#L109'>bar</a>               109 config/linux/bar.h   return (bar-&gt;generation &amp; 2) != 0;
+<a href='../S/65.html#L115'>bar</a>               115 config/linux/bar.h   bar-&gt;generation = (state &amp; ~3) + 4;
+<a href='../S/33.html#L36'>bar</a>                36 config/posix/bar.c   gomp_mutex_init (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L38'>bar</a>                38 config/posix/bar.c   gomp_mutex_init (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L40'>bar</a>                40 config/posix/bar.c   gomp_sem_init (&amp;bar-&gt;sem1, 0);
+<a href='../S/33.html#L41'>bar</a>                41 config/posix/bar.c   gomp_sem_init (&amp;bar-&gt;sem2, 0);
+<a href='../S/33.html#L42'>bar</a>                42 config/posix/bar.c   bar-&gt;total = count;
+<a href='../S/33.html#L43'>bar</a>                43 config/posix/bar.c   bar-&gt;arrived = 0;
+<a href='../S/33.html#L44'>bar</a>                44 config/posix/bar.c   bar-&gt;generation = 0;
+<a href='../S/33.html#L51'>bar</a>                51 config/posix/bar.c   gomp_mutex_lock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L52'>bar</a>                52 config/posix/bar.c   gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L54'>bar</a>                54 config/posix/bar.c   gomp_mutex_destroy (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L56'>bar</a>                56 config/posix/bar.c   gomp_mutex_destroy (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L58'>bar</a>                58 config/posix/bar.c   gomp_sem_destroy (&amp;bar-&gt;sem1);
+<a href='../S/33.html#L59'>bar</a>                59 config/posix/bar.c   gomp_sem_destroy (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L65'>bar</a>                65 config/posix/bar.c   gomp_mutex_lock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L66'>bar</a>                66 config/posix/bar.c   bar-&gt;total = count;
+<a href='../S/33.html#L67'>bar</a>                67 config/posix/bar.c   gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L77'>bar</a>                77 config/posix/bar.c       n = --bar-&gt;arrived;
+<a href='../S/33.html#L81'>bar</a>                81 config/posix/bar.c 	    gomp_sem_post (&amp;bar-&gt;sem1);
+<a href='../S/33.html#L83'>bar</a>                83 config/posix/bar.c 	  gomp_sem_wait (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L85'>bar</a>                85 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L89'>bar</a>                89 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L90'>bar</a>                90 config/posix/bar.c       gomp_sem_wait (&amp;bar-&gt;sem1);
+<a href='../S/33.html#L93'>bar</a>                93 config/posix/bar.c       n = __sync_add_and_fetch (&amp;bar-&gt;arrived, -1);
+<a href='../S/33.html#L95'>bar</a>                95 config/posix/bar.c       gomp_mutex_lock (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L96'>bar</a>                96 config/posix/bar.c       n = --bar-&gt;arrived;
+<a href='../S/33.html#L97'>bar</a>                97 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L101'>bar</a>               101 config/posix/bar.c 	gomp_sem_post (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L118'>bar</a>               118 config/posix/bar.c       n = --bar-&gt;arrived;
+<a href='../S/33.html#L126'>bar</a>               126 config/posix/bar.c 	    gomp_sem_wait (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L127'>bar</a>               127 config/posix/bar.c 	  gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L131'>bar</a>               131 config/posix/bar.c       bar-&gt;generation = state + 3;
+<a href='../S/33.html#L135'>bar</a>               135 config/posix/bar.c 	    gomp_sem_post (&amp;bar-&gt;sem1);
+<a href='../S/33.html#L137'>bar</a>               137 config/posix/bar.c 	  gomp_sem_wait (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L139'>bar</a>               139 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L143'>bar</a>               143 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex1);
+<a href='../S/33.html#L146'>bar</a>               146 config/posix/bar.c 	  gomp_sem_wait (&amp;bar-&gt;sem1);
+<a href='../S/33.html#L147'>bar</a>               147 config/posix/bar.c 	  if (bar-&gt;generation &amp; 1)
+<a href='../S/33.html#L150'>bar</a>               150 config/posix/bar.c       while (bar-&gt;generation != state + 4);
+<a href='../S/33.html#L153'>bar</a>               153 config/posix/bar.c       n = __sync_add_and_fetch (&amp;bar-&gt;arrived, -1);
+<a href='../S/33.html#L155'>bar</a>               155 config/posix/bar.c       gomp_mutex_lock (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L156'>bar</a>               156 config/posix/bar.c       n = --bar-&gt;arrived;
+<a href='../S/33.html#L157'>bar</a>               157 config/posix/bar.c       gomp_mutex_unlock (&amp;bar-&gt;mutex2);
+<a href='../S/33.html#L161'>bar</a>               161 config/posix/bar.c 	gomp_sem_post (&amp;bar-&gt;sem2);
+<a href='../S/33.html#L175'>bar</a>               175 config/posix/bar.c     count = bar-&gt;total - 1;
+<a href='../S/33.html#L177'>bar</a>               177 config/posix/bar.c     gomp_sem_post (&amp;bar-&gt;sem1);
+<a href='../S/39.html#L64'>bar</a>                64 config/posix/bar.h   gomp_mutex_lock (&amp;bar-&gt;mutex1);
+<a href='../S/39.html#L65'>bar</a>                65 config/posix/bar.h   ret = bar-&gt;generation &amp; ~3;
+<a href='../S/39.html#L66'>bar</a>                66 config/posix/bar.h   ret += ++bar-&gt;arrived == bar-&gt;total;
+<a href='../S/39.html#L79'>bar</a>                79 config/posix/bar.h   gomp_barrier_wait (bar);
+<a href='../S/39.html#L88'>bar</a>                88 config/posix/bar.h   bar-&gt;generation |= 1;
+<a href='../S/39.html#L94'>bar</a>                94 config/posix/bar.h   bar-&gt;generation &amp;= ~1;
+<a href='../S/39.html#L100'>bar</a>               100 config/posix/bar.h   bar-&gt;generation |= 2;
+<a href='../S/39.html#L106'>bar</a>               106 config/posix/bar.h   return (bar-&gt;generation &amp; 2) != 0;
+<a href='../S/39.html#L112'>bar</a>               112 config/posix/bar.h   bar-&gt;generation = (state &amp; ~3) + 4;
+<a href='../S/138.html#L43'>bar</a>                43 testsuite/libgomp.c++/atomic-1.C   bar(&amp;i, 4);
+<a href='../S/138.html#L44'>bar</a>                44 testsuite/libgomp.c++/atomic-1.C   bar(&amp;l, 8L);
+<a href='../S/103.html#L81'>bar</a>                81 testsuite/libgomp.c++/pr27337.C   x = bar ();
+<a href='../S/74.html#L70'>bar</a>                70 testsuite/libgomp.c++/pr30703.C   bar ();
+<a href='../S/81.html#L27'>bar</a>                27 testsuite/libgomp.c++/pr35185.C     if (bar (s))
+<a href='../S/123.html#L37'>bar</a>                37 testsuite/libgomp.c++/pr39573.C       bar (x);
+<a href='../S/120.html#L76'>bar</a>                76 testsuite/libgomp.c++/task-3.C   bar (6, A ());
+<a href='../S/120.html#L84'>bar</a>                84 testsuite/libgomp.c++/task-3.C 	    bar (6, A ());
+<a href='../S/112.html#L76'>bar</a>                76 testsuite/libgomp.c++/task-5.C   bar (6, A ());
+<a href='../S/112.html#L84'>bar</a>                84 testsuite/libgomp.c++/task-5.C 	    bar (6, A ());
+<a href='../S/332.html#L41'>bar</a>                41 testsuite/libgomp.c/autopar-1.c   if (bar () != 1023 * 1024 / 2)
+<a href='../S/301.html#L11'>bar</a>                11 testsuite/libgomp.c/icv-2.c pthread_barrier_t bar;
+<a href='../S/301.html#L18'>bar</a>                18 testsuite/libgomp.c/icv-2.c   pthread_barrier_wait (&amp;bar);
+<a href='../S/301.html#L21'>bar</a>                21 testsuite/libgomp.c/icv-2.c   pthread_barrier_wait (&amp;bar);
+<a href='../S/301.html#L41'>bar</a>                41 testsuite/libgomp.c/icv-2.c   pthread_barrier_init (&amp;bar, NULL, 2);
+<a href='../S/391.html#L11'>bar</a>                11 testsuite/libgomp.c/lock-3.c pthread_barrier_t bar;
+<a href='../S/391.html#L24'>bar</a>                24 testsuite/libgomp.c/lock-3.c   pthread_barrier_wait (&amp;bar);
+<a href='../S/391.html#L27'>bar</a>                27 testsuite/libgomp.c/lock-3.c   pthread_barrier_wait (&amp;bar);
+<a href='../S/391.html#L36'>bar</a>                36 testsuite/libgomp.c/lock-3.c   pthread_barrier_wait (&amp;bar);
+<a href='../S/391.html#L54'>bar</a>                54 testsuite/libgomp.c/lock-3.c   pthread_barrier_init (&amp;bar, NULL, 2);
+<a href='../S/394.html#L12'>bar</a>                12 testsuite/libgomp.c/nestedfn-3.c   int bar (void) { return i - 3; }
+<a href='../S/394.html#L29'>bar</a>                29 testsuite/libgomp.c/nestedfn-3.c   if (bar () != 4)
+<a href='../S/394.html#L46'>bar</a>                46 testsuite/libgomp.c/nestedfn-3.c   l += bar ();
+<a href='../S/297.html#L16'>bar</a>                16 testsuite/libgomp.c/nestedfn-4.c   int bar (void)
+<a href='../S/297.html#L50'>bar</a>                50 testsuite/libgomp.c/nestedfn-4.c   if (!foo () || bar () != 3)
+<a href='../S/297.html#L57'>bar</a>                57 testsuite/libgomp.c/nestedfn-4.c   if (foo () || bar () != 4)
+<a href='../S/361.html#L10'>bar</a>                10 testsuite/libgomp.c/nestedfn-5.c   int bar (void) { return i + 1; }
+<a href='../S/361.html#L15'>bar</a>                15 testsuite/libgomp.c/nestedfn-5.c 	if (bar () != 6)
+<a href='../S/361.html#L21'>bar</a>                21 testsuite/libgomp.c/nestedfn-5.c 	if (bar () != 6)
+<a href='../S/269.html#L62'>bar</a>                62 testsuite/libgomp.c/pr30494.c   bar (256, 256);
+<a href='../S/267.html#L10'>bar</a>                10 testsuite/libgomp.c/pr33880.c   void bar (void)
+<a href='../S/267.html#L15'>bar</a>                15 testsuite/libgomp.c/pr33880.c   bar ();
+<a href='../S/267.html#L29'>bar</a>                29 testsuite/libgomp.c/pr33880.c   bar ();
+<a href='../S/267.html#L40'>bar</a>                40 testsuite/libgomp.c/pr33880.c   void bar (void)
+<a href='../S/267.html#L47'>bar</a>                47 testsuite/libgomp.c/pr33880.c   bar ();
+<a href='../S/267.html#L52'>bar</a>                52 testsuite/libgomp.c/pr33880.c   bar ();
+<a href='../S/267.html#L61'>bar</a>                61 testsuite/libgomp.c/pr33880.c   void bar (void)
+<a href='../S/267.html#L80'>bar</a>                80 testsuite/libgomp.c/pr33880.c   bar ();
+<a href='../S/267.html#L96'>bar</a>                96 testsuite/libgomp.c/pr33880.c   int bar (void)
+<a href='../S/267.html#L108'>bar</a>               108 testsuite/libgomp.c/pr33880.c   for (i = foo (); i &lt; bar (); i += baz ())
+</pre>
+</body>
+</html>

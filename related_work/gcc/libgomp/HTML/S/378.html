@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/nested-3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/nested-3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L6'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L6' title='Defined at 6.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L2'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L3'><font color='darkred'>#include</font> &lt;string.h&gt;
+<a name='L4'>
+<a name='L5'><b>int</b>
+<a name='L6'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L7'><font color='red'>{</font>
+<a name='L8'>  <b>int</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[3];
+<a name='L9'>
+<a name='L10'>  memset (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>, '\0', <b>sizeof</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>));
+<a name='L11'>  <a href='../S/414.html#L576' title='Defined at 576 in env.c.'>omp_set_nested</a> (1);
+<a name='L12'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L13'>  <b>if</b> (<a href='../S/21.html#L154' title='Defined at 154 in parallel.c.'>omp_in_parallel</a> ()
+<a name='L14'>      || <a href='../S/21.html#L160' title='Defined at 160 in parallel.c.'>omp_get_level</a> () != 0
+<a name='L15'>      || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (0) != 0
+<a name='L16'>      || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (-1) != -1
+<a name='L17'>      || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (1) != -1
+<a name='L18'>      || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (0) != 1
+<a name='L19'>      || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (-1) != -1
+<a name='L20'>      || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (1) != -1
+<a name='L21'>      || <a href='../S/21.html#L191' title='Defined at 191 in parallel.c.'>omp_get_active_level</a> () != 0)
+<a name='L22'>    abort ();
+<a name='L23'><font color='darkred'>#pragma</font> omp parallel num_threads (4)
+<a name='L24'>  <font color='red'>{</font>
+<a name='L25'>    <b>int</b> tn1 = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();
+<a name='L26'>    <b>if</b> (<a href='../S/21.html#L154' title='Defined at 154 in parallel.c.'>omp_in_parallel</a> () != 1
+<a name='L27'>        || <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 4
+<a name='L28'>        || tn1 &gt;= 4 || tn1 &lt; 0
+<a name='L29'>        || <a href='../S/21.html#L160' title='Defined at 160 in parallel.c.'>omp_get_level</a> () != 1
+<a name='L30'>        || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (0) != 0
+<a name='L31'>        || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (1) != tn1
+<a name='L32'>        || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (-1) != -1
+<a name='L33'>        || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (2) != -1
+<a name='L34'>        || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (0) != 1
+<a name='L35'>        || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (1) != <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> ()
+<a name='L36'>        || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (-1) != -1
+<a name='L37'>        || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (2) != -1
+<a name='L38'>        || <a href='../S/21.html#L191' title='Defined at 191 in parallel.c.'>omp_get_active_level</a> () != 1)
+<a name='L39'><font color='darkred'>      #pragma</font> omp atomic
+<a name='L40'>        <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[0] += 1;
+<a name='L41'><font color='darkred'>    #pragma</font> omp parallel <b>if</b> (0) num_threads(5) firstprivate(tn1)
+<a name='L42'>    <font color='red'>{</font>
+<a name='L43'>      <b>int</b> tn2 = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();
+<a name='L44'>      <b>if</b> (<a href='../S/21.html#L154' title='Defined at 154 in parallel.c.'>omp_in_parallel</a> () != 1
+<a name='L45'>          || <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 1
+<a name='L46'>          || tn2 != 0
+<a name='L47'>          || <a href='../S/21.html#L160' title='Defined at 160 in parallel.c.'>omp_get_level</a> () != 2
+<a name='L48'>          || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (0) != 0
+<a name='L49'>          || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (1) != tn1
+<a name='L50'>          || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (2) != tn2
+<a name='L51'>          || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (-1) != -1
+<a name='L52'>          || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (3) != -1
+<a name='L53'>          || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (0) != 1
+<a name='L54'>          || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (1) != 4
+<a name='L55'>          || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (2) != 1
+<a name='L56'>          || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (-1) != -1
+<a name='L57'>          || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (3) != -1
+<a name='L58'>          || <a href='../S/21.html#L191' title='Defined at 191 in parallel.c.'>omp_get_active_level</a> () != 1)
+<a name='L59'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L60'>          <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[1] += 1;
+<a name='L61'><font color='darkred'>      #pragma</font> omp parallel num_threads(2) firstprivate(tn1, tn2)
+<a name='L62'>      <font color='red'>{</font>
+<a name='L63'>        <b>int</b> tn3 = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();
+<a name='L64'>        <b>if</b> (<a href='../S/21.html#L154' title='Defined at 154 in parallel.c.'>omp_in_parallel</a> () != 1
+<a name='L65'>            || <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 2
+<a name='L66'>            || tn3 &gt; 1 || tn3 &lt; 0
+<a name='L67'>            || <a href='../S/21.html#L160' title='Defined at 160 in parallel.c.'>omp_get_level</a> () != 3
+<a name='L68'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (0) != 0
+<a name='L69'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (1) != tn1
+<a name='L70'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (2) != tn2
+<a name='L71'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (3) != tn3
+<a name='L72'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (-1) != -1
+<a name='L73'>            || <a href='../S/21.html#L166' title='Defined at 166 in parallel.c.'>omp_get_ancestor_thread_num</a> (4) != -1
+<a name='L74'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (0) != 1
+<a name='L75'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (1) != 4
+<a name='L76'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (2) != 1
+<a name='L77'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (3) != 2
+<a name='L78'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (-1) != -1
+<a name='L79'>            || <a href='../S/21.html#L177' title='Defined at 177 in parallel.c.'>omp_get_team_size</a> (4) != -1
+<a name='L80'>            || <a href='../S/21.html#L191' title='Defined at 191 in parallel.c.'>omp_get_active_level</a> () != 2)
+<a name='L81'><font color='darkred'>          #pragma</font> omp atomic
+<a name='L82'>            <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[2] += 1;
+<a name='L83'>      <font color='red'>}</font>
+<a name='L84'>    <font color='red'>}</font>
+<a name='L85'>  <font color='red'>}</font>
+<a name='L86'>  <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[0] || <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[1] || <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[2])
+<a name='L87'>    abort ();
+<a name='L88'>  <b>return</b> 0;
+<a name='L89'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L6'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

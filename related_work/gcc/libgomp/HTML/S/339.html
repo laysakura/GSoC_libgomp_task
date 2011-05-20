@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/loop-1.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/loop-1.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L16'>[^]</a><a href='#L110'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L16' title='Defined at 16.'>clean_data</a>
+<li><a href='#L21' title='Defined at 21.'>test_data</a>
+<li><a href='#L38' title='Defined at 38.'>set_data</a>
+<li><a href='#L70' title='Defined at 70.'>TMPL_1</a>
+<li><a href='#L86' title='Defined at 86.'>_2</a>
+<li><a href='#L96' title='Defined at 96.'>TMPL_2</a>
+<li><a href='#L110' title='Defined at 110.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Test that all loop iterations are touched.  This doesn't verify </font></i>
+<a name='L2'><i><font color='green'>   scheduling order, merely coverage.  */</font></i>
+<a name='L3'>
+<a name='L4'><i><font color='green'>/* { dg-require-effective-target sync_int_long } */</font></i>
+<a name='L5'>
+<a name='L6'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L7'><font color='darkred'>#include</font> &lt;string.h&gt;
+<a name='L8'><font color='darkred'>#include</font> &lt;assert.h&gt;
+<a name='L9'><font color='darkred'>#include</font> "<a href='420.html'>libgomp_g.h</a>"
+<a name='L10'>
+<a name='L11'>
+<a name='L12'><font color='darkred'>#define</font> <a href='../R/80.html' title='Multiple refered from 167 places.'>N</a> 10000
+<a name='L13'><b>static</b> <b>int</b> <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>, E, INCR, CHUNK, NTHR;
+<a name='L14'><b>static</b> <b>int</b> data[<a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>];
+<a name='L15'>
+<a name='L16'><b>static</b> <b>void</b> <a href='../R/113.html' title='Multiple refered from 7 places.'>clean_data</a> (<b>void</b>)
+<a name='L17'><font color='red'>{</font>
+<a name='L18'>  memset (data, -1, <b>sizeof</b> (data));
+<a name='L19'><font color='red'>}</font>
+<a name='L20'>
+<a name='L21'><b>static</b> <b>void</b> <a href='../R/390.html' title='Multiple refered from 6 places.'>test_data</a> (<b>void</b>)
+<a name='L22'><font color='red'>{</font>
+<a name='L23'>  <b>int</b> i, j;
+<a name='L24'>
+<a name='L25'>  <b>for</b> (i = 0; i &lt; <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>; ++i)
+<a name='L26'>    assert (data[i] == -1);
+<a name='L27'>
+<a name='L28'>  <b>for</b> (j = 0; i &lt; E; ++i, j = (j + 1) % INCR)
+<a name='L29'>    <b>if</b> (j == 0)
+<a name='L30'>      assert (data[i] != -1);
+<a name='L31'>    <b>else</b>
+<a name='L32'>      assert (data[i] == -1);
+<a name='L33'>
+<a name='L34'>  <b>for</b> (; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>; ++i)
+<a name='L35'>    assert (data[i] == -1);
+<a name='L36'><font color='red'>}</font>
+<a name='L37'>
+<a name='L38'><b>static</b> <b>void</b> <a href='../R/354.html' title='Multiple refered from 7 places.'>set_data</a> (<b>long</b> i, <b>int</b> val)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  <b>int</b> old;
+<a name='L41'>  assert (i &gt;= 0 &amp;&amp; i &lt; <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>);
+<a name='L42'>  old = __sync_lock_test_and_set (data+i, val);
+<a name='L43'>  assert (old == -1);
+<a name='L44'><font color='red'>}</font>
+<a name='L45'>  
+<a name='L46'>
+<a name='L47'><font color='darkred'>#define</font> <a href='../R/92.html' title='Multiple refered from 6 places.'>TMPL_1</a>(sched)                                           \
+<a name='L48'><b>static</b> <b>void</b> f_##sched##_1 (<b>void</b> *dummy)                         \
+<a name='L49'><font color='red'>{</font>                                                               \
+<a name='L50'>  <b>int</b> iam = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();                              \
+<a name='L51'>  <b>long</b> s0, e0, i;                                               \
+<a name='L52'>  <b>if</b> (GOMP_loop_##sched##_start (<a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>, E, INCR, CHUNK, &amp;s0, &amp;e0))  \
+<a name='L53'>    <b>do</b>                                                          \
+<a name='L54'>      <font color='red'>{</font>                                                         \
+<a name='L55'>        <b>for</b> (i = s0; i &lt; e0; i += INCR)                         \
+<a name='L56'>          <a href='../D/410.html' title='Multiple defined in 5 places.'>set_data</a> (i, iam);                                    \
+<a name='L57'>      <font color='red'>}</font>                                                         \
+<a name='L58'>    <b>while</b> (GOMP_loop_##sched##_next (&amp;s0, &amp;e0));                \
+<a name='L59'>  <a href='../S/416.html#L494' title='Defined at 494 in loop.c.'>GOMP_loop_end</a> ();                                             \
+<a name='L60'><font color='red'>}</font>                                                               \
+<a name='L61'><b>static</b> <b>void</b> t_##sched##_1 (<b>void</b>)                                \
+<a name='L62'><font color='red'>{</font>                                                               \
+<a name='L63'>  <a href='../D/116.html' title='Multiple defined in 5 places.'>clean_data</a> ();                                                \
+<a name='L64'>  <a href='../S/21.html#L105' title='Defined at 105 in parallel.c.'>GOMP_parallel_start</a> (f_##sched##_1, NULL, NTHR);              \
+<a name='L65'>  f_##sched##_1 (NULL);                                         \
+<a name='L66'>  <a href='../S/21.html#L112' title='Defined at 112 in parallel.c.'>GOMP_parallel_end</a> ();                                         \
+<a name='L67'>  <a href='../D/448.html' title='Multiple defined in 4 places.'>test_data</a> ();                                                 \
+<a name='L68'><font color='red'>}</font>
+<a name='L69'>
+<a name='L70'><a href='../R/92.html' title='Multiple refered from 6 places.'>TMPL_1</a>(<b>static</b>)
+<a name='L71'><a href='../D/92.html' title='Multiple defined in 6 places.'>TMPL_1</a>(dynamic)
+<a name='L72'><a href='../D/92.html' title='Multiple defined in 6 places.'>TMPL_1</a>(guided)
+<a name='L73'>
+<a name='L74'><font color='darkred'>#define</font> <a href='../S/339.html#L96' title='Defined at 96 in testsuite/libgomp.c/loop-1.c.'>TMPL_2</a>(sched)                                   \
+<a name='L75'><b>static</b> <b>void</b> f_##sched##<a href='../S/339.html#L86' title='Defined at 86 in testsuite/libgomp.c/loop-1.c.'>_2</a> (<b>void</b> *dummy)                 \
+<a name='L76'><font color='red'>{</font>                                                       \
+<a name='L77'>  <b>int</b> iam = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();                      \
+<a name='L78'>  <b>long</b> s0, e0, i;                                       \
+<a name='L79'>  <b>while</b> (GOMP_loop_##sched##_next (&amp;s0, &amp;e0))           \
+<a name='L80'>    <font color='red'>{</font>                                                   \
+<a name='L81'>      <b>for</b> (i = s0; i &lt; e0; i += INCR)                   \
+<a name='L82'>        <a href='../D/410.html' title='Multiple defined in 5 places.'>set_data</a> (i, iam);                              \
+<a name='L83'>    <font color='red'>}</font>                                                   \
+<a name='L84'>  <a href='../S/416.html#L500' title='Defined at 500 in loop.c.'>GOMP_loop_end_nowait</a> ();                              \
+<a name='L85'><font color='red'>}</font>                                                       \
+<a name='L86'><b>static</b> <b>void</b> t_##sched##<a href='../R/99.html' title='Multiple refered from 3 places.'>_2</a> (<b>void</b>)                        \
+<a name='L87'><font color='red'>{</font>                                                       \
+<a name='L88'>  <a href='../D/116.html' title='Multiple defined in 5 places.'>clean_data</a> ();                                        \
+<a name='L89'>  GOMP_parallel_loop_##sched##_start                    \
+<a name='L90'>    (f_##sched##<a href='../S/339.html#L86' title='Defined at 86 in testsuite/libgomp.c/loop-1.c.'>_2</a>, NULL, NTHR, <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>, E, INCR, CHUNK);     \
+<a name='L91'>  f_##sched##<a href='../S/339.html#L86' title='Defined at 86 in testsuite/libgomp.c/loop-1.c.'>_2</a> (NULL);                                 \
+<a name='L92'>  <a href='../S/21.html#L112' title='Defined at 112 in parallel.c.'>GOMP_parallel_end</a> ();                                 \
+<a name='L93'>  <a href='../D/448.html' title='Multiple defined in 4 places.'>test_data</a> ();                                         \
+<a name='L94'><font color='red'>}</font>
+<a name='L95'>
+<a name='L96'><a href='../R/93.html' title='Multiple refered from 3 places.'>TMPL_2</a>(<b>static</b>)
+<a name='L97'><a href='../S/339.html#L96' title='Defined at 96 in testsuite/libgomp.c/loop-1.c.'>TMPL_2</a>(dynamic)
+<a name='L98'><a href='../S/339.html#L96' title='Defined at 96 in testsuite/libgomp.c/loop-1.c.'>TMPL_2</a>(guided)
+<a name='L99'>
+<a name='L100'><b>static</b> <b>void</b> test (<b>void</b>)
+<a name='L101'><font color='red'>{</font>
+<a name='L102'>  t_static_1 ();
+<a name='L103'>  t_dynamic_1 ();
+<a name='L104'>  t_guided_1 ();
+<a name='L105'>  t_static_2 ();
+<a name='L106'>  t_dynamic_2 ();
+<a name='L107'>  t_guided_2 ();
+<a name='L108'><font color='red'>}</font>
+<a name='L109'>
+<a name='L110'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L111'><font color='red'>{</font>
+<a name='L112'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L113'>
+<a name='L114'>  NTHR = 4;
+<a name='L115'>
+<a name='L116'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 0, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>, INCR = 1, CHUNK = 4;
+<a name='L117'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L118'>
+<a name='L119'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 0, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>, INCR = 2, CHUNK = 4;
+<a name='L120'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L121'>
+<a name='L122'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 1, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>-1, INCR = 1, CHUNK = 5;
+<a name='L123'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L124'>
+<a name='L125'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 1, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>-1, INCR = 2, CHUNK = 5;
+<a name='L126'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L127'>
+<a name='L128'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 2, E = 4, INCR = 1, CHUNK = 1;
+<a name='L129'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L130'>
+<a name='L131'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 0, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>, INCR = 1, CHUNK = 0;
+<a name='L132'>  t_static_1 ();
+<a name='L133'>  t_static_2 ();
+<a name='L134'>
+<a name='L135'>  <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> = 1, E = <a href='../D/80.html' title='Multiple defined in 27 places.'>N</a>-1, INCR = 1, CHUNK = 0;
+<a name='L136'>  t_static_1 ();
+<a name='L137'>  t_static_2 ();
+<a name='L138'>
+<a name='L139'>  <b>return</b> 0;
+<a name='L140'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L16'>[^]</a><a href='#L110'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

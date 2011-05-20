@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>config/posix/omp-lock.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/434.html'>posix</a>/omp-lock.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='14.html#L510' title='Included from 510 in libgomp.h.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* This header is used during the build process to find the size and </font></i>
+<a name='L2'><i><font color='green'>   alignment of the public OpenMP locks, so that we can export data</font></i>
+<a name='L3'><i><font color='green'>   structures without polluting the namespace.</font></i>
+<a name='L4'><i><font color='green'></font></i>
+<a name='L5'><i><font color='green'>   In this default POSIX implementation, we used to map the two locks to the</font></i>
+<a name='L6'><i><font color='green'>   same PTHREADS primitive, but for OpenMP 3.0 sem_t needs to be used</font></i>
+<a name='L7'><i><font color='green'>   instead, as pthread_mutex_unlock should not be called by different</font></i>
+<a name='L8'><i><font color='green'>   thread than the one that called pthread_mutex_lock.  */</font></i>
+<a name='L9'>
+<a name='L10'><font color='darkred'>#include</font> &lt;pthread.h&gt;
+<a name='L11'><font color='darkred'>#include</font> &lt;semaphore.h&gt;
+<a name='L12'>
+<a name='L13'><b>typedef</b> pthread_mutex_t <a href='../R/330.html' title='Multiple refered from 16 places.'>omp_lock_25_t</a>;
+<a name='L14'><b>typedef</b> <b>struct</b> <font color='red'>{</font> pthread_mutex_t lock; <b>int</b> count; <font color='red'>}</font> <a href='../R/333.html' title='Multiple refered from 21 places.'>omp_nest_lock_25_t</a>;
+<a name='L15'><font color='darkred'>#ifdef</font> HAVE_BROKEN_POSIX_SEMAPHORES
+<a name='L16'><i><font color='green'>/* If we don't have working semaphores, we'll make all explicit tasks</font></i>
+<a name='L17'><i><font color='green'>   tied to the creating thread.  */</font></i>
+<a name='L18'><b>typedef</b> pthread_mutex_t <a href='../R/332.html' title='Multiple refered from 37 places.'>omp_lock_t</a>;
+<a name='L19'><b>typedef</b> <b>struct</b> <font color='red'>{</font> pthread_mutex_t lock; <b>int</b> count; <b>void</b> *owner; <font color='red'>}</font> <a href='../R/334.html' title='Multiple refered from 36 places.'>omp_nest_lock_t</a>;
+<a name='L20'><font color='darkred'>#else</font>
+<a name='L21'><b>typedef</b> sem_t <a href='../R/332.html' title='Multiple refered from 37 places.'>omp_lock_t</a>;
+<a name='L22'><b>typedef</b> <b>struct</b> <font color='red'>{</font> sem_t lock; <b>int</b> count; <b>void</b> *owner; <font color='red'>}</font> <a href='../R/334.html' title='Multiple refered from 36 places.'>omp_nest_lock_t</a>;
+<a name='L23'><font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

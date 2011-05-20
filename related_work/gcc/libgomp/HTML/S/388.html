@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/collapse-2.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/collapse-2.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L7' title='Defined at 7.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L4'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L5'>
+<a name='L6'><b>int</b>
+<a name='L7'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L8'><font color='red'>{</font>
+<a name='L9'>  <b>int</b> i, j, k, l = 0, <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a> = 0;
+<a name='L10'>  <b>int</b> m1 = 4, m2 = -5, m3 = 17;
+<a name='L11'>
+<a name='L12'><font color='darkred'>  #pragma</font> omp parallel <b>for</b> num_threads (8) collapse(3) \
+<a name='L13'>                       schedule(<b>static</b>, 9) reduction(+:l) \
+<a name='L14'>                       firstprivate(f)
+<a name='L15'>    <b>for</b> (i = -2; i &lt; m1; i++)
+<a name='L16'>      <b>for</b> (j = m2; j &lt; -2; j++)
+<a name='L17'>        <font color='red'>{</font>
+<a name='L18'>          <b>for</b> (k = 13; k &lt; m3; k++)
+<a name='L19'>            <font color='red'>{</font>
+<a name='L20'>              <b>if</b> (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () == 8
+<a name='L21'>                  &amp;&amp; ((i + 2) * 12 + (j + 5) * 4 + (k - 13)
+<a name='L22'>                      != (<a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> () * 9
+<a name='L23'>                          + <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a>++)))
+<a name='L24'>                l++;
+<a name='L25'>            <font color='red'>}</font>
+<a name='L26'>        <font color='red'>}</font>
+<a name='L27'>  <b>if</b> (l)
+<a name='L28'>    abort ();
+<a name='L29'>  <b>return</b> 0;
+<a name='L30'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L7'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

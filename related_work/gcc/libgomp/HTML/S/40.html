@@ -1,0 +1,368 @@
+<html>
+<head>
+<title>config/posix95/lock.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/435.html'>posix95</a>/lock.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L278'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L35' title='Defined at 35.'>gomp_init_lock_30</a>
+<li><a href='#L41' title='Defined at 41.'>gomp_destroy_lock_30</a>
+<li><a href='#L47' title='Defined at 47.'>gomp_set_lock_30</a>
+<li><a href='#L53' title='Defined at 53.'>gomp_unset_lock_30</a>
+<li><a href='#L59' title='Defined at 59.'>gomp_test_lock_30</a>
+<li><a href='#L65' title='Defined at 65.'>gomp_init_nest_lock_30</a>
+<li><a href='#L73' title='Defined at 73.'>gomp_destroy_nest_lock_30</a>
+<li><a href='#L79' title='Defined at 79.'>gomp_set_nest_lock_30</a>
+<li><a href='#L93' title='Defined at 93.'>gomp_unset_nest_lock_30</a>
+<li><a href='#L105' title='Defined at 105.'>gomp_test_nest_lock_30</a>
+<li><a href='#L122' title='Defined at 122.'>gomp_init_lock_30</a>
+<li><a href='#L128' title='Defined at 128.'>gomp_destroy_lock_30</a>
+<li><a href='#L134' title='Defined at 134.'>gomp_set_lock_30</a>
+<li><a href='#L141' title='Defined at 141.'>gomp_unset_lock_30</a>
+<li><a href='#L147' title='Defined at 147.'>gomp_test_lock_30</a>
+<li><a href='#L153' title='Defined at 153.'>gomp_init_nest_lock_30</a>
+<li><a href='#L161' title='Defined at 161.'>gomp_destroy_nest_lock_30</a>
+<li><a href='#L167' title='Defined at 167.'>gomp_set_nest_lock_30</a>
+<li><a href='#L181' title='Defined at 181.'>gomp_unset_nest_lock_30</a>
+<li><a href='#L191' title='Defined at 191.'>gomp_test_nest_lock_30</a>
+<li><a href='#L208' title='Defined at 208.'>gomp_init_lock_25</a>
+<li><a href='#L214' title='Defined at 214.'>gomp_destroy_lock_25</a>
+<li><a href='#L220' title='Defined at 220.'>gomp_set_lock_25</a>
+<li><a href='#L226' title='Defined at 226.'>gomp_unset_lock_25</a>
+<li><a href='#L232' title='Defined at 232.'>gomp_test_lock_25</a>
+<li><a href='#L238' title='Defined at 238.'>gomp_init_nest_lock_25</a>
+<li><a href='#L246' title='Defined at 246.'>gomp_destroy_nest_lock_25</a>
+<li><a href='#L252' title='Defined at 252.'>gomp_set_nest_lock_25</a>
+<li><a href='#L266' title='Defined at 266.'>gomp_unset_nest_lock_25</a>
+<li><a href='#L278' title='Defined at 278.'>gomp_test_nest_lock_25</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2006, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'></font></i>
+<a name='L3'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L4'><i><font color='green'></font></i>
+<a name='L5'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L6'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L7'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L8'><i><font color='green'>   any later version.</font></i>
+<a name='L9'><i><font color='green'></font></i>
+<a name='L10'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L11'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L12'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L13'><i><font color='green'>   more details.</font></i>
+<a name='L14'><i><font color='green'></font></i>
+<a name='L15'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L16'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L17'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L18'><i><font color='green'></font></i>
+<a name='L19'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L20'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L21'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L22'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L23'>
+<a name='L24'><i><font color='green'>/* This is the POSIX95 implementation of the public OpenMP locking primitives.</font></i>
+<a name='L25'><i><font color='green'></font></i>
+<a name='L26'><i><font color='green'>   Because OpenMP uses different entry points for normal and recursive</font></i>
+<a name='L27'><i><font color='green'>   locks, and pthreads uses only one entry point, a system may be able</font></i>
+<a name='L28'><i><font color='green'>   to do better and streamline the locking as well as reduce the size</font></i>
+<a name='L29'><i><font color='green'>   of the types exported.  */</font></i>
+<a name='L30'>
+<a name='L31'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L32'>
+<a name='L33'><font color='darkred'>#ifdef</font> HAVE_BROKEN_POSIX_SEMAPHORES
+<a name='L34'><b>void</b>
+<a name='L35'><a href='../R/183.html' title='Multiple refered from 2 places.'>gomp_init_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L36'><font color='red'>{</font>
+<a name='L37'>  pthread_mutex_init (lock, NULL);
+<a name='L38'><font color='red'>}</font>
+<a name='L39'>
+<a name='L40'><b>void</b>
+<a name='L41'><a href='../S/417.html#L107' title='Refered from 107 in fortran.c.'>gomp_destroy_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L42'><font color='red'>{</font>
+<a name='L43'>  pthread_mutex_destroy (lock);
+<a name='L44'><font color='red'>}</font>
+<a name='L45'>
+<a name='L46'><b>void</b>
+<a name='L47'><a href='../S/417.html#L127' title='Refered from 127 in fortran.c.'>gomp_set_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L48'><font color='red'>{</font>
+<a name='L49'>  pthread_mutex_lock (lock);
+<a name='L50'><font color='red'>}</font>
+<a name='L51'>
+<a name='L52'><b>void</b>
+<a name='L53'><a href='../S/417.html#L139' title='Refered from 139 in fortran.c.'>gomp_unset_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L54'><font color='red'>{</font>
+<a name='L55'>  pthread_mutex_unlock (lock);
+<a name='L56'><font color='red'>}</font>
+<a name='L57'>
+<a name='L58'><b>int</b>
+<a name='L59'><a href='../S/417.html#L151' title='Refered from 151 in fortran.c.'>gomp_test_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L60'><font color='red'>{</font>
+<a name='L61'>  <b>return</b> pthread_mutex_trylock (lock) == 0;
+<a name='L62'><font color='red'>}</font>
+<a name='L63'>
+<a name='L64'><b>void</b>
+<a name='L65'><a href='../S/417.html#L101' title='Refered from 101 in fortran.c.'>gomp_init_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L66'><font color='red'>{</font>
+<a name='L67'>  pthread_mutex_init (&amp;lock-&gt;lock, NULL);
+<a name='L68'>  lock-&gt;owner = NULL;
+<a name='L69'>  lock-&gt;count = 0;
+<a name='L70'><font color='red'>}</font>
+<a name='L71'>
+<a name='L72'><b>void</b>
+<a name='L73'><a href='../S/417.html#L117' title='Refered from 117 in fortran.c.'>gomp_destroy_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L74'><font color='red'>{</font>
+<a name='L75'>  pthread_mutex_destroy (&amp;lock-&gt;lock);
+<a name='L76'><font color='red'>}</font>
+<a name='L77'>
+<a name='L78'><b>void</b>
+<a name='L79'><a href='../S/417.html#L133' title='Refered from 133 in fortran.c.'>gomp_set_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L80'><font color='red'>{</font>
+<a name='L81'>  <b>void</b> *me = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L82'>
+<a name='L83'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L84'>    <font color='red'>{</font>
+<a name='L85'>      pthread_mutex_lock (&amp;lock-&gt;lock);
+<a name='L86'>      lock-&gt;owner = me;
+<a name='L87'>    <font color='red'>}</font>
+<a name='L88'>
+<a name='L89'>  lock-&gt;count++;
+<a name='L90'><font color='red'>}</font>
+<a name='L91'>
+<a name='L92'><b>void</b>
+<a name='L93'><a href='../S/417.html#L145' title='Refered from 145 in fortran.c.'>gomp_unset_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L94'><font color='red'>{</font>
+<a name='L95'>  lock-&gt;count--;
+<a name='L96'>
+<a name='L97'>  <b>if</b> (lock-&gt;count == 0)
+<a name='L98'>    <font color='red'>{</font>
+<a name='L99'>      lock-&gt;owner = NULL;
+<a name='L100'>      pthread_mutex_unlock (&amp;lock-&gt;lock);
+<a name='L101'>    <font color='red'>}</font>
+<a name='L102'><font color='red'>}</font>
+<a name='L103'>
+<a name='L104'><b>int</b>
+<a name='L105'><a href='../S/417.html#L157' title='Refered from 157 in fortran.c.'>gomp_test_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L106'><font color='red'>{</font>
+<a name='L107'>  <b>void</b> *me = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L108'>
+<a name='L109'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L110'>    <font color='red'>{</font>
+<a name='L111'>      <b>if</b> (pthread_mutex_trylock (&amp;lock-&gt;lock) != 0)
+<a name='L112'>        <b>return</b> 0;
+<a name='L113'>      lock-&gt;owner = me;
+<a name='L114'>    <font color='red'>}</font>
+<a name='L115'>
+<a name='L116'>  <b>return</b> ++lock-&gt;count;
+<a name='L117'><font color='red'>}</font>
+<a name='L118'>
+<a name='L119'><font color='darkred'>#else</font>
+<a name='L120'>
+<a name='L121'><b>void</b>
+<a name='L122'><a href='../R/183.html' title='Multiple refered from 2 places.'>gomp_init_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L123'><font color='red'>{</font>
+<a name='L124'>  sem_init (lock, 0, 1);
+<a name='L125'><font color='red'>}</font>
+<a name='L126'>
+<a name='L127'><b>void</b>
+<a name='L128'><a href='../S/417.html#L107' title='Refered from 107 in fortran.c.'>gomp_destroy_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L129'><font color='red'>{</font>
+<a name='L130'>  sem_destroy (lock);
+<a name='L131'><font color='red'>}</font>
+<a name='L132'>
+<a name='L133'><b>void</b>
+<a name='L134'><a href='../S/417.html#L127' title='Refered from 127 in fortran.c.'>gomp_set_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L135'><font color='red'>{</font>
+<a name='L136'>  <b>while</b> (sem_wait (lock) != 0)
+<a name='L137'>    ;
+<a name='L138'><font color='red'>}</font>
+<a name='L139'>
+<a name='L140'><b>void</b>
+<a name='L141'><a href='../S/417.html#L139' title='Refered from 139 in fortran.c.'>gomp_unset_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L142'><font color='red'>{</font>
+<a name='L143'>  sem_post (lock);
+<a name='L144'><font color='red'>}</font>
+<a name='L145'>
+<a name='L146'><b>int</b>
+<a name='L147'><a href='../S/417.html#L151' title='Refered from 151 in fortran.c.'>gomp_test_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *lock)
+<a name='L148'><font color='red'>{</font>
+<a name='L149'>  <b>return</b> sem_trywait (lock) == 0;
+<a name='L150'><font color='red'>}</font>
+<a name='L151'>
+<a name='L152'><b>void</b>
+<a name='L153'><a href='../S/417.html#L101' title='Refered from 101 in fortran.c.'>gomp_init_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L154'><font color='red'>{</font>
+<a name='L155'>  sem_init (&amp;lock-&gt;lock, 0, 1);
+<a name='L156'>  lock-&gt;count = 0;
+<a name='L157'>  lock-&gt;owner = NULL;
+<a name='L158'><font color='red'>}</font>
+<a name='L159'>
+<a name='L160'><b>void</b>
+<a name='L161'><a href='../S/417.html#L117' title='Refered from 117 in fortran.c.'>gomp_destroy_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L162'><font color='red'>{</font>
+<a name='L163'>  sem_destroy (&amp;lock-&gt;lock);
+<a name='L164'><font color='red'>}</font>
+<a name='L165'>
+<a name='L166'><b>void</b>
+<a name='L167'><a href='../S/417.html#L133' title='Refered from 133 in fortran.c.'>gomp_set_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L168'><font color='red'>{</font>
+<a name='L169'>  <b>void</b> *me = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L170'>
+<a name='L171'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L172'>    <font color='red'>{</font>
+<a name='L173'>      <b>while</b> (sem_wait (&amp;lock-&gt;lock) != 0)
+<a name='L174'>        ;
+<a name='L175'>      lock-&gt;owner = me;
+<a name='L176'>    <font color='red'>}</font>
+<a name='L177'>  lock-&gt;count++;
+<a name='L178'><font color='red'>}</font>
+<a name='L179'>
+<a name='L180'><b>void</b>
+<a name='L181'><a href='../S/417.html#L145' title='Refered from 145 in fortran.c.'>gomp_unset_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L182'><font color='red'>{</font>
+<a name='L183'>  <b>if</b> (--lock-&gt;count == 0)
+<a name='L184'>    <font color='red'>{</font>
+<a name='L185'>      lock-&gt;owner = NULL;
+<a name='L186'>      sem_post (&amp;lock-&gt;lock);
+<a name='L187'>    <font color='red'>}</font>
+<a name='L188'><font color='red'>}</font>
+<a name='L189'>
+<a name='L190'><b>int</b>
+<a name='L191'><a href='../S/417.html#L157' title='Refered from 157 in fortran.c.'>gomp_test_nest_lock_30</a> (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *lock)
+<a name='L192'><font color='red'>{</font>
+<a name='L193'>  <b>void</b> *me = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (true);
+<a name='L194'>
+<a name='L195'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L196'>    <font color='red'>{</font>
+<a name='L197'>      <b>if</b> (sem_trywait (&amp;lock-&gt;lock) != 0)
+<a name='L198'>        <b>return</b> 0;
+<a name='L199'>      lock-&gt;owner = me;
+<a name='L200'>    <font color='red'>}</font>
+<a name='L201'>
+<a name='L202'>  <b>return</b> ++lock-&gt;count;
+<a name='L203'><font color='red'>}</font>
+<a name='L204'><font color='darkred'>#endif</font>
+<a name='L205'>
+<a name='L206'><font color='darkred'>#ifdef</font> <a href='../S/14.html#L519' title='Defined at 519 in libgomp.h.'>LIBGOMP_GNU_SYMBOL_VERSIONING</a>
+<a name='L207'><b>void</b>
+<a name='L208'><a href='../S/417.html#L167' title='Refered from 167 in fortran.c.'>gomp_init_lock_25</a> (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *lock)
+<a name='L209'><font color='red'>{</font>
+<a name='L210'>  pthread_mutex_init (lock, NULL);
+<a name='L211'><font color='red'>}</font>
+<a name='L212'>
+<a name='L213'><b>void</b>
+<a name='L214'><a href='../S/417.html#L182' title='Refered from 182 in fortran.c.'>gomp_destroy_lock_25</a> (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *lock)
+<a name='L215'><font color='red'>{</font>
+<a name='L216'>  pthread_mutex_destroy (lock);
+<a name='L217'><font color='red'>}</font>
+<a name='L218'>
+<a name='L219'><b>void</b>
+<a name='L220'><a href='../S/417.html#L202' title='Refered from 202 in fortran.c.'>gomp_set_lock_25</a> (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *lock)
+<a name='L221'><font color='red'>{</font>
+<a name='L222'>  pthread_mutex_lock (lock);
+<a name='L223'><font color='red'>}</font>
+<a name='L224'>
+<a name='L225'><b>void</b>
+<a name='L226'><a href='../S/417.html#L214' title='Refered from 214 in fortran.c.'>gomp_unset_lock_25</a> (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *lock)
+<a name='L227'><font color='red'>{</font>
+<a name='L228'>  pthread_mutex_unlock (lock);
+<a name='L229'><font color='red'>}</font>
+<a name='L230'>
+<a name='L231'><b>int</b>
+<a name='L232'><a href='../S/417.html#L226' title='Refered from 226 in fortran.c.'>gomp_test_lock_25</a> (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *lock)
+<a name='L233'><font color='red'>{</font>
+<a name='L234'>  <b>return</b> pthread_mutex_trylock (lock) == 0;
+<a name='L235'><font color='red'>}</font>
+<a name='L236'>
+<a name='L237'><b>void</b>
+<a name='L238'><a href='../S/417.html#L176' title='Refered from 176 in fortran.c.'>gomp_init_nest_lock_25</a> (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *lock)
+<a name='L239'><font color='red'>{</font>
+<a name='L240'>  pthread_mutex_init (&amp;lock-&gt;lock, NULL);
+<a name='L241'>  lock-&gt;owner = (pthread_t) 0;
+<a name='L242'>  lock-&gt;count = 0;
+<a name='L243'><font color='red'>}</font>
+<a name='L244'>
+<a name='L245'><b>void</b>
+<a name='L246'><a href='../S/417.html#L192' title='Refered from 192 in fortran.c.'>gomp_destroy_nest_lock_25</a> (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *lock)
+<a name='L247'><font color='red'>{</font>
+<a name='L248'>  pthread_mutex_destroy (&amp;lock-&gt;lock);
+<a name='L249'><font color='red'>}</font>
+<a name='L250'>
+<a name='L251'><b>void</b>
+<a name='L252'><a href='../S/417.html#L208' title='Refered from 208 in fortran.c.'>gomp_set_nest_lock_25</a> (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *lock)
+<a name='L253'><font color='red'>{</font>
+<a name='L254'>  pthread_t me = pthread_self ();
+<a name='L255'>
+<a name='L256'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L257'>    <font color='red'>{</font>
+<a name='L258'>      pthread_mutex_lock (&amp;lock-&gt;lock);
+<a name='L259'>      lock-&gt;owner = me;
+<a name='L260'>    <font color='red'>}</font>
+<a name='L261'>
+<a name='L262'>  lock-&gt;count++;
+<a name='L263'><font color='red'>}</font>
+<a name='L264'>
+<a name='L265'><b>void</b>
+<a name='L266'><a href='../S/417.html#L220' title='Refered from 220 in fortran.c.'>gomp_unset_nest_lock_25</a> (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *lock)
+<a name='L267'><font color='red'>{</font>
+<a name='L268'>  lock-&gt;count--;
+<a name='L269'>
+<a name='L270'>  <b>if</b> (lock-&gt;count == 0)
+<a name='L271'>    <font color='red'>{</font>
+<a name='L272'>      lock-&gt;owner = (pthread_t) 0;
+<a name='L273'>      pthread_mutex_unlock (&amp;lock-&gt;lock);
+<a name='L274'>    <font color='red'>}</font>
+<a name='L275'><font color='red'>}</font>
+<a name='L276'>
+<a name='L277'><b>int</b>
+<a name='L278'><a href='../S/417.html#L232' title='Refered from 232 in fortran.c.'>gomp_test_nest_lock_25</a> (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *lock)
+<a name='L279'><font color='red'>{</font>
+<a name='L280'>  pthread_t me = pthread_self ();
+<a name='L281'>
+<a name='L282'>  <b>if</b> (lock-&gt;owner != me)
+<a name='L283'>    <font color='red'>{</font>
+<a name='L284'>      <b>if</b> (pthread_mutex_trylock (&amp;lock-&gt;lock) != 0)
+<a name='L285'>        <b>return</b> 0;
+<a name='L286'>      lock-&gt;owner = me;
+<a name='L287'>    <font color='red'>}</font>
+<a name='L288'>
+<a name='L289'>  <b>return</b> ++lock-&gt;count;
+<a name='L290'><font color='red'>}</font>
+<a name='L291'>
+<a name='L292'><a href='../S/417.html#L235' title='Defined at 235 in fortran.c.'>omp_lock_symver</a> (omp_init_lock)
+<a name='L293'>omp_lock_symver (omp_destroy_lock)
+<a name='L294'>omp_lock_symver (omp_set_lock)
+<a name='L295'>omp_lock_symver (omp_unset_lock)
+<a name='L296'>omp_lock_symver (omp_test_lock)
+<a name='L297'>omp_lock_symver (omp_init_nest_lock)
+<a name='L298'>omp_lock_symver (omp_destroy_nest_lock)
+<a name='L299'>omp_lock_symver (omp_set_nest_lock)
+<a name='L300'>omp_lock_symver (omp_unset_nest_lock)
+<a name='L301'>omp_lock_symver (omp_test_nest_lock)
+<a name='L302'>
+<a name='L303'><font color='darkred'>#else</font>
+<a name='L304'>
+<a name='L305'>ialias (omp_init_lock)
+<a name='L306'>ialias (omp_init_nest_lock)
+<a name='L307'>ialias (omp_destroy_lock)
+<a name='L308'>ialias (omp_destroy_nest_lock)
+<a name='L309'>ialias (omp_set_lock)
+<a name='L310'>ialias (omp_set_nest_lock)
+<a name='L311'>ialias (omp_unset_lock)
+<a name='L312'>ialias (omp_unset_nest_lock)
+<a name='L313'>ialias (omp_test_lock)
+<a name='L314'>ialias (omp_test_nest_lock)
+<a name='L315'>
+<a name='L316'><font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L278'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

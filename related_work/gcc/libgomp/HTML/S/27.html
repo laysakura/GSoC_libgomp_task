@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>config/posix/proc.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/434.html'>posix</a>/proc.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L45'>[^]</a><a href='#L92'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L45' title='Defined at 45.'>gomp_init_num_threads</a>
+<li><a href='#L60' title='Defined at 60.'>gomp_dynamic_max_threads</a>
+<li><a href='#L92' title='Defined at 92.'>omp_get_num_procs</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2006, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file contains system specific routines related to counting</font></i>
+<a name='L26'><i><font color='green'>   online processors and dynamic load balancing.  It is expected that</font></i>
+<a name='L27'><i><font color='green'>   a system may well want to write special versions of each of these.</font></i>
+<a name='L28'><i><font color='green'></font></i>
+<a name='L29'><i><font color='green'>   The following implementation uses a mix of POSIX and BSD routines.  */</font></i>
+<a name='L30'>
+<a name='L31'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L32'><font color='darkred'>#include</font> &lt;unistd.h&gt;
+<a name='L33'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L34'><font color='darkred'>#ifdef</font> HAVE_GETLOADAVG
+<a name='L35'><font color='darkred'># ifdef</font> HAVE_SYS_LOADAVG_H
+<a name='L36'><font color='darkred'>#  include</font> &lt;sys/loadavg.h&gt;
+<a name='L37'><font color='darkred'># endif</font>
+<a name='L38'><font color='darkred'>#endif</font>
+<a name='L39'>
+<a name='L40'>
+<a name='L41'><i><font color='green'>/* At startup, determine the default number of threads.  It would seem</font></i>
+<a name='L42'><i><font color='green'>   this should be related to the number of cpus online.  */</font></i>
+<a name='L43'>
+<a name='L44'><b>void</b>
+<a name='L45'><a href='../R/186.html' title='Multiple refered from 2 places.'>gomp_init_num_threads</a> (<b>void</b>)
+<a name='L46'><font color='red'>{</font>
+<a name='L47'><font color='darkred'>#ifdef</font> _SC_NPROCESSORS_ONLN
+<a name='L48'>  gomp_global_icv.nthreads_var = sysconf (_SC_NPROCESSORS_ONLN);
+<a name='L49'><font color='darkred'>#endif</font>
+<a name='L50'><font color='red'>}</font>
+<a name='L51'>
+<a name='L52'><i><font color='green'>/* When OMP_DYNAMIC is set, at thread launch determine the number of</font></i>
+<a name='L53'><i><font color='green'>   threads we should spawn for this team.  */</font></i>
+<a name='L54'><i><font color='green'>/* ??? I have no idea what best practice for this is.  Surely some</font></i>
+<a name='L55'><i><font color='green'>   function of the number of processors that are *still* online and</font></i>
+<a name='L56'><i><font color='green'>   the load average.  Here I use the number of processors online</font></i>
+<a name='L57'><i><font color='green'>   minus the 15 minute load average.  */</font></i>
+<a name='L58'>
+<a name='L59'><b>unsigned</b>
+<a name='L60'><a href='../R/172.html' title='Multiple refered from 2 places.'>gomp_dynamic_max_threads</a> (<b>void</b>)
+<a name='L61'><font color='red'>{</font>
+<a name='L62'>  <b>unsigned</b> n_onln, loadavg;
+<a name='L63'>  <b>unsigned</b> nthreads_var = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false)-&gt;nthreads_var;
+<a name='L64'>
+<a name='L65'><font color='darkred'>#ifdef</font> _SC_NPROCESSORS_ONLN
+<a name='L66'>  n_onln = sysconf (_SC_NPROCESSORS_ONLN);
+<a name='L67'>  <b>if</b> (n_onln &gt; nthreads_var)
+<a name='L68'>    n_onln = nthreads_var;
+<a name='L69'><font color='darkred'>#else</font>
+<a name='L70'>  n_onln = nthreads_var;
+<a name='L71'><font color='darkred'>#endif</font>
+<a name='L72'>
+<a name='L73'>  loadavg = 0;
+<a name='L74'><font color='darkred'>#ifdef</font> HAVE_GETLOADAVG
+<a name='L75'>  <font color='red'>{</font>
+<a name='L76'>    <b>double</b> dloadavg[3];
+<a name='L77'>    <b>if</b> (getloadavg (dloadavg, 3) == 3)
+<a name='L78'>      <font color='red'>{</font>
+<a name='L79'>        <i><font color='green'>/* Add 0.1 to get a kind of biased rounding.  */</font></i>
+<a name='L80'>        loadavg = dloadavg[2] + 0.1;
+<a name='L81'>      <font color='red'>}</font>
+<a name='L82'>  <font color='red'>}</font>
+<a name='L83'><font color='darkred'>#endif</font>
+<a name='L84'>
+<a name='L85'>  <b>if</b> (loadavg &gt;= n_onln)
+<a name='L86'>    <b>return</b> 1;
+<a name='L87'>  <b>else</b>
+<a name='L88'>    <b>return</b> n_onln - loadavg;
+<a name='L89'><font color='red'>}</font>
+<a name='L90'>
+<a name='L91'><b>int</b>
+<a name='L92'><a href='../R/321.html' title='Multiple refered from 2 places.'>omp_get_num_procs</a> (<b>void</b>)
+<a name='L93'><font color='red'>{</font>
+<a name='L94'><font color='darkred'>#ifdef</font> _SC_NPROCESSORS_ONLN
+<a name='L95'>  <b>return</b> sysconf (_SC_NPROCESSORS_ONLN);
+<a name='L96'><font color='darkred'>#else</font>
+<a name='L97'>  <b>return</b> <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false)-&gt;nthreads_var;
+<a name='L98'><font color='darkred'>#endif</font>
+<a name='L99'><font color='red'>}</font>
+<a name='L100'>
+<a name='L101'>ialias (omp_get_num_procs)
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L45'>[^]</a><a href='#L92'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

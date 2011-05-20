@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>config/linux/sem.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/sem.h</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L53'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='14.html#L47' title='Included from 47 in libgomp.h.'>INCLUDED FROM</a></h2>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L34' title='Defined at 34.'>gomp_sem_init</a>
+<li><a href='#L40' title='Defined at 40.'>gomp_sem_wait</a>
+<li><a href='#L47' title='Defined at 47.'>gomp_sem_post</a>
+<li><a href='#L53' title='Defined at 53.'>gomp_sem_destroy</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This is a Linux specific implementation of a semaphore synchronization</font></i>
+<a name='L26'><i><font color='green'>   mechanism for libgomp.  This type is private to the library.  This </font></i>
+<a name='L27'><i><font color='green'>   implementation uses atomic instructions and the futex syscall.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#ifndef</font> <a href='../D/11.html' title='Multiple defined in 2 places.'>GOMP_SEM_H</a>
+<a name='L30'><font color='darkred'>#define</font> <a href='../R/11.html' title='Multiple refered from 2 places.'>GOMP_SEM_H</a> 1
+<a name='L31'>
+<a name='L32'><b>typedef</b> <b>int</b> <a href='../R/261.html' title='Multiple refered from 27 places.'>gomp_sem_t</a>;
+<a name='L33'>
+<a name='L34'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/258.html' title='Multiple refered from 7 places.'>gomp_sem_init</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *sem, <b>int</b> value)
+<a name='L35'><font color='red'>{</font>
+<a name='L36'>  *sem = value;
+<a name='L37'><font color='red'>}</font>
+<a name='L38'>
+<a name='L39'><b>extern</b> <b>void</b> <a href='../S/52.html#L33' title='Defined at 33 in config/linux/sem.c.'>gomp_sem_wait_slow</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *);
+<a name='L40'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/262.html' title='Multiple refered from 9 places.'>gomp_sem_wait</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *sem)
+<a name='L41'><font color='red'>{</font>
+<a name='L42'>  <b>if</b> (!__sync_bool_compare_and_swap (sem, 1, 0))
+<a name='L43'>    <a href='../S/52.html#L33' title='Defined at 33 in config/linux/sem.c.'>gomp_sem_wait_slow</a> (sem);
+<a name='L44'><font color='red'>}</font>
+<a name='L45'>
+<a name='L46'><b>extern</b> <b>void</b> <a href='../S/52.html#L48' title='Defined at 48 in config/linux/sem.c.'>gomp_sem_post_slow</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *);
+<a name='L47'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/259.html' title='Multiple refered from 13 places.'>gomp_sem_post</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *sem)
+<a name='L48'><font color='red'>{</font>
+<a name='L49'>  <b>if</b> (!__sync_bool_compare_and_swap (sem, 0, 1))
+<a name='L50'>    <a href='../S/52.html#L48' title='Defined at 48 in config/linux/sem.c.'>gomp_sem_post_slow</a> (sem);
+<a name='L51'><font color='red'>}</font>
+<a name='L52'>
+<a name='L53'><b>static</b> <b>inline</b> <b>void</b> <a href='../R/257.html' title='Multiple refered from 7 places.'>gomp_sem_destroy</a> (<a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> *sem)
+<a name='L54'><font color='red'>{</font>
+<a name='L55'><font color='red'>}</font>
+<a name='L56'>
+<a name='L57'><font color='darkred'>#endif</font> <i><font color='green'>/* GOMP_SEM_H */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L53'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>config/linux/mutex.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/mutex.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L47'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L35' title='Defined at 35.'>gomp_mutex_lock_slow</a>
+<li><a href='#L47' title='Defined at 47.'>gomp_mutex_unlock_slow</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This is a Linux specific implementation of a mutex synchronization</font></i>
+<a name='L26'><i><font color='green'>   mechanism for libgomp.  This type is private to the library.  This</font></i>
+<a name='L27'><i><font color='green'>   implementation uses atomic instructions and the futex syscall.  */</font></i>
+<a name='L28'>
+<a name='L29'><font color='darkred'>#include</font> "<a href='58.html'>wait.h</a>"
+<a name='L30'>
+<a name='L31'><b>long</b> <b>int</b> gomp_futex_wake = <a href='../D/6.html' title='Multiple defined in 2 places.'>FUTEX_WAKE</a> | <a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L32'><b>long</b> <b>int</b> gomp_futex_wait = <a href='../D/5.html' title='Multiple defined in 2 places.'>FUTEX_WAIT</a> | <a href='../S/58.html#L37' title='Defined at 37 in config/linux/wait.h.'>FUTEX_PRIVATE_FLAG</a>;
+<a name='L33'>
+<a name='L34'><b>void</b>
+<a name='L35'><a href='../R/231.html' title='Multiple refered from 4 places.'>gomp_mutex_lock_slow</a> (<a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> *mutex)
+<a name='L36'><font color='red'>{</font>
+<a name='L37'>  <b>do</b>
+<a name='L38'>    <font color='red'>{</font>
+<a name='L39'>      <b>int</b> oldval = __sync_val_compare_and_swap (mutex, 1, 2);
+<a name='L40'>      <b>if</b> (oldval != 0)
+<a name='L41'>        <a href='../S/58.html#L47' title='Defined at 47 in config/linux/wait.h.'>do_wait</a> (mutex, 2);
+<a name='L42'>    <font color='red'>}</font>
+<a name='L43'>  <b>while</b> (!__sync_bool_compare_and_swap (mutex, 0, 2));
+<a name='L44'><font color='red'>}</font>
+<a name='L45'>
+<a name='L46'><b>void</b>
+<a name='L47'><a href='../R/234.html' title='Multiple refered from 4 places.'>gomp_mutex_unlock_slow</a> (<a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> *mutex)
+<a name='L48'><font color='red'>{</font>
+<a name='L49'>  <a href='../D/155.html' title='Multiple defined in 9 places.'>futex_wake</a> (mutex, 1);
+<a name='L50'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L35'>[^]</a><a href='#L47'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

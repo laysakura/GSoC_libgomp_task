@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/task-2.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/task-2.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L9'>[^]</a><a href='#L56'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L9' title='Defined at 9.'>foo</a>
+<li><a href='#L56' title='Defined at 56.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L4'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L5'>
+<a name='L6'><b>int</b> l = 5;
+<a name='L7'>
+<a name='L8'><b>int</b>
+<a name='L9'><a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a> (<b>int</b> i)
+<a name='L10'><font color='red'>{</font>
+<a name='L11'>  <b>int</b> j = 7;
+<a name='L12'>  <b>const</b> <b>int</b> k = 8;
+<a name='L13'><font color='darkred'>  #pragma</font> omp task firstprivate (i) shared (j, l)
+<a name='L14'>  <font color='red'>{</font>
+<a name='L15'><font color='darkred'>    #pragma</font> omp critical
+<a name='L16'>      <font color='red'>{</font>
+<a name='L17'>        j += i;
+<a name='L18'>        l += k;
+<a name='L19'>      <font color='red'>}</font>
+<a name='L20'>  <font color='red'>}</font>
+<a name='L21'>  i++;
+<a name='L22'><font color='darkred'>  #pragma</font> omp task firstprivate (i) shared (j, l)
+<a name='L23'>  <font color='red'>{</font>
+<a name='L24'><font color='darkred'>    #pragma</font> omp critical
+<a name='L25'>      <font color='red'>{</font>
+<a name='L26'>        j += i;
+<a name='L27'>        l += k;
+<a name='L28'>      <font color='red'>}</font>
+<a name='L29'>  <font color='red'>}</font>
+<a name='L30'>  i++;
+<a name='L31'><font color='darkred'>  #pragma</font> omp task firstprivate (i) shared (j, l)
+<a name='L32'>  <font color='red'>{</font>
+<a name='L33'><font color='darkred'>    #pragma</font> omp critical
+<a name='L34'>      <font color='red'>{</font>
+<a name='L35'>        j += i;
+<a name='L36'>        l += k;
+<a name='L37'>      <font color='red'>}</font>
+<a name='L38'>  <font color='red'>}</font>
+<a name='L39'>  i++;
+<a name='L40'><font color='darkred'>  #pragma</font> omp task firstprivate (i) shared (j, l)
+<a name='L41'>  <font color='red'>{</font>
+<a name='L42'><font color='darkred'>    #pragma</font> omp critical
+<a name='L43'>      <font color='red'>{</font>
+<a name='L44'>        j += i;
+<a name='L45'>        l += k;
+<a name='L46'>      <font color='red'>}</font>
+<a name='L47'>  <font color='red'>}</font>
+<a name='L48'>  i++;
+<a name='L49'><font color='darkred'>  #pragma</font> omp taskwait
+<a name='L50'>  <b>return</b> (i != 8 * <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> () + 4
+<a name='L51'>          || j != 4 * i - 3
+<a name='L52'>          || k != 8);
+<a name='L53'><font color='red'>}</font>
+<a name='L54'>
+<a name='L55'><b>int</b>
+<a name='L56'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L57'><font color='red'>{</font>
+<a name='L58'>  <b>int</b> r = 0;
+<a name='L59'><font color='darkred'>  #pragma</font> omp parallel num_threads (4) reduction(+:r)
+<a name='L60'>    <b>if</b> (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 4)
+<a name='L61'>      <font color='red'>{</font>
+<a name='L62'><font color='darkred'>        #pragma</font> omp master
+<a name='L63'>          l = 133;
+<a name='L64'>      <font color='red'>}</font>
+<a name='L65'>    <b>else</b> <b>if</b> (<a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> (8 * <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ()))
+<a name='L66'>      r++;
+<a name='L67'>  <b>if</b> (r || l != 133)
+<a name='L68'>    abort ();
+<a name='L69'>  <b>return</b> 0;
+<a name='L70'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L9'>[^]</a><a href='#L56'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>SYS_futex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/46.html#L27'>SYS_futex</a>          27 config/linux/alpha/futex.h #ifndef SYS_futex
+<a href='../S/46.html#L41'>SYS_futex</a>          41 config/linux/alpha/futex.h   sc_0 = SYS_futex;
+<a href='../S/46.html#L55'>SYS_futex</a>          55 config/linux/alpha/futex.h       sc_0 = SYS_futex;
+<a href='../S/46.html#L76'>SYS_futex</a>          76 config/linux/alpha/futex.h   sc_0 = SYS_futex;
+<a href='../S/46.html#L89'>SYS_futex</a>          89 config/linux/alpha/futex.h       sc_0 = SYS_futex;
+<a href='../S/44.html#L44'>SYS_futex</a>          44 config/linux/futex.h   long err = syscall (SYS_futex, addr, gomp_futex_wait, val, NULL);
+<a href='../S/44.html#L49'>SYS_futex</a>          49 config/linux/futex.h       syscall (SYS_futex, addr, gomp_futex_wait, val, NULL);
+<a href='../S/44.html#L56'>SYS_futex</a>          56 config/linux/futex.h   long err = syscall (SYS_futex, addr, gomp_futex_wake, count);
+<a href='../S/44.html#L61'>SYS_futex</a>          61 config/linux/futex.h       syscall (SYS_futex, addr, gomp_futex_wake, count);
+<a href='../S/50.html#L40'>SYS_futex</a>          40 config/linux/ia64/futex.h   register long r15 asm ("r15") = SYS_futex;
+<a href='../S/42.html#L34'>SYS_futex</a>          34 config/linux/mips/futex.h   register unsigned long __v0 asm("$2") = (unsigned long) SYS_futex;
+<a href='../S/56.html#L38'>SYS_futex</a>          38 config/linux/powerpc/futex.h   r0 = SYS_futex;
+<a href='../S/66.html#L44'>SYS_futex</a>          44 config/linux/s390/futex.h 		  : "i" (SYS_futex),
+<a href='../S/63.html#L38'>SYS_futex</a>          38 config/linux/sparc/futex.h   g1 = SYS_futex;
+<a href='../S/53.html#L28'>SYS_futex</a>          28 config/linux/x86/futex.h # ifndef SYS_futex
+<a href='../S/53.html#L41'>SYS_futex</a>          41 config/linux/x86/futex.h 		  : "0" (SYS_futex), "D" (addr), "S" (gomp_futex_wait),
+<a href='../S/53.html#L51'>SYS_futex</a>          51 config/linux/x86/futex.h 		      : "0" (SYS_futex), "D" (addr), "S" (gomp_futex_wait),
+<a href='../S/53.html#L64'>SYS_futex</a>          64 config/linux/x86/futex.h 		  : "0" (SYS_futex), "D" (addr), "S" (gomp_futex_wake),
+<a href='../S/53.html#L73'>SYS_futex</a>          73 config/linux/x86/futex.h 		      : "0" (SYS_futex), "D" (addr), "S" (gomp_futex_wake),
+<a href='../S/53.html#L79'>SYS_futex</a>          79 config/linux/x86/futex.h # ifndef SYS_futex
+<a href='../S/53.html#L94'>SYS_futex</a>          94 config/linux/x86/futex.h 		  : "0"(SYS_futex), "r" (addr), "c"(op),
+<a href='../S/53.html#L109'>SYS_futex</a>         109 config/linux/x86/futex.h 		  : "0"(SYS_futex), "b" (addr), "c"(op),
+</pre>
+</body>
+</html>

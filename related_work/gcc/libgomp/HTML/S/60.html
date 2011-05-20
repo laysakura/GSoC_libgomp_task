@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>config/linux/omp-lock.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/422.html'>config</a>/<a href='../files/424.html'>linux</a>/omp-lock.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='14.html#L510' title='Included from 510 in libgomp.h.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* This header is used during the build process to find the size and </font></i>
+<a name='L2'><i><font color='green'>   alignment of the public OpenMP locks, so that we can export data</font></i>
+<a name='L3'><i><font color='green'>   structures without polluting the namespace.</font></i>
+<a name='L4'><i><font color='green'></font></i>
+<a name='L5'><i><font color='green'>   When using the Linux futex primitive, non-recursive locks require</font></i>
+<a name='L6'><i><font color='green'>   only one int.  Recursive locks require we identify the owning task</font></i>
+<a name='L7'><i><font color='green'>   and so require one int and a pointer.  */</font></i>
+<a name='L8'>
+<a name='L9'><b>typedef</b> <b>int</b> <a href='../R/332.html' title='Multiple refered from 37 places.'>omp_lock_t</a>;
+<a name='L10'><b>typedef</b> <b>struct</b> <font color='red'>{</font> <b>int</b> lock, count; <b>void</b> *owner; <font color='red'>}</font> <a href='../R/334.html' title='Multiple refered from 36 places.'>omp_nest_lock_t</a>;
+<a name='L11'><b>typedef</b> <b>int</b> <a href='../R/330.html' title='Multiple refered from 16 places.'>omp_lock_25_t</a>;
+<a name='L12'><b>typedef</b> <b>struct</b> <font color='red'>{</font> <b>int</b> owner, count; <font color='red'>}</font> <a href='../R/333.html' title='Multiple refered from 21 places.'>omp_nest_lock_25_t</a>;
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

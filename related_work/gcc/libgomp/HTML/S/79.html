@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/ctor-12.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/ctor-12.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L44'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L44' title='Defined at 44.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// PR c++/36308</font></i>
+<a name='L2'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L3'>
+<a name='L4'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L5'>
+<a name='L6'><b>static</b> <b>int</b> n;
+<a name='L7'>
+<a name='L8'><b>struct</b> <a href='../R/1.html' title='Multiple refered from 107 places.'>A</a>
+<a name='L9'><font color='red'>{</font>
+<a name='L10'>  <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a> ()
+<a name='L11'>  <font color='red'>{</font>
+<a name='L12'>    l = 0;
+<a name='L13'><font color='darkred'>    #pragma</font> omp atomic
+<a name='L14'>      ctors++;
+<a name='L15'>  <font color='red'>}</font>
+<a name='L16'>  <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a> (<b>const</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a> &amp;x)
+<a name='L17'>  <font color='red'>{</font>
+<a name='L18'>    l = x.l;
+<a name='L19'><font color='darkred'>    #pragma</font> omp atomic
+<a name='L20'>      copyctors++;
+<a name='L21'>  <font color='red'>}</font>
+<a name='L22'>  <b>virtual</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>&amp; <b>operator</b>= (<b>const</b> A &amp;x)
+<a name='L23'>  <font color='red'>{</font>
+<a name='L24'>    l = x.l;
+<a name='L25'><font color='darkred'>    #pragma</font> omp atomic
+<a name='L26'>      assignops++;
+<a name='L27'>    <b>return</b> *<b>this</b>;
+<a name='L28'>  <font color='red'>}</font>
+<a name='L29'>  <b>virtual</b> ~<a href='../D/1.html' title='Multiple defined in 15 places.'>A</a> ()
+<a name='L30'>  <font color='red'>{</font>
+<a name='L31'><font color='darkred'>    #pragma</font> omp atomic
+<a name='L32'>      dtors++;
+<a name='L33'>  <font color='red'>}</font>
+<a name='L34'>  <b>int</b> l;
+<a name='L35'>  <b>static</b> <b>int</b> ctors, dtors, copyctors, assignops;
+<a name='L36'><font color='red'>}</font>;
+<a name='L37'>
+<a name='L38'><b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::ctors;
+<a name='L39'><b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::dtors;
+<a name='L40'><b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::copyctors;
+<a name='L41'><b>int</b> <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::assignops;
+<a name='L42'>
+<a name='L43'><b>int</b>
+<a name='L44'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L45'><font color='red'>{</font>
+<a name='L46'>  <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a> a;
+<a name='L47'><font color='darkred'>#pragma</font> omp parallel <b>private</b> (a)
+<a name='L48'>  <font color='red'>{</font>
+<a name='L49'>    a.l = 6;
+<a name='L50'><font color='darkred'>    #pragma</font> omp single copyprivate (a)
+<a name='L51'>    <font color='red'>{</font>
+<a name='L52'>      a.l = 3;
+<a name='L53'>    <font color='red'>}</font>
+<a name='L54'>    <b>if</b> (a.l != 3)
+<a name='L55'>      abort ();
+<a name='L56'><font color='darkred'>    #pragma</font> omp atomic
+<a name='L57'>      n++;
+<a name='L58'>  <font color='red'>}</font>
+<a name='L59'>  <b>if</b> (<a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::ctors != n + 1
+<a name='L60'>      || <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::copyctors != 0
+<a name='L61'>      || <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::dtors != n
+<a name='L62'>      || <a href='../D/1.html' title='Multiple defined in 15 places.'>A</a>::assignops != n - 1)
+<a name='L63'>    abort ();
+<a name='L64'>  <b>return</b> 0;
+<a name='L65'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L44'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

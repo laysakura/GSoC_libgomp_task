@@ -1,0 +1,234 @@
+<html>
+<head>
+<title>parallel.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/parallel.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L191'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L38' title='Defined at 38.'>gomp_resolve_num_threads</a>
+<li><a href='#L105' title='Defined at 105.'>GOMP_parallel_start</a>
+<li><a href='#L112' title='Defined at 112.'>GOMP_parallel_end</a>
+<li><a href='#L137' title='Defined at 137.'>omp_get_num_threads</a>
+<li><a href='#L144' title='Defined at 144.'>omp_get_thread_num</a>
+<li><a href='#L154' title='Defined at 154.'>omp_in_parallel</a>
+<li><a href='#L160' title='Defined at 160.'>omp_get_level</a>
+<li><a href='#L166' title='Defined at 166.'>omp_get_ancestor_thread_num</a>
+<li><a href='#L177' title='Defined at 177.'>omp_get_team_size</a>
+<li><a href='#L191' title='Defined at 191.'>omp_get_active_level</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file handles the (bare) PARALLEL construct.  */</font></i>
+<a name='L26'>
+<a name='L27'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L28'><font color='darkred'>#include</font> &lt;limits.h&gt;
+<a name='L29'>
+<a name='L30'>
+<a name='L31'><i><font color='green'>/* Determine the number of threads to be launched for a PARALLEL construct.</font></i>
+<a name='L32'><i><font color='green'>   This algorithm is explicitly described in OpenMP 3.0 section 2.4.1.</font></i>
+<a name='L33'><i><font color='green'>   SPECIFIED is a combination of the NUM_THREADS clause and the IF clause.</font></i>
+<a name='L34'><i><font color='green'>   If the IF clause is false, SPECIFIED is forced to 1.  When NUM_THREADS</font></i>
+<a name='L35'><i><font color='green'>   is not present, SPECIFIED is 0.  */</font></i>
+<a name='L36'>
+<a name='L37'><b>unsigned</b>
+<a name='L38'><a href='../R/253.html' title='Multiple refered from 4 places.'>gomp_resolve_num_threads</a> (<b>unsigned</b> specified, <b>unsigned</b> count)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thread = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a>();
+<a name='L41'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *icv;
+<a name='L42'>  <b>unsigned</b> threads_requested, max_num_threads, num_threads;
+<a name='L43'>  <b>unsigned</b> <b>long</b> remaining;
+<a name='L44'>
+<a name='L45'>  icv = <a href='../S/14.html#L378' title='Defined at 378 in libgomp.h.'>gomp_icv</a> (false);
+<a name='L46'>
+<a name='L47'>  <b>if</b> (specified == 1)
+<a name='L48'>    <b>return</b> 1;
+<a name='L49'>  <b>else</b> <b>if</b> (thread-&gt;ts.active_level &gt;= 1 &amp;&amp; !icv-&gt;nest_var)
+<a name='L50'>    <b>return</b> 1;
+<a name='L51'>  <b>else</b> <b>if</b> (thread-&gt;ts.active_level &gt;= gomp_max_active_levels_var)
+<a name='L52'>    <b>return</b> 1;
+<a name='L53'>
+<a name='L54'>  <i><font color='green'>/* If NUM_THREADS not specified, use nthreads_var.  */</font></i>
+<a name='L55'>  <b>if</b> (specified == 0)
+<a name='L56'>    threads_requested = icv-&gt;nthreads_var;
+<a name='L57'>  <b>else</b>
+<a name='L58'>    threads_requested = specified;
+<a name='L59'>
+<a name='L60'>  max_num_threads = threads_requested;
+<a name='L61'>
+<a name='L62'>  <i><font color='green'>/* If dynamic threads are enabled, bound the number of threads</font></i>
+<a name='L63'><i><font color='green'>     that we launch.  */</font></i>
+<a name='L64'>  <b>if</b> (icv-&gt;dyn_var)
+<a name='L65'>    <font color='red'>{</font>
+<a name='L66'>      <b>unsigned</b> dyn = <a href='../D/179.html' title='Multiple defined in 4 places.'>gomp_dynamic_max_threads</a> ();
+<a name='L67'>      <b>if</b> (dyn &lt; max_num_threads)
+<a name='L68'>        max_num_threads = dyn;
+<a name='L69'>
+<a name='L70'>      <i><font color='green'>/* Optimization for parallel sections.  */</font></i>
+<a name='L71'>      <b>if</b> (count &amp;&amp; count &lt; max_num_threads)
+<a name='L72'>        max_num_threads = count;
+<a name='L73'>    <font color='red'>}</font>
+<a name='L74'>
+<a name='L75'>  <i><font color='green'>/* ULONG_MAX stands for infinity.  */</font></i>
+<a name='L76'>  <b>if</b> (__builtin_expect (gomp_thread_limit_var == ULONG_MAX, 1)
+<a name='L77'>      || max_num_threads == 1)
+<a name='L78'>    <b>return</b> max_num_threads;
+<a name='L79'>
+<a name='L80'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L81'>  <b>do</b>
+<a name='L82'>    <font color='red'>{</font>
+<a name='L83'>      remaining = gomp_remaining_threads_count;
+<a name='L84'>      num_threads = max_num_threads;
+<a name='L85'>      <b>if</b> (num_threads &gt; remaining)
+<a name='L86'>        num_threads = remaining + 1;
+<a name='L87'>    <font color='red'>}</font>
+<a name='L88'>  <b>while</b> (__sync_val_compare_and_swap (&amp;gomp_remaining_threads_count,
+<a name='L89'>                                      remaining, remaining - num_threads + 1)
+<a name='L90'>         != remaining);
+<a name='L91'><font color='darkred'>#else</font>
+<a name='L92'>  <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;gomp_remaining_threads_lock);
+<a name='L93'>  num_threads = max_num_threads;
+<a name='L94'>  remaining = gomp_remaining_threads_count;
+<a name='L95'>  <b>if</b> (num_threads &gt; remaining)
+<a name='L96'>    num_threads = remaining + 1;
+<a name='L97'>  gomp_remaining_threads_count -= num_threads - 1;
+<a name='L98'>  <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;gomp_remaining_threads_lock);
+<a name='L99'><font color='darkred'>#endif</font>
+<a name='L100'>
+<a name='L101'>  <b>return</b> num_threads;
+<a name='L102'><font color='red'>}</font>
+<a name='L103'>
+<a name='L104'><b>void</b>
+<a name='L105'><a href='../R/60.html' title='Multiple refered from 12 places.'>GOMP_parallel_start</a> (<b>void</b> (*fn) (<b>void</b> *), <b>void</b> *data, <b>unsigned</b> num_threads)
+<a name='L106'><font color='red'>{</font>
+<a name='L107'>  num_threads = <a href='../S/21.html#L38' title='Defined at 38 in parallel.c.'>gomp_resolve_num_threads</a> (num_threads, 0);
+<a name='L108'>  <a href='../S/11.html#L252' title='Defined at 252 in team.c.'>gomp_team_start</a> (fn, data, num_threads, <a href='../S/11.html#L136' title='Defined at 136 in team.c.'>gomp_new_team</a> (num_threads));
+<a name='L109'><font color='red'>}</font>
+<a name='L110'>
+<a name='L111'><b>void</b>
+<a name='L112'><a href='../R/54.html' title='Multiple refered from 14 places.'>GOMP_parallel_end</a> (<b>void</b>)
+<a name='L113'><font color='red'>{</font>
+<a name='L114'>  <b>if</b> (__builtin_expect (gomp_thread_limit_var != ULONG_MAX, 0))
+<a name='L115'>    <font color='red'>{</font>
+<a name='L116'>      <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L117'>      <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L118'>      <b>if</b> (team &amp;&amp; team-&gt;nthreads &gt; 1)
+<a name='L119'>        <font color='red'>{</font>
+<a name='L120'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L121'>          __sync_fetch_and_add (&amp;gomp_remaining_threads_count,
+<a name='L122'>                                1UL - team-&gt;nthreads);
+<a name='L123'><font color='darkred'>#else</font>
+<a name='L124'>          <a href='../D/240.html' title='Multiple defined in 3 places.'>gomp_mutex_lock</a> (&amp;gomp_remaining_threads_lock);
+<a name='L125'>          gomp_remaining_threads_count -= team-&gt;nthreads - 1;
+<a name='L126'>          <a href='../D/243.html' title='Multiple defined in 3 places.'>gomp_mutex_unlock</a> (&amp;gomp_remaining_threads_lock);
+<a name='L127'><font color='darkred'>#endif</font>
+<a name='L128'>        <font color='red'>}</font>
+<a name='L129'>    <font color='red'>}</font>
+<a name='L130'>  <a href='../S/11.html#L458' title='Defined at 458 in team.c.'>gomp_team_end</a> ();
+<a name='L131'><font color='red'>}</font>
+<a name='L132'>
+<a name='L133'>
+<a name='L134'><i><font color='green'>/* The public OpenMP API for thread and team related inquiries.  */</font></i>
+<a name='L135'>
+<a name='L136'><b>int</b>
+<a name='L137'><a href='../R/322.html' title='Multiple refered from 92 places.'>omp_get_num_threads</a> (<b>void</b>)
+<a name='L138'><font color='red'>{</font>
+<a name='L139'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts.team;
+<a name='L140'>  <b>return</b> team ? team-&gt;nthreads : 1;
+<a name='L141'><font color='red'>}</font>
+<a name='L142'>
+<a name='L143'><b>int</b>
+<a name='L144'><a href='../R/326.html' title='Multiple refered from 121 places.'>omp_get_thread_num</a> (<b>void</b>)
+<a name='L145'><font color='red'>{</font>
+<a name='L146'>  <b>return</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts.team_id;
+<a name='L147'><font color='red'>}</font>
+<a name='L148'>
+<a name='L149'><i><font color='green'>/* This wasn't right for OpenMP 2.5.  Active region used to be non-zero</font></i>
+<a name='L150'><i><font color='green'>   when the IF clause doesn't evaluate to false, starting with OpenMP 3.0</font></i>
+<a name='L151'><i><font color='green'>   it is non-zero with more than one thread in the team.  */</font></i>
+<a name='L152'>
+<a name='L153'><b>int</b>
+<a name='L154'><a href='../R/329.html' title='Multiple refered from 15 places.'>omp_in_parallel</a> (<b>void</b>)
+<a name='L155'><font color='red'>{</font>
+<a name='L156'>  <b>return</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts.active_level &gt; 0;
+<a name='L157'><font color='red'>}</font>
+<a name='L158'>
+<a name='L159'><b>int</b>
+<a name='L160'><a href='../R/317.html' title='Multiple refered from 5 places.'>omp_get_level</a> (<b>void</b>)
+<a name='L161'><font color='red'>{</font>
+<a name='L162'>  <b>return</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts.level;
+<a name='L163'><font color='red'>}</font>
+<a name='L164'>
+<a name='L165'><b>int</b>
+<a name='L166'><a href='../R/315.html' title='Multiple refered from 20 places.'>omp_get_ancestor_thread_num</a> (<b>int</b> level)
+<a name='L167'><font color='red'>{</font>
+<a name='L168'>  <b>struct</b> <a href='../S/14.html#L166' title='Defined at 166 in libgomp.h.'>gomp_team_state</a> *ts = &amp;<a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts;
+<a name='L169'>  <b>if</b> (level &lt; 0 || level &gt; ts-&gt;level)
+<a name='L170'>    <b>return</b> -1;
+<a name='L171'>  <b>for</b> (level = ts-&gt;level - level; level &gt; 0; --level)
+<a name='L172'>    ts = &amp;ts-&gt;team-&gt;prev_ts;
+<a name='L173'>  <b>return</b> ts-&gt;team_id;
+<a name='L174'><font color='red'>}</font>
+<a name='L175'>
+<a name='L176'><b>int</b>
+<a name='L177'><a href='../R/324.html' title='Multiple refered from 20 places.'>omp_get_team_size</a> (<b>int</b> level)
+<a name='L178'><font color='red'>{</font>
+<a name='L179'>  <b>struct</b> <a href='../S/14.html#L166' title='Defined at 166 in libgomp.h.'>gomp_team_state</a> *ts = &amp;<a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts;
+<a name='L180'>  <b>if</b> (level &lt; 0 || level &gt; ts-&gt;level)
+<a name='L181'>    <b>return</b> -1;
+<a name='L182'>  <b>for</b> (level = ts-&gt;level - level; level &gt; 0; --level)
+<a name='L183'>    ts = &amp;ts-&gt;team-&gt;prev_ts;
+<a name='L184'>  <b>if</b> (ts-&gt;team == NULL)
+<a name='L185'>    <b>return</b> 1;
+<a name='L186'>  <b>else</b>
+<a name='L187'>    <b>return</b> ts-&gt;team-&gt;nthreads;
+<a name='L188'><font color='red'>}</font>
+<a name='L189'>
+<a name='L190'><b>int</b>
+<a name='L191'><a href='../R/314.html' title='Multiple refered from 5 places.'>omp_get_active_level</a> (<b>void</b>)
+<a name='L192'><font color='red'>{</font>
+<a name='L193'>  <b>return</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;ts.active_level;
+<a name='L194'><font color='red'>}</font>
+<a name='L195'>
+<a name='L196'>ialias (omp_get_num_threads)
+<a name='L197'>ialias (omp_get_thread_num)
+<a name='L198'>ialias (omp_in_parallel)
+<a name='L199'>ialias (omp_get_level)
+<a name='L200'>ialias (omp_get_ancestor_thread_num)
+<a name='L201'>ialias (omp_get_team_size)
+<a name='L202'>ialias (omp_get_active_level)
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L191'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

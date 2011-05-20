@@ -1,0 +1,361 @@
+<html>
+<head>
+<title>iter.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/iter.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L291'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L38' title='Defined at 38.'>gomp_iter_static_next</a>
+<li><a href='#L144' title='Defined at 144.'>gomp_iter_dynamic_next_locked</a>
+<li><a href='#L180' title='Defined at 180.'>gomp_iter_dynamic_next</a>
+<li><a href='#L257' title='Defined at 257.'>gomp_iter_guided_next_locked</a>
+<li><a href='#L291' title='Defined at 291.'>gomp_iter_guided_next</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2008, 2009 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file contains routines for managing work-share iteration, both</font></i>
+<a name='L26'><i><font color='green'>   for loops and sections.  */</font></i>
+<a name='L27'>
+<a name='L28'><font color='darkred'>#include</font> "<a href='14.html'>libgomp.h</a>"
+<a name='L29'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L30'>
+<a name='L31'>
+<a name='L32'><i><font color='green'>/* This function implements the STATIC scheduling method.  The caller should</font></i>
+<a name='L33'><i><font color='green'>   iterate *pstart &lt;= x &lt; *pend.  Return zero if there are more iterations</font></i>
+<a name='L34'><i><font color='green'>   to perform; nonzero if not.  Return less than 0 if this thread had</font></i>
+<a name='L35'><i><font color='green'>   received the absolutely last iteration.  */</font></i>
+<a name='L36'>
+<a name='L37'><b>int</b>
+<a name='L38'><a href='../R/194.html' title='Multiple refered from 5 places.'>gomp_iter_static_next</a> (<b>long</b> *pstart, <b>long</b> *pend)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L41'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L42'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L43'>  <b>unsigned</b> <b>long</b> nthreads = team ? team-&gt;nthreads : 1;
+<a name='L44'>
+<a name='L45'>  <b>if</b> (thr-&gt;ts.static_trip == -1)
+<a name='L46'>    <b>return</b> -1;
+<a name='L47'>
+<a name='L48'>  <i><font color='green'>/* Quick test for degenerate teams and orphaned constructs.  */</font></i>
+<a name='L49'>  <b>if</b> (nthreads == 1)
+<a name='L50'>    <font color='red'>{</font>
+<a name='L51'>      *pstart = ws-&gt;next;
+<a name='L52'>      *pend = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L53'>      thr-&gt;ts.static_trip = -1;
+<a name='L54'>      <b>return</b> ws-&gt;next == ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L55'>    <font color='red'>}</font>
+<a name='L56'>
+<a name='L57'>  <i><font color='green'>/* We interpret chunk_size zero as "unspecified", which means that we</font></i>
+<a name='L58'><i><font color='green'>     should break up the iterations such that each thread makes only one</font></i>
+<a name='L59'><i><font color='green'>     trip through the outer loop.  */</font></i>
+<a name='L60'>  <b>if</b> (ws-&gt;chunk_size == 0)
+<a name='L61'>    <font color='red'>{</font>
+<a name='L62'>      <b>unsigned</b> <b>long</b> n, q, i;
+<a name='L63'>      <b>unsigned</b> <b>long</b> s0, e0;
+<a name='L64'>      <b>long</b> s, <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L65'>
+<a name='L66'>      <b>if</b> (thr-&gt;ts.static_trip &gt; 0)
+<a name='L67'>        <b>return</b> 1;
+<a name='L68'>
+<a name='L69'>      <i><font color='green'>/* Compute the total number of iterations.  */</font></i>
+<a name='L70'>      s = ws-&gt;incr + (ws-&gt;incr &gt; 0 ? -1 : 1);
+<a name='L71'>      n = (ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - ws-&gt;next + s) / ws-&gt;incr;
+<a name='L72'>      i = thr-&gt;ts.team_id;
+<a name='L73'>
+<a name='L74'>      <i><font color='green'>/* Compute the "zero-based" start and end points.  That is, as</font></i>
+<a name='L75'><i><font color='green'>         if the loop began at zero and incremented by one.  */</font></i>
+<a name='L76'>      q = n / nthreads;
+<a name='L77'>      q += (q * nthreads != n);
+<a name='L78'>      s0 = q * i;
+<a name='L79'>      e0 = s0 + q;
+<a name='L80'>      <b>if</b> (e0 &gt; n)
+<a name='L81'>        e0 = n;
+<a name='L82'>
+<a name='L83'>      <i><font color='green'>/* Notice when no iterations allocated for this thread.  */</font></i>
+<a name='L84'>      <b>if</b> (s0 &gt;= e0)
+<a name='L85'>        <font color='red'>{</font>
+<a name='L86'>          thr-&gt;ts.static_trip = 1;
+<a name='L87'>          <b>return</b> 1;
+<a name='L88'>        <font color='red'>}</font>
+<a name='L89'>
+<a name='L90'>      <i><font color='green'>/* Transform these to the actual start and end numbers.  */</font></i>
+<a name='L91'>      s = (<b>long</b>)s0 * ws-&gt;incr + ws-&gt;next;
+<a name='L92'>      <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = (<b>long</b>)e0 * ws-&gt;incr + ws-&gt;next;
+<a name='L93'>
+<a name='L94'>      *pstart = s;
+<a name='L95'>      *pend = <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L96'>      thr-&gt;ts.static_trip = (e0 == n ? -1 : 1);
+<a name='L97'>      <b>return</b> 0;
+<a name='L98'>    <font color='red'>}</font>
+<a name='L99'>  <b>else</b>
+<a name='L100'>    <font color='red'>{</font>
+<a name='L101'>      <b>unsigned</b> <b>long</b> n, s0, e0, i, c;
+<a name='L102'>      <b>long</b> s, <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L103'>
+<a name='L104'>      <i><font color='green'>/* Otherwise, each thread gets exactly chunk_size iterations</font></i>
+<a name='L105'><i><font color='green'>         (if available) each time through the loop.  */</font></i>
+<a name='L106'>
+<a name='L107'>      s = ws-&gt;incr + (ws-&gt;incr &gt; 0 ? -1 : 1);
+<a name='L108'>      n = (ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - ws-&gt;next + s) / ws-&gt;incr;
+<a name='L109'>      i = thr-&gt;ts.team_id;
+<a name='L110'>      c = ws-&gt;chunk_size;
+<a name='L111'>
+<a name='L112'>      <i><font color='green'>/* Initial guess is a C sized chunk positioned nthreads iterations</font></i>
+<a name='L113'><i><font color='green'>         in, offset by our thread number.  */</font></i>
+<a name='L114'>      s0 = (thr-&gt;ts.static_trip * nthreads + i) * c;
+<a name='L115'>      e0 = s0 + c;
+<a name='L116'>
+<a name='L117'>      <i><font color='green'>/* Detect overflow.  */</font></i>
+<a name='L118'>      <b>if</b> (s0 &gt;= n)
+<a name='L119'>        <b>return</b> 1;
+<a name='L120'>      <b>if</b> (e0 &gt; n)
+<a name='L121'>        e0 = n;
+<a name='L122'>
+<a name='L123'>      <i><font color='green'>/* Transform these to the actual start and end numbers.  */</font></i>
+<a name='L124'>      s = (<b>long</b>)s0 * ws-&gt;incr + ws-&gt;next;
+<a name='L125'>      <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a> = (<b>long</b>)e0 * ws-&gt;incr + ws-&gt;next;
+<a name='L126'>
+<a name='L127'>      *pstart = s;
+<a name='L128'>      *pend = <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>;
+<a name='L129'>
+<a name='L130'>      <b>if</b> (e0 == n)
+<a name='L131'>        thr-&gt;ts.static_trip = -1;
+<a name='L132'>      <b>else</b>
+<a name='L133'>        thr-&gt;ts.static_trip++;
+<a name='L134'>      <b>return</b> 0;
+<a name='L135'>    <font color='red'>}</font>
+<a name='L136'><font color='red'>}</font>
+<a name='L137'>
+<a name='L138'>
+<a name='L139'><i><font color='green'>/* This function implements the DYNAMIC scheduling method.  Arguments are</font></i>
+<a name='L140'><i><font color='green'>   as for gomp_iter_static_next.  This function must be called with ws-&gt;lock</font></i>
+<a name='L141'><i><font color='green'>   held.  */</font></i>
+<a name='L142'>
+<a name='L143'>bool
+<a name='L144'><a href='../R/191.html' title='Multiple refered from 7 places.'>gomp_iter_dynamic_next_locked</a> (<b>long</b> *pstart, <b>long</b> *pend)
+<a name='L145'><font color='red'>{</font>
+<a name='L146'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L147'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L148'>  <b>long</b> start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, chunk, left;
+<a name='L149'>
+<a name='L150'>  start = ws-&gt;next;
+<a name='L151'>  <b>if</b> (start == ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L152'>    <b>return</b> false;
+<a name='L153'>
+<a name='L154'>  chunk = ws-&gt;chunk_size;
+<a name='L155'>  left = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - start;
+<a name='L156'>  <b>if</b> (ws-&gt;incr &lt; 0)
+<a name='L157'>    <font color='red'>{</font>
+<a name='L158'>      <b>if</b> (chunk &lt; left)
+<a name='L159'>        chunk = left;
+<a name='L160'>    <font color='red'>}</font>
+<a name='L161'>  <b>else</b>
+<a name='L162'>    <font color='red'>{</font>
+<a name='L163'>      <b>if</b> (chunk &gt; left)
+<a name='L164'>        chunk = left;
+<a name='L165'>    <font color='red'>}</font>
+<a name='L166'>  <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = start + chunk;
+<a name='L167'>
+<a name='L168'>  ws-&gt;next = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L169'>  *pstart = start;
+<a name='L170'>  *pend = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L171'>  <b>return</b> true;
+<a name='L172'><font color='red'>}</font>
+<a name='L173'>
+<a name='L174'>
+<a name='L175'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L176'><i><font color='green'>/* Similar, but doesn't require the lock held, and uses compare-and-swap</font></i>
+<a name='L177'><i><font color='green'>   instead.  Note that the only memory value that changes is ws-&gt;next.  */</font></i>
+<a name='L178'>
+<a name='L179'>bool
+<a name='L180'><a href='../R/190.html' title='Multiple refered from 5 places.'>gomp_iter_dynamic_next</a> (<b>long</b> *pstart, <b>long</b> *pend)
+<a name='L181'><font color='red'>{</font>
+<a name='L182'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L183'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L184'>  <b>long</b> start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, nend, chunk, incr;
+<a name='L185'>
+<a name='L186'>  <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L187'>  incr = ws-&gt;incr;
+<a name='L188'>  chunk = ws-&gt;chunk_size;
+<a name='L189'>
+<a name='L190'>  <b>if</b> (__builtin_expect (ws-&gt;mode, 1))
+<a name='L191'>    <font color='red'>{</font>
+<a name='L192'>      <b>long</b> tmp = __sync_fetch_and_add (&amp;ws-&gt;next, chunk);
+<a name='L193'>      <b>if</b> (incr &gt; 0)
+<a name='L194'>        <font color='red'>{</font>
+<a name='L195'>          <b>if</b> (tmp &gt;= <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L196'>            <b>return</b> false;
+<a name='L197'>          nend = tmp + chunk;
+<a name='L198'>          <b>if</b> (nend &gt; <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L199'>            nend = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L200'>          *pstart = tmp;
+<a name='L201'>          *pend = nend;
+<a name='L202'>          <b>return</b> true;
+<a name='L203'>        <font color='red'>}</font>
+<a name='L204'>      <b>else</b>
+<a name='L205'>        <font color='red'>{</font>
+<a name='L206'>          <b>if</b> (tmp &lt;= <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L207'>            <b>return</b> false;
+<a name='L208'>          nend = tmp + chunk;
+<a name='L209'>          <b>if</b> (nend &lt; <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L210'>            nend = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L211'>          *pstart = tmp;
+<a name='L212'>          *pend = nend;
+<a name='L213'>          <b>return</b> true;
+<a name='L214'>        <font color='red'>}</font>
+<a name='L215'>    <font color='red'>}</font>
+<a name='L216'>
+<a name='L217'>  start = ws-&gt;next;
+<a name='L218'>  <b>while</b> (1)
+<a name='L219'>    <font color='red'>{</font>
+<a name='L220'>      <b>long</b> left = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - start;
+<a name='L221'>      <b>long</b> tmp;
+<a name='L222'>
+<a name='L223'>      <b>if</b> (start == <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L224'>        <b>return</b> false;
+<a name='L225'>
+<a name='L226'>      <b>if</b> (incr &lt; 0)
+<a name='L227'>        <font color='red'>{</font>
+<a name='L228'>          <b>if</b> (chunk &lt; left)
+<a name='L229'>            chunk = left;
+<a name='L230'>        <font color='red'>}</font>
+<a name='L231'>      <b>else</b>
+<a name='L232'>        <font color='red'>{</font>
+<a name='L233'>          <b>if</b> (chunk &gt; left)
+<a name='L234'>            chunk = left;
+<a name='L235'>        <font color='red'>}</font>
+<a name='L236'>      nend = start + chunk;
+<a name='L237'>
+<a name='L238'>      tmp = __sync_val_compare_and_swap (&amp;ws-&gt;next, start, nend);
+<a name='L239'>      <b>if</b> (__builtin_expect (tmp == start, 1))
+<a name='L240'>        <b>break</b>;
+<a name='L241'>
+<a name='L242'>      start = tmp;
+<a name='L243'>    <font color='red'>}</font>
+<a name='L244'>
+<a name='L245'>  *pstart = start;
+<a name='L246'>  *pend = nend;
+<a name='L247'>  <b>return</b> true;
+<a name='L248'><font color='red'>}</font>
+<a name='L249'><font color='darkred'>#endif</font> <i><font color='green'>/* HAVE_SYNC_BUILTINS */</font></i>
+<a name='L250'>
+<a name='L251'>
+<a name='L252'><i><font color='green'>/* This function implements the GUIDED scheduling method.  Arguments are</font></i>
+<a name='L253'><i><font color='green'>   as for gomp_iter_static_next.  This function must be called with the</font></i>
+<a name='L254'><i><font color='green'>   work share lock held.  */</font></i>
+<a name='L255'>
+<a name='L256'>bool
+<a name='L257'><a href='../R/193.html' title='Multiple refered from 5 places.'>gomp_iter_guided_next_locked</a> (<b>long</b> *pstart, <b>long</b> *pend)
+<a name='L258'><font color='red'>{</font>
+<a name='L259'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L260'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L261'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L262'>  <b>unsigned</b> <b>long</b> nthreads = team ? team-&gt;nthreads : 1;
+<a name='L263'>  <b>unsigned</b> <b>long</b> n, q;
+<a name='L264'>  <b>long</b> start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L265'>
+<a name='L266'>  <b>if</b> (ws-&gt;next == ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L267'>    <b>return</b> false;
+<a name='L268'>
+<a name='L269'>  start = ws-&gt;next;
+<a name='L270'>  n = (ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - start) / ws-&gt;incr;
+<a name='L271'>  q = (n + nthreads - 1) / nthreads;
+<a name='L272'>
+<a name='L273'>  <b>if</b> (q &lt; ws-&gt;chunk_size)
+<a name='L274'>    q = ws-&gt;chunk_size;
+<a name='L275'>  <b>if</b> (q &lt;= n)
+<a name='L276'>    <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = start + q * ws-&gt;incr;
+<a name='L277'>  <b>else</b>
+<a name='L278'>    <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L279'>
+<a name='L280'>  ws-&gt;next = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L281'>  *pstart = start;
+<a name='L282'>  *pend = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L283'>  <b>return</b> true;
+<a name='L284'><font color='red'>}</font>
+<a name='L285'>
+<a name='L286'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L287'><i><font color='green'>/* Similar, but doesn't require the lock held, and uses compare-and-swap</font></i>
+<a name='L288'><i><font color='green'>   instead.  Note that the only memory value that changes is ws-&gt;next.  */</font></i>
+<a name='L289'>
+<a name='L290'>bool
+<a name='L291'><a href='../R/192.html' title='Multiple refered from 3 places.'>gomp_iter_guided_next</a> (<b>long</b> *pstart, <b>long</b> *pend)
+<a name='L292'><font color='red'>{</font>
+<a name='L293'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L294'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *ws = thr-&gt;ts.work_share;
+<a name='L295'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team = thr-&gt;ts.team;
+<a name='L296'>  <b>unsigned</b> <b>long</b> nthreads = team ? team-&gt;nthreads : 1;
+<a name='L297'>  <b>long</b> start, <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>, nend, incr;
+<a name='L298'>  <b>unsigned</b> <b>long</b> chunk_size;
+<a name='L299'>
+<a name='L300'>  start = ws-&gt;next;
+<a name='L301'>  <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> = ws-&gt;<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L302'>  incr = ws-&gt;incr;
+<a name='L303'>  chunk_size = ws-&gt;chunk_size;
+<a name='L304'>
+<a name='L305'>  <b>while</b> (1)
+<a name='L306'>    <font color='red'>{</font>
+<a name='L307'>      <b>unsigned</b> <b>long</b> n, q;
+<a name='L308'>      <b>long</b> tmp;
+<a name='L309'>
+<a name='L310'>      <b>if</b> (start == <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>)
+<a name='L311'>        <b>return</b> false;
+<a name='L312'>
+<a name='L313'>      n = (<a href='../D/128.html' title='Multiple defined in 7 places.'>end</a> - start) / incr;
+<a name='L314'>      q = (n + nthreads - 1) / nthreads;
+<a name='L315'>
+<a name='L316'>      <b>if</b> (q &lt; chunk_size)
+<a name='L317'>        q = chunk_size;
+<a name='L318'>      <b>if</b> (__builtin_expect (q &lt;= n, 1))
+<a name='L319'>        nend = start + q * incr;
+<a name='L320'>      <b>else</b>
+<a name='L321'>        nend = <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L322'>
+<a name='L323'>      tmp = __sync_val_compare_and_swap (&amp;ws-&gt;next, start, nend);
+<a name='L324'>      <b>if</b> (__builtin_expect (tmp == start, 1))
+<a name='L325'>        <b>break</b>;
+<a name='L326'>
+<a name='L327'>      start = tmp;
+<a name='L328'>    <font color='red'>}</font>
+<a name='L329'>
+<a name='L330'>  *pstart = start;
+<a name='L331'>  *pend = nend;
+<a name='L332'>  <b>return</b> true;
+<a name='L333'><font color='red'>}</font>
+<a name='L334'><font color='darkred'>#endif</font> <i><font color='green'>/* HAVE_SYNC_BUILTINS */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L38'>[^]</a><a href='#L291'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

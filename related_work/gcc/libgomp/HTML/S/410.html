@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>testsuite/libgomp.graphite/pr41118.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/440.html'>libgomp.graphite</a>/pr41118.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L1'>[^]</a><a href='#L10'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L1' title='Defined at 1.'>foo</a>
+<li><a href='#L10' title='Defined at 10.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><b>void</b> <a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a>(<b>int</b> *a, <b>int</b> *b)
+<a name='L2'><font color='red'>{</font>
+<a name='L3'>  <b>int</b> i;
+<a name='L4'>  <b>int</b> *c = b+1;
+<a name='L5'>
+<a name='L6'>  <b>for</b> (i = 0; i &lt; 100; i++)
+<a name='L7'>    a[i] = c[i];
+<a name='L8'><font color='red'>}</font>
+<a name='L9'>
+<a name='L10'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>(<b>void</b>)
+<a name='L11'><font color='red'>{</font>
+<a name='L12'>  <b>return</b> 0;
+<a name='L13'><font color='red'>}</font>
+<a name='L14'>
+<a name='L15'><i><font color='green'>/* Check that parallel code generation part make the right answer.  */</font></i>
+<a name='L16'><i><font color='green'>/* { dg-final { cleanup-tree-dump "graphite" } } */</font></i>
+<a name='L17'><i><font color='green'>/* { dg-final { scan-tree-dump-times "loopfn" 0 "optimized" } } */</font></i>
+<a name='L18'><i><font color='green'>/* { dg-final { cleanup-tree-dump "parloops" } } */</font></i>
+<a name='L19'><i><font color='green'>/* { dg-final { cleanup-tree-dump "optimized" } } */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L1'>[^]</a><a href='#L10'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

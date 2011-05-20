@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/loop-7.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/loop-7.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a><a href='#L17'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L7' title='Defined at 7.'>foo</a>
+<li><a href='#L17' title='Defined at 17.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// PR c++/24502</font></i>
+<a name='L2'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L3'>
+<a name='L4'><b>extern</b> "C" <b>void</b> abort ();
+<a name='L5'>
+<a name='L6'><b>template</b> &lt;<b>typename</b> <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a>&gt; T
+<a name='L7'><a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a> (<a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> r)
+<a name='L8'><font color='red'>{</font>
+<a name='L9'>  <a href='../S/402.html#L6' title='Defined at 6 in testsuite/libgomp.graphite/force-parallel-4.c.'>T</a> i;
+<a name='L10'><font color='darkred'>#pragma</font> omp <b>for</b>
+<a name='L11'>  <b>for</b> (i = 0; i &lt; 10; i++)
+<a name='L12'>    r += i;
+<a name='L13'>  <b>return</b> r;
+<a name='L14'><font color='red'>}</font>
+<a name='L15'>
+<a name='L16'><b>int</b>
+<a name='L17'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L18'><font color='red'>{</font>
+<a name='L19'>  <b>if</b> (<a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> (0) != 10 * 9 / 2 || <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> (2L) != 10L * 9 / 2 + 2)
+<a name='L20'>    abort ();
+<a name='L21'>  <b>return</b> 0;
+<a name='L22'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L7'>[^]</a><a href='#L17'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

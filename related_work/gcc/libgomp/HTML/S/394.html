@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/nestedfn-3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/nestedfn-3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L8'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L8' title='Defined at 8.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'>
+<a name='L3'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L4'>
+<a name='L5'><b>extern</b> <b>void</b> abort (<b>void</b>);
+<a name='L6'>
+<a name='L7'><b>int</b>
+<a name='L8'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L9'><font color='red'>{</font>
+<a name='L10'>  <b>int</b> i = 5, l = 0;
+<a name='L11'>  <b>int</b> <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> (<b>void</b>) <font color='red'>{</font> <b>return</b> i == 6; <font color='red'>}</font>
+<a name='L12'>  <b>int</b> <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a> (<b>void</b>) <font color='red'>{</font> <b>return</b> i - 3; <font color='red'>}</font>
+<a name='L13'>
+<a name='L14'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L15'>
+<a name='L16'><font color='darkred'>#pragma</font> omp parallel <b>if</b> (foo ()) num_threads (bar ()) reduction (|:l)
+<a name='L17'>  <b>if</b> (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 1)
+<a name='L18'>    l = 1;
+<a name='L19'>
+<a name='L20'>  i++;
+<a name='L21'>
+<a name='L22'><font color='darkred'>#pragma</font> omp parallel <b>if</b> (foo ()) num_threads (bar ()) reduction (|:l)
+<a name='L23'>  <b>if</b> (<a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> () != 3)
+<a name='L24'>    l = 1;
+<a name='L25'>
+<a name='L26'>  i++;
+<a name='L27'>
+<a name='L28'><font color='darkred'>#pragma</font> omp master
+<a name='L29'>  <b>if</b> (<a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a> () != 4)
+<a name='L30'>    abort ();
+<a name='L31'>
+<a name='L32'><font color='darkred'>#pragma</font> omp single
+<a name='L33'>  <font color='red'>{</font>
+<a name='L34'>    <b>if</b> (<a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> ())
+<a name='L35'>      abort ();
+<a name='L36'>    i--;
+<a name='L37'>    <b>if</b> (! <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> ())
+<a name='L38'>      abort ();
+<a name='L39'>  <font color='red'>}</font>
+<a name='L40'>
+<a name='L41'>  <b>if</b> (l)
+<a name='L42'>    abort ();
+<a name='L43'>
+<a name='L44'>  i = 8;
+<a name='L45'><font color='darkred'>#pragma</font> omp atomic
+<a name='L46'>  l += <a href='../D/110.html' title='Multiple defined in 9 places.'>bar</a> ();
+<a name='L47'>
+<a name='L48'>  <b>if</b> (l != 5)
+<a name='L49'>    abort ();
+<a name='L50'>
+<a name='L51'>  <b>return</b> 0;
+<a name='L52'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L8'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<html>
+<head>
+<title>libgomp.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/libgomp.h</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L378'>[^]</a><a href='#L495'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/52.html' title='Multiple included from 30 places.'>INCLUDED FROM</a></h2>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L378' title='Defined at 378.'>gomp_icv</a>
+<li><a href='#L474' title='Defined at 474.'>gomp_finish_task</a>
+<li><a href='#L495' title='Defined at 495.'>gomp_work_share_init_done</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Copyright (C) 2005, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.</font></i>
+<a name='L2'><i><font color='green'>   Contributed by Richard Henderson &lt;rth@redhat.com&gt;.</font></i>
+<a name='L3'><i><font color='green'></font></i>
+<a name='L4'><i><font color='green'>   This file is part of the GNU OpenMP Library (libgomp).</font></i>
+<a name='L5'><i><font color='green'></font></i>
+<a name='L6'><i><font color='green'>   Libgomp is free software; you can redistribute it and/or modify it</font></i>
+<a name='L7'><i><font color='green'>   under the terms of the GNU General Public License as published by</font></i>
+<a name='L8'><i><font color='green'>   the Free Software Foundation; either version 3, or (at your option)</font></i>
+<a name='L9'><i><font color='green'>   any later version.</font></i>
+<a name='L10'><i><font color='green'></font></i>
+<a name='L11'><i><font color='green'>   Libgomp is distributed in the hope that it will be useful, but WITHOUT ANY</font></i>
+<a name='L12'><i><font color='green'>   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS</font></i>
+<a name='L13'><i><font color='green'>   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</font></i>
+<a name='L14'><i><font color='green'>   more details.</font></i>
+<a name='L15'><i><font color='green'></font></i>
+<a name='L16'><i><font color='green'>   Under Section 7 of GPL version 3, you are granted additional</font></i>
+<a name='L17'><i><font color='green'>   permissions described in the GCC Runtime Library Exception, version</font></i>
+<a name='L18'><i><font color='green'>   3.1, as published by the Free Software Foundation.</font></i>
+<a name='L19'><i><font color='green'></font></i>
+<a name='L20'><i><font color='green'>   You should have received a copy of the GNU General Public License and</font></i>
+<a name='L21'><i><font color='green'>   a copy of the GCC Runtime Library Exception along with this program;</font></i>
+<a name='L22'><i><font color='green'>   see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</font></i>
+<a name='L23'><i><font color='green'>   &lt;http://www.gnu.org/licenses/&gt;.  */</font></i>
+<a name='L24'>
+<a name='L25'><i><font color='green'>/* This file contains data types and function declarations that are not</font></i>
+<a name='L26'><i><font color='green'>   part of the official OpenMP user interface.  There are declarations</font></i>
+<a name='L27'><i><font color='green'>   in here that are part of the GNU OpenMP ABI, in that the compiler is</font></i>
+<a name='L28'><i><font color='green'>   required to know about them and use them.</font></i>
+<a name='L29'><i><font color='green'></font></i>
+<a name='L30'><i><font color='green'>   The convention is that the all caps prefix "GOMP" is used group items</font></i>
+<a name='L31'><i><font color='green'>   that are part of the external ABI, and the lower case prefix "gomp"</font></i>
+<a name='L32'><i><font color='green'>   is used group items that are completely private to the library.  */</font></i>
+<a name='L33'>
+<a name='L34'><font color='darkred'>#ifndef</font> <a href='../S/14.html#L35' title='Defined at 35 in libgomp.h.'>LIBGOMP_H</a> 
+<a name='L35'><font color='darkred'>#define</font> <a href='../S/14.html#L34' title='Refered from 34 in libgomp.h.'>LIBGOMP_H</a> 1
+<a name='L36'>
+<a name='L37'><font color='darkred'>#include</font> "config.h"
+<a name='L38'><font color='darkred'>#include</font> "gstdint.h"
+<a name='L39'>
+<a name='L40'><font color='darkred'>#include</font> &lt;pthread.h&gt;
+<a name='L41'><font color='darkred'>#include</font> &lt;stdbool.h&gt;
+<a name='L42'>
+<a name='L43'><font color='darkred'>#ifdef</font> HAVE_ATTRIBUTE_VISIBILITY
+<a name='L44'><font color='darkred'># pragma</font> GCC visibility push(hidden)
+<a name='L45'><font color='darkred'>#endif</font>
+<a name='L46'>
+<a name='L47'><font color='darkred'>#include</font> "<a href='../I/25.html'>sem.h</a>"
+<a name='L48'><font color='darkred'>#include</font> "<a href='../I/6.html'>mutex.h</a>"
+<a name='L49'><font color='darkred'>#include</font> "<a href='../I/8.html'>bar.h</a>"
+<a name='L50'><font color='darkred'>#include</font> "<a href='../I/22.html'>ptrlock.h</a>"
+<a name='L51'>
+<a name='L52'>
+<a name='L53'><i><font color='green'>/* This structure contains the data to control one work-sharing construct,</font></i>
+<a name='L54'><i><font color='green'>   either a LOOP (FOR/DO) or a SECTIONS.  */</font></i>
+<a name='L55'>
+<a name='L56'><b>enum</b> <a href='../R/254.html' title='Multiple refered from 2 places.'>gomp_schedule_type</a>
+<a name='L57'><font color='red'>{</font>
+<a name='L58'>  GFS_RUNTIME,
+<a name='L59'>  GFS_STATIC,
+<a name='L60'>  GFS_DYNAMIC,
+<a name='L61'>  GFS_GUIDED,
+<a name='L62'>  GFS_AUTO
+<a name='L63'><font color='red'>}</font>;
+<a name='L64'>
+<a name='L65'><b>struct</b> <a href='../R/298.html' title='Multiple refered from 35 places.'>gomp_work_share</a>
+<a name='L66'><font color='red'>{</font>
+<a name='L67'>  <i><font color='green'>/* This member records the SCHEDULE clause to be used for this construct.</font></i>
+<a name='L68'><i><font color='green'>     The user specification of "runtime" will already have been resolved.</font></i>
+<a name='L69'><i><font color='green'>     If this is a SECTIONS construct, this value will always be DYNAMIC.  */</font></i>
+<a name='L70'>  <b>enum</b> <a href='../S/14.html#L56' title='Defined at 56 in libgomp.h.'>gomp_schedule_type</a> sched;
+<a name='L71'>
+<a name='L72'>  <b>int</b> mode;
+<a name='L73'>
+<a name='L74'>  <b>union</b> <font color='red'>{</font>
+<a name='L75'>    <b>struct</b> <font color='red'>{</font>
+<a name='L76'>      <i><font color='green'>/* This is the chunk_size argument to the SCHEDULE clause.  */</font></i>
+<a name='L77'>      <b>long</b> chunk_size;
+<a name='L78'>
+<a name='L79'>      <i><font color='green'>/* This is the iteration end point.  If this is a SECTIONS construct,</font></i>
+<a name='L80'><i><font color='green'>         this is the number of contained sections.  */</font></i>
+<a name='L81'>      <b>long</b> <a href='../D/128.html' title='Multiple defined in 7 places.'>end</a>;
+<a name='L82'>
+<a name='L83'>      <i><font color='green'>/* This is the iteration step.  If this is a SECTIONS construct, this</font></i>
+<a name='L84'><i><font color='green'>         is always 1.  */</font></i>
+<a name='L85'>      <b>long</b> incr;
+<a name='L86'>    <font color='red'>}</font>;
+<a name='L87'>
+<a name='L88'>    <b>struct</b> <font color='red'>{</font>
+<a name='L89'>      <i><font color='green'>/* The same as above, but for the unsigned long long loop variants.  */</font></i>
+<a name='L90'>      <b>unsigned</b> <b>long</b> <b>long</b> chunk_size_ull;
+<a name='L91'>      <b>unsigned</b> <b>long</b> <b>long</b> end_ull;
+<a name='L92'>      <b>unsigned</b> <b>long</b> <b>long</b> incr_ull;
+<a name='L93'>    <font color='red'>}</font>;
+<a name='L94'>  <font color='red'>}</font>;
+<a name='L95'>
+<a name='L96'>  <i><font color='green'>/* This is a circular queue that details which threads will be allowed</font></i>
+<a name='L97'><i><font color='green'>     into the ordered region and in which order.  When a thread allocates</font></i>
+<a name='L98'><i><font color='green'>     iterations on which it is going to work, it also registers itself at</font></i>
+<a name='L99'><i><font color='green'>     the end of the array.  When a thread reaches the ordered region, it</font></i>
+<a name='L100'><i><font color='green'>     checks to see if it is the one at the head of the queue.  If not, it</font></i>
+<a name='L101'><i><font color='green'>     blocks on its RELEASE semaphore.  */</font></i>
+<a name='L102'>  <b>unsigned</b> *ordered_team_ids;
+<a name='L103'>
+<a name='L104'>  <i><font color='green'>/* This is the number of threads that have registered themselves in</font></i>
+<a name='L105'><i><font color='green'>     the circular queue ordered_team_ids.  */</font></i>
+<a name='L106'>  <b>unsigned</b> ordered_num_used;
+<a name='L107'>
+<a name='L108'>  <i><font color='green'>/* This is the team_id of the currently acknowledged owner of the ordered</font></i>
+<a name='L109'><i><font color='green'>     section, or -1u if the ordered section has not been acknowledged by</font></i>
+<a name='L110'><i><font color='green'>     any thread.  This is distinguished from the thread that is *allowed*</font></i>
+<a name='L111'><i><font color='green'>     to take the section next.  */</font></i>
+<a name='L112'>  <b>unsigned</b> ordered_owner;
+<a name='L113'>
+<a name='L114'>  <i><font color='green'>/* This is the index into the circular queue ordered_team_ids of the</font></i>
+<a name='L115'><i><font color='green'>     current thread that's allowed into the ordered reason.  */</font></i>
+<a name='L116'>  <b>unsigned</b> ordered_cur;
+<a name='L117'>
+<a name='L118'>  <i><font color='green'>/* This is a chain of allocated gomp_work_share blocks, valid only</font></i>
+<a name='L119'><i><font color='green'>     in the first gomp_work_share struct in the block.  */</font></i>
+<a name='L120'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *next_alloc;
+<a name='L121'>
+<a name='L122'>  <i><font color='green'>/* The above fields are written once during workshare initialization,</font></i>
+<a name='L123'><i><font color='green'>     or related to ordered worksharing.  Make sure the following fields</font></i>
+<a name='L124'><i><font color='green'>     are in a different cache line.  */</font></i>
+<a name='L125'>
+<a name='L126'>  <i><font color='green'>/* This lock protects the update of the following members.  */</font></i>
+<a name='L127'>  <a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> lock <b>__attribute__</b>((aligned (64)));
+<a name='L128'>
+<a name='L129'>  <i><font color='green'>/* This is the count of the number of threads that have exited the work</font></i>
+<a name='L130'><i><font color='green'>     share construct.  If the construct was marked nowait, they have moved on</font></i>
+<a name='L131'><i><font color='green'>     to other work; otherwise they're blocked on a barrier.  The last member</font></i>
+<a name='L132'><i><font color='green'>     of the team to exit the work share construct must deallocate it.  */</font></i>
+<a name='L133'>  <b>unsigned</b> threads_completed;
+<a name='L134'>
+<a name='L135'>  <b>union</b> <font color='red'>{</font>
+<a name='L136'>    <i><font color='green'>/* This is the next iteration value to be allocated.  In the case of</font></i>
+<a name='L137'><i><font color='green'>       GFS_STATIC loops, this the iteration start point and never changes.  */</font></i>
+<a name='L138'>    <b>long</b> next;
+<a name='L139'>
+<a name='L140'>    <i><font color='green'>/* The same, but with unsigned long long type.  */</font></i>
+<a name='L141'>    <b>unsigned</b> <b>long</b> <b>long</b> next_ull;
+<a name='L142'>
+<a name='L143'>    <i><font color='green'>/* This is the returned data structure for SINGLE COPYPRIVATE.  */</font></i>
+<a name='L144'>    <b>void</b> *copyprivate;
+<a name='L145'>  <font color='red'>}</font>;
+<a name='L146'>
+<a name='L147'>  <b>union</b> <font color='red'>{</font>
+<a name='L148'>    <i><font color='green'>/* Link to gomp_work_share struct for next work sharing construct</font></i>
+<a name='L149'><i><font color='green'>       encountered after this one.  */</font></i>
+<a name='L150'>    <a href='../D/261.html' title='Multiple defined in 2 places.'>gomp_ptrlock_t</a> next_ws;
+<a name='L151'>
+<a name='L152'>    <i><font color='green'>/* gomp_work_share structs are chained in the free work share cache</font></i>
+<a name='L153'><i><font color='green'>       through this.  */</font></i>
+<a name='L154'>    <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *next_free;
+<a name='L155'>  <font color='red'>}</font>;
+<a name='L156'>
+<a name='L157'>  <i><font color='green'>/* If only few threads are in the team, ordered_team_ids can point</font></i>
+<a name='L158'><i><font color='green'>     to this array which fills the padding at the end of this struct.  */</font></i>
+<a name='L159'>  <b>unsigned</b> inline_ordered_team_ids[0];
+<a name='L160'><font color='red'>}</font>;
+<a name='L161'>
+<a name='L162'><i><font color='green'>/* This structure contains all of the thread-local data associated with </font></i>
+<a name='L163'><i><font color='green'>   a thread team.  This is the data that must be saved when a thread</font></i>
+<a name='L164'><i><font color='green'>   encounters a nested PARALLEL construct.  */</font></i>
+<a name='L165'>
+<a name='L166'><b>struct</b> <a href='../R/282.html' title='Multiple refered from 5 places.'>gomp_team_state</a>
+<a name='L167'><font color='red'>{</font>
+<a name='L168'>  <i><font color='green'>/* This is the team of which the thread is currently a member.  */</font></i>
+<a name='L169'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *team;
+<a name='L170'>
+<a name='L171'>  <i><font color='green'>/* This is the work share construct which this thread is currently</font></i>
+<a name='L172'><i><font color='green'>     processing.  Recall that with NOWAIT, not all threads may be </font></i>
+<a name='L173'><i><font color='green'>     processing the same construct.  */</font></i>
+<a name='L174'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *work_share;
+<a name='L175'>
+<a name='L176'>  <i><font color='green'>/* This is the previous work share construct or NULL if there wasn't any.</font></i>
+<a name='L177'><i><font color='green'>     When all threads are done with the current work sharing construct,</font></i>
+<a name='L178'><i><font color='green'>     the previous one can be freed.  The current one can't, as its</font></i>
+<a name='L179'><i><font color='green'>     next_ws field is used.  */</font></i>
+<a name='L180'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *last_work_share;
+<a name='L181'>
+<a name='L182'>  <i><font color='green'>/* This is the ID of this thread within the team.  This value is</font></i>
+<a name='L183'><i><font color='green'>     guaranteed to be between 0 and N-1, where N is the number of</font></i>
+<a name='L184'><i><font color='green'>     threads in the team.  */</font></i>
+<a name='L185'>  <b>unsigned</b> team_id;
+<a name='L186'>
+<a name='L187'>  <i><font color='green'>/* Nesting level.  */</font></i>
+<a name='L188'>  <b>unsigned</b> level;
+<a name='L189'>
+<a name='L190'>  <i><font color='green'>/* Active nesting level.  Only active parallel regions are counted.  */</font></i>
+<a name='L191'>  <b>unsigned</b> active_level;
+<a name='L192'>
+<a name='L193'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L194'>  <i><font color='green'>/* Number of single stmts encountered.  */</font></i>
+<a name='L195'>  <b>unsigned</b> <b>long</b> single_count;
+<a name='L196'><font color='darkred'>#endif</font>
+<a name='L197'>
+<a name='L198'>  <i><font color='green'>/* For GFS_RUNTIME loops that resolved to GFS_STATIC, this is the</font></i>
+<a name='L199'><i><font color='green'>     trip number through the loop.  So first time a particular loop</font></i>
+<a name='L200'><i><font color='green'>     is encountered this number is 0, the second time through the loop</font></i>
+<a name='L201'><i><font color='green'>     is 1, etc.  This is unused when the compiler knows in advance that</font></i>
+<a name='L202'><i><font color='green'>     the loop is statically scheduled.  */</font></i>
+<a name='L203'>  <b>unsigned</b> <b>long</b> static_trip;
+<a name='L204'><font color='red'>}</font>;
+<a name='L205'>
+<a name='L206'><i><font color='green'>/* These are the OpenMP 3.0 Internal Control Variables described in</font></i>
+<a name='L207'><i><font color='green'>   section 2.3.1.  Those described as having one copy per task are</font></i>
+<a name='L208'><i><font color='green'>   stored within the structure; those described as having one copy</font></i>
+<a name='L209'><i><font color='green'>   for the whole program are (naturally) global variables.  */</font></i>
+<a name='L210'>
+<a name='L211'><b>struct</b> <a href='../R/269.html' title='Multiple refered from 21 places.'>gomp_task_icv</a>
+<a name='L212'><font color='red'>{</font>
+<a name='L213'>  <b>unsigned</b> <b>long</b> nthreads_var;
+<a name='L214'>  <b>enum</b> <a href='../S/14.html#L56' title='Defined at 56 in libgomp.h.'>gomp_schedule_type</a> run_sched_var;
+<a name='L215'>  <b>int</b> run_sched_modifier;
+<a name='L216'>  bool dyn_var;
+<a name='L217'>  bool nest_var;
+<a name='L218'><font color='red'>}</font>;
+<a name='L219'>
+<a name='L220'><b>extern</b> <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> gomp_global_icv;
+<a name='L221'><b>extern</b> <b>unsigned</b> <b>long</b> gomp_thread_limit_var;
+<a name='L222'><b>extern</b> <b>unsigned</b> <b>long</b> gomp_remaining_threads_count;
+<a name='L223'><font color='darkred'>#ifndef</font> HAVE_SYNC_BUILTINS
+<a name='L224'><b>extern</b> <a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> gomp_remaining_threads_lock;
+<a name='L225'><font color='darkred'>#endif</font>
+<a name='L226'><b>extern</b> <b>unsigned</b> <b>long</b> gomp_max_active_levels_var;
+<a name='L227'><b>extern</b> <b>unsigned</b> <b>long</b> <b>long</b> gomp_spin_count_var, gomp_throttled_spin_count_var;
+<a name='L228'><b>extern</b> <b>unsigned</b> <b>long</b> gomp_available_cpus, gomp_managed_threads;
+<a name='L229'>
+<a name='L230'><b>enum</b> <a href='../S/14.html#L251' title='Refered from 251 in libgomp.h.'>gomp_task_kind</a>
+<a name='L231'><font color='red'>{</font>
+<a name='L232'>  GOMP_TASK_IMPLICIT,
+<a name='L233'>  GOMP_TASK_IFFALSE,
+<a name='L234'>  GOMP_TASK_WAITING,
+<a name='L235'>  GOMP_TASK_TIED
+<a name='L236'><font color='red'>}</font>;
+<a name='L237'>
+<a name='L238'><i><font color='green'>/* This structure describes a "task" to be run by a thread.  */</font></i>
+<a name='L239'>
+<a name='L240'><b>struct</b> <a href='../R/268.html' title='Multiple refered from 29 places.'>gomp_task</a>
+<a name='L241'><font color='red'>{</font>
+<a name='L242'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *parent;
+<a name='L243'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *children;
+<a name='L244'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *next_child;
+<a name='L245'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *prev_child;
+<a name='L246'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *next_queue;
+<a name='L247'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *prev_queue;
+<a name='L248'>  <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> icv;
+<a name='L249'>  <b>void</b> (*fn) (<b>void</b> *);
+<a name='L250'>  <b>void</b> *fn_data;
+<a name='L251'>  <b>enum</b> <a href='../S/14.html#L230' title='Defined at 230 in libgomp.h.'>gomp_task_kind</a> kind;
+<a name='L252'>  bool in_taskwait;
+<a name='L253'>  bool in_tied_task;
+<a name='L254'>  <a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> taskwait_sem;
+<a name='L255'><font color='red'>}</font>;
+<a name='L256'>
+<a name='L257'><i><font color='green'>/* This structure describes a "team" of threads.  These are the threads</font></i>
+<a name='L258'><i><font color='green'>   that are spawned by a PARALLEL constructs, as well as the work sharing</font></i>
+<a name='L259'><i><font color='green'>   constructs that the team encounters.  */</font></i>
+<a name='L260'>
+<a name='L261'><b>struct</b> <a href='../R/271.html' title='Multiple refered from 38 places.'>gomp_team</a>
+<a name='L262'><font color='red'>{</font>
+<a name='L263'>  <i><font color='green'>/* This is the number of threads in the current team.  */</font></i>
+<a name='L264'>  <b>unsigned</b> nthreads;
+<a name='L265'>
+<a name='L266'>  <i><font color='green'>/* This is number of gomp_work_share structs that have been allocated</font></i>
+<a name='L267'><i><font color='green'>     as a block last time.  */</font></i>
+<a name='L268'>  <b>unsigned</b> work_share_chunk;
+<a name='L269'>
+<a name='L270'>  <i><font color='green'>/* This is the saved team state that applied to a master thread before</font></i>
+<a name='L271'><i><font color='green'>     the current thread was created.  */</font></i>
+<a name='L272'>  <b>struct</b> <a href='../S/14.html#L166' title='Defined at 166 in libgomp.h.'>gomp_team_state</a> prev_ts;
+<a name='L273'>
+<a name='L274'>  <i><font color='green'>/* This semaphore should be used by the master thread instead of its</font></i>
+<a name='L275'><i><font color='green'>     "native" semaphore in the thread structure.  Required for nested</font></i>
+<a name='L276'><i><font color='green'>     parallels, as the master is a member of two teams.  */</font></i>
+<a name='L277'>  <a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> master_release;
+<a name='L278'>
+<a name='L279'>  <i><font color='green'>/* This points to an array with pointers to the release semaphore</font></i>
+<a name='L280'><i><font color='green'>     of the threads in the team.  */</font></i>
+<a name='L281'>  <a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> **ordered_release;
+<a name='L282'>
+<a name='L283'>  <i><font color='green'>/* List of gomp_work_share structs chained through next_free fields.</font></i>
+<a name='L284'><i><font color='green'>     This is populated and taken off only by the first thread in the</font></i>
+<a name='L285'><i><font color='green'>     team encountering a new work sharing construct, in a critical</font></i>
+<a name='L286'><i><font color='green'>     section.  */</font></i>
+<a name='L287'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *work_share_list_alloc;
+<a name='L288'>
+<a name='L289'>  <i><font color='green'>/* List of gomp_work_share structs freed by free_work_share.  New</font></i>
+<a name='L290'><i><font color='green'>     entries are atomically added to the start of the list, and</font></i>
+<a name='L291'><i><font color='green'>     alloc_work_share can safely only move all but the first entry</font></i>
+<a name='L292'><i><font color='green'>     to work_share_list alloc, as free_work_share can happen concurrently</font></i>
+<a name='L293'><i><font color='green'>     with alloc_work_share.  */</font></i>
+<a name='L294'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> *work_share_list_free;
+<a name='L295'>
+<a name='L296'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L297'>  <i><font color='green'>/* Number of simple single regions encountered by threads in this</font></i>
+<a name='L298'><i><font color='green'>     team.  */</font></i>
+<a name='L299'>  <b>unsigned</b> <b>long</b> single_count;
+<a name='L300'><font color='darkred'>#else</font>
+<a name='L301'>  <i><font color='green'>/* Mutex protecting addition of workshares to work_share_list_free.  */</font></i>
+<a name='L302'>  <a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> work_share_list_free_lock;
+<a name='L303'><font color='darkred'>#endif</font>
+<a name='L304'>
+<a name='L305'>  <i><font color='green'>/* This barrier is used for most synchronization of the team.  */</font></i>
+<a name='L306'>  <a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> barrier;
+<a name='L307'>
+<a name='L308'>  <i><font color='green'>/* Initial work shares, to avoid allocating any gomp_work_share</font></i>
+<a name='L309'><i><font color='green'>     structs in the common case.  */</font></i>
+<a name='L310'>  <b>struct</b> <a href='../S/14.html#L65' title='Defined at 65 in libgomp.h.'>gomp_work_share</a> work_shares[8];
+<a name='L311'>
+<a name='L312'>  <a href='../D/242.html' title='Multiple defined in 3 places.'>gomp_mutex_t</a> task_lock;
+<a name='L313'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *task_queue;
+<a name='L314'>  <b>int</b> task_count;
+<a name='L315'>  <b>int</b> task_running_count;
+<a name='L316'>
+<a name='L317'>  <i><font color='green'>/* This array contains structures for implicit tasks.  */</font></i>
+<a name='L318'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> implicit_task[];
+<a name='L319'><font color='red'>}</font>;
+<a name='L320'>
+<a name='L321'><i><font color='green'>/* This structure contains all data that is private to libgomp and is</font></i>
+<a name='L322'><i><font color='green'>   allocated per thread.  */</font></i>
+<a name='L323'>
+<a name='L324'><b>struct</b> <a href='../R/287.html' title='Multiple refered from 88 places.'>gomp_thread</a>
+<a name='L325'><font color='red'>{</font>
+<a name='L326'>  <i><font color='green'>/* This is the function that the thread should run upon launch.  */</font></i>
+<a name='L327'>  <b>void</b> (*fn) (<b>void</b> *data);
+<a name='L328'>  <b>void</b> *data;
+<a name='L329'>
+<a name='L330'>  <i><font color='green'>/* This is the current team state for this thread.  The ts.team member</font></i>
+<a name='L331'><i><font color='green'>     is NULL only if the thread is idle.  */</font></i>
+<a name='L332'>  <b>struct</b> <a href='../S/14.html#L166' title='Defined at 166 in libgomp.h.'>gomp_team_state</a> ts;
+<a name='L333'>
+<a name='L334'>  <i><font color='green'>/* This is the task that the thread is currently executing.  */</font></i>
+<a name='L335'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *task;
+<a name='L336'>
+<a name='L337'>  <i><font color='green'>/* This semaphore is used for ordered loops.  */</font></i>
+<a name='L338'>  <a href='../D/271.html' title='Multiple defined in 3 places.'>gomp_sem_t</a> release;
+<a name='L339'>
+<a name='L340'>  <i><font color='green'>/* user pthread thread pool */</font></i>
+<a name='L341'>  <b>struct</b> <a href='../S/14.html#L345' title='Defined at 345 in libgomp.h.'>gomp_thread_pool</a> *thread_pool;
+<a name='L342'><font color='red'>}</font>;
+<a name='L343'>
+<a name='L344'>
+<a name='L345'><b>struct</b> <a href='../R/288.html' title='Multiple refered from 11 places.'>gomp_thread_pool</a>
+<a name='L346'><font color='red'>{</font>
+<a name='L347'>  <i><font color='green'>/* This array manages threads spawned from the top level, which will</font></i>
+<a name='L348'><i><font color='green'>     return to the idle loop once the current PARALLEL construct ends.  */</font></i>
+<a name='L349'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> **threads;
+<a name='L350'>  <b>unsigned</b> threads_size;
+<a name='L351'>  <b>unsigned</b> threads_used;
+<a name='L352'>  <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *last_team;
+<a name='L353'>
+<a name='L354'>  <i><font color='green'>/* This barrier holds and releases threads waiting in threads.  */</font></i>
+<a name='L355'>  <a href='../D/165.html' title='Multiple defined in 2 places.'>gomp_barrier_t</a> threads_dock;
+<a name='L356'><font color='red'>}</font>;
+<a name='L357'>
+<a name='L358'><i><font color='green'>/* ... and here is that TLS data.  */</font></i>
+<a name='L359'>
+<a name='L360'><font color='darkred'>#ifdef</font> HAVE_TLS
+<a name='L361'><b>extern</b> <b>__thread</b> <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> gomp_tls_data;
+<a name='L362'><b>static</b> <b>inline</b> <b>struct</b> <a href='../R/287.html' title='Multiple refered from 88 places.'>gomp_thread</a> *<a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> (<b>void</b>)
+<a name='L363'><font color='red'>{</font>
+<a name='L364'>  <b>return</b> &amp;gomp_tls_data;
+<a name='L365'><font color='red'>}</font>
+<a name='L366'><font color='darkred'>#else</font>
+<a name='L367'><b>extern</b> pthread_key_t gomp_tls_key;
+<a name='L368'><b>static</b> <b>inline</b> <b>struct</b> <a href='../R/287.html' title='Multiple refered from 88 places.'>gomp_thread</a> *<a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> (<b>void</b>)
+<a name='L369'><font color='red'>{</font>
+<a name='L370'>  <b>return</b> pthread_getspecific (gomp_tls_key);
+<a name='L371'><font color='red'>}</font>
+<a name='L372'><font color='darkred'>#endif</font>
+<a name='L373'>
+<a name='L374'><b>extern</b> <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *<a href='../S/11.html#L547' title='Defined at 547 in team.c.'>gomp_new_icv</a> (<b>void</b>);
+<a name='L375'>
+<a name='L376'><i><font color='green'>/* Here's how to access the current copy of the ICVs.  */</font></i>
+<a name='L377'>
+<a name='L378'><b>static</b> <b>inline</b> <b>struct</b> <a href='../S/14.html#L211' title='Defined at 211 in libgomp.h.'>gomp_task_icv</a> *<a href='../R/180.html' title='Multiple refered from 33 places.'>gomp_icv</a> (bool write)
+<a name='L379'><font color='red'>{</font>
+<a name='L380'>  <b>struct</b> <a href='../S/14.html#L240' title='Defined at 240 in libgomp.h.'>gomp_task</a> *task = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ()-&gt;task;
+<a name='L381'>  <b>if</b> (task)
+<a name='L382'>    <b>return</b> &amp;task-&gt;icv;
+<a name='L383'>  <b>else</b> <b>if</b> (write)
+<a name='L384'>    <b>return</b> <a href='../S/11.html#L547' title='Defined at 547 in team.c.'>gomp_new_icv</a> ();
+<a name='L385'>  <b>else</b>
+<a name='L386'>    <b>return</b> &amp;gomp_global_icv;
+<a name='L387'><font color='red'>}</font>
+<a name='L388'>
+<a name='L389'><i><font color='green'>/* The attributes to be used during thread creation.  */</font></i>
+<a name='L390'><b>extern</b> pthread_attr_t gomp_thread_attr;
+<a name='L391'>
+<a name='L392'><i><font color='green'>/* Other variables.  */</font></i>
+<a name='L393'>
+<a name='L394'><b>extern</b> <b>unsigned</b> <b>short</b> *gomp_cpu_affinity;
+<a name='L395'><b>extern</b> size_t gomp_cpu_affinity_len;
+<a name='L396'>
+<a name='L397'><i><font color='green'>/* Function prototypes.  */</font></i>
+<a name='L398'>
+<a name='L399'><i><font color='green'>/* affinity.c */</font></i>
+<a name='L400'>
+<a name='L401'><b>extern</b> <b>void</b> <a href='../D/188.html' title='Multiple defined in 2 places.'>gomp_init_affinity</a> (<b>void</b>);
+<a name='L402'><b>extern</b> <b>void</b> <a href='../D/198.html' title='Multiple defined in 2 places.'>gomp_init_thread_affinity</a> (pthread_attr_t *);
+<a name='L403'>
+<a name='L404'><i><font color='green'>/* alloc.c */</font></i>
+<a name='L405'>
+<a name='L406'><b>extern</b> <b>void</b> *<a href='../S/415.html#L34' title='Defined at 34 in alloc.c.'>gomp_malloc</a> (size_t) <b>__attribute__</b>((malloc));
+<a name='L407'><b>extern</b> <b>void</b> *<a href='../S/415.html#L43' title='Defined at 43 in alloc.c.'>gomp_malloc_cleared</a> (size_t) <b>__attribute__</b>((malloc));
+<a name='L408'><b>extern</b> <b>void</b> *<a href='../S/415.html#L52' title='Defined at 52 in alloc.c.'>gomp_realloc</a> (<b>void</b> *, size_t);
+<a name='L409'>
+<a name='L410'><i><font color='green'>/* Avoid conflicting prototypes of alloca() in system headers by using</font></i>
+<a name='L411'><i><font color='green'>   GCC's builtin alloca().  */</font></i>
+<a name='L412'><font color='darkred'>#define</font> <a href='../S/11.html#L393' title='Refered from 393 in team.c.'>gomp_alloca</a>(x)  __builtin_alloca(x)
+<a name='L413'>
+<a name='L414'><i><font color='green'>/* error.c */</font></i>
+<a name='L415'>
+<a name='L416'><b>extern</b> <b>void</b> <a href='../S/418.html#L47' title='Defined at 47 in error.c.'>gomp_error</a> (<b>const</b> <b>char</b> *, ...)
+<a name='L417'>        <b>__attribute__</b>((format (printf, 1, 2)));
+<a name='L418'><b>extern</b> <b>void</b> <a href='../S/418.html#L57' title='Defined at 57 in error.c.'>gomp_fatal</a> (<b>const</b> <b>char</b> *, ...)
+<a name='L419'>        <b>__attribute__</b>((noreturn, format (printf, 1, 2)));
+<a name='L420'>
+<a name='L421'><i><font color='green'>/* iter.c */</font></i>
+<a name='L422'>
+<a name='L423'><b>extern</b> <b>int</b> <a href='../S/419.html#L38' title='Defined at 38 in iter.c.'>gomp_iter_static_next</a> (<b>long</b> *, <b>long</b> *);
+<a name='L424'><b>extern</b> bool <a href='../S/419.html#L144' title='Defined at 144 in iter.c.'>gomp_iter_dynamic_next_locked</a> (<b>long</b> *, <b>long</b> *);
+<a name='L425'><b>extern</b> bool <a href='../S/419.html#L257' title='Defined at 257 in iter.c.'>gomp_iter_guided_next_locked</a> (<b>long</b> *, <b>long</b> *);
+<a name='L426'>
+<a name='L427'><font color='darkred'>#ifdef</font> HAVE_SYNC_BUILTINS
+<a name='L428'><b>extern</b> bool <a href='../S/419.html#L180' title='Defined at 180 in iter.c.'>gomp_iter_dynamic_next</a> (<b>long</b> *, <b>long</b> *);
+<a name='L429'><b>extern</b> bool <a href='../S/419.html#L291' title='Defined at 291 in iter.c.'>gomp_iter_guided_next</a> (<b>long</b> *, <b>long</b> *);
+<a name='L430'><font color='darkred'>#endif</font>
+<a name='L431'>
+<a name='L432'><i><font color='green'>/* iter_ull.c */</font></i>
+<a name='L433'>
+<a name='L434'><b>extern</b> <b>int</b> <a href='../S/16.html#L39' title='Defined at 39 in iter_ull.c.'>gomp_iter_ull_static_next</a> (<b>unsigned</b> <b>long</b> <b>long</b> *,
+<a name='L435'>                                      <b>unsigned</b> <b>long</b> <b>long</b> *);
+<a name='L436'><b>extern</b> bool <a href='../S/16.html#L146' title='Defined at 146 in iter_ull.c.'>gomp_iter_ull_dynamic_next_locked</a> (<b>unsigned</b> <b>long</b> <b>long</b> *,
+<a name='L437'>                                               <b>unsigned</b> <b>long</b> <b>long</b> *);
+<a name='L438'><b>extern</b> bool <a href='../S/16.html#L258' title='Defined at 258 in iter_ull.c.'>gomp_iter_ull_guided_next_locked</a> (<b>unsigned</b> <b>long</b> <b>long</b> *,
+<a name='L439'>                                              <b>unsigned</b> <b>long</b> <b>long</b> *);
+<a name='L440'>
+<a name='L441'><font color='darkred'>#if</font> <b>defined</b> HAVE_SYNC_BUILTINS &amp;&amp; <b>defined</b> __LP64__
+<a name='L442'><b>extern</b> bool <a href='../S/16.html#L182' title='Defined at 182 in iter_ull.c.'>gomp_iter_ull_dynamic_next</a> (<b>unsigned</b> <b>long</b> <b>long</b> *,
+<a name='L443'>                                        <b>unsigned</b> <b>long</b> <b>long</b> *);
+<a name='L444'><b>extern</b> bool <a href='../S/16.html#L295' title='Defined at 295 in iter_ull.c.'>gomp_iter_ull_guided_next</a> (<b>unsigned</b> <b>long</b> <b>long</b> *,
+<a name='L445'>                                       <b>unsigned</b> <b>long</b> <b>long</b> *);
+<a name='L446'><font color='darkred'>#endif</font>
+<a name='L447'>
+<a name='L448'><i><font color='green'>/* ordered.c */</font></i>
+<a name='L449'>
+<a name='L450'><b>extern</b> <b>void</b> <a href='../S/2.html#L35' title='Defined at 35 in ordered.c.'>gomp_ordered_first</a> (<b>void</b>);
+<a name='L451'><b>extern</b> <b>void</b> <a href='../S/2.html#L66' title='Defined at 66 in ordered.c.'>gomp_ordered_last</a> (<b>void</b>);
+<a name='L452'><b>extern</b> <b>void</b> <a href='../S/2.html#L101' title='Defined at 101 in ordered.c.'>gomp_ordered_next</a> (<b>void</b>);
+<a name='L453'><b>extern</b> <b>void</b> <a href='../S/2.html#L149' title='Defined at 149 in ordered.c.'>gomp_ordered_static_init</a> (<b>void</b>);
+<a name='L454'><b>extern</b> <b>void</b> <a href='../S/2.html#L167' title='Defined at 167 in ordered.c.'>gomp_ordered_static_next</a> (<b>void</b>);
+<a name='L455'><b>extern</b> <b>void</b> <a href='../S/2.html#L191' title='Defined at 191 in ordered.c.'>gomp_ordered_sync</a> (<b>void</b>);
+<a name='L456'>
+<a name='L457'><i><font color='green'>/* parallel.c */</font></i>
+<a name='L458'>
+<a name='L459'><b>extern</b> <b>unsigned</b> <a href='../S/21.html#L38' title='Defined at 38 in parallel.c.'>gomp_resolve_num_threads</a> (<b>unsigned</b>, <b>unsigned</b>);
+<a name='L460'>
+<a name='L461'><i><font color='green'>/* proc.c (in config/) */</font></i>
+<a name='L462'>
+<a name='L463'><b>extern</b> <b>void</b> <a href='../D/196.html' title='Multiple defined in 4 places.'>gomp_init_num_threads</a> (<b>void</b>);
+<a name='L464'><b>extern</b> <b>unsigned</b> <a href='../D/179.html' title='Multiple defined in 4 places.'>gomp_dynamic_max_threads</a> (<b>void</b>);
+<a name='L465'>
+<a name='L466'><i><font color='green'>/* task.c */</font></i>
+<a name='L467'>
+<a name='L468'><b>extern</b> <b>void</b> <a href='../S/8.html#L36' title='Defined at 36 in task.c.'>gomp_init_task</a> (<b>struct</b> gomp_task *, <b>struct</b> gomp_task *,
+<a name='L469'>                            <b>struct</b> gomp_task_icv *);
+<a name='L470'><b>extern</b> <b>void</b> <a href='../S/8.html#L51' title='Defined at 51 in task.c.'>gomp_end_task</a> (<b>void</b>);
+<a name='L471'><b>extern</b> <b>void</b> <a href='../S/8.html#L186' title='Defined at 186 in task.c.'>gomp_barrier_handle_tasks</a> (<a href='../D/164.html' title='Multiple defined in 2 places.'>gomp_barrier_state_t</a>);
+<a name='L472'>
+<a name='L473'><b>static</b> <b>void</b> <b>inline</b>
+<a name='L474'><a href='../R/177.html' title='Multiple refered from 6 places.'>gomp_finish_task</a> (<b>struct</b> gomp_task *task)
+<a name='L475'><font color='red'>{</font>
+<a name='L476'>  <a href='../D/267.html' title='Multiple defined in 3 places.'>gomp_sem_destroy</a> (&amp;task-&gt;taskwait_sem);
+<a name='L477'><font color='red'>}</font>
+<a name='L478'>
+<a name='L479'><i><font color='green'>/* team.c */</font></i>
+<a name='L480'>
+<a name='L481'><b>extern</b> <b>struct</b> <a href='../S/14.html#L261' title='Defined at 261 in libgomp.h.'>gomp_team</a> *<a href='../S/11.html#L136' title='Defined at 136 in team.c.'>gomp_new_team</a> (<b>unsigned</b>);
+<a name='L482'><b>extern</b> <b>void</b> <a href='../S/11.html#L252' title='Defined at 252 in team.c.'>gomp_team_start</a> (<b>void</b> (*) (<b>void</b> *), <b>void</b> *, <b>unsigned</b>,
+<a name='L483'>                             <b>struct</b> gomp_team *);
+<a name='L484'><b>extern</b> <b>void</b> <a href='../S/11.html#L458' title='Defined at 458 in team.c.'>gomp_team_end</a> (<b>void</b>);
+<a name='L485'>
+<a name='L486'><i><font color='green'>/* work.c */</font></i>
+<a name='L487'>
+<a name='L488'><b>extern</b> <b>void</b> <a href='../S/19.html#L92' title='Defined at 92 in work.c.'>gomp_init_work_share</a> (<b>struct</b> gomp_work_share *, bool, <b>unsigned</b>);
+<a name='L489'><b>extern</b> <b>void</b> <a href='../S/19.html#L124' title='Defined at 124 in work.c.'>gomp_fini_work_share</a> (<b>struct</b> gomp_work_share *);
+<a name='L490'><b>extern</b> bool <a href='../S/19.html#L168' title='Defined at 168 in work.c.'>gomp_work_share_start</a> (bool);
+<a name='L491'><b>extern</b> <b>void</b> <a href='../S/19.html#L205' title='Defined at 205 in work.c.'>gomp_work_share_end</a> (<b>void</b>);
+<a name='L492'><b>extern</b> <b>void</b> <a href='../S/19.html#L235' title='Defined at 235 in work.c.'>gomp_work_share_end_nowait</a> (<b>void</b>);
+<a name='L493'>
+<a name='L494'><b>static</b> <b>inline</b> <b>void</b>
+<a name='L495'><a href='../R/301.html' title='Multiple refered from 15 places.'>gomp_work_share_init_done</a> (<b>void</b>)
+<a name='L496'><font color='red'>{</font>
+<a name='L497'>  <b>struct</b> <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> *thr = <a href='../D/305.html' title='Multiple defined in 3 places.'>gomp_thread</a> ();
+<a name='L498'>  <b>if</b> (__builtin_expect (thr-&gt;ts.last_work_share != NULL, 1))
+<a name='L499'>    <a href='../D/259.html' title='Multiple defined in 2 places.'>gomp_ptrlock_set</a> (&amp;thr-&gt;ts.last_work_share-&gt;next_ws, thr-&gt;ts.work_share);
+<a name='L500'><font color='red'>}</font>
+<a name='L501'>
+<a name='L502'><font color='darkred'>#ifdef</font> HAVE_ATTRIBUTE_VISIBILITY
+<a name='L503'><font color='darkred'># pragma</font> GCC visibility pop
+<a name='L504'><font color='darkred'>#endif</font>
+<a name='L505'>
+<a name='L506'><i><font color='green'>/* Now that we're back to default visibility, include the globals.  */</font></i>
+<a name='L507'><font color='darkred'>#include</font> "<a href='420.html'>libgomp_g.h</a>"
+<a name='L508'>
+<a name='L509'><i><font color='green'>/* Include omp.h by parts.  */</font></i>
+<a name='L510'><font color='darkred'>#include</font> "<a href='../I/17.html'>omp-lock.h</a>"
+<a name='L511'><font color='darkred'>#define</font> _LIBGOMP_OMP_LOCK_DEFINED 1
+<a name='L512'><font color='darkred'>#include</font> "omp.h.in"
+<a name='L513'>
+<a name='L514'><font color='darkred'>#if</font> !<b>defined</b> (HAVE_ATTRIBUTE_VISIBILITY) \
+<a name='L515'>    || !<b>defined</b> (HAVE_ATTRIBUTE_ALIAS) \
+<a name='L516'>    || !<b>defined</b> (HAVE_AS_SYMVER_DIRECTIVE) \
+<a name='L517'>    || !<b>defined</b> (PIC) \
+<a name='L518'>    || !<b>defined</b> (HAVE_SYMVER_SYMBOL_RENAMING_RUNTIME_SUPPORT)
+<a name='L519'><font color='darkred'># undef</font> <a href='../R/75.html' title='Multiple refered from 7 places.'>LIBGOMP_GNU_SYMBOL_VERSIONING</a>
+<a name='L520'><font color='darkred'>#endif</font>
+<a name='L521'>
+<a name='L522'><font color='darkred'>#ifdef</font> <a href='../S/14.html#L519' title='Defined at 519 in libgomp.h.'>LIBGOMP_GNU_SYMBOL_VERSIONING</a>
+<a name='L523'><b>extern</b> <b>void</b> <a href='../D/190.html' title='Multiple defined in 5 places.'>gomp_init_lock_30</a> (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L524'><b>extern</b> <b>void</b> gomp_destroy_lock_30 (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L525'><b>extern</b> <b>void</b> gomp_set_lock_30 (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L526'><b>extern</b> <b>void</b> gomp_unset_lock_30 (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L527'><b>extern</b> <b>int</b> gomp_test_lock_30 (<a href='../D/378.html' title='Multiple defined in 5 places.'>omp_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L528'><b>extern</b> <b>void</b> gomp_init_nest_lock_30 (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L529'><b>extern</b> <b>void</b> gomp_destroy_nest_lock_30 (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L530'><b>extern</b> <b>void</b> gomp_set_nest_lock_30 (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L531'><b>extern</b> <b>void</b> gomp_unset_nest_lock_30 (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L532'><b>extern</b> <b>int</b> gomp_test_nest_lock_30 (<a href='../D/380.html' title='Multiple defined in 5 places.'>omp_nest_lock_t</a> *) __GOMP_NOTHROW;
+<a name='L533'>
+<a name='L534'><b>extern</b> <b>void</b> gomp_init_lock_25 (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L535'><b>extern</b> <b>void</b> gomp_destroy_lock_25 (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L536'><b>extern</b> <b>void</b> gomp_set_lock_25 (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L537'><b>extern</b> <b>void</b> gomp_unset_lock_25 (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L538'><b>extern</b> <b>int</b> gomp_test_lock_25 (<a href='../D/376.html' title='Multiple defined in 3 places.'>omp_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L539'><b>extern</b> <b>void</b> gomp_init_nest_lock_25 (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L540'><b>extern</b> <b>void</b> gomp_destroy_nest_lock_25 (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L541'><b>extern</b> <b>void</b> gomp_set_nest_lock_25 (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L542'><b>extern</b> <b>void</b> gomp_unset_nest_lock_25 (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L543'><b>extern</b> <b>int</b> gomp_test_nest_lock_25 (<a href='../D/379.html' title='Multiple defined in 3 places.'>omp_nest_lock_25_t</a> *) __GOMP_NOTHROW;
+<a name='L544'>
+<a name='L545'><font color='darkred'># define</font> strong_alias(fn, al) \
+<a name='L546'>  <b>extern</b> __typeof (fn) al <b>__attribute__</b> ((alias (#fn)));
+<a name='L547'><font color='darkred'># define</font> omp_lock_symver(fn) \
+<a name='L548'>  <b>__asm</b> (".symver g" #fn "_30, " #fn "@@OMP_3.0"); \
+<a name='L549'>  <b>__asm</b> (".symver g" #fn "_25, " #fn "@OMP_1.0");
+<a name='L550'><font color='darkred'>#else</font>
+<a name='L551'><font color='darkred'># define</font> gomp_init_lock_30 omp_init_lock
+<a name='L552'><font color='darkred'># define</font> gomp_destroy_lock_30 omp_destroy_lock
+<a name='L553'><font color='darkred'># define</font> gomp_set_lock_30 omp_set_lock
+<a name='L554'><font color='darkred'># define</font> gomp_unset_lock_30 omp_unset_lock
+<a name='L555'><font color='darkred'># define</font> gomp_test_lock_30 omp_test_lock
+<a name='L556'><font color='darkred'># define</font> gomp_init_nest_lock_30 omp_init_nest_lock
+<a name='L557'><font color='darkred'># define</font> gomp_destroy_nest_lock_30 omp_destroy_nest_lock
+<a name='L558'><font color='darkred'># define</font> gomp_set_nest_lock_30 omp_set_nest_lock
+<a name='L559'><font color='darkred'># define</font> gomp_unset_nest_lock_30 omp_unset_nest_lock
+<a name='L560'><font color='darkred'># define</font> gomp_test_nest_lock_30 omp_test_nest_lock
+<a name='L561'><font color='darkred'>#endif</font>
+<a name='L562'>
+<a name='L563'><font color='darkred'>#ifdef</font> HAVE_ATTRIBUTE_VISIBILITY
+<a name='L564'><font color='darkred'># define</font> attribute_hidden <b>__attribute__</b> ((visibility ("hidden")))
+<a name='L565'><font color='darkred'>#else</font>
+<a name='L566'><font color='darkred'># define</font> attribute_hidden
+<a name='L567'><font color='darkred'>#endif</font>
+<a name='L568'>
+<a name='L569'><font color='darkred'>#ifdef</font> HAVE_ATTRIBUTE_ALIAS
+<a name='L570'><font color='darkred'># define</font> ialias(fn) \
+<a name='L571'>  <b>extern</b> __typeof (fn) gomp_ialias_##fn \
+<a name='L572'>    <b>__attribute__</b> ((alias (#fn))) attribute_hidden;
+<a name='L573'><font color='darkred'>#else</font>
+<a name='L574'><font color='darkred'># define</font> ialias(fn)
+<a name='L575'><font color='darkred'>#endif</font>
+<a name='L576'>
+<a name='L577'><font color='darkred'>#endif</font> <i><font color='green'>/* LIBGOMP_H */</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L378'>[^]</a><a href='#L495'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/critical-1.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/critical-1.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L14'>[^]</a><a href='#L30'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L14' title='Defined at 14.'>function</a>
+<li><a href='#L30' title='Defined at 30.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* Trivial test of critical sections.  */</font></i>
+<a name='L2'>
+<a name='L3'><i><font color='green'>/* { dg-require-effective-target sync_int_long } */</font></i>
+<a name='L4'>
+<a name='L5'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L6'><font color='darkred'>#include</font> &lt;sys/time.h&gt;
+<a name='L7'><font color='darkred'>#include</font> &lt;unistd.h&gt;
+<a name='L8'><font color='darkred'>#include</font> &lt;assert.h&gt;
+<a name='L9'><font color='darkred'>#include</font> "<a href='420.html'>libgomp_g.h</a>"
+<a name='L10'>
+<a name='L11'>
+<a name='L12'><b>static</b> <b>volatile</b> <b>int</b> <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> = -1;
+<a name='L13'>
+<a name='L14'><b>static</b> <b>void</b> <a href='../R/150.html' title='Multiple refered from 8 places.'>function</a>(<b>void</b> *dummy)
+<a name='L15'><font color='red'>{</font>
+<a name='L16'>  <b>int</b> iam = <a href='../S/21.html#L144' title='Defined at 144 in parallel.c.'>omp_get_thread_num</a> ();
+<a name='L17'>  <b>int</b> old;
+<a name='L18'>
+<a name='L19'>  <a href='../S/413.html#L34' title='Defined at 34 in critical.c.'>GOMP_critical_start</a> ();
+<a name='L20'>
+<a name='L21'>  old = __sync_lock_test_and_set (&amp;<a href='../D/429.html' title='Multiple defined in 12 places.'>test</a>, iam);
+<a name='L22'>  assert (old == -1);
+<a name='L23'>
+<a name='L24'>  usleep (10);
+<a name='L25'>  <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> = -1;
+<a name='L26'>
+<a name='L27'>  <a href='../S/413.html#L40' title='Defined at 40 in critical.c.'>GOMP_critical_end</a> ();
+<a name='L28'><font color='red'>}</font>
+<a name='L29'>
+<a name='L30'><b>int</b> <a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a>()
+<a name='L31'><font color='red'>{</font>
+<a name='L32'>  <a href='../S/414.html#L562' title='Defined at 562 in env.c.'>omp_set_dynamic</a> (0);
+<a name='L33'>
+<a name='L34'>  <a href='../S/21.html#L105' title='Defined at 105 in parallel.c.'>GOMP_parallel_start</a> (<a href='../D/153.html' title='Multiple defined in 3 places.'>function</a>, NULL, 3);
+<a name='L35'>  <a href='../D/153.html' title='Multiple defined in 3 places.'>function</a> (NULL);
+<a name='L36'>  <a href='../S/21.html#L112' title='Defined at 112 in parallel.c.'>GOMP_parallel_end</a> ();
+<a name='L37'>
+<a name='L38'>  <b>return</b> 0;
+<a name='L39'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L14'>[^]</a><a href='#L30'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

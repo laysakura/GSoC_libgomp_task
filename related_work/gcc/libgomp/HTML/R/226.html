@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>gomp_malloc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/413.html#L69'>gomp_malloc</a>        69 critical.c     	  gomp_mutex_t *nlock = gomp_malloc (sizeof (gomp_mutex_t));
+<a href='../S/413.html#L85'>gomp_malloc</a>        85 critical.c     	      plock = gomp_malloc (sizeof (gomp_mutex_t));
+<a href='../S/14.html#L406'>gomp_malloc</a>       406 libgomp.h      extern void *gomp_malloc (size_t) __attribute__((malloc));
+<a href='../S/8.html#L132'>gomp_malloc</a>       132 task.c               task = gomp_malloc (sizeof (*task) + arg_size + arg_align - 1);
+<a href='../S/11.html#L144'>gomp_malloc</a>       144 team.c           team = gomp_malloc (size);
+<a href='../S/11.html#L191'>gomp_malloc</a>       191 team.c             = gomp_malloc (sizeof(struct gomp_thread_pool));
+<a href='../S/11.html#L550'>gomp_malloc</a>       550 team.c           struct gomp_task *task = gomp_malloc (sizeof (struct gomp_task));
+<a href='../S/19.html#L78'>gomp_malloc</a>        78 work.c           ws = gomp_malloc (team-&gt;work_share_chunk * sizeof (struct gomp_work_share));
+<a href='../S/19.html#L105'>gomp_malloc</a>       105 work.c         	  = gomp_malloc (nthreads * sizeof (*ws-&gt;ordered_team_ids));
+<a href='../S/19.html#L177'>gomp_malloc</a>       177 work.c               ws = gomp_malloc (sizeof (*ws));
+</pre>
+</body>
+</html>

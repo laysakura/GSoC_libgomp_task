@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>gomp_mutex_t</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/51.html#L36'>gomp_mutex_t</a>       36 config/linux/ia64/mutex.h static inline void gomp_mutex_init (gomp_mutex_t *mutex)
+<a href='../S/51.html#L41'>gomp_mutex_t</a>       41 config/linux/ia64/mutex.h extern void gomp_mutex_lock_slow (gomp_mutex_t *mutex);
+<a href='../S/51.html#L42'>gomp_mutex_t</a>       42 config/linux/ia64/mutex.h static inline void gomp_mutex_lock (gomp_mutex_t *mutex)
+<a href='../S/51.html#L48'>gomp_mutex_t</a>       48 config/linux/ia64/mutex.h extern void gomp_mutex_unlock_slow (gomp_mutex_t *mutex);
+<a href='../S/51.html#L52'>gomp_mutex_t</a>       52 config/linux/ia64/mutex.h static inline void gomp_mutex_unlock (gomp_mutex_t *mutex)
+<a href='../S/51.html#L61'>gomp_mutex_t</a>       61 config/linux/ia64/mutex.h static inline void gomp_mutex_destroy (gomp_mutex_t *mutex)
+<a href='../S/47.html#L35'>gomp_mutex_t</a>       35 config/linux/mutex.c gomp_mutex_lock_slow (gomp_mutex_t *mutex)
+<a href='../S/47.html#L47'>gomp_mutex_t</a>       47 config/linux/mutex.c gomp_mutex_unlock_slow (gomp_mutex_t *mutex)
+<a href='../S/55.html#L36'>gomp_mutex_t</a>       36 config/linux/mutex.h static inline void gomp_mutex_init (gomp_mutex_t *mutex)
+<a href='../S/55.html#L41'>gomp_mutex_t</a>       41 config/linux/mutex.h extern void gomp_mutex_lock_slow (gomp_mutex_t *mutex);
+<a href='../S/55.html#L42'>gomp_mutex_t</a>       42 config/linux/mutex.h static inline void gomp_mutex_lock (gomp_mutex_t *mutex)
+<a href='../S/55.html#L48'>gomp_mutex_t</a>       48 config/linux/mutex.h extern void gomp_mutex_unlock_slow (gomp_mutex_t *mutex);
+<a href='../S/55.html#L49'>gomp_mutex_t</a>       49 config/linux/mutex.h static inline void gomp_mutex_unlock (gomp_mutex_t *mutex)
+<a href='../S/55.html#L66'>gomp_mutex_t</a>       66 config/linux/mutex.h static inline void gomp_mutex_destroy (gomp_mutex_t *mutex)
+<a href='../S/39.html#L37'>gomp_mutex_t</a>       37 config/posix/bar.h   gomp_mutex_t mutex1;
+<a href='../S/39.html#L39'>gomp_mutex_t</a>       39 config/posix/bar.h   gomp_mutex_t mutex2;
+<a href='../S/34.html#L37'>gomp_mutex_t</a>       37 config/posix/mutex.h static inline void gomp_mutex_init (gomp_mutex_t *mutex)
+<a href='../S/34.html#L42'>gomp_mutex_t</a>       42 config/posix/mutex.h static inline void gomp_mutex_lock (gomp_mutex_t *mutex)
+<a href='../S/34.html#L47'>gomp_mutex_t</a>       47 config/posix/mutex.h static inline void gomp_mutex_unlock (gomp_mutex_t *mutex)
+<a href='../S/34.html#L52'>gomp_mutex_t</a>       52 config/posix/mutex.h static inline void gomp_mutex_destroy (gomp_mutex_t *mutex)
+<a href='../S/31.html#L32'>gomp_mutex_t</a>       32 config/posix/ptrlock.h typedef struct { void *ptr; gomp_mutex_t lock; } gomp_ptrlock_t;
+<a href='../S/413.html#L31'>gomp_mutex_t</a>       31 critical.c     static gomp_mutex_t default_lock;
+<a href='../S/413.html#L46'>gomp_mutex_t</a>       46 critical.c     static gomp_mutex_t create_lock_lock;
+<a href='../S/413.html#L52'>gomp_mutex_t</a>       52 critical.c       gomp_mutex_t *plock;
+<a href='../S/413.html#L57'>gomp_mutex_t</a>       57 critical.c           &amp;&amp; sizeof (gomp_mutex_t) &lt;= sizeof (void *)
+<a href='../S/413.html#L58'>gomp_mutex_t</a>       58 critical.c           &amp;&amp; __alignof (gomp_mutex_t) &lt;= sizeof (void *))
+<a href='../S/413.html#L59'>gomp_mutex_t</a>       59 critical.c         plock = (gomp_mutex_t *)pptr;
+<a href='../S/413.html#L69'>gomp_mutex_t</a>       69 critical.c     	  gomp_mutex_t *nlock = gomp_malloc (sizeof (gomp_mutex_t));
+<a href='../S/413.html#L85'>gomp_mutex_t</a>       85 critical.c     	      plock = gomp_malloc (sizeof (gomp_mutex_t));
+<a href='../S/413.html#L101'>gomp_mutex_t</a>      101 critical.c       gomp_mutex_t *plock;
+<a href='../S/413.html#L106'>gomp_mutex_t</a>      106 critical.c           &amp;&amp; sizeof (gomp_mutex_t) &lt;= sizeof (void *)
+<a href='../S/413.html#L107'>gomp_mutex_t</a>      107 critical.c           &amp;&amp; __alignof (gomp_mutex_t) &lt;= sizeof (void *))
+<a href='../S/413.html#L108'>gomp_mutex_t</a>      108 critical.c         plock = (gomp_mutex_t *)pptr;
+<a href='../S/413.html#L122'>gomp_mutex_t</a>      122 critical.c     static gomp_mutex_t atomic_lock;
+<a href='../S/414.html#L66'>gomp_mutex_t</a>       66 env.c          gomp_mutex_t gomp_remaining_threads_lock;
+<a href='../S/14.html#L127'>gomp_mutex_t</a>      127 libgomp.h        gomp_mutex_t lock __attribute__((aligned (64)));
+<a href='../S/14.html#L224'>gomp_mutex_t</a>      224 libgomp.h      extern gomp_mutex_t gomp_remaining_threads_lock;
+<a href='../S/14.html#L302'>gomp_mutex_t</a>      302 libgomp.h        gomp_mutex_t work_share_list_free_lock;
+<a href='../S/14.html#L312'>gomp_mutex_t</a>      312 libgomp.h        gomp_mutex_t task_lock;
+</pre>
+</body>
+</html>

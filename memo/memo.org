@@ -224,3 +224,9 @@ for ( i = 0; i < n; i++) *solutions += csols[i];
 
    この中で，myth_running_env_t env;に対し新しいtaskのenvを与え，アセンブリでswap contextしている．
    俺がやるときは，アセンブリは使えないので，スケジューラループをpthreadで回し続け，その中で各taskのfuncを呼ぶ．
+
+   swap context で instruction pointer も書き換えてるんだから，そりゃ制御も移る
+
+   tied taskではcontext switch なんかできない．でも，「outliningした何行目から再開するか，その際に使用する環境(レジスタ値)」という情報をoutliningした関数に渡せば，taskwaitでの中断などが実現できそう(libgomp観る必要はある)
+   -> GOMP_task()の引数のfnは，outlineされた関数のはずであるが，outliningの仕組みはlibgompではどうなっているのか?
+   -> Assembly を読む?

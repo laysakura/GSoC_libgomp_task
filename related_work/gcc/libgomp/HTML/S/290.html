@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/atomic-3.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/atomic-3.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L38'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L13' title='Defined at 13.'>foo</a>
+<li><a href='#L38' title='Defined at 38.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* { dg-do run } */</font></i>
+<a name='L2'><i><font color='green'>/* { dg-options "-fopenmp -O0" } */</font></i>
+<a name='L3'>
+<a name='L4'><font color='darkred'>#include</font> &lt;omp.h&gt;
+<a name='L5'><font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L6'>
+<a name='L7'><b>short</b> <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[64];
+<a name='L8'><b>int</b> <a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a>;
+<a name='L9'><b>_Complex</b> <b>double</b> d, <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a>;
+<a name='L10'><b>int</b> num_threads;
+<a name='L11'>
+<a name='L12'><b>__attribute__</b>((noinline)) <b>void</b>
+<a name='L13'><a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a> (<b>int</b> x, <b>long</b> <b>long</b> y)
+<a name='L14'><font color='red'>{</font>
+<a name='L15'><font color='darkred'>#pragma</font> omp parallel num_threads (4)
+<a name='L16'>  <font color='red'>{</font>
+<a name='L17'>    <b>int</b> i;
+<a name='L18'><font color='darkred'>    #pragma</font> omp barrier
+<a name='L19'>    <b>for</b> (i = 0; i &lt; 2400; i++)
+<a name='L20'>      <font color='red'>{</font>
+<a name='L21'>        <b>if</b> (i == 0)
+<a name='L22'>          num_threads = <a href='../S/21.html#L137' title='Defined at 137 in parallel.c.'>omp_get_num_threads</a> ();
+<a name='L23'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L24'>          <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[0] += x;
+<a name='L25'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L26'>          <a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[16] += x;
+<a name='L27'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L28'>          <a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a> += y;
+<a name='L29'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L30'>          __real__ d += x;
+<a name='L31'><font color='darkred'>        #pragma</font> omp atomic
+<a name='L32'>          __imag__ <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a> += x;
+<a name='L33'>      <font color='red'>}</font>
+<a name='L34'>  <font color='red'>}</font>
+<a name='L35'><font color='red'>}</font>
+<a name='L36'>
+<a name='L37'><b>int</b>
+<a name='L38'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L39'><font color='red'>{</font>
+<a name='L40'>  <b>int</b> i;
+<a name='L41'>  <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a> (3, 3LL);
+<a name='L42'>  <b>if</b> (<a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a> != 3 * 2400 * num_threads
+<a name='L43'>      || __real__ d != <a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a> || __imag__ d != 0
+<a name='L44'>      || __real__ <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a> != 0 || __imag__ <a href='../S/348.html#L6' title='Defined at 6 in testsuite/libgomp.c/appendix-a/a.29.1.c.'>f</a> != <a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a>)
+<a name='L45'>    abort ();
+<a name='L46'>  <b>for</b> (i = 0; i &lt; 64; i++)
+<a name='L47'>    <b>if</b> (<a href='../D/127.html' title='Multiple defined in 7 places.'>e</a>[i] != ((i &amp;&amp; i != 16) ? 0 : <a href='../S/347.html#L28' title='Defined at 28 in testsuite/libgomp.c/appendix-a/a.19.1.c.'>g</a>))
+<a name='L48'>      abort ();
+<a name='L49'>  <b>return</b> 0;
+<a name='L50'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L13'>[^]</a><a href='#L38'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

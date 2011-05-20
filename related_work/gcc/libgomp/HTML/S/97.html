@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>testsuite/libgomp.c++/pr26943.C</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/437.html'>libgomp.c++</a>/pr26943.C</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L37'>[^]</a><a href='#L55'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L37' title='Defined at 37.'>test</a>
+<li><a href='#L46' title='Defined at 46.'>foo</a>
+<li><a href='#L55' title='Defined at 55.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>// PR c++/26943</font></i>
+<a name='L2'><i><font color='green'>// { dg-do run }</font></i>
+<a name='L3'>
+<a name='L4'><font color='darkred'>#include</font> &lt;assert.h&gt;
+<a name='L5'><font color='darkred'>#include</font> &lt;unistd.h&gt;
+<a name='L6'>
+<a name='L7'><b>struct</b> <a href='../R/82.html' title='Multiple refered from 61 places.'>S</a>
+<a name='L8'><font color='red'>{</font>
+<a name='L9'>  <b>public</b>:
+<a name='L10'>    <b>int</b> x;
+<a name='L11'>    <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> () : x(-1) <font color='red'>{</font> <font color='red'>}</font>
+<a name='L12'>    <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> (<b>const</b> <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> &amp;);
+<a name='L13'>    <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>&amp; <b>operator</b>= (<b>const</b> S &amp;);
+<a name='L14'>    <b>void</b> <a href='../D/429.html' title='Multiple defined in 12 places.'>test</a> ();
+<a name='L15'><font color='red'>}</font>;
+<a name='L16'>
+<a name='L17'><b>static</b> <b>volatile</b> <b>int</b> hold;
+<a name='L18'>
+<a name='L19'><a href='../R/82.html' title='Multiple refered from 61 places.'>S</a>::<a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> (<b>const</b> <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> &amp;s)
+<a name='L20'><font color='red'>{</font>
+<a name='L21'><font color='darkred'>  #pragma</font> omp master
+<a name='L22'>    sleep (1);
+<a name='L23'>
+<a name='L24'>  assert (s.x == -1);
+<a name='L25'>  x = 0;
+<a name='L26'><font color='red'>}</font>
+<a name='L27'>
+<a name='L28'><a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>&amp;
+<a name='L29'><a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>::<b>operator</b>= (<b>const</b> S&amp; s)
+<a name='L30'><font color='red'>{</font>
+<a name='L31'>  assert (s.x == 1);
+<a name='L32'>  x = 2;
+<a name='L33'>  <b>return</b> *<b>this</b>;
+<a name='L34'><font color='red'>}</font>
+<a name='L35'>
+<a name='L36'><b>void</b>
+<a name='L37'><a href='../D/82.html' title='Multiple defined in 8 places.'>S</a>::<a href='../R/371.html' title='Multiple refered from 169 places.'>test</a> ()
+<a name='L38'><font color='red'>{</font>
+<a name='L39'>  assert (x == 0);
+<a name='L40'>  x = 1;
+<a name='L41'><font color='red'>}</font>
+<a name='L42'>
+<a name='L43'><b>static</b> <a href='../D/82.html' title='Multiple defined in 8 places.'>S</a> x;
+<a name='L44'>
+<a name='L45'><b>void</b>
+<a name='L46'><a href='../R/147.html' title='Multiple refered from 61 places.'>foo</a> ()
+<a name='L47'><font color='red'>{</font>
+<a name='L48'><font color='darkred'>  #pragma</font> omp sections firstprivate(x) lastprivate(x)
+<a name='L49'>  <font color='red'>{</font>
+<a name='L50'>    x.<a href='../D/429.html' title='Multiple defined in 12 places.'>test</a>();
+<a name='L51'>  <font color='red'>}</font>
+<a name='L52'><font color='red'>}</font>
+<a name='L53'>
+<a name='L54'><b>int</b>
+<a name='L55'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> ()
+<a name='L56'><font color='red'>{</font>
+<a name='L57'><font color='darkred'>  #pragma</font> omp parallel num_threads(2)
+<a name='L58'>    <a href='../D/150.html' title='Multiple defined in 47 places.'>foo</a>();
+<a name='L59'>
+<a name='L60'>  assert (x.x == 2);
+<a name='L61'>  <b>return</b> 0;
+<a name='L62'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L37'>[^]</a><a href='#L55'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

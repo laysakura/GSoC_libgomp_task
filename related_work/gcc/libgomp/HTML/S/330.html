@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>testsuite/libgomp.c/atomic-6.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/436.html'>testsuite</a>/<a href='../files/438.html'>libgomp.c</a>/atomic-6.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L15'>[^]</a><a href='#L23'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L15' title='Defined at 15.'>do_test</a>
+<li><a href='#L23' title='Defined at 23.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'><i><font color='green'>/* PR middle-end/36106 */</font></i>
+<a name='L2'><i><font color='green'>/* { dg-options "-O2" } */</font></i>
+<a name='L3'><i><font color='green'>/* { dg-options "-O2 -mieee" { target alpha*-*-* } } */</font></i>
+<a name='L4'><i><font color='green'>/* { dg-options "-O2 -march=i586" { target { { i?86-*-* x86_64-*-* } &amp;&amp; ilp32 } } } */</font></i>
+<a name='L5'>
+<a name='L6'><font color='darkred'>#ifdef</font> __i386__
+<a name='L7'><font color='darkred'># include</font> "cpuid.h"
+<a name='L8'><font color='darkred'>#endif</font>
+<a name='L9'>
+<a name='L10'><b>extern</b> <b>void</b> abort (<b>void</b>);
+<a name='L11'>
+<a name='L12'><b>union</b> <font color='red'>{</font> <b>unsigned</b> <b>long</b> <b>long</b> l; <b>double</b> d; <font color='red'>}</font> u = <font color='red'>{</font> .l = 0x7ff0000000072301ULL <font color='red'>}</font>;
+<a name='L13'>
+<a name='L14'><b>int</b> <b>__attribute__</b>((noinline))
+<a name='L15'><a href='../R/120.html' title='Multiple refered from 2 places.'>do_test</a> (<b>void</b>)
+<a name='L16'><font color='red'>{</font>
+<a name='L17'><font color='darkred'>#pragma</font> omp atomic
+<a name='L18'>  u.d += 1.0L;
+<a name='L19'>  <b>return</b> 0;
+<a name='L20'><font color='red'>}</font>
+<a name='L21'>
+<a name='L22'><b>int</b>
+<a name='L23'><a href='../S/77.html#L190' title='Refered from 190 in testsuite/libgomp.c++/for-4.C.'>main</a> (<b>void</b>)
+<a name='L24'><font color='red'>{</font>
+<a name='L25'><font color='darkred'>#ifdef</font> __i386__
+<a name='L26'>  <b>unsigned</b> <b>int</b> eax, ebx, ecx, edx;
+<a name='L27'>
+<a name='L28'>  <b>if</b> (!__get_cpuid (1, &amp;eax, &amp;ebx, &amp;ecx, &amp;edx))
+<a name='L29'>    <b>return</b> 0;
+<a name='L30'>
+<a name='L31'>  <b>if</b> (!(edx &amp; bit_CMPXCHG8B))
+<a name='L32'>    <b>return</b> 0;
+<a name='L33'><font color='darkred'>#endif</font>
+<a name='L34'>
+<a name='L35'>  <a href='../D/123.html' title='Multiple defined in 2 places.'>do_test</a> ();
+<a name='L36'>
+<a name='L37'>  <b>return</b> 0;
+<a name='L38'><font color='red'>}</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L15'>[^]</a><a href='#L23'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>
