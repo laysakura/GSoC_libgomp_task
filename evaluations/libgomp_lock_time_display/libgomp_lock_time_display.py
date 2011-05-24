@@ -28,10 +28,10 @@ def lock_log2dat(lock_log_path):
         if (event_i == "Start"):
             time_i, cpu_i, event_i = parse_log_info(lock_logs[i])
             print(str(time_i) + " " + str(cpu_i) + "\n\n\n")
-        elif (event_i == "Aquire lock on team taskqueue"):
+        elif (event_i == "Waiting for lock on team taskqueue"):
             for j in range(i + 1, len(lock_logs)):
                 time_j, cpu_j, event_j = parse_log_info(lock_logs[j])
-                if (event_j == "Release lock on team taskqueue" and cpu_i == cpu_j):
+                if (event_j == "Aquire lock on team taskqueue" and cpu_i == cpu_j):
                     print(str(time_i) + " " + str(cpu_i))
                     print(str(time_j) + " " + str(cpu_i))
                     print("")
