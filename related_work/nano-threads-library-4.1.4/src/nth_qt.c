@@ -272,6 +272,11 @@ NTH_DEBUG_END(NTH_DEBUG_QT_ARGS, NTH_KTH, NTH_MYSELF,
 /* -------------------------------------------------------------------
  * nth_qt_args_va: new implementation of qt_args
  * -----------------------------------------------------------------*/
+
+/* 引数のuserfに注目．これがtaskに割り当てられるべき関数
+ * つまり，taskの「環境」(かなり広い意味での)を作っている
+ */
+
 nth_qt_t*
 nth_qt_args_va (nth_qt_t *sp, nth_ci_t ci, void **sfl[],
 	nth_word_t nar, nth_word_t nav, va_list vargs,

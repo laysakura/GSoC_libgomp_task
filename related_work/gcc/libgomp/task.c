@@ -90,7 +90,7 @@ GOMP_task (void (*fn) (void *), void *data, void (*cpyfn) (void *, void *),
            long arg_size, long arg_align, bool if_clause,
            unsigned flags __attribute__((unused)))
 {
-  struct gomp_thread *thr = gomp_thread ();
+  struct gomp_thread *thr = gomp_thread ();  /* 中でpthread作ってるっぽいけど・・・何個pthread作るつもりなんだろう・・・ */
   struct gomp_team *team = thr->ts.team;
 
 #ifdef HAVE_BROKEN_POSIX_SEMAPHORES
@@ -121,8 +121,8 @@ GOMP_task (void (*fn) (void *), void *data, void (*cpyfn) (void *, void *),
           char buf[arg_size + arg_align - 1];
           char *arg = (char *) (((uintptr_t) buf + arg_align - 1)
                                 & ~(uintptr_t) (arg_align - 1));
-          cpyfn (arg, data);  /* やはりtaskとしてではなく直接呼んじゃう系 */
-          fn (arg);
+          cpyfn (arg, data);
+          fn (arg);  /* やはりtaskとしてではなく直接呼んじゃう系 */
         }
       else
         fn (data);  /* やはりtaskとしてではなく直接呼んじゃう系 */

@@ -41,6 +41,10 @@
 *** nth_create_task_ci
     新しくtaskを作り，それを返す関数
 
+** nth_sched.c
+*** nth_sch_switch_to()
+    *task switchingはMachine dependentに行われている*
+
 * BOTs アプリケーションの特性
 ** nqueens
    - だいたいこんな感じ
@@ -174,6 +178,12 @@ for ( i = 0; i < n; i++) *solutions += csols[i];
    - これを呼んでいるのは， gcc/omp-low.c の中． gcc/omp-builtins.def の中で， GOMP_task には BUILT_IN_GOMP_TASK という
      名前が付けられている
      - gcc/omp-low.c : expand_task_call() が omp の pragma をパースしている
+
+** omp-low.c
+   expand_task_call() がGOMP_taskを作っている
+   gimpleがなんか環境(レジスタ値)とかを扱っているのか・・・?
+   -> "GIMPLE is a family of intermediate representations (IR) based on the tree data structure. At present, there are only two kinds of GIMPLE: "
+      らしい．つまり，GCCの中間コード
 
 * OpenUH src
   場所は， ~/src/OpenUH/osprey/libopenmp/

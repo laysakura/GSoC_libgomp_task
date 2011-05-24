@@ -3112,7 +3112,8 @@ expand_task_call (basic_block bb, gimple entry_stmt)
 
   t = build_call_expr (built_in_decls[BUILT_IN_GOMP_TASK], 7, t1, t2, t3,
 		       gimple_omp_task_arg_size (entry_stmt),
-		       gimple_omp_task_arg_align (entry_stmt), cond, flags);
+		       gimple_omp_task_arg_align (entry_stmt), cond, flags);  /* これがGOMP_task()呼び出しを作っている実体
+		                                                                 t1:fn, t2: data, t3: cpyfn, ... */
 
   force_gimple_operand_gsi (&gsi, t, true, NULL_TREE,
 			    false, GSI_CONTINUE_LINKING);

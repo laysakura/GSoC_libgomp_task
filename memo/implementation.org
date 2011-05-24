@@ -1,10 +1,13 @@
-いきなりlibgompにマージするのではなく，自分の考えたデータ構造をexplicitに使うようなプログラムで性能を見るのがよさそう
+mallocとか使うべきじゃない．mallocの作り的にthread間でcontentionが起こる．
+
+
 
 二重のparallel構文とかどうすんの?つーかparallel構文とかsingle構文で何をすべきか分かってない
 nested parallel directive に関する仕様がやたら分かりづらい．
 
 * 目標
   まずは最低限動くものを作る．後々実装するだろうけど，カットするfeatures
+  - x86以外への対応
   - team の実装．なくても限定的なプログラム(ex:fib)であれば動く
   - cutoff
   - untied task
@@ -18,6 +21,7 @@ nested parallel directive に関する仕様がやたら分かりづらい．
   - overheadを減らすため，ところどころ関数じゃなくてmacroにする
     - static inline void __attribute__((always_inline)) fun(args) とかでヘッダに関数定義すればおkっぽい
   - assert()の代わりに，ユーザに有用なエラーメッセージ
+  - cache alignment とかまで気にしたチューニング
 
 
 * 概念図
