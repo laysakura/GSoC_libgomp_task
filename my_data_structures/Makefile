@@ -11,7 +11,7 @@ DEPENDS = $(subst .c,.d,$(SRCS))
 TARGETS = test_gomp_taskqueue
 
 
-TESTVAL_EXTENDS = 5
+TESTVAL_EXTENDS = 50
 
 
 .PHONY: all

@@ -2,6 +2,7 @@
 
 #define _GNU_SOURCE
 #include "gomp_taskqueue.h"
+#include "test_time.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -80,6 +81,7 @@ int main()
   pthread_t tids[num_cpu];
   worker workers[num_cpu];
   int logged_worker = random() % num_cpu;
+  double t1, t2;
 
   /* initializations for test */
   tasks = malloc(sizeof(gomp_task) * GOMP_TASKQUEUE_INIT_SIZE * 100);
@@ -109,6 +111,8 @@ int main()
   /* Emulate workers */
   fprintf(stderr, "==========\nWith %d CPUs\n===========\n", (int)num_cpu);
 
+  t1 = gettimeofday_sec();
+
   for (i = 0; i < num_cpu; ++i) {
     CPU_ZERO(&cpuset);
     CPU_SET(i, &cpuset);
@@ -125,6 +129,9 @@ int main()
   for (i = 0; i < num_cpu; ++i)
     pthread_join(tids[i], NULL);
 
+  t2 = gettimeofday_sec();
+
+  fprintf(stderr, "%f sec elaplsed for parallel_push_pop_take()\n", t2-t1);
 
   /* finalization for test */
   for (i = 0; i < num_cpu; ++i)
