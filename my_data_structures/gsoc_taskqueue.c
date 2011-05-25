@@ -1,25 +1,25 @@
-#include "gomp_taskqueue.h"
+#include "gsoc_taskqueue.h"
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 
-gomp_taskqueue* gomp_taskqueue_new()
+gsoc_taskqueue* gsoc_taskqueue_new()
 {
-  gomp_taskqueue* this;
+  gsoc_taskqueue* this;
 
-  this = malloc(sizeof(gomp_taskqueue));
+  this = malloc(sizeof(gsoc_taskqueue));
   assert(this);
 
-  this->_num_queue_cells = GOMP_TASKQUEUE_INIT_SIZE;
+  this->_num_queue_cells = GSOC_TASKQUEUE_INIT_SIZE;
   this->_top = this->_base = 0;
   pthread_mutex_init(&this->_lock, NULL);
 
-  this->_taskqueue = malloc(sizeof(gomp_task*) * this->_num_queue_cells);
+  this->_taskqueue = malloc(sizeof(gsoc_task*) * this->_num_queue_cells);
   assert(this->_taskqueue);
 
   return this;
 }
-void gomp_taskqueue_delete(gomp_taskqueue* this)
+void gsoc_taskqueue_delete(gsoc_taskqueue* this)
 {
   pthread_mutex_destroy(&this->_lock);
   free(this->_taskqueue);
@@ -28,7 +28,7 @@ void gomp_taskqueue_delete(gomp_taskqueue* this)
 
 /* Thread safe function.
    (Push doesn't need lock to taskqueue) */
-void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
+void gsoc_taskqueue_push(gsoc_taskqueue* this, gsoc_task* task)
 {
   this->_taskqueue[this->_top] = task;
   ++this->_top;
@@ -45,11 +45,11 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
       base = this->_base;
 
       this->_num_queue_cells *= 2;
-      this->_taskqueue = realloc(this->_taskqueue, sizeof(gomp_task*) * this->_num_queue_cells);
+      this->_taskqueue = realloc(this->_taskqueue, sizeof(gsoc_task*) * this->_num_queue_cells);
       assert(this->_taskqueue);
 
       memmove(&this->_taskqueue[0], &this->_taskqueue[base],
-              sizeof(gomp_task*) * (this->_top - base));
+              sizeof(gsoc_task*) * (this->_top - base));
 
       this->_top = this->_top - base;
       this->_base = 0;
@@ -61,9 +61,9 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 /* Pop a task from the head of taskqueue.
    Returns NULL when no task exists in taskqueue.
    This is a thread safe function. */
-gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
+gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
 {
-  gomp_task* res;
+  gsoc_task* res;
   size_t base;
 
   __sync_synchronize();  /* read _base */
@@ -72,7 +72,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
   if (this->_top - base == 0)
     return NULL;
 
-  if (this->_top - base > GOMP_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE)
+  if (this->_top - base > GSOC_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE)
     {
       /* Pop without lock */
       --this->_top;
@@ -107,9 +107,9 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
    Returns NULL when no task exists in taskqueue.
    This function is invoked only by other worker threads than `this',
    possibly by more than one threads at the same time. */
-gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
+gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this)
 {
-  gomp_task* res;
+  gsoc_task* res;
   size_t top;
 
   __sync_synchronize();    /* Ensure visibility of _top written from victim worker thread. */
