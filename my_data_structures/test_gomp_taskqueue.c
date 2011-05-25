@@ -1,3 +1,5 @@
+#define TEST_GOMP_TASKQUEUE_C
+
 #define _GNU_SOURCE
 #include "gomp_taskqueue.h"
 #include <stdio.h>
@@ -6,6 +8,7 @@
 #include <assert.h>
 #include <utmpx.h>
 #include <unistd.h>
+
 
 #ifndef TESTVAL_EXTENDS  /* It may be defined by Makefile */
 #define TESTVAL_EXTENDS 1

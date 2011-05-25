@@ -8,6 +8,10 @@ typedef struct gomp_task {
 
   struct gomp_task* parent;
   struct gomp_task** children;
+
+#ifdef TEST_GOMP_TASKQUEUE_C
+  unsigned int _num_children;
+#endif
 } gomp_task;
 
 

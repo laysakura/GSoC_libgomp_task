@@ -1,3 +1,20 @@
+一回taskをどっかにとられたら，自分が暇になったときにそのworkerに取り返しに行くべき．
+適当なworkerから取り返そうとすると，むだにでかいtaskを押し付けられて，「とられたtaskの結果を得る」
+までの時間が不用意に長くなってしまう
+Wagner 1993 (SACSIS20110008.pdfの参考文献)
+でもこれは，取り返されるワーカにも負荷がかかるので，つまり最初にたくさんtaskをうんでvictim
+になるようなworkerに負荷が集中する傾向
+
+SACSISで行っていたTassil? は，taskをポンポン生成するのでなく必要になったときに生成するので，
+taskqはあれどその必要性が少ない(taskがすくないので)
+だからCilkよりtaskqに対するアクセスが少ないので，taskqに対する排他制御の必要性は相対的に少ない
+
+task生成の時間とtask一個の処理の時間との比が重要
+
+継続を実装する場合，当然call-stackを実装するが，MassiveThreadsではpthreadのstackを利用している
+(in struct myth_running_env)
+-> 実はこの辺よく分かってない．「継続」自体を調べる必要がある
+
 mallocとか使うべきじゃない．mallocの作り的にthread間でcontentionが起こる．
 
 

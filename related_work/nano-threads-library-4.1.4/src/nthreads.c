@@ -142,7 +142,6 @@ NTH_DEBUG_BODY(NTH_DEBUG_CREATE, NTH_KTH, myself,
 	descriptor = (nth_desc_t *)nth_desc_get();
 
 	/* TODO: return error? */
-        /* そりゃそうじゃね? task作ろうとして作れなかったはエラーでしょ */
 	if (!descriptor) {
 NTH_DEBUG_BODY(NTH_DEBUG_CREATE, NTH_KTH, myself,"cannot allocate new task")
 		return NULL;
@@ -202,7 +201,9 @@ NTH_DEBUG_BODY_VAL(NTH_DEBUG_CREATE, NTH_KTH, myself,
 		(nth_word_t) (*nav),
 		vargs,
 		(void *) descriptor,
-		(nth_qt_userf_t *) userf,
+		(nth_qt_userf_t *) userf,  /* laysakura: nth_qt_t に，taskにbindされた関数についての情報があるはず
+		                              -> nth_qt_tはaddressがstack-pointerに対応する構造体っぽい．nth_qt_tのメンバはdummy変数のみ
+		                                 nth_qt_userf_tを見るべし */
 		(nth_qt_cleanup_t *) nth_cleanup_nthread
 	);
 

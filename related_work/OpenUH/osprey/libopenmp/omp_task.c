@@ -51,12 +51,12 @@ int __ompc_task_numtasks_cond()
   return (__omp_level_1_team_manager.num_tasks < __omp_task_limit);
 }
 
-
+/* laysakura:明らかに大事 */
 int __ompc_task_create(omp_task_func taskfunc, void* fp, int may_delay, int is_tied)
 {
 
   __omp_tasks_created++;
-  omp_task_t *newtask = __ompc_task_get(taskfunc, fp, __omp_task_stack_size);
+  omp_task_t *newtask = __ompc_task_get(taskfunc, fp, __omp_task_stack_size); /* これは__omp_current_taskから生成された子task */
 
 #if defined(TASK_DEBUG)
   fprintf(stdout,"%d: %lX created %lX\n", __omp_myid, __omp_current_task, newtask);
@@ -85,11 +85,13 @@ int __ompc_task_create(omp_task_func taskfunc, void* fp, int may_delay, int is_t
 
   if (may_delay) {
 #ifdef SCHED1
-    newtask->threadid = friend;
+    newtask->threadid = friend;  /* 親taskは子task生成後に子taskと同じtaskqueueに入れられるというscheduling方針．
+                                    tied taskは，一度あるworker(thread)で実行されたtaskはずっと同じworkerで実行することを
+                                    要求しているので，これはtied taskには使えない */
     __sync_bool_compare_and_swap(&__omp_empty_flags[friend], 1, 0);
     __ompc_task_q_put_tail(&__omp_local_task_q[friend], newtask);
 #else
-    __ompc_task_q_put_tail(&__omp_local_task_q[__omp_myid], newtask);
+    __ompc_task_q_put_tail(&__omp_local_task_q[__omp_myid], newtask); /* tied task の要件を満たしているように見える */
 #endif
   } else {
     __ompc_task_switch(__omp_current_task, newtask);
@@ -232,7 +234,7 @@ void __ompc_task_wait2(omp_task_state_t state)
       printf("%d: taskwait: %X num_children = %d\n", __omp_myid, current_task, current_task->num_children);
 #endif
       current_task->state = state;
-      __ompc_task_schedule(&next);
+      __ompc_task_schedule(&next); /* work-stealing も視野に入れてnext taskを探すことで，waitしているtaskばっかりCPUに乗るようなことがないようにしている */
 	
       if(next != NULL || !current_task->is_parallel_task) {
         if(next == NULL)
@@ -244,10 +246,10 @@ void __ompc_task_wait2(omp_task_state_t state)
           old = current_task;
         }
         pthread_mutex_unlock(&current_task->lock);
-        __ompc_task_switch(old, next);
+        __ompc_task_switch(old, next); /* taskwaitにぶつかった時に子taskがいたとすると，とりあえず親taskはnext taskに制御を譲る */
 
       } else
-        pthread_mutex_unlock(&current_task->lock);
+        pthread_mutex_unlock(&current_task->lock); /* もしもnextになるようなtaskがいなければ，それを再び__ompc_task_schedule() によって探す */
 
     }
 

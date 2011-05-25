@@ -32,7 +32,7 @@
    文字通り，breadth-firstのデフォルトscheduler．とても読みやすい
 *** default_sp_schedule()
     - local queue -> team queue -> global queue の順にtaskを探し，得られたtaskを返している
-    - 引数の from_desk は threadに対応している感じ
+    - 引数の from_desc は threadに対応している感じ
 *** default_enqueue_desc()
     - tied task は，生成された際親と同じqueueに入る様子が分かる
     - untied task の実装がおざなりなのも分かるw

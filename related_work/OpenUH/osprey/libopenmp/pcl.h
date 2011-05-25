@@ -59,7 +59,7 @@ typedef struct s_coroutine {
   co_ctx_t ctx;
   int alloc;
   struct s_coroutine *caller;
-  struct s_coroutine *restarget;
+  struct s_coroutine *restarget; /* laysakura:これが親taskを指していて，親taskに向かって返り値を伝えているものと思われる */
   void (*func)(void *);
   void *data;
 

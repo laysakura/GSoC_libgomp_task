@@ -373,8 +373,8 @@ static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 static void co_runner(void) {
   coroutine *co = co_curr;
 
-  co->restarget = co->caller;
-  co->func(co->data);
+  co->restarget = co->caller; /* laysakura: 親を登録している */
+  co->func(co->data); /* laysakura:この返り値を無視しているのはおかしい．この関数のcallerで，%espに乗った返り値を直接参照しているのではないか */
   co_exit();
 }
 
