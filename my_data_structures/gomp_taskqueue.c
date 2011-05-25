@@ -1,4 +1,5 @@
 #include "gomp_taskqueue.h"
+#include "i386.h"
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
@@ -32,7 +33,7 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 {
   this->_taskqueue[this->_top] = task;
   ++this->_top;
-  __sync_synchronize();  /* write to _top and taskqueue */
+  gomp_wbarrier();  /* write to _top and taskqueue */
 
   /* Extend the size of deque when `top' exceeds it. */
   if (__builtin_expect(this->_top >= this->_num_queue_cells, 0))
@@ -41,7 +42,7 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 
       pthread_mutex_lock(&this->_lock);
 
-      __sync_synchronize();  /* read _base */
+      gomp_rbarrier();  /* read _base */
       base = this->_base;
 
       this->_num_queue_cells *= 2;
@@ -53,7 +54,7 @@ void gomp_taskqueue_push(gomp_taskqueue* this, gomp_task* task)
 
       this->_top = this->_top - base;
       this->_base = 0;
-      __sync_synchronize();         /* Ensure writing to _top and _base.
+      gomp_wbarrier();         /* Ensure writing to _top and _base.
                                        TODO: Use atomic_write_barrier() in libgomp instead. */
 
       pthread_mutex_unlock(&this->_lock);
@@ -67,7 +68,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
   gomp_task* res;
   size_t base;
 
-  __sync_synchronize();  /* read _base */
+  gomp_rbarrier();  /* read _base */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -78,7 +79,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
       /* Pop without lock */
       --this->_top;
       res = this->_taskqueue[this->_top];
-      __sync_synchronize();  /* write to _top and taskqueue */
+      gomp_wbarrier();  /* write to _top and taskqueue */
 
       return res;
     }
@@ -86,7 +87,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
   /* Need lock because other worker thread can steal the task to pop. */
   pthread_mutex_lock(&this->_lock);
 
-  __sync_synchronize();  /* read _base */
+  gomp_rbarrier();  /* read _base */
   base = this->_base;
 
   if (this->_top - base == 0)
@@ -98,7 +99,7 @@ gomp_task* gomp_taskqueue_pop(gomp_taskqueue* this)
     {
       --this->_top;
       res = this->_taskqueue[this->_top];
-      __sync_synchronize();  /* write to _top and taskqueue */
+      gomp_wbarrier();  /* write to _top and taskqueue */
 
       pthread_mutex_unlock(&this->_lock);
       return res;
@@ -113,7 +114,7 @@ gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
   gomp_task* res;
   size_t top;
 
-  __sync_synchronize();    /* Ensure visibility of _top written from victim worker thread.
+  gomp_rbarrier();    /* Ensure visibility of _top written from victim worker thread.
                               TODO: Use atomic_write_barrier() in libgomp instead. */
   top = this->_top;
 
@@ -125,7 +126,7 @@ gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
   /* Although it has already checked whether there is a task in
      `this' queue, _base could be changed by
      other worker threads (stealer) just before acquiring lock. */
-  __sync_synchronize();    /* Ensure visibility of _top written from victim worker thread.
+  gomp_rbarrier();    /* Ensure visibility of _top written from victim worker thread.
                               TODO: Use atomic_write_barrier() in libgomp instead. */
   top = this->_top;
   if (__builtin_expect(top - this->_base == 0, 0))
@@ -136,7 +137,7 @@ gomp_task* gomp_taskqueue_take(gomp_taskqueue* this)
 
   res = this->_taskqueue[this->_base];
   ++this->_base;
-  __sync_synchronize();         /* Ensure writing to _base.
+  gomp_wbarrier();         /* Ensure writing to _base.
                                    TODO: Use atomic_write_barrier() in libgomp instead. */
 
   pthread_mutex_unlock(&this->_lock);
