@@ -66,11 +66,19 @@ typedef struct _gsoc_taskqueue {
 } gsoc_taskqueue;
 
 /* Methods for gsoc_taskqueue */
-gsoc_taskqueue* gsoc_taskqueue_new();           /* constructor, initializer */
-void gsoc_taskqueue_delete(gsoc_taskqueue* this); /* destructor */
+gsoc_taskqueue*
+gsoc_taskqueue_new();
 
-void gsoc_taskqueue_push(gsoc_taskqueue* this, gsoc_task* task);
-gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this);
-gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this);
+void
+gsoc_taskqueue_delete(gsoc_taskqueue* this);
+
+void
+gsoc_taskqueue_push(gsoc_taskqueue* this, gsoc_task* task);
+
+gsoc_task*
+gsoc_taskqueue_pop(gsoc_taskqueue* this);
+
+gsoc_task*
+gsoc_taskqueue_take(gsoc_taskqueue* this);
 
 #endif /* _GSOC_TASKQUEUE_H_ */
