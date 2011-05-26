@@ -83,7 +83,7 @@ TEST_gsoc_taskqueue: test_gsoc_taskqueue
 test_gsoc_taskqueue: gsoc_taskqueue.o test_gsoc_taskqueue.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
-test_gsoc_task_circular_array: gsoc_task_circular_array.o test_gsoc_task_circular_array.c
+test_gsoc_task_circular_array: gsoc_task_circular_array.h test_gsoc_task_circular_array.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 
 .SUFFIXES: .c .exe
