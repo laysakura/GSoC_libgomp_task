@@ -8,7 +8,8 @@ INCLUDES =
 SRCS = $(wildcard *.c)
 OBJS = $(subst .c,.o,$(SRCS))
 DEPENDS = $(subst .c,.d,$(SRCS))
-TARGETS = test_gsoc_taskqueue
+TARGETS = test_gsoc_taskqueue test_gsoc_task_circular_array
+TEST_TARGETS = TEST_gsoc_taskqueue TEST_gsoc_task_circular_array
 
 
 TESTVAL_EXTENDS = 50
@@ -28,7 +29,15 @@ debug:
 	sort -g test_gsoc_taskqueue.log > sorted.log ; sort -g test_gsoc_taskqueue.log |uniq > sorted_uniq.log ; diff sorted.log  sorted_uniq.log
 
 .PHONY: test
-test: test_gsoc_taskqueue
+test: $(TEST_TARGETS)
+
+.PHONY: TEST_gsoc_taskqueue
+TEST_gsoc_task_circular_array: test_gsoc_task_circular_array
+	@echo ""
+	@./test_gsoc_task_circular_array
+
+.PHONY: TEST_gsoc_taskqueue
+TEST_gsoc_taskqueue: test_gsoc_taskqueue
 	@echo ""
 	@echo "You ALWAYS need to Recompile test_gsoc_taskqueue.c to make -D TESTVAL_* enable."
 # Create logfile first since $(shell)  is extracted before all other commands
@@ -65,6 +74,9 @@ test: test_gsoc_taskqueue
 
 test_gsoc_taskqueue: gsoc_taskqueue.o test_gsoc_taskqueue.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
+
+test_gsoc_task_circular_array: gsoc_task_circular_array.o test_gsoc_task_circular_array.c
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 
 .SUFFIXES: .c .exe
 .c.exe:

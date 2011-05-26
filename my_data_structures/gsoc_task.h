@@ -9,8 +9,8 @@ typedef struct gsoc_task {
   struct gsoc_task* parent;
   struct gsoc_task** children;
 
-#ifdef TEST_GSOC_TASKQUEUE_C
-  unsigned int _num_children;
+#ifdef TEST_USE_TASK_ID
+  unsigned int test_id;
 #endif
 } gsoc_task;
 
