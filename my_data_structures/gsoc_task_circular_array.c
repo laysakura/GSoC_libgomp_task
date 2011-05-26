@@ -3,7 +3,7 @@
 #include <assert.h>
 
 gsoc_task_circular_array*
-gsoc_task_circular_array_new(size_t capacity)
+gsoc_task_circular_array_new(unsigned long long capacity)
 {
   gsoc_task_circular_array* this;
 
@@ -26,13 +26,13 @@ gsoc_task_circular_array_delete(gsoc_task_circular_array* this)
 }
 
 gsoc_task*
-gsoc_task_circular_array_get(gsoc_task_circular_array* this, size_t index)
+gsoc_task_circular_array_get(gsoc_task_circular_array* this, unsigned long long index)
 {
   return this->_array[index % this->_size];
 }
 
 void
-gsoc_task_circular_array_set(gsoc_task_circular_array* this, size_t index, gsoc_task* task)
+gsoc_task_circular_array_set(gsoc_task_circular_array* this, unsigned long long index, gsoc_task* task)
 {
   this->_array[index % this->_size] = task;
 }

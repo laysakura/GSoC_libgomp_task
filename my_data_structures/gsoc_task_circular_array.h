@@ -9,25 +9,25 @@
 
 typedef struct _gsoc_task_circular_array {
   gsoc_task** _array;
-  size_t _size;
+  unsigned long long _size;
 } gsoc_task_circular_array;
 
 gsoc_task_circular_array*
-gsoc_task_circular_array_new(size_t capacity);
+gsoc_task_circular_array_new(unsigned long long capacity);
 
 void
 gsoc_task_circular_array_delete(gsoc_task_circular_array* this);
 
 gsoc_task*
-gsoc_task_circular_array_get(gsoc_task_circular_array* this, size_t index);
+gsoc_task_circular_array_get(gsoc_task_circular_array* this, unsigned long long index);
 
 void
-gsoc_task_circular_array_set(gsoc_task_circular_array* this, size_t index, gsoc_task* task);
+gsoc_task_circular_array_set(gsoc_task_circular_array* this, unsigned long long index, gsoc_task* task);
 
 gsoc_task_circular_array*
 gsoc_task_circular_array_get_double_sized_copy(gsoc_task_circular_array* old);
 
-static inline size_t
+static inline unsigned long long
 gsoc_task_circular_array_size(gsoc_task_circular_array* this)
 {
   return this->_size;
