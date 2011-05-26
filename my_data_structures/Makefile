@@ -9,7 +9,8 @@ SRCS = $(wildcard *.c)
 OBJS = $(subst .c,.o,$(SRCS))
 DEPENDS = $(subst .c,.d,$(SRCS))
 TARGETS = test_gsoc_taskqueue test_gsoc_task_circular_array
-TEST_TARGETS = TEST_gsoc_taskqueue TEST_gsoc_task_circular_array
+TEST_TARGETS = TEST_gsoc_task_circular_array \
+               TEST_gsoc_taskqueue
 
 
 TESTVAL_EXTENDS = 50
@@ -34,11 +35,18 @@ test: $(TEST_TARGETS)
 .PHONY: TEST_gsoc_taskqueue
 TEST_gsoc_task_circular_array: test_gsoc_task_circular_array
 	@echo ""
-	@./test_gsoc_task_circular_array
+	@echo "=== TEST_gsoc_task_circular_array ==="
+	@./test_gsoc_task_circular_array ; \
+	if [ $$? -ne 0 ]; then \
+	    echo "Faild. This might be because you use 32bit CPU (and the pointer address cannot be so long). [NG]" ; \
+	else \
+	    echo "Success [OK]" ; \
+	fi
 
 .PHONY: TEST_gsoc_taskqueue
 TEST_gsoc_taskqueue: test_gsoc_taskqueue
 	@echo ""
+	@echo "=== TEST_gsoc_taskqueue ==="
 	@echo "You ALWAYS need to Recompile test_gsoc_taskqueue.c to make -D TESTVAL_* enable."
 # Create logfile first since $(shell)  is extracted before all other commands
 	$(shell ./test_gsoc_taskqueue > test_gsoc_taskqueue.log 2> debug.log)
