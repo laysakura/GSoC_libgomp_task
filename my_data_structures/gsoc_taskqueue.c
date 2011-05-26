@@ -10,131 +10,94 @@ gsoc_taskqueue* gsoc_taskqueue_new()
   this = malloc(sizeof(gsoc_taskqueue));
   assert(this);
 
-  this->_num_queue_cells = GSOC_TASKQUEUE_INIT_SIZE;
-  this->_top = this->_base = 0;
-  pthread_mutex_init(&this->_lock, NULL);
-
-  this->_taskqueue = malloc(sizeof(gsoc_task*) * this->_num_queue_cells);
-  assert(this->_taskqueue);
+  this->_taskqueue = gsoc_task_circular_array_new(GSOC_TASKQUEUE_INIT_SIZE);
+  this->_top = 0;
+  this->_bottom = 1;
 
   return this;
 }
 void gsoc_taskqueue_delete(gsoc_taskqueue* this)
 {
-  pthread_mutex_destroy(&this->_lock);
-  free(this->_taskqueue);
+  gsoc_task_circular_array_delete(this->_taskqueue);
   free(this);
 }
 
-/* Thread safe function.
-   (Push doesn't need lock to taskqueue) */
 void gsoc_taskqueue_push(gsoc_taskqueue* this, gsoc_task* task)
 {
-  this->_taskqueue[this->_top] = task;
-  ++this->_top;
-  __sync_synchronize();  /* write to _top and taskqueue */
+  size_t old_top = this->_top;
+  size_t num_tasks = this->_bottom - old_top;
+  gsoc_task_circular_array* old_taskqueue = this->_taskqueue;
 
-  /* Extend the size of deque when `top' exceeds it. */
-  if (__builtin_expect(this->_top >= this->_num_queue_cells, 0))
+  if (__builtin_expect(num_tasks >= gsoc_task_circular_array_size(this->_taskqueue) - 1, 0))
     {
-      size_t base;
-
-      pthread_mutex_lock(&this->_lock);
-
-      __sync_synchronize();  /* read _base */
-      base = this->_base;
-
-      this->_num_queue_cells *= 2;
-      this->_taskqueue = realloc(this->_taskqueue, sizeof(gsoc_task*) * this->_num_queue_cells);
-      assert(this->_taskqueue);
-
-      memmove(&this->_taskqueue[0], &this->_taskqueue[base],
-              sizeof(gsoc_task*) * (this->_top - base));
-
-      this->_top = this->_top - base;
-      this->_base = 0;
-      __sync_synchronize();         /* Ensure writing to _top and _base. */
-
-      pthread_mutex_unlock(&this->_lock);
+      /* _taskqueue needs to be expanded */
+      this->_taskqueue = gsoc_task_circular_array_get_double_sized_copy(old_taskqueue);
+      gsoc_task_circular_array_delete(old_taskqueue);
     }
+  gsoc_task_circular_array_set(this->_taskqueue, this->_bottom, task);
+  ++this->_bottom;
+  __sync_synchronize(); /* new _bottom must be visible from take() called by another worker */
 }
-/* Pop a task from the head of taskqueue.
-   Returns NULL when no task exists in taskqueue.
-   This is a thread safe function. */
+
 gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
 {
-  gsoc_task* res;
-  size_t base;
+  size_t old_top, new_top;
+  size_t num_tasks;
 
-  __sync_synchronize();  /* read _base */
-  base = this->_base;
-
-  if (this->_top - base == 0)
-    return NULL;
-
-  if (this->_top - base > GSOC_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE)
+  --this->_bottom;
+  __sync_synchronize(); /* New _bottom must be visible from take() called by another worker.
+                           Also, _top can be incremented by another worker. */
+  old_top = this->_top;
+  new_top = old_top + 1;
+  num_tasks = this->_bottom - old_top; /* Note that num_tasks is less than real number of tasks by 1
+                                          since _bottom is decremented. */
+  if (__builtin_expect(num_tasks < 0, 0))
     {
-      /* Pop without lock */
-      --this->_top;
-      res = this->_taskqueue[this->_top];
-      __sync_synchronize();  /* write to _top and taskqueue */
-
-      return res;
-    }
-
-  /* Need lock because other worker thread can steal the task to pop. */
-  pthread_mutex_lock(&this->_lock);
-
-  __sync_synchronize();  /* read _base */
-  base = this->_base;
-
-  if (this->_top - base == 0)
-    {
-      pthread_mutex_unlock(&this->_lock);
+      /* There is no task to pop. */
+      this->_bottom = old_top;
       return NULL;
+    }
+  else if (__builtin_expect(num_tasks == 0, 0))
+    {
+      /* Both pop() and take() might be trying to get an only task in _taskqueue. */
+
+      gsoc_task* ret = gsoc_task_circular_array_get(this->_taskqueue, this->_bottom);
+
+      __sync_synchronize();  /* _top can be incremented by another worker. */
+      if (!__sync_bool_compare_and_swap(&this->_top, old_top, new_top))
+        /* take() already took the task */
+        return NULL;
+      else
+        {
+          this->_bottom = new_top;  /* Tell take() _taskqueue is empty */
+          __sync_synchronize(); /* _bottom must be visible from take() */
+          return ret;
+        }
     }
   else
-    {
-      --this->_top;
-      res = this->_taskqueue[this->_top];
-      __sync_synchronize();  /* write to _top and taskqueue */
-
-      pthread_mutex_unlock(&this->_lock);
-      return res;
-    }
+    /* There are some number of tasks safely popped */
+    return gsoc_task_circular_array_get(this->_taskqueue, this->_bottom);
 }
-/* Take a task from the `base' of taskqueue.
-   Returns NULL when no task exists in taskqueue.
-   This function is invoked only by other worker threads than `this',
-   possibly by more than one threads at the same time. */
+
 gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this)
 {
-  gsoc_task* res;
-  size_t top;
+  size_t old_top, new_top;
+  size_t old_bottom;
+  size_t num_tasks;
 
-  __sync_synchronize();    /* Ensure visibility of _top written from victim worker thread. */
-  top = this->_top;
+  __sync_synchronize();  /* _top and _bottom can be changed by pop/push */
+  old_top = this->_top;
+  old_bottom = this->_bottom;
+  new_top = old_top + 1;
+  num_tasks = old_bottom - old_top;
 
-  if (top - this->_base == 0)
+  if (__builtin_expect(num_tasks <= 0, 0))
     return NULL;
 
-  pthread_mutex_lock(&this->_lock);
-
-  /* Although it has already checked whether there is a task in
-     `this' queue, _base could be changed by
-     other worker threads (stealer) just before acquiring lock. */
-  __sync_synchronize();    /* Ensure visibility of _top written from victim worker thread. */
-  top = this->_top;
-  if (__builtin_expect(top - this->_base == 0, 0))
-    {
-      pthread_mutex_unlock(&this->_lock);
-      return NULL;
-    }
-
-  res = this->_taskqueue[this->_base];
-  ++this->_base;
-  __sync_synchronize();         /* Ensure writing to _base. */
-
-  pthread_mutex_unlock(&this->_lock);
-  return res;
+  __sync_synchronize();  /* _top can be incremented by pop. */
+  if (!__sync_bool_compare_and_swap(&this->_top, old_top, new_top))
+    /* pop() already took the task */
+    return NULL;
+  else
+    return gsoc_task_circular_array_get(this->_taskqueue, old_top);
 }
