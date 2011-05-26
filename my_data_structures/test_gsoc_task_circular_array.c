@@ -72,6 +72,9 @@ int main()
 {
   gsoc_task_circular_array *carray;
   gsoc_task* test_tasks;
+  double t1, t2;
+
+  t1 = gettimeofday_sec();
 
   carray = gsoc_task_circular_array_new(INITIAL_SIZE);
   test_tasks = malloc(sizeof(gsoc_task) * END_SIZE * NUM_ROUND);
@@ -82,6 +85,10 @@ int main()
   test_tasks = malloc(sizeof(gsoc_task) * MAX_SIZE);
   assert(test_tasks);
   test_max_capacity(carray, test_tasks);
+
+  t2 = gettimeofday_sec();
+
+  fprintf(stderr, "%f elapsed\n", t2 - t1);
 
   free(test_tasks);
   free(carray);
