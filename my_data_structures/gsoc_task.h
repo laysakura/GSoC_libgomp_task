@@ -10,7 +10,7 @@ typedef struct gsoc_task {
   struct gsoc_task** children;
 
 #ifdef TEST_USE_TASK_ID
-  unsigned int test_id;
+  unsigned long long test_id;
 #endif
 } gsoc_task;
 
