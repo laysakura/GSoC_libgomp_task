@@ -310,7 +310,7 @@ GOMP_taskwait (void)
   if (task == NULL || task->children == NULL)
     return;
   gomp_mutex_lock (&team->task_lock);
-  while (1)
+  while (1)  /* 何のため・・・? */
     {
       if (task->children == NULL)
         {
