@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svnroot/open64/!svn/ver/3591/branches/OpenUH/osprey-gcc-4.2.0
+/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey-gcc-4.2.0
 END
 config-ml.in
 K 25
@@ -141,17 +141,17 @@ svn:wc:ra_dav:version-url
 V 75
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/Makefile.tpl
 END
-README.SCO
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/README.SCO
-END
 mkinstalldirs
 K 25
 svn:wc:ra_dav:version-url
 V 76
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/mkinstalldirs
+END
+README.SCO
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey-gcc-4.2.0/README.SCO
 END
 move-if-change
 K 25

@@ -630,6 +630,8 @@ __ompc_nested_slave(void * _v_thread)
   __ompc_exit_barrier(my_vthread);
 
   pthread_exit(NULL);
+
+  return NULL;
 }
 
 void

@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libm/mips
 http://svn.open64.net/svnroot/open64
 
@@ -536,40 +536,6 @@ leihuang
 
 5336
 
-finitel.c
-file
-
-
-
-
-2011-05-17T07:40:22.939161Z
-a4bb788a1b9add1a31bee279b7adccae
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-418
-
 expm1.c
 file
 
@@ -603,6 +569,40 @@ leihuang
 
 
 9460
+
+finitel.c
+file
+
+
+
+
+2011-05-17T07:40:22.939161Z
+a4bb788a1b9add1a31bee279b7adccae
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+418
 
 acosf.c
 file
@@ -740,40 +740,6 @@ leihuang
 
 5777
 
-expm1f.c
-file
-
-
-
-
-2011-05-17T07:40:22.939161Z
-2f2eba5068d58812702af092298fa740
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8377
-
 rcis.c
 file
 
@@ -807,6 +773,40 @@ leihuang
 
 
 7103
+
+expm1f.c
+file
+
+
+
+
+2011-05-17T07:40:22.939161Z
+2f2eba5068d58812702af092298fa740
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8377
 
 sinh.c
 file
@@ -842,6 +842,9 @@ leihuang
 
 11033
 
+extra
+dir
+
 expf.c
 file
 
@@ -875,9 +878,6 @@ leihuang
 
 
 6224
-
-extra
-dir
 
 sincosf.c
 file
@@ -913,40 +913,6 @@ leihuang
 
 7018
 
-atan2.c
-file
-
-
-
-
-2011-05-17T07:40:22.943161Z
-bd1f51af269b23774275118ace0e5942
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10750
-
 sqrtl.c
 file
 
@@ -981,14 +947,14 @@ leihuang
 
 469
 
-jn.c
+atan2.c
 file
 
 
 
 
 2011-05-17T07:40:22.943161Z
-56f64b3a01890818f6930111334989b5
+bd1f51af269b23774275118ace0e5942
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1013,7 +979,7 @@ leihuang
 
 
 
-9623
+10750
 
 truncl.c
 file
@@ -1048,6 +1014,40 @@ leihuang
 
 
 477
+
+jn.c
+file
+
+
+
+
+2011-05-17T07:40:22.943161Z
+56f64b3a01890818f6930111334989b5
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9623
 
 j0.c
 file

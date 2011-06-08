@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc/gcc/config/arm
 http://svn.open64.net/svnroot/open64
 
@@ -94,40 +94,6 @@ laijx
 
 1133
 
-semi.h
-file
-
-
-
-
-2011-05-17T07:42:03.503660Z
-9512c41447a606b7b1ce23827eb9ee2f
-2007-04-25T22:23:37.006709Z
-950
-laijx
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2411
-
 ecos-elf.h
 file
 
@@ -161,6 +127,40 @@ laijx
 
 
 1014
+
+semi.h
+file
+
+
+
+
+2011-05-17T07:42:03.503660Z
+9512c41447a606b7b1ce23827eb9ee2f
+2007-04-25T22:23:37.006709Z
+950
+laijx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2411
 
 symbian.h
 file
@@ -196,40 +196,6 @@ laijx
 
 3408
 
-linux-elf.h
-file
-
-
-
-
-2011-05-17T07:42:03.503660Z
-45289a37186129da1cc013fab6cecb5d
-2007-04-25T22:23:37.006709Z
-950
-laijx
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4697
-
 arm1026ejs.md
 file
 
@@ -264,14 +230,14 @@ laijx
 
 9220
 
-arm1136jfs.md
+linux-elf.h
 file
 
 
 
 
 2011-05-17T07:42:03.503660Z
-1bd9b6e2cfdb43dad63bc22290c3d937
+45289a37186129da1cc013fab6cecb5d
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -296,7 +262,7 @@ laijx
 
 
 
-14357
+4697
 
 elf.h
 file
@@ -331,6 +297,40 @@ laijx
 
 
 4679
+
+arm1136jfs.md
+file
+
+
+
+
+2011-05-17T07:42:03.503660Z
+1bd9b6e2cfdb43dad63bc22290c3d937
+2007-04-25T22:23:37.006709Z
+950
+laijx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14357
 
 aout.h
 file
@@ -1046,40 +1046,6 @@ laijx
 
 10086
 
-wince-pe.h
-file
-
-
-
-
-2011-05-17T07:42:03.507660Z
-7a3b0330b967acf9471952776e7a3938
-2007-04-25T22:23:37.006709Z
-950
-laijx
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1115
-
 linux-gas.h
 file
 
@@ -1113,6 +1079,40 @@ laijx
 
 
 2462
+
+wince-pe.h
+file
+
+
+
+
+2011-05-17T07:42:03.507660Z
+7a3b0330b967acf9471952776e7a3938
+2007-04-25T22:23:37.006709Z
+950
+laijx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1115
 
 t-pe
 file
@@ -1216,14 +1216,14 @@ laijx
 
 1097
 
-t-bpabi
+ieee754-sf.S
 file
 
 
 
 
 2011-05-17T07:42:03.507660Z
-28a91290c2edd9ab82fcd2e63b773b99
+a4620eb312ab7a83c6e69c2f50aadac5
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1248,7 +1248,7 @@ laijx
 
 
 
-259
+20125
 
 bpabi.S
 file
@@ -1284,14 +1284,14 @@ laijx
 
 2340
 
-ieee754-sf.S
+t-bpabi
 file
 
 
 
 
 2011-05-17T07:42:03.507660Z
-a4620eb312ab7a83c6e69c2f50aadac5
+28a91290c2edd9ab82fcd2e63b773b99
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1316,7 +1316,7 @@ laijx
 
 
 
-20125
+259
 
 t-arm
 file
@@ -1420,14 +1420,14 @@ laijx
 
 14904
 
-t-xscale-elf
+iwmmxt.md
 file
 
 
 
 
-2011-05-17T07:42:03.511660Z
-66f60bf42acddba90c2d485ff6a07a7b
+2011-05-17T07:42:03.507660Z
+3c04ff9aab82ccd0505b2024f79f6f58
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1452,7 +1452,7 @@ laijx
 
 
 
-2388
+55503
 
 t-arm-elf
 file
@@ -1488,14 +1488,14 @@ laijx
 
 3208
 
-iwmmxt.md
+t-xscale-elf
 file
 
 
 
 
-2011-05-17T07:42:03.507660Z
-3c04ff9aab82ccd0505b2024f79f6f58
+2011-05-17T07:42:03.511660Z
+66f60bf42acddba90c2d485ff6a07a7b
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1520,7 +1520,7 @@ laijx
 
 
 
-55503
+2388
 
 unknown-elf.h
 file
@@ -1556,14 +1556,14 @@ laijx
 
 3127
 
-t-xscale-coff
+t-arm-coff
 file
 
 
 
 
 2011-05-17T07:42:03.511660Z
-e508181c4788d80d5fd86025c9e0c82c
+5a8ef7705a4b2d9c6af43b0358baf865
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1588,7 +1588,7 @@ laijx
 
 
 
-1493
+1308
 
 t-rtems
 file
@@ -1624,14 +1624,14 @@ laijx
 
 281
 
-t-arm-coff
+t-xscale-coff
 file
 
 
 
 
 2011-05-17T07:42:03.511660Z
-5a8ef7705a4b2d9c6af43b0358baf865
+e508181c4788d80d5fd86025c9e0c82c
 2007-04-25T22:23:37.006709Z
 950
 laijx
@@ -1656,41 +1656,7 @@ laijx
 
 
 
-1308
-
-t-semi
-file
-
-
-
-
-2011-05-17T07:42:03.511660Z
-3f4caf56c0d20024c789acf824ae52d7
-2007-04-25T22:23:37.006709Z
-950
-laijx
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1311
+1493
 
 bpabi.c
 file
@@ -1725,6 +1691,40 @@ laijx
 
 
 2161
+
+t-semi
+file
+
+
+
+
+2011-05-17T07:42:03.511660Z
+3f4caf56c0d20024c789acf824ae52d7
+2007-04-25T22:23:37.006709Z
+950
+laijx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1311
 
 kaos-arm.h
 file
@@ -2066,40 +2066,6 @@ laijx
 
 920
 
-t-linux
-file
-
-
-
-
-2011-05-17T07:42:03.515660Z
-62166bf3306a8c7da37af0830b172d23
-2007-04-25T22:23:37.006709Z
-950
-laijx
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-491
-
 freebsd.h
 file
 
@@ -2133,6 +2099,40 @@ laijx
 
 
 2275
+
+t-linux
+file
+
+
+
+
+2011-05-17T07:42:03.515660Z
+62166bf3306a8c7da37af0830b172d23
+2007-04-25T22:23:37.006709Z
+950
+laijx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+491
 
 t-symbian
 file

@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/arith
 http://svn.open64.net/svnroot/open64
 
@@ -502,40 +502,6 @@ marcel
 
 3
 
-cray_fadd.c
-file
-
-
-
-
-2011-05-17T07:39:57.363034Z
-d825c3b2a9675f7ee18b5fc38ab0fa27
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6634
-
 fintrin.f
 file
 
@@ -569,6 +535,40 @@ marcel
 
 
 3380
+
+cray_fadd.c
+file
+
+
+
+
+2011-05-17T07:39:57.363034Z
+d825c3b2a9675f7ee18b5fc38ab0fa27
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6634
 
 fintrin_dc_irix.f
 file
@@ -604,40 +604,6 @@ marcel
 
 2744
 
-ieee_fdiv.c
-file
-
-
-
-
-2011-05-17T07:39:57.367034Z
-4f549ffcc49d2989e85811149538b2ef
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-15289
-
 itgenf.f
 file
 
@@ -671,6 +637,40 @@ marcel
 
 
 1612
+
+ieee_fdiv.c
+file
+
+
+
+
+2011-05-17T07:39:57.367034Z
+4f549ffcc49d2989e85811149538b2ef
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15289
 
 cray_fmul.c
 file
@@ -740,40 +740,6 @@ marcel
 
 1333
 
-ieee_fadd.c
-file
-
-
-
-
-2011-05-17T07:39:57.367034Z
-755c5a75aa5a93c2829361efc6d86380
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-15064
-
 strcvt.c
 file
 
@@ -808,14 +774,48 @@ marcel
 
 20713
 
-compare.c
+ieee_fadd.c
 file
 
 
 
 
 2011-05-17T07:39:57.367034Z
-8818175a4f5c9d65c2064cf50f12e599
+755c5a75aa5a93c2829361efc6d86380
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15064
+
+test_cray1_sim.c
+file
+
+
+
+
+2011-05-17T07:39:57.367034Z
+7298186817fe8634cf696c63ba915bd5
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -840,7 +840,7 @@ marcel
 
 
 
-12387
+9777
 
 native.c
 file
@@ -876,14 +876,14 @@ marcel
 
 51521
 
-test_cray1_sim.c
+compare.c
 file
 
 
 
 
 2011-05-17T07:39:57.367034Z
-7298186817fe8634cf696c63ba915bd5
+8818175a4f5c9d65c2064cf50f12e599
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -908,7 +908,7 @@ marcel
 
 
 
-9777
+12387
 
 fintrin_irix_tmp.f
 file
@@ -1012,40 +1012,6 @@ marcel
 
 71164
 
-fintrin_irix_f77.f
-file
-
-
-
-
-2011-05-17T07:39:57.367034Z
-87b7695cf1149bd98d69673088e2523d
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7490
-
 arith.doc
 file
 
@@ -1079,6 +1045,40 @@ marcel
 
 
 59062
+
+fintrin_irix_f77.f
+file
+
+
+
+
+2011-05-17T07:39:57.367034Z
+87b7695cf1149bd98d69673088e2523d
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7490
 
 ieee_fmul.c
 file

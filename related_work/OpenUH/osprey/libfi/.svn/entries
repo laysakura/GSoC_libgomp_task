@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libfi
 http://svn.open64.net/svnroot/open64
 
@@ -26,10 +26,10 @@ leihuang
 
 ead328b1-e903-0410-a19d-eacee4b031f6
 
-mpp_reduce
+include
 dir
 
-include
+mpp_reduce
 dir
 
 solaris_fortran.makeinclude
@@ -66,22 +66,22 @@ marcel
 
 1558
 
-prodsum
-dir
-
-mpp_util
+element
 dir
 
 mpp_shift
 dir
 
-element
+mpp_util
 dir
 
-mpp_scan
+prodsum
 dir
 
 coarray
+dir
+
+mpp_scan
 dir
 
 modsdir

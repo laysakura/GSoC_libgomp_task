@@ -74,7 +74,7 @@
 
 #define OMP_POINTER_SIZE	8
 
-#define OMP_TASK_STACK_SIZE_DEFAULT     0x010000L /* 1KB */
+#define OMP_TASK_STACK_SIZE_DEFAULT     0x010000L /* 各々のcoroutine(task)が1KBのコールスタックを持っている */
 #define OMP_TASK_Q_UPPER_LIMIT_DEFAULT 10
 #define OMP_TASK_Q_LOWER_LIMIT_DEFAULT 1
 #define OMP_TASK_LEVEL_LIMIT_DEFAULT 3
@@ -466,10 +466,10 @@ extern void __ompc_task_switch(omp_task_t *old, omp_task_t *newt);
 extern void __ompc_task_wait2(omp_task_state_t state);
 
 /*API into underlying task representation library (PCL) */
-extern inline omp_task_t* __ompc_task_get(omp_task_func func, void *args, int stacksize);
-extern inline void __ompc_task_delete(omp_task_t *task);
-extern inline void __ompc_task_switch(omp_task_t *old, omp_task_t *newt);
-extern inline void __ompc_init_vp();
+extern omp_task_t* __ompc_task_get(omp_task_func func, void *args, int stacksize);
+extern void __ompc_task_delete(omp_task_t *task);
+extern void __ompc_task_switch(omp_task_t *old, omp_task_t *newt);
+extern void __ompc_init_vp();
 
 extern volatile unsigned long int __omp_task_stack_size;
 

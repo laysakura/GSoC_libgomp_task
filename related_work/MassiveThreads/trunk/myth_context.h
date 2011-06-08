@@ -161,14 +161,16 @@ static inline void myth_make_context_voidcall(myth_context_t ctx,void_func_t fun
 #endif
 
 //Context switching functions (inlined)
+/* switch_from: 現在のstack pointerの値が記憶される
+ * switch_to: 飛ぶべきstack pointerの値 */
 #define myth_swap_context_i(switch_from,switch_to) \
 	{asm volatile(\
 		PUSH_CALLEE_SAVED() \
-		"push $1f\n"\
+		"push $1f\n" /* $1f は，何行か下の1:のラベルのアドレス．これがインストラクションポインタをpushしていることに相当*/ \
 		"mov %%esp,%0\n"\
 		"mov %1,%%esp\n"\
 		MY_RET_A \
-		"1:\n"\
+		"1:\n" /* assemblerのlabel(address)．swap_contextによって飛んだ先で，このアドレスをstackからpopしてここにjmpしているはず．(ret命令によってpopと同じことをやっている．) */ \
 		POP_CALLEE_SAVED() \
 		:"=m"(*(switch_from)):"g"(*(switch_to)));\
 	REG_BARRIER();}

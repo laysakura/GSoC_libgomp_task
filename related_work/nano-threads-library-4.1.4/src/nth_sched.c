@@ -44,6 +44,7 @@ inline nth_prepare_to_run (nth_desc_t *to)
 		nth_atm_add(&nth_sch_num_ready[nth_min(to->deep_level,NTH_MAX_LEVEL)],-1);
 }
 
+/* コンテキストスイッチ!! */
 void nth_sch_switch_to ( nth_desc_t *to )
 {
 	nth_desc_t *myself = NTH_MYSELF;

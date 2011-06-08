@@ -86,6 +86,15 @@ test_gsoc_taskqueue: gsoc_taskqueue.o test_gsoc_taskqueue.c
 test_gsoc_task_circular_array: gsoc_task_circular_array.h test_gsoc_task_circular_array.o
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 
+test_coroutine: test_coroutine.c pcl.o
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
+
+.PHONY: TEST_coroutine
+TEST_coroutine: test_coroutine
+	@echo "Testing behavior of coroutine library in OpenUH"
+	./test_coroutine
+
+
 .SUFFIXES: .c .o
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LDFLAGS)

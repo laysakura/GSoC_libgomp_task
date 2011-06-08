@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/score
 http://svn.open64.net/svnroot/open64
 
@@ -25,40 +25,6 @@ leihuang
 
 
 ead328b1-e903-0410-a19d-eacee4b031f6
-
-crti.asm
-file
-
-
-
-
-2011-05-17T07:41:31.059499Z
-8fd793367df6580533e599c1f0d1e562
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3823
 
 t-score-elf
 file
@@ -93,6 +59,40 @@ leihuang
 
 
 1415
+
+crti.asm
+file
+
+
+
+
+2011-05-17T07:41:31.059499Z
+8fd793367df6580533e599c1f0d1e562
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3823
 
 predicates.md
 file
@@ -162,40 +162,6 @@ leihuang
 
 861
 
-score-protos.h
-file
-
-
-
-
-2011-05-17T07:41:31.059499Z
-82ffe870cdf0c5d266d985752ced0ebc
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3096
-
 crtn.asm
 file
 
@@ -229,6 +195,40 @@ leihuang
 
 
 2181
+
+score-protos.h
+file
+
+
+
+
+2011-05-17T07:41:31.059499Z
+82ffe870cdf0c5d266d985752ced0ebc
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3096
 
 misc.md
 file
@@ -264,40 +264,6 @@ leihuang
 
 13939
 
-score.c
-file
-
-
-
-
-2011-05-17T07:41:31.059499Z
-8341431aba53f97106fc934e2b74a8e6
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-37553
-
 elf.h
 file
 
@@ -331,6 +297,40 @@ leihuang
 
 
 3873
+
+score.c
+file
+
+
+
+
+2011-05-17T07:41:31.059499Z
+8341431aba53f97106fc934e2b74a8e6
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37553
 
 mac.md
 file
@@ -366,40 +366,6 @@ leihuang
 
 6659
 
-score.h
-file
-
-
-
-
-2011-05-17T07:41:31.063499Z
-01b5c01157e5a093f56d5c8d4b9fecf3
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-41062
-
 score7.md
 file
 
@@ -433,6 +399,40 @@ leihuang
 
 
 1545
+
+score.h
+file
+
+
+
+
+2011-05-17T07:41:31.063499Z
+01b5c01157e5a093f56d5c8d4b9fecf3
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+41062
 
 score-conv.h
 file

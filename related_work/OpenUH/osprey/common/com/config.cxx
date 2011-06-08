@@ -1313,6 +1313,10 @@ Configure (void)
     OPT_Reorg_Common = TRUE;
   }
 
+  if ( ! Optimize_exception_ranges_set && Opt_Level == 0) {
+    Optimize_exception_ranges = 0;
+  }
+
   if (Force_GP_Prolog) Force_Jalr = TRUE;
 #ifdef TARG_X8664
   // Bug 1039 - align aggregates to 16-byte for all optimization levels
@@ -1848,7 +1852,7 @@ Configure_Alias_Options()
       Alias_F90_Pointer_Unaliased = TRUE;
     } else if (strncasecmp( val, "f90_pointer_alias", len) == 0) {
       Alias_F90_Pointer_Unaliased = FALSE;
-    } else if (strncasecmp( val, "nystrom", len) == 0) {
+    } else if (strncasecmp( val, "field_sensitive", len) == 0) {
       Alias_Nystrom_Analyzer = TRUE;
     } else {
       ErrMsg ( EC_Inv_OPT, "alias", val );

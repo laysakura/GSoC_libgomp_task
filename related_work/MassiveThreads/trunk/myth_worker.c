@@ -31,7 +31,7 @@ myth_thread_t myth_default_steal_func(int rank)
 	if (busy_env){
 #if 0
 #ifdef MYTH_SCHED_LOOP_DEBUG
-		myth_dprintf("env %p is trying to steal thread from %p...\n",env,busy_env);
+		printf("env %p is trying to steal thread from %p...\n",env,busy_env);
 #endif
 #endif
 		ws_victim=busy_env->rank;
@@ -39,7 +39,7 @@ myth_thread_t myth_default_steal_func(int rank)
 		next_run=myth_queue_take(&busy_env->runnable_q);
 		if (next_run){
 #ifdef MYTH_SCHED_LOOP_DEBUG
-			myth_dprintf("env %p is stealing thread %p from %p...\n",env,steal_th,busy_env);
+			printf("env %p is stealing thread ? from %p...\n",env,/*steal_th,*/busy_env);
 #endif
 			myth_assert(next_run->status==MYTH_STATUS_READY);
 			//Change worker thread descriptor

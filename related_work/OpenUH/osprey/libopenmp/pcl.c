@@ -33,13 +33,16 @@
 
 /*
  * The following value must be power of two ( N^2 ).
+ * 本当はそれだけが条件でもない気がする・・・
+ * もう少し最適な値を考える努力が必要かも
  */
-#define CO_STK_ALIGN 256
-#define CO_STK_COROSIZE ((sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1))
+#define CO_STK_ALIGN 256 /* coroutine構造体のうち，アラインメントを決めるメンバ(つまり最もアラインメントの大きいメンバ)のアラインメント． */
+#define CO_STK_COROSIZE ((sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1)) /* 本当はsizeof(coroutine)にしたいところを，アラインメントをとっている
+                                                                                            こうすることで，coroutineが配列になっても余分なメモリアクセスを減らせる */
 #define CO_MIN_SIZE (4 * 1024)
 
 
-__thread coroutine co_thread;
+__thread coroutine co_thread;  /* "__thread" キーワードはGCCがサポートしている．TLS(Thread Local Strage)であることを明示するらしい */
 __thread coroutine *co_curr;
 __thread coroutine *co_dhelper;
 
@@ -57,7 +60,7 @@ static co_ctx_t ctx_caller;
 
 int co_init(int num_threads)
 {
-  co_curr = malloc(sizeof(coroutine *)*16);
+  co_curr = malloc(sizeof(coroutine *)*16); /* 何故固定・・・? */
   co_dhelpher = malloc(sizeof(coroutine *)*16);
 
   for(int i=0; i<16; i++)
@@ -96,7 +99,7 @@ static int co_ctx_stackdir(void) {
 
 static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
 
-  if (getcontext(&ctx->cc))
+  if (getcontext(&ctx->cc)) /* これの必要性は分からない */
     return -1;
  
   ctx->cc.uc_link = NULL;
@@ -105,7 +108,8 @@ static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz)
   ctx->cc.uc_stack.ss_size = stksiz - sizeof(long);
   ctx->cc.uc_stack.ss_flags = 0;
  
-  makecontext(&ctx->cc, func, 1);
+  makecontext(&ctx->cc, func, 1); /* 関数コールのプロローグ・エピローグの代替といった難しいことをやってくれているんだと思う
+                                     作成されたcontextはctx->ccに対する変更で反映される */
 
   return 0;
 }
@@ -369,12 +373,18 @@ static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 
 #endif /* #if defined(CO_USE_UCONEXT) */
 
-
+/* makecontext()の引数として与えるために，void()(void)型．
+ * */
 static void co_runner(void) {
   coroutine *co = co_curr;
 
-  co->restarget = co->caller; /* laysakura: 親を登録している */
-  co->func(co->data); /* laysakura:この返り値を無視しているのはおかしい．この関数のcallerで，%espに乗った返り値を直接参照しているのではないか */
+  co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる．
+                                 ここまで来るとcoroutineという抽象化は非常に妥当な気もする */
+  co->func(co->data); /* laysakura:この返り値を無視しているのはおかしい．この関数のcallerで，%espに乗った返り値を直接参照しているのではないか
+                         あるいはoutlined関数が何か小細工してるかも
+
+                         「funcの中でちゃんとコンテキストスイッチ起きるの?」と思うかも知れないが，大丈夫．
+                         OpenMP directiveの各種ABIが，__ompc_task_switch()を呼び出していて，その中では実質swapcontext()呼び出しをしている */
   co_exit();
 }
 
@@ -383,6 +393,11 @@ void co_vp_init()
   co_curr = &co_thread;
 }
 
+/* @parameters:
+ * func: taskが実行すべき関数．
+ * data: その引数
+ * stack: funcが使用するスタックフレーム．NULLなら，この関数がstack frameをheap上に作成する
+ * size: stackのサイズ */
 coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
   int alloc = 0, r = CO_STK_COROSIZE;
   coroutine *co;
@@ -390,14 +405,19 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
   if ((size &= ~(sizeof(long) - 1)) < CO_MIN_SIZE)
     return NULL;
   if (!stack) {
-    size = (size + sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1);
-    stack = malloc(size);
+    size = (size + sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1); /* 何行か下の "co = stack" のコメント参照 */
+    stack = malloc(size); /* heap上にstackを作成 */
     if (!stack)
       return NULL;
     alloc = size;
   }
-  co = stack;
-  stack = (char *) stack + CO_STK_COROSIZE;
+  co = stack; /* 使用が時間的に隣接したデータは，(メモリ)空間的にも近く配置する
+                 という方針に基づき，"stack"という領域の前半にcoroutine構造体を配置し，その後ろにstackの本体を置く．
+                 理由はそれだけではない．こういうことをすると，mallocの回数が1回減らせる．
+                 ここまで多く呼ばれる関数の中では，できる限りmalloc()の回数は減らしたい．
+
+                 本当はcoroutine構造体にheap_on_stackへのアドレスがメンバとしてあるのが綺麗 */
+  stack = (char *) stack + CO_STK_COROSIZE; /* Alignmentを考慮 */
   co->alloc = alloc;
   co->func = func;
   co->data = data;
@@ -466,10 +486,12 @@ static void co_del_helper(void *data) {
   }
 }
 
-
-void co_exit_to(coroutine_t coro) {
+/* @parameters:
+ * coro: 今thread上で走っているcoroutineを終了させた後に移る先．*/
+void co_exit_to(coroutine_t coro)
+{
   coroutine *co = (coroutine *) coro;
-  static __thread coroutine *dchelper = NULL;
+  static __thread coroutine *dchelper = NULL; /* delete helper らしい */
   static __thread char stk[CO_MIN_SIZE];
 
   if (!dchelper &&

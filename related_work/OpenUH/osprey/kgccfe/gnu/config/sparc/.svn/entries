@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/kgccfe/gnu/config/sparc
 http://svn.open64.net/svnroot/open64
 
@@ -60,14 +60,14 @@ marcel
 
 1329
 
-sunos4.h
+litecoff.h
 file
 
 
 
 
 2011-05-17T07:40:19.503144Z
-1a569c677632657de3eed57ca3b1c949
+b555745dd84d29ea4dd581c136f1b831
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -92,7 +92,7 @@ marcel
 
 
 
-1604
+2359
 
 sun4o3.h
 file
@@ -128,14 +128,14 @@ marcel
 
 278
 
-litecoff.h
+sunos4.h
 file
 
 
 
 
 2011-05-17T07:40:19.503144Z
-b555745dd84d29ea4dd581c136f1b831
+1a569c677632657de3eed57ca3b1c949
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -160,7 +160,7 @@ marcel
 
 
 
-2359
+1604
 
 lynx-ng.h
 file
@@ -298,14 +298,14 @@ marcel
 
 290
 
-t-splet
+openbsd1-64.h
 file
 
 
 
 
 2011-05-17T07:40:19.507144Z
-4551f53b71cb8e2b4343d1b269e5e445
+082f3edd9cadfbc505e4f9a2c29da338
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -330,7 +330,7 @@ marcel
 
 
 
-596
+899
 
 sp64-aout.h
 file
@@ -366,14 +366,14 @@ marcel
 
 1241
 
-openbsd1-64.h
+t-splet
 file
 
 
 
 
 2011-05-17T07:40:19.507144Z
-082f3edd9cadfbc505e4f9a2c29da338
+4551f53b71cb8e2b4343d1b269e5e445
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -398,41 +398,7 @@ marcel
 
 
 
-899
-
-elf.h
-file
-
-
-
-
-2011-05-17T07:40:19.507144Z
-292ffd3deaaa259fa8c9e8ac426fc6d6
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1846
+596
 
 sol2-64.h
 file
@@ -467,6 +433,40 @@ marcel
 
 
 299
+
+elf.h
+file
+
+
+
+
+2011-05-17T07:40:19.507144Z
+292ffd3deaaa259fa8c9e8ac426fc6d6
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1846
 
 aout.h
 file
@@ -1114,14 +1114,14 @@ marcel
 
 14748
 
-sol2-gld-bi.h
+t-vxsparc64
 file
 
 
 
 
 2011-05-17T07:40:19.511144Z
-ae8b0a6b2cd60e20c0055cd341e8f135
+88e962c1e16f48681628a732f60b37d6
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -1146,7 +1146,7 @@ marcel
 
 
 
-284
+637
 
 crtfastmath.c
 file
@@ -1182,14 +1182,14 @@ marcel
 
 2176
 
-t-vxsparc64
+sol2-gld-bi.h
 file
 
 
 
 
 2011-05-17T07:40:19.511144Z
-88e962c1e16f48681628a732f60b37d6
+ae8b0a6b2cd60e20c0055cd341e8f135
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -1214,41 +1214,7 @@ marcel
 
 
 
-637
-
-t-sparcbare
-file
-
-
-
-
-2011-05-17T07:40:19.511144Z
-caeedc00160c8de7880731a8b7d7f01f
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-705
+284
 
 lb1spc.asm
 file
@@ -1283,6 +1249,40 @@ marcel
 
 
 16543
+
+t-sparcbare
+file
+
+
+
+
+2011-05-17T07:40:19.511144Z
+caeedc00160c8de7880731a8b7d7f01f
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+705
 
 sol2.h
 file
@@ -1386,40 +1386,6 @@ marcel
 
 1724
 
-sol27-sld.h
-file
-
-
-
-
-2011-05-17T07:40:19.515144Z
-dda2de83c407c0d3594704506903c31d
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-277
-
 lb1spl.asm
 file
 
@@ -1453,6 +1419,40 @@ marcel
 
 
 4402
+
+sol27-sld.h
+file
+
+
+
+
+2011-05-17T07:40:19.515144Z
+dda2de83c407c0d3594704506903c31d
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+277
 
 lite.h
 file
@@ -1522,40 +1522,6 @@ marcel
 
 3812
 
-t-sparclite
-file
-
-
-
-
-2011-05-17T07:40:19.515144Z
-17d8a2a8f568f9430b40ebecf45ebb69
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-665
-
 sol2-ci.asm
 file
 
@@ -1589,6 +1555,40 @@ marcel
 
 
 2284
+
+t-sparclite
+file
+
+
+
+
+2011-05-17T07:40:19.515144Z
+17d8a2a8f568f9430b40ebecf45ebb69
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+665
 
 t-sp86x
 file
@@ -1658,40 +1658,6 @@ marcel
 
 2410
 
-t-openbsd
-file
-
-
-
-
-2011-05-17T07:40:19.515144Z
-8b356fc61bbcbe16836e72ecdbc79da0
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-210
-
 pbd.h
 file
 
@@ -1725,6 +1691,40 @@ marcel
 
 
 5505
+
+t-openbsd
+file
+
+
+
+
+2011-05-17T07:40:19.515144Z
+8b356fc61bbcbe16836e72ecdbc79da0
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+210
 
 sol2-cn.asm
 file
@@ -1930,40 +1930,6 @@ marcel
 
 330
 
-lynx.h
-file
-
-
-
-
-2011-05-17T07:40:19.515144Z
-7c368562539bf1ac01e036bcfcead206
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1659
-
 openbsd.h
 file
 
@@ -1997,6 +1963,40 @@ marcel
 
 
 2125
+
+lynx.h
+file
+
+
+
+
+2011-05-17T07:40:19.515144Z
+7c368562539bf1ac01e036bcfcead206
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1659
 
 sp86x-aout.h
 file
@@ -2066,40 +2066,6 @@ marcel
 
 976
 
-t-netbsd64
-file
-
-
-
-
-2011-05-17T07:40:19.519144Z
-6f3f7caa856cae3d0684d223928518cf
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-224
-
 hal.h
 file
 
@@ -2133,6 +2099,40 @@ marcel
 
 
 1192
+
+t-netbsd64
+file
+
+
+
+
+2011-05-17T07:40:19.519144Z
+6f3f7caa856cae3d0684d223928518cf
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+224
 
 gmon-sol2.c
 file

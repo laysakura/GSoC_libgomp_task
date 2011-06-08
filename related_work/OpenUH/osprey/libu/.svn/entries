@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libu
 http://svn.open64.net/svnroot/open64
 
@@ -35,10 +35,10 @@ dir
 tblmgr
 dir
 
-cdc
+aqio
 dir
 
-aqio
+cdc
 dir
 
 multi
@@ -78,10 +78,10 @@ leihuang
 
 10178
 
-waio
+errmsg
 dir
 
-errmsg
+waio
 dir
 
 trbk

@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/kgccfe/gnu/intl
 http://svn.open64.net/svnroot/open64
 
@@ -570,40 +570,6 @@ marcel
 
 1999
 
-locale.alias
-file
-
-
-
-
-2011-05-17T07:40:16.739130Z
-487be754d7813d9e3671107c28a6b372
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2657
-
 ChangeLog
 file
 
@@ -637,6 +603,40 @@ marcel
 
 
 38801
+
+locale.alias
+file
+
+
+
+
+2011-05-17T07:40:16.739130Z
+487be754d7813d9e3671107c28a6b372
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2657
 
 finddomain.c
 file
@@ -672,14 +672,14 @@ marcel
 
 5734
 
-gettextP.h
+dcngettext.c
 file
 
 
 
 
 2011-05-17T07:40:16.739130Z
-bf6e07771a3b695e3b803aa9a1a0a551
+a7d273a1a4ee40cd2f32ed0866aa8c3d
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -704,7 +704,7 @@ marcel
 
 
 
-8132
+1893
 
 ref-add.sin
 file
@@ -740,14 +740,14 @@ marcel
 
 1089
 
-dcngettext.c
+gettextP.h
 file
 
 
 
 
 2011-05-17T07:40:16.739130Z
-a7d273a1a4ee40cd2f32ed0866aa8c3d
+bf6e07771a3b695e3b803aa9a1a0a551
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -772,19 +772,20 @@ marcel
 
 
 
-1893
+8132
 
-libgnuintl.h
+config.charset
 file
 
 
 
 
 2011-05-17T07:40:16.739130Z
-2c35a6e77ff6a6f4f115411d481156e2
+dda6992ca8661f71ef9fa83cc8f2be7c
 2005-11-18T22:20:42.308833Z
 71
 marcel
+has-props
 
 
 
@@ -805,8 +806,7 @@ marcel
 
 
 
-
-4397
+13325
 
 l10nflist.c
 file
@@ -842,18 +842,17 @@ marcel
 
 10549
 
-config.charset
+libgnuintl.h
 file
 
 
 
 
 2011-05-17T07:40:16.739130Z
-dda6992ca8661f71ef9fa83cc8f2be7c
+2c35a6e77ff6a6f4f115411d481156e2
 2005-11-18T22:20:42.308833Z
 71
 marcel
-has-props
 
 
 
@@ -874,7 +873,8 @@ has-props
 
 
 
-13325
+
+4397
 
 loadmsgcat.c
 file

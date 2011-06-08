@@ -8,14 +8,14 @@ AR = ar
 #CFLAGS = -g -O0 -fPIC -shared -Wall -Werror
 #CFLAGS_TEST = -g -O0 -Wall -Werror
 #for release
-CFLAGS = -g -O3 -shared -Wall -Werror -ftls-model=initial-exec 
+CFLAGS = -g -O3 -shared -Wall -fpermissive -ftls-model=initial-exec 
 CFLAGS_TEST = -g -O3 -Wall -Werror
 
 TARGET_LIB = libmyth.so libpthread.so libmyth.a  
 TARGET_TEST = myth_test
 TARGET = $(TARGET_LIB) $(TARGET_TEST)
 
-CFLAGS += -fPIC -DCOMPILED_AS_PIC
+CFLAGS += -fPIC -DCOMPILED_AS_PIC -DMYTH_SCHED_LOOP_DEBUG
 
 # Suffix rules
 .SUFFIXES: .o .c

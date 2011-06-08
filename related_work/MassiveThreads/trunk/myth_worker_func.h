@@ -282,6 +282,7 @@ MYTH_CTX_CALLBACK void myth_startpoint_init_ex_1(void *arg1,void *arg2,void *arg
 }
 
 //そのスレッドのコンテキストを取り込んで実行を開始する
+//laysakura: 大事
 static inline void myth_startpoint_init_ex_body(int rank)
 {
 	myth_setup_worker(rank);
@@ -451,8 +452,8 @@ static void myth_sched_loop(void)
 #ifdef MYTH_SCHED_LOOP_DEBUG
 			myth_dprintf("myth_sched_loop:switching to thread:%p\n",next_run);
 #endif
-			myth_assert(next_run->status==MYTH_STATUS_READY);
-			myth_swap_context(&env->sched.context,&next_run->context);
+        myth_assert(next_run->status==MYTH_STATUS_READY);
+        myth_swap_context(&env->sched.context,&next_run->context);
 			myth_log_add(env,MYTH_LOG_WS);
 #ifdef MYTH_SCHED_LOOP_DEBUG
 			myth_dprintf("myth_sched_loop:returned from thread:%p\n",(void*)next_run);

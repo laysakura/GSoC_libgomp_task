@@ -332,4 +332,4 @@ include $(COMMONRULES)
 #----------------------------------------------------------------------
 #  Temporary workaround
 #----------------------------------------------------------------------
-ipl_summarize_util.o: OPTIMIZER += -CG:all_sched=0
+ipl_summarize_util.o: OPTIMIZER += 

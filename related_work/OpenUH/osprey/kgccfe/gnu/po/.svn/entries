@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/kgccfe/gnu/po
 http://svn.open64.net/svnroot/open64
 
@@ -25,40 +25,6 @@ marcel
 
 
 ead328b1-e903-0410-a19d-eacee4b031f6
-
-exgettext
-file
-
-
-
-
-2011-05-17T07:40:16.099127Z
-4cb1fba0c1a4eb82afe2182b424cb586
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4216
 
 el.gmo
 file
@@ -94,14 +60,14 @@ has-props
 
 3645
 
-fr.po
+exgettext
 file
 
 
 
 
-2011-05-17T07:40:16.107127Z
-db4c1de91b8a2ac8b3933db2c0a5319c
+2011-05-17T07:40:16.099127Z
+4cb1fba0c1a4eb82afe2182b424cb586
 2005-11-18T22:20:42.308833Z
 71
 marcel
@@ -126,7 +92,7 @@ marcel
 
 
 
-779470
+4216
 
 es.po
 file
@@ -161,6 +127,40 @@ marcel
 
 
 773915
+
+fr.po
+file
+
+
+
+
+2011-05-17T07:40:16.107127Z
+db4c1de91b8a2ac8b3933db2c0a5319c
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+779470
 
 nl.po
 file
@@ -230,40 +230,6 @@ marcel
 
 10012
 
-fr.gmo
-file
-
-
-
-
-2011-05-17T07:40:16.111127Z
-0f16c41c78eab98081ccb5e61273960a
-2005-11-18T22:20:42.308833Z
-71
-marcel
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-518382
-
 es.gmo
 file
 
@@ -297,6 +263,40 @@ has-props
 
 
 511366
+
+fr.gmo
+file
+
+
+
+
+2011-05-17T07:40:16.111127Z
+0f16c41c78eab98081ccb5e61273960a
+2005-11-18T22:20:42.308833Z
+71
+marcel
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+518382
 
 nl.gmo
 file
@@ -434,40 +434,6 @@ marcel
 
 751189
 
-da.gmo
-file
-
-
-
-
-2011-05-17T07:40:16.119127Z
-da10c09d5493f39167f8f033589483bb
-2005-11-18T22:20:42.308833Z
-71
-marcel
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-94513
-
 sv.po
 file
 
@@ -501,6 +467,40 @@ marcel
 
 
 401571
+
+da.gmo
+file
+
+
+
+
+2011-05-17T07:40:16.119127Z
+da10c09d5493f39167f8f033589483bb
+2005-11-18T22:20:42.308833Z
+71
+marcel
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+94513
 
 tr.gmo
 file

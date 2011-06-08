@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 45
-/svnroot/open64/!svn/ver/3604/branches/OpenUH
-END
-configure
-K 25
-svn:wc:ra_dav:version-url
-V 55
-/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure
+/svnroot/open64/!svn/ver/3641/branches/OpenUH
 END
 RELEASE-4.2
 K 25
 svn:wc:ra_dav:version-url
 V 57
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/RELEASE-4.2
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure
 END
 Makefile.in
 K 25
@@ -33,17 +33,17 @@ svn:wc:ra_dav:version-url
 V 53
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/defs.mk
 END
+README.openuh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/open64/!svn/ver/3641/branches/OpenUH/README.openuh
+END
 config.guess
 K 25
 svn:wc:ra_dav:version-url
 V 58
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/config.guess
-END
-README.openuh
-K 25
-svn:wc:ra_dav:version-url
-V 59
-/svnroot/open64/!svn/ver/3601/branches/OpenUH/README.openuh
 END
 README.Pro64.src
 K 25
@@ -51,29 +51,29 @@ svn:wc:ra_dav:version-url
 V 62
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/README.Pro64.src
 END
-config.sub
-K 25
-svn:wc:ra_dav:version-url
-V 56
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/config.sub
-END
 README
 K 25
 svn:wc:ra_dav:version-url
 V 52
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/README
 END
-configure.ac
+config.sub
 K 25
 svn:wc:ra_dav:version-url
-V 58
-/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure.ac
+V 56
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/config.sub
 END
 pro64.spec
 K 25
 svn:wc:ra_dav:version-url
 V 56
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/pro64.spec
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/open64/!svn/ver/3603/branches/OpenUH/configure.ac
 END
 open64.spec
 K 25
@@ -91,7 +91,7 @@ install_compiler.sh
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/install_compiler.sh
+/svnroot/open64/!svn/ver/3632/branches/OpenUH/install_compiler.sh
 END
 MAINTAINERS
 K 25

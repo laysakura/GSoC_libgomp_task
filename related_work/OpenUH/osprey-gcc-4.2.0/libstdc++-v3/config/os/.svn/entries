@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc-4.2.0/libstdc++-v3/config/os
 http://svn.open64.net/svnroot/open64
 
@@ -26,10 +26,10 @@ leihuang
 
 ead328b1-e903-0410-a19d-eacee4b031f6
 
-windiss
+newlib
 dir
 
-newlib
+windiss
 dir
 
 aix
@@ -41,10 +41,10 @@ dir
 hpux
 dir
 
-mingw32
+gnu-linux
 dir
 
-gnu-linux
+mingw32
 dir
 
 tpf
@@ -65,9 +65,9 @@ dir
 irix
 dir
 
-solaris
+generic
 dir
 
-generic
+solaris
 dir
 

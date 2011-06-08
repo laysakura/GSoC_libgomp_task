@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libm/intel/asm
 http://svn.open64.net/svnroot/open64
 
@@ -60,40 +60,6 @@ marcel
 
 1979
 
-floor.s
-file
-
-
-
-
-2011-05-17T07:40:22.979161Z
-2a019f83db64220b301a489799b08313
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3383
-
 fabsf.s
 file
 
@@ -127,6 +93,40 @@ marcel
 
 
 2126
+
+floor.s
+file
+
+
+
+
+2011-05-17T07:40:22.979161Z
+2a019f83db64220b301a489799b08313
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3383
 
 ceilf.s
 file
@@ -230,40 +230,6 @@ marcel
 
 3411
 
-swapINX.s
-file
-
-
-
-
-2011-05-17T07:40:22.983161Z
-4ae7daece0ba2396c62add6926a74859
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1874
-
 sqrt.s
 file
 
@@ -298,14 +264,14 @@ marcel
 
 3241
 
-trunc.s
+swapINX.s
 file
 
 
 
 
 2011-05-17T07:40:22.983161Z
-3947c6076ee1cac3bf3cabbd5403f7fc
+4ae7daece0ba2396c62add6926a74859
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -330,7 +296,7 @@ marcel
 
 
 
-3288
+1874
 
 copysign.s
 file
@@ -365,6 +331,40 @@ marcel
 
 
 1892
+
+trunc.s
+file
+
+
+
+
+2011-05-17T07:40:22.983161Z
+3947c6076ee1cac3bf3cabbd5403f7fc
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3288
 
 sqrtf.s
 file

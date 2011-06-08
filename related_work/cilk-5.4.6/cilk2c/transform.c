@@ -990,6 +990,7 @@ PRIVATE inline Node *TransformBreak(Node *node, UNUSED(BreakNode *u))
      return node;
 }
 
+/* これ，outline化するときにreturnをどう変換するかを実装している部分だと思う */
 PRIVATE inline Node *TransformReturn(Node *node, ReturnNode *u)
 {
      Node *result;

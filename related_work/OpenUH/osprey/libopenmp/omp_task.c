@@ -51,7 +51,12 @@ int __ompc_task_numtasks_cond()
   return (__omp_level_1_team_manager.num_tasks < __omp_task_limit);
 }
 
-/* laysakura:明らかに大事 */
+/* task directiveのABI
+ * @parameters:
+ * taskfunc: taskの実行するべき関数
+ * fp: その引数
+ * may_delay: 真なら幅優先的なtask生成を行えるってことだと思う
+ * is_tied: tied taskかどうか */
 int __ompc_task_create(omp_task_func taskfunc, void* fp, int may_delay, int is_tied)
 {
 
@@ -179,6 +184,8 @@ void __ompc_task_wait()
   __ompc_task_wait2(OMP_TASK_SUSPENDED);
 }
 
+/* @parameters:
+ * state: taskwait directive にさしあたったtaskのstate */
 void __ompc_task_wait2(omp_task_state_t state)
 {
   /* tasks calling this function are not in a ready queue, set state to blocked and find another task to execute */
@@ -212,7 +219,8 @@ void __ompc_task_wait2(omp_task_state_t state)
 #endif
 
       if(state == OMP_TASK_EXIT) {
-		    
+    	  /* このtaskは子taskも持っていないので，taskqueueからnext taskを持ってきて終了するだけ */
+
         __ompc_task_schedule(&next);
 		    
         current_task->state = OMP_TASK_EXIT;
@@ -222,14 +230,14 @@ void __ompc_task_wait2(omp_task_state_t state)
         old = NULL;
 
         pthread_mutex_unlock(&current_task->lock);
-        __ompc_task_exit_to(current_task, next);
+        __ompc_task_exit_to(current_task, next); /* あくまでもcurrent taskからnext taskにswitch．このスケジューラループからswitchしたことは隠蔽する */
       } else if(state == OMP_TASK_SUSPENDED) {
         pthread_mutex_unlock(&current_task->lock);
         return;
       }
 
     } else {
-
+      /* 今taskwaitにぶつかったtaskに子taskがいる場合 */
 #ifdef TASK_DEBUG
       printf("%d: taskwait: %X num_children = %d\n", __omp_myid, current_task, current_task->num_children);
 #endif
@@ -237,7 +245,7 @@ void __ompc_task_wait2(omp_task_state_t state)
       __ompc_task_schedule(&next); /* work-stealing も視野に入れてnext taskを探すことで，waitしているtaskばっかりCPUに乗るようなことがないようにしている */
 	
       if(next != NULL || !current_task->is_parallel_task) {
-        if(next == NULL)
+        if(next == NULL) /* 論理的に，ここは"next == NULL && !current_task->is_parallel_task"が成り立つとき． */
           next = __omp_level_1_team_tasks[__omp_myid];
 
         if(state == OMP_TASK_EXIT) {
@@ -246,7 +254,8 @@ void __ompc_task_wait2(omp_task_state_t state)
           old = current_task;
         }
         pthread_mutex_unlock(&current_task->lock);
-        __ompc_task_switch(old, next); /* taskwaitにぶつかった時に子taskがいたとすると，とりあえず親taskはnext taskに制御を譲る */
+        __ompc_task_switch(old, next); /* taskwaitにぶつかった時にtaskがいたら，next taskをこのscheduler loop内で探し出し，
+                                          taskはnext taskに制御を譲る */
 
       } else
         pthread_mutex_unlock(&current_task->lock); /* もしもnextになるようなtaskがいなければ，それを再び__ompc_task_schedule() によって探す */
@@ -257,6 +266,8 @@ void __ompc_task_wait2(omp_task_state_t state)
 
 }
 
+
+/* 次にschedulingすべきtaskを引数nextにぶち込む */
 void __ompc_task_schedule(omp_task_t **next)
 {
   __ompc_task_q_get_tail(&__omp_private_task_q[__omp_myid], next);

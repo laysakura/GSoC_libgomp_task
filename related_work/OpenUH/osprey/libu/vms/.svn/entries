@@ -1,7 +1,7 @@
 10
 
 dir
-3606
+3641
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libu/vms
 http://svn.open64.net/svnroot/open64
 
@@ -94,14 +94,14 @@ marcel
 
 3477
 
-vxbcti.f
+cray2vax.f
 file
 
 
 
 
-2011-05-17T07:40:35.563224Z
-5edae936a9d2487149981b28f24ab2d3
+2011-05-17T07:40:35.559224Z
+18cca2e00a0808cff1f42b25249450cd
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -126,7 +126,7 @@ marcel
 
 
 
-4893
+14906
 
 vax2cray.f
 file
@@ -162,14 +162,14 @@ marcel
 
 13855
 
-cray2vax.f
+vxbcti.f
 file
 
 
 
 
-2011-05-17T07:40:35.559224Z
-18cca2e00a0808cff1f42b25249450cd
+2011-05-17T07:40:35.563224Z
+5edae936a9d2487149981b28f24ab2d3
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -194,7 +194,7 @@ marcel
 
 
 
-14906
+4893
 
 vxictc.f
 file
@@ -230,40 +230,6 @@ marcel
 
 4216
 
-vxdcti.f
-file
-
-
-
-
-2011-05-17T07:40:35.563224Z
-a05a2e49328f6ed48e22d4259a3066b6
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4838
-
 vms.makeinclude
 file
 
@@ -297,6 +263,40 @@ marcel
 
 
 1774
+
+vxdcti.f
+file
+
+
+
+
+2011-05-17T07:40:35.563224Z
+a05a2e49328f6ed48e22d4259a3066b6
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4838
 
 vxlctc.f
 file
@@ -434,14 +434,14 @@ leihuang
 
 1755
 
-vax2mips.F
+vxlcti.f
 file
 
 
 
 
 2011-05-17T07:40:35.563224Z
-c2560c2f088150516e227493073f147c
+c1f8d4551a97adaefe3dffc217773025
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -466,7 +466,7 @@ marcel
 
 
 
-47074
+2479
 
 mips2vax.F
 file
@@ -502,14 +502,14 @@ marcel
 
 46689
 
-vxlcti.f
+vax2mips.F
 file
 
 
 
 
 2011-05-17T07:40:35.563224Z
-c1f8d4551a97adaefe3dffc217773025
+c2560c2f088150516e227493073f147c
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -534,7 +534,7 @@ marcel
 
 
 
-2479
+47074
 
 vxsctc.f
 file
