@@ -1067,7 +1067,8 @@ __ompc_expand_level_1_team(int new_num_threads)
   __omp_level_1_team_alloc_size = new_num_threads;
 }
 
-/* The main fork API. at the first fork, initialize the RTL*/
+/* The main fork API. at the first fork, initialize the RTL
+ * parallel directive あたりのABIな気がする */
 void
 __ompc_fork(const int _num_threads, omp_micro micro_task, 
 	    frame_pointer_t frame_pointer)

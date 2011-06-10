@@ -3,7 +3,6 @@
 
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
 
-__thread coroutine_t _current_task;
 coroutine_t co1, co2, co_scheduler;
 
 void f1()

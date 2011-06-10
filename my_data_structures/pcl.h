@@ -90,6 +90,7 @@ void co_exit_to(coroutine_t coro);
 void co_exit(void);
 coroutine_t co_current(void);
 void co_vp_init();
+static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx);
 
 
 #ifdef __cplusplus

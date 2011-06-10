@@ -86,7 +86,7 @@ int __ompc_task_create(omp_task_func taskfunc, void* fp, int may_delay, int is_t
   x = __ompc_atomic_inc(&__omp_current_task->num_children);  /* ここは真似したい．でもatomic_incはアセンブリで実現されてる */
   __ompc_atomic_inc(&__omp_level_1_team_manager.num_tasks);
 
-  __ompc_task_switch(__omp_current_task, newtask);
+  __ompc_task_switch(__omp_current_task, newtask); /* 深さ優先! */
 
   if (may_delay) {
 #ifdef SCHED1
@@ -219,7 +219,8 @@ void __ompc_task_wait2(omp_task_state_t state)
 #endif
 
       if(state == OMP_TASK_EXIT) {
-    	  /* このtaskは子taskも持っていないので，taskqueueからnext taskを持ってきて終了するだけ */
+    	  /* このtaskは子taskも持っていないので，taskqueueからnext taskを持ってきて終了するだけ
+    	   * 俺の実装イメージだとtaskwaitはexitと分離しているので，このif節内はいらん */
 
         __ompc_task_schedule(&next);
 		    
@@ -230,7 +231,9 @@ void __ompc_task_wait2(omp_task_state_t state)
         old = NULL;
 
         pthread_mutex_unlock(&current_task->lock);
-        __ompc_task_exit_to(current_task, next); /* あくまでもcurrent taskからnext taskにswitch．このスケジューラループからswitchしたことは隠蔽する */
+        __ompc_task_exit_to(current_task, next); /* あくまでもcurrent taskからnext taskにswitch．このスケジューラループからswitchしたことは隠蔽する
+                                                    以前のtaskが，自分のoutlined funcの実行を終えた後，最後の力を振り絞ってこのスケジューラループを
+                                                    呼んで，次のtaskを走らせている */
       } else if(state == OMP_TASK_SUSPENDED) {
         pthread_mutex_unlock(&current_task->lock);
         return;
