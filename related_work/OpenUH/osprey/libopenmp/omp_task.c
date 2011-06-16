@@ -110,7 +110,7 @@ void __ompc_task_body_start()
   __ompc_task_switch(__omp_current_task, __omp_current_task->creator);
 }
 
-
+/* OpenUHではこういうABIをoutlined functionの中で自動で呼び出したりするんでしょう */
 void __ompc_task_exit()
 {
 
@@ -218,7 +218,7 @@ void __ompc_task_wait2(omp_task_state_t state)
       printf("%d: taskwait2: %X num_children = 0; state = %d\n", __omp_myid, current_task, state);
 #endif
 
-      if(state == OMP_TASK_EXIT) {
+      if(state == OMP_TASK_EXIT) {  /* __ompc_task_exit() calls __ompc_task_wait(OMP_TASK_EXIT); */
     	  /* このtaskは子taskも持っていないので，taskqueueからnext taskを持ってきて終了するだけ
     	   * 俺の実装イメージだとtaskwaitはexitと分離しているので，このif節内はいらん */
 
