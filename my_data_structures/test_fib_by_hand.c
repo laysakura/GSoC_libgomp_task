@@ -76,7 +76,7 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
 
 void gsoc_encounter_taskwait_directive()
 {
-  if (_worker.current_task && _worker.current_task->num_children == 0)
+  if (_worker.current_task->num_children == 0)
     {
       /* Skip taskwait directive */
       return;
