@@ -102,12 +102,7 @@ void gsoc_encounter_taskexit_directive()
 
 int fib(int N);
 
-void fib_outlined1(omp_internal_data* data)
-{
-  *data->retval = fib(data->arg);
-}
-
-void fib_outlined2(omp_internal_data* data)
+void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
 }
@@ -129,14 +124,14 @@ int fib(int N)
   /* is tranlated in: */
   omp_data1.retval = &f1;
   omp_data1.arg = N - 1;
-  gsoc_encounter_task_directive((void (*)(void*))fib_outlined1, (omp_internal_data*)&omp_data1);
+  gsoc_encounter_task_directive((void (*)(void*))fib_outlined, (omp_internal_data*)&omp_data1);
 
   /* #pragma omp task shared(f2) firstprivate(N) */
   /* f2 = fib(N - 2); */
   /* is tranlated in: */
   omp_data2.retval = &f2;
   omp_data2.arg = N - 2;
-  gsoc_encounter_task_directive((void (*)(void*))fib_outlined2, (omp_internal_data*)&omp_data2);
+  gsoc_encounter_task_directive((void (*)(void*))fib_outlined, (omp_internal_data*)&omp_data2);
 
   gsoc_encounter_taskwait_directive();
 
@@ -161,7 +156,7 @@ int main(int argc, char** argv)
 
   _worker.taskq = gsoc_taskqueue_new();
   _worker.scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  _worker.current_task = co_create((void(*)(void*))fib_outlined1, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  _worker.current_task = co_create((void(*)(void*))fib_outlined, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   _worker.current_task->creator = NULL;
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
