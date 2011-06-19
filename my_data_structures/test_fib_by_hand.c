@@ -153,18 +153,20 @@ void* invoke_fib(int* N)
 
 int main(int argc, char** argv)
 {
-  int N;
+  omp_internal_data data;
+  int retval;
+  data.retval = &retval;
 
   if (argc != 2)
     {
       fprintf(stderr, "ARGS: <N for fib(N)>\n");
       exit(1);
     }
-  N = atoi(argv[1]);
+  data.arg = atoi(argv[1]);
 
   _worker.taskq = gsoc_taskqueue_new();
   _worker.scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  _worker.current_task = co_create((void(*)(void*)) invoke_fib, &N, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  _worker.current_task = co_create((void(*)(void*))fib_outlined1, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   _worker.current_task->creator = NULL;
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
@@ -173,7 +175,7 @@ int main(int argc, char** argv)
                    is called in pcl.c internally. */
   co_call(_worker.current_task);
 
-  printf("returned to main\n");
+  printf("fib(%d) = %d\n", data.arg, *data.retval);
 
   gsoc_taskqueue_delete(_worker.taskq);
 
