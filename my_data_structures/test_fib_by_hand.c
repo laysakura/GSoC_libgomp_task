@@ -58,7 +58,7 @@ void gsoc_task_scheduler_loop()
       gsoc_task* next_task;
 
 
-      next_task = gsoc_taskqueue_pop(_workers[0].taskq);
+      next_task = gsoc_taskqueue_pop(_workers[_thread_id].taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
           /* next_task = gsoc_taskqueue_take(taskq2); */
@@ -72,8 +72,8 @@ void gsoc_task_scheduler_loop()
             /* } */
         }
 
-      _workers[0].current_task = next_task;
-      co_call(_workers[0].current_task);
+      _workers[_thread_id].current_task = next_task;
+      co_call(_workers[_thread_id].current_task);
     }
 }
 
@@ -81,32 +81,32 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   gsoc_task* child_task;
 
-  child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[0].current_task);
+  child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
 
-  gsoc_taskqueue_push(_workers[0].taskq, child_task);
+  gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
 }
 
 void gsoc_encounter_taskwait_directive()
 {
-  if (_workers[0].current_task->num_children == 0)
+  if (_workers[_thread_id].current_task->num_children == 0)
     {
       /* Skip taskwait directive */
       return;
     }
 
   /* This task sleeps until the last child wakes it up */
-  co_call(_workers[0].scheduler_task);
+  co_call(_workers[_thread_id].scheduler_task);
 }
 
 void gsoc_encounter_taskexit_directive()
 {
-  if (_workers[0].current_task->creator)
+  if (_workers[_thread_id].current_task->creator)
     {
-      __sync_sub_and_fetch(&_workers[0].current_task->creator->num_children, 1);
-      if (_workers[0].current_task->creator->num_children == 0)
+      __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+      if (_workers[_thread_id].current_task->creator->num_children == 0)
         /* Tell parent task that all of us children finished our work
            then parent resume its work using our result. */
-        gsoc_taskqueue_push(_workers[0].taskq, _workers[0].current_task->creator);
+        gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
     }
 
   __sync_sub_and_fetch(&num_team_task, 1);
@@ -117,7 +117,7 @@ int fib(int N);
 void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
-  co_exit_to(_workers[0].scheduler_task);
+  co_exit_to(_workers[_thread_id].scheduler_task);
 }
 
 int fib(int N)
@@ -154,13 +154,12 @@ int fib(int N)
   return f1 + f2;
 }
 
-void gsoc_setup_thread(unsigned int thread_id)
+void gsoc_setaffinity(unsigned int thread_id)
 {
   cpu_set_t cpuset;
   CPU_ZERO(&cpuset);
   CPU_SET(_thread_id, &cpuset);
   pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset);
-
 }
 
 void* start_master_thread(omp_internal_data* data)
@@ -168,22 +167,22 @@ void* start_master_thread(omp_internal_data* data)
   gsoc_task* root_task;
 
   _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
-  gsoc_setup_thread(_thread_id);
+  gsoc_setaffinity(_thread_id);
 
-  _workers[0].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
-  gsoc_taskqueue_push(_workers[0].taskq, root_task);
-  co_call(_workers[0].scheduler_task);
+  gsoc_taskqueue_push(_workers[_thread_id].taskq, root_task);
+  co_call(_workers[_thread_id].scheduler_task);
 }
 
 void gsoc_run_workers(omp_internal_data* data)
 {
-  _workers[0].taskq = gsoc_taskqueue_new();
+  _workers[_thread_id].taskq = gsoc_taskqueue_new();
   /* _workers[1].taskq = gsoc_taskqueue_new(); */
 
   pthread_create(&_pthread_id[0], NULL, (void*(*)(void*))start_master_thread, data);
