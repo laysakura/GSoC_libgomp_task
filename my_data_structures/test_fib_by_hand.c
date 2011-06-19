@@ -146,11 +146,6 @@ int fib(int N)
   return f1 + f2;
 }
 
-void* invoke_fib(int* N)
-{
-  printf("fib(%d) = %d\n", *N, fib(*N));
-}
-
 int main(int argc, char** argv)
 {
   omp_internal_data data;
