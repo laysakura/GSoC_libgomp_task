@@ -2,51 +2,10 @@
 
 
 #define _GNU_SOURCE
-#include "pcl.h"
-#include "gsoc_taskqueue.h"
+#include "test_fib_by_hand.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
-
-#define NUM_THREADS 2
-__thread unsigned int _thread_id;
-unsigned int _num_detected_threads = 0;
-pthread_t _pthread_id[NUM_THREADS];
-
-unsigned int num_team_task;
-
-
-typedef struct
-{
-  int* retval;
-  int arg;
-} omp_internal_data;
-
-
-typedef struct
-{
-  pthread_t pthread_id;
-  gsoc_taskqueue* taskq;
-  gsoc_task* current_task;
-  gsoc_task* scheduler_task;
-} gsoc_worker;
-
-gsoc_worker _workers[NUM_THREADS];
-
-
-gsoc_task* gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gsoc_task* parent_task)
-{
-  gsoc_task* ret;
-  ret = co_create(func, data, stack, stacksize);
-  ret->num_children = 0;
-  ret->creator = parent_task;
-  __sync_add_and_fetch(&num_team_task, 1);
-  if (__builtin_expect(parent_task != NULL, 1)) /* Fauls only if the task to be created is root task */
-    __sync_add_and_fetch(&parent_task->num_children, 1);
-  return ret;
-}
 
 void gsoc_task_scheduler_loop()
 {
@@ -76,7 +35,8 @@ void gsoc_task_scheduler_loop()
     }
 }
 
-void gsoc_encounter_task_directive(void(*func)(void*), void* data)
+void
+gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   gsoc_task* child_task;
 
@@ -85,7 +45,8 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
   gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
 }
 
-void gsoc_encounter_taskwait_directive()
+void
+gsoc_encounter_taskwait_directive()
 {
   if (_workers[_thread_id].current_task->num_children == 0)
     {
@@ -97,7 +58,8 @@ void gsoc_encounter_taskwait_directive()
   co_call(_workers[_thread_id].scheduler_task);
 }
 
-void gsoc_encounter_taskexit_directive()
+void
+gsoc_encounter_taskexit_directive()
 {
   if (_workers[_thread_id].current_task->creator)
     {
@@ -169,6 +131,7 @@ void* start_master_thread(omp_internal_data* data)
   _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
 
   gsoc_setaffinity();
+  printf("master CPU %d\n", sched_getcpu());
 
   _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
@@ -187,6 +150,7 @@ void* start_slave_thread()
   _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
 
   gsoc_setaffinity();
+  printf("slave CPU %d\n", sched_getcpu());
 
   _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 

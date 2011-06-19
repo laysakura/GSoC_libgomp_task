@@ -20,6 +20,9 @@
  *
  */
 
+#undef CO_USE_SIGCONTEXT
+#define CO_USE_UCONTEXT
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "pcl.h"
@@ -95,11 +98,11 @@ static int co_ctx_stackdir(void) {
 }
 
 
-#if defined(CO_USE_UCONEXT)
+#if defined(CO_USE_UCONTEXT)
 
 static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
 
-  if (getcontext(&ctx->cc)) /* これの必要性は分からない */
+	if (getcontext(&ctx->cc)) /* これの必要性は分からない */
     return -1;
  
   ctx->cc.uc_link = NULL;
@@ -115,7 +118,7 @@ static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz)
 }
 
 
-static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
+void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 
 
   if (swapcontext(&octx->cc, &nctx->cc) < 0) {
@@ -126,7 +129,7 @@ static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 
 }
 
-#else /* #if defined(CO_USE_UCONEXT) */
+#else /* #if defined(CO_USE_UCONTEXT) */
 
 #if defined(CO_USE_SIGCONTEXT)
 
@@ -371,7 +374,7 @@ static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
     longjmp(nctx->cc, 1);
 }
 
-#endif /* #if defined(CO_USE_UCONEXT) */
+#endif /* #if defined(CO_USE_UCONTEXT) */
 
 /* makecontext()の引数として与えるために，void()(void)型．
  * */
@@ -380,8 +383,7 @@ static void co_runner(void) {
 
   co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる．
                                  ここまで来るとcoroutineという抽象化は非常に妥当な気もする */
-  co->func(co->data); /* laysakura:この返り値を無視しているのはおかしい．この関数のcallerで，%espに乗った返り値を直接参照しているのではないか
-                         あるいはoutlined関数が何か小細工してるかも
+  co->func(co->data); /* funcは戻り値のないoutlined function. この中で *data->ret = fib(*data->arg) とかやってるから大丈夫
 
                          「funcの中でちゃんとコンテキストスイッチ起きるの?」と思うかも知れないが，大丈夫．
                          OpenMP directiveの各種ABIが，__ompc_task_switch()を呼び出していて，その中では実質swapcontext()呼び出しをしている */
@@ -394,8 +396,8 @@ void co_vp_init()
 }
 
 /* @parameters:
- * func: taskが実行すべき関数．
- * data: その引数
+ * func: taskが実行すべきoutline関数．
+ * data: outline functionは， *data->ret = fib(*data->arg) みたいなことをする
  * stack: funcが使用するスタックフレーム．NULLなら，この関数がstack frameをheap上に作成する
  * size: stackのサイズ */
 coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
@@ -500,7 +502,6 @@ void co_exit_to(coroutine_t coro)
             co_curr);
     exit(1);
   }
-
   co_dhelper = co;
  
   co_call((coroutine_t) dchelper);
