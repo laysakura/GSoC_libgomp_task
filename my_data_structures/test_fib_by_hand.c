@@ -88,11 +88,12 @@ void gsoc_encounter_taskwait_directive()
 
 void gsoc_encounter_taskexit_directive()
 {
-
   if (_worker.current_task->creator)
     {
       __sync_sub_and_fetch(&_worker.current_task->creator->num_children, 1);
       if (_worker.current_task->creator->num_children == 0)
+        /* Tell parent task that all of us children finished our work
+           then parent resume its work using our result. */
         gsoc_taskqueue_push(_worker.taskq, _worker.current_task->creator);
     }
 
