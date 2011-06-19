@@ -68,11 +68,8 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
   child_task->num_children = 0;
   child_task->creator = _worker.current_task; /* creator == parent */
 
-  if (_worker.current_task) /* Task created here has parent */
-    {
-      __sync_add_and_fetch(&_worker.current_task->num_children, 1);
-      __sync_add_and_fetch(&num_team_task, 1);
-    }
+  __sync_add_and_fetch(&_worker.current_task->num_children, 1);
+  __sync_add_and_fetch(&num_team_task, 1);
 
   gsoc_taskqueue_push(_worker.taskq, child_task);
 }
