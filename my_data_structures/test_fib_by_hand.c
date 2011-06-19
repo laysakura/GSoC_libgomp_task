@@ -153,7 +153,7 @@ int fib(int N)
   return f1 + f2;
 }
 
-void start_master_thread(omp_internal_data* data)
+void* start_master_thread(omp_internal_data* data)
 {
   gsoc_task* root_task;
 
@@ -173,11 +173,9 @@ void gsoc_run_workers(omp_internal_data* data)
   _workers[0].taskq = gsoc_taskqueue_new();
   /* _workers[1].taskq = gsoc_taskqueue_new(); */
 
-  start_master_thread(data);
-
-  /* pthread_create(&_pthread_id[0], NULL, start_master_thread, data); */
+  pthread_create(&_pthread_id[0], NULL, (void*(*)(void*))start_master_thread, data);
   /* pthread_create(&_pthread_id[1], NULL, start_slave_thread, NULL); */
-  /* pthread_join(_pthread_id[0], NULL); */
+  pthread_join(_pthread_id[0], NULL);
   /* pthread_join(_pthread_id[1], NULL); */
 
   gsoc_taskqueue_delete(_workers[0].taskq);
