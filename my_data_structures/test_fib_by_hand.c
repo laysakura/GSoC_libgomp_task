@@ -154,14 +154,21 @@ int fib(int N)
   return f1 + f2;
 }
 
-void* start_master_thread(omp_internal_data* data)
+void gsoc_setup_thread(unsigned int thread_id)
 {
-  gsoc_task* root_task;
-
   cpu_set_t cpuset;
   CPU_ZERO(&cpuset);
   CPU_SET(_thread_id, &cpuset);
   pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset);
+
+}
+
+void* start_master_thread(omp_internal_data* data)
+{
+  gsoc_task* root_task;
+
+  _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
+  gsoc_setup_thread(_thread_id);
 
   _workers[0].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
