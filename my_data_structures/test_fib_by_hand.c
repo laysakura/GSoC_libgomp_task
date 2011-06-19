@@ -1,6 +1,7 @@
 #define CO_USE_UCONEXT
 
 
+#define _GNU_SOURCE
 #include "pcl.h"
 #include "gsoc_taskqueue.h"
 #include <stdio.h>
@@ -156,6 +157,11 @@ int fib(int N)
 void* start_master_thread(omp_internal_data* data)
 {
   gsoc_task* root_task;
+
+  cpu_set_t cpuset;
+  CPU_ZERO(&cpuset);
+  CPU_SET(_thread_id, &cpuset);
+  pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset);
 
   _workers[0].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
