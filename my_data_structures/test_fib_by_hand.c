@@ -9,9 +9,7 @@
 
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
 
-__thread gsoc_task* _current_task;
-gsoc_task *co_outlined_func1, *co_scheduler_loop;
-gsoc_taskqueue *taskq1, *taskq2;
+
 unsigned int num_team_task;
 
 
@@ -20,6 +18,17 @@ typedef struct
   int* retval;
   int arg;
 } omp_internal_data;
+
+
+typedef struct
+{
+  pthread_t pthread_id;
+  gsoc_taskqueue* taskq;
+  gsoc_task* current_task;
+  gsoc_task* scheduler_task;
+} gsoc_worker;
+
+gsoc_worker _worker;
 
 
 void gsoc_task_scheduler_loop()
@@ -31,24 +40,23 @@ void gsoc_task_scheduler_loop()
          doesn't have to think about context switch from this funciton. */
       gsoc_task* next_task;
 
-      printf("gsoc_task_scheduler_loop: loop start\n");
 
-      next_task = gsoc_taskqueue_pop(taskq1);
+      next_task = gsoc_taskqueue_pop(_worker.taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
-          next_task = gsoc_taskqueue_take(taskq2);
-          if (!next_task)
-            {
-              printf("gsoc_task_scheduler_loop: num_team_task %d\n", num_team_task);
+          /* next_task = gsoc_taskqueue_take(taskq2); */
+          /* if (!next_task) */
+          /*   { */
+          /*     printf("gsoc_task_scheduler_loop: num_team_task %d\n", num_team_task); */
               if (num_team_task == 0)
                 return; /* to main */
 
               continue; /* try again */
-            }
+            /* } */
         }
 
-      _current_task = next_task;
-      co_call(_current_task);
+      _worker.current_task = next_task;
+      co_call(_worker.current_task);
     }
 }
 
@@ -56,65 +64,53 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   gsoc_task* child_task;
 
-  /* printf("gsoc_encounter_task_directive(): Start\n"); */
   child_task = co_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   child_task->num_children = 0;
-  child_task->creator = _current_task; /* creator == parent */
+  child_task->creator = _worker.current_task; /* creator == parent */
 
-  /* printf("gsoc_encounter_task_directive(): Before atomic inc to num_children: %d\n", _current_task->num_children); */
-  if (_current_task) /* Task created here has parent */
+  if (_worker.current_task) /* Task created here has parent */
     {
-      __sync_add_and_fetch(&_current_task->num_children, 1);
+      __sync_add_and_fetch(&_worker.current_task->num_children, 1);
       __sync_add_and_fetch(&num_team_task, 1);
-      printf("gsoc_encounter_task_directive(): parent of fib(%d) has %d children\n", ((omp_internal_data*)data)->arg, _current_task->num_children);
-      printf("gsoc_encounter_task_directive(): num_team_task %d\n", num_team_task);
     }
 
-  printf("gsoc_encounter_task_directive(): Created a fib(%d) %p\n", ((omp_internal_data*) data)->arg, child_task);
-
-  gsoc_taskqueue_push(taskq1, child_task);
+  gsoc_taskqueue_push(_worker.taskq, child_task);
 }
 
 void gsoc_encounter_taskwait_directive()
 {
-  if (_current_task && _current_task->num_children == 0)
+  if (_worker.current_task && _worker.current_task->num_children == 0)
     {
-      printf("gsoc_encounter_taskwait_directive(): skipping\n");
       /* Skip taskwait directive */
       return;
     }
 
   /* This task sleeps until the last child wakes it up */
-  printf("gsoc_encounter_taskwait_directive(): scheduling point\n");
-  co_call(co_scheduler_loop);
+  co_call(_worker.scheduler_task);
 }
 
 void gsoc_encounter_taskexit_directive()
 {
 
-  /* printf("gsoc_encounter_taskexit_directive(): Before atomic dec to parent->num_children: %d\n", _current_task->creator->num_children); */
-  if (_current_task->creator)
+  if (_worker.current_task->creator)
     {
-      __sync_sub_and_fetch(&_current_task->creator->num_children, 1);
-      if (_current_task->creator->num_children == 0)
-        gsoc_taskqueue_push(taskq1, _current_task->creator);
+      __sync_sub_and_fetch(&_worker.current_task->creator->num_children, 1);
+      if (_worker.current_task->creator->num_children == 0)
+        gsoc_taskqueue_push(_worker.taskq, _worker.current_task->creator);
     }
 
   __sync_sub_and_fetch(&num_team_task, 1);
-  printf("gsoc_encounter_taskexit_directive(): num_team_task %d\n", num_team_task);
 }
 
 int fib(int N);
 
 void fib_outlined1(omp_internal_data* data)
 {
-  /* printf("fib_outlined1(): data->arg = %d\n", data->arg); */
   *data->retval = fib(data->arg);
 }
 
 void fib_outlined2(omp_internal_data* data)
 {
-  /* printf("fib_outlined2(): data->arg = %d\n", data->arg); */
   *data->retval = fib(data->arg);
 }
 
@@ -122,8 +118,6 @@ int fib(int N)
 {
   int f1, f2;
   omp_internal_data omp_data1, omp_data2;
-
-  printf("fib(%d)\n", N);
 
   if (N <= 1)
     {
@@ -138,7 +132,6 @@ int fib(int N)
   omp_data1.retval = &f1;
   omp_data1.arg = N - 1;
   gsoc_encounter_task_directive((void (*)(void*))fib_outlined1, (omp_internal_data*)&omp_data1);
-  /* printf("fib(): finished creating task1\n"); */
 
   /* #pragma omp task shared(f2) firstprivate(N) */
   /* f2 = fib(N - 2); */
@@ -149,7 +142,6 @@ int fib(int N)
 
   gsoc_encounter_taskwait_directive();
 
-  printf("fib(%d): f1 = %d, f2 = %d\n", N, f1, f2);
 
   gsoc_encounter_taskexit_directive();
 
@@ -165,8 +157,6 @@ int main(int argc, char** argv)
 {
   int N;
 
-  gsoc_task* co_team_task;
-
   if (argc != 2)
     {
       fprintf(stderr, "ARGS: <N for fib(N)>\n");
@@ -174,23 +164,20 @@ int main(int argc, char** argv)
     }
   N = atoi(argv[1]);
 
-  taskq1 = gsoc_taskqueue_new();
-  taskq2 = gsoc_taskqueue_new();
-  co_scheduler_loop = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  co_team_task = co_create((void(*)(void*)) invoke_fib, &N, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  co_team_task->creator = NULL;
+  _worker.taskq = gsoc_taskqueue_new();
+  _worker.scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  _worker.current_task = co_create((void(*)(void*)) invoke_fib, &N, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  _worker.current_task->creator = NULL;
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
-  _current_task = co_team_task;
-  co_call(co_team_task);
+  co_call(_worker.current_task);
 
   printf("returned to main\n");
 
-  gsoc_taskqueue_delete(taskq1);
-  gsoc_taskqueue_delete(taskq2);
+  gsoc_taskqueue_delete(_worker.taskq);
 
   return 0;
 }
