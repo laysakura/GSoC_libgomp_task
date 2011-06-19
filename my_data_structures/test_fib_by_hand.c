@@ -31,6 +31,18 @@ typedef struct
 gsoc_worker _worker;
 
 
+gsoc_task* gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gsoc_task* parent_task)
+{
+  gsoc_task* ret;
+  ret = co_create(func, data, stack, stacksize);
+  ret->num_children = 0;
+  ret->creator = parent_task;
+  __sync_add_and_fetch(&num_team_task, 1);
+  if (__builtin_expect(parent_task != NULL, 1)) /* Fauls only if the task to be created is root task */
+    __sync_add_and_fetch(&parent_task->num_children, 1);
+  return ret;
+}
+
 void gsoc_task_scheduler_loop()
 {
   while (1)
@@ -64,12 +76,7 @@ void gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   gsoc_task* child_task;
 
-  child_task = co_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  child_task->num_children = 0;
-  child_task->creator = _worker.current_task; /* creator == parent */
-
-  __sync_add_and_fetch(&_worker.current_task->num_children, 1);
-  __sync_add_and_fetch(&num_team_task, 1);
+  child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _worker.current_task);
 
   gsoc_taskqueue_push(_worker.taskq, child_task);
 }
