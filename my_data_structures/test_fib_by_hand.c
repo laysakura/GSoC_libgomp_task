@@ -112,6 +112,7 @@ int fib(int N);
 void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
+  co_exit_to(_worker.scheduler_task);
 }
 
 int fib(int N)
@@ -150,6 +151,7 @@ int fib(int N)
 
 int main(int argc, char** argv)
 {
+  gsoc_task* root_task;
   omp_internal_data data;
   int retval;
   data.retval = &retval;
@@ -163,13 +165,14 @@ int main(int argc, char** argv)
 
   _worker.taskq = gsoc_taskqueue_new();
   _worker.scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  _worker.current_task = gsoc_task_create((void(*)(void*))fib_outlined, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+  root_task = gsoc_task_create((void(*)(void*))fib_outlined, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
-  co_call(_worker.current_task);
+  gsoc_taskqueue_push(_worker.taskq, root_task);
+  co_call(_worker.scheduler_task);
 
   printf("fib(%d) = %d\n", data.arg, *data.retval);
 
