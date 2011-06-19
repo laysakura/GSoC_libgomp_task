@@ -163,8 +163,7 @@ int main(int argc, char** argv)
 
   _worker.taskq = gsoc_taskqueue_new();
   _worker.scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  _worker.current_task = co_create((void(*)(void*))fib_outlined, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  _worker.current_task->creator = NULL;
+  _worker.current_task = gsoc_task_create((void(*)(void*))fib_outlined, &data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
