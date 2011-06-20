@@ -40,9 +40,7 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
 
   child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
 
-  /* gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task); */
-  _workers[_thread_id].current_task = child_task;
-  co_call(child_task);
+  gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
 }
 
 void
