@@ -40,7 +40,7 @@ void* parallel_push_pop_take(void* s)
     gsoc_taskqueue_push(data->my_taskq, &data->tasks[2*i + 1]);
     task = gsoc_taskqueue_pop(data->my_taskq);
     if (task && data->id == data->logged_worker)
-      printf("%lld is popped by CPU%d\n", task->test_id, sched_getcpu()); /* These values are evaluated by `make test' script */
+      printf("%d is popped by CPU%d\n", task->threadid, sched_getcpu()); /* These values are evaluated by `make test' script */
   }
 
   /* All tasks are created, now just consume then (with other worker queue).
@@ -48,7 +48,7 @@ void* parallel_push_pop_take(void* s)
   while (1) {
     task = gsoc_taskqueue_pop(data->my_taskq);
     if (task && data->id == data->logged_worker)
-      printf("%lld is popped by CPU%d\n", task->test_id, sched_getcpu()); /* These values are evaluated by `make test' script */
+      printf("%d is popped by CPU%d\n", task->threadid, sched_getcpu()); /* These values are evaluated by `make test' script */
     if (!task)
       {
         do
@@ -58,7 +58,7 @@ void* parallel_push_pop_take(void* s)
         while (victim == data->id);
         task = gsoc_taskqueue_take(data->workers[victim].my_taskq);
         if (task && victim == data->logged_worker)
-          printf("%lld is taken by CPU%d from CPU%d\n", task->test_id, sched_getcpu(), (int)victim); /* These values are evaluated by `make test' script */
+          printf("%d is taken by CPU%d from CPU%d\n", task->threadid, sched_getcpu(), (int)victim); /* These values are evaluated by `make test' script */
         else
           return NULL;
 
@@ -84,26 +84,26 @@ int main()
   double t1, t2;
 
   /* initializations for test */
-  tasks = malloc(sizeof(gsoc_task) * GSOC_TASKQUEUE_INIT_SIZE * 100);
-  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * 100; ++i)
-    tasks[i].test_id = i;
+  tasks = malloc(sizeof(gsoc_task) * GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS);
+  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i)
+    tasks[i].threadid = i;
   q = gsoc_taskqueue_new();
   for (i = 0; i < num_cpu; ++i)
     taskqs[i] = gsoc_taskqueue_new();
 
   /* push+pop */
-  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * 100; ++i)
+  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i)
     gsoc_taskqueue_push(q, &tasks[i]);
-  for (i = GSOC_TASKQUEUE_INIT_SIZE * 100 - 1; i >= 0 ; --i)
-    assert(gsoc_taskqueue_pop(q)->test_id == i);
+  for (i = GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS - 1; i >= 0 ; --i)
+    assert(gsoc_taskqueue_pop(q)->threadid == i);
   /* pop for empty deque */
   assert(gsoc_taskqueue_pop(q) == NULL);
 
   /* push+take */
-  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * 100; ++i)
+  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i)
     gsoc_taskqueue_push(q, &tasks[i]);
-  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * 100; ++i)
-    assert(gsoc_taskqueue_take(q)->test_id == i);
+  for (i = 0; i < GSOC_TASKQUEUE_INIT_SIZE * TESTVAL_EXTENDS; ++i)
+    assert(gsoc_taskqueue_take(q)->threadid == i);
   /* take for empty deque */
   assert(gsoc_taskqueue_take(q) == NULL);
 
