@@ -131,7 +131,7 @@ void* start_master_thread(omp_internal_data* data)
   _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
 
   gsoc_setaffinity();
-  printf("master CPU %d\n", sched_getcpu());
+  fprintf(stderr, "master CPU %d\n", sched_getcpu());
 
   _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
@@ -150,7 +150,7 @@ void* start_slave_thread()
   _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
 
   gsoc_setaffinity();
-  printf("slave CPU %d\n", sched_getcpu());
+  fprintf(stderr, "slave CPU %d\n", sched_getcpu());
 
   _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 
@@ -191,7 +191,7 @@ int main(int argc, char** argv)
 
   gsoc_run_workers(&data);
 
-  printf("fib(%d) = %d\n", data.arg, *data.retval);
+  fprintf(stderr, "fib(%d) = %d\n", data.arg, *data.retval);
 
   return 0;
 }
