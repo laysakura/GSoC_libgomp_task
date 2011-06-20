@@ -1,0 +1,404 @@
+libelfutil.a(lebdecodes32.o): ../../../osprey/libelfutil/lebdecodes32.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebdecodes64.o): ../../../osprey/libelfutil/lebdecodes64.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebdecodeu32.o): ../../../osprey/libelfutil/lebdecodeu32.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebdecodeu64.o): ../../../osprey/libelfutil/lebdecodeu64.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebencodes32.o): ../../../osprey/libelfutil/lebencodes32.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebencodes64.o): ../../../osprey/libelfutil/lebencodes64.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebencodeu32.o): ../../../osprey/libelfutil/lebencodeu32.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(lebencodeu64.o): ../../../osprey/libelfutil/lebencodeu64.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h
+libelfutil.a(xlate_address.o): ../../../osprey/libelfutil/xlate_address.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_block_index.o): ../../../osprey/libelfutil/xlate_block_index.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_block_search.o): ../../../osprey/libelfutil/xlate_block_search.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_expand_reg.o): ../../../osprey/libelfutil/xlate_expand_reg.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_expand_reg2.o): ../../../osprey/libelfutil/xlate_expand_reg2.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_get_all_reg.o): ../../../osprey/libelfutil/xlate_get_all_reg.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_get_info.o): ../../../osprey/libelfutil/xlate_get_info.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_get_range.o): ../../../osprey/libelfutil/xlate_get_range.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_get_reg.o): ../../../osprey/libelfutil/xlate_get_reg.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_get_reg_internal.o): \
+ ../../../osprey/libelfutil/xlate_get_reg_internal.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_init_elf.o): ../../../osprey/libelfutil/xlate_init_elf.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_init_fd.o): ../../../osprey/libelfutil/xlate_init_fd.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_named_init_elf.o): ../../../osprey/libelfutil/xlate_named_init_elf.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_named_init_fd.o): ../../../osprey/libelfutil/xlate_named_init_fd.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_add_info.o): ../../../osprey/libelfutil/xlate_pro_add_info.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_add_range.o): ../../../osprey/libelfutil/xlate_pro_add_range.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_add_range_internal.o): \
+ ../../../osprey/libelfutil/xlate_pro_add_range_internal.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_add_reg_info.o): \
+ ../../../osprey/libelfutil/xlate_pro_add_reg_info.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_disk_header.o): \
+ ../../../osprey/libelfutil/xlate_pro_disk_header.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_disk_next_block.o): \
+ ../../../osprey/libelfutil/xlate_pro_disk_next_block.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_pro_init.o): ../../../osprey/libelfutil/xlate_pro_init.c \
+ ../../../osprey/libelfutil/xlateincl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h
+libelfutil.a(xlate_update_for_movement.o): \
+ ../../../osprey/libelfutil/xlate_update_for_movement.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ ../../../osprey/libelfutil/xlateincl.h \
+ ../../../osprey/libelfutil/xlatebase.h ../../../osprey/libelfutil/syn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/dwarf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/dwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libdwarf.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/libXlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/xlate.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/leb128.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/libelfutil/xlateTypes.h \
+ ../../../osprey/libelfutil/xlate_proTypes.h \
+ ../../../osprey/libelfutil/xlatexterns.h \
+ ../../../osprey/libelfutil/xlate_pro_externs.h

@@ -1,0 +1,5 @@
+libcmplrs.a(array_alloc.o): ../../../osprey/libcmplrs/array_alloc.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/cmplrs/array_alloc.h
+libcmplrs.a(make_depend.o): ../../../osprey/libcmplrs/make_depend.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/make_depend.h

@@ -1,0 +1,126 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../osprey/targdir/lno/access_main.o \
+../osprey/targdir/lno/access_vector.o \
+../osprey/targdir/lno/aequiv.o \
+../osprey/targdir/lno/al_loop.o \
+../osprey/targdir/lno/al_ref.o \
+../osprey/targdir/lno/ara.o \
+../osprey/targdir/lno/ara_live.o \
+../osprey/targdir/lno/ara_loop.o \
+../osprey/targdir/lno/ara_region.o \
+../osprey/targdir/lno/ara_utils.o \
+../osprey/targdir/lno/array_bounds.o \
+../osprey/targdir/lno/array_copy.o \
+../osprey/targdir/lno/array_lower.o \
+../osprey/targdir/lno/autod.o \
+../osprey/targdir/lno/cache_model.o \
+../osprey/targdir/lno/call_info.o \
+../osprey/targdir/lno/can.o \
+../osprey/targdir/lno/cond.o \
+../osprey/targdir/lno/cross_cache.o \
+../osprey/targdir/lno/cross_snl.o \
+../osprey/targdir/lno/cse.o \
+../osprey/targdir/lno/cxx_queue.o \
+../osprey/targdir/lno/cxx_template.o \
+../osprey/targdir/lno/dead.o \
+../osprey/targdir/lno/debug.o \
+../osprey/targdir/lno/dep.o \
+../osprey/targdir/lno/dep_graph.o \
+../osprey/targdir/lno/dnf.o \
+../osprey/targdir/lno/doacross.o \
+../osprey/targdir/lno/eliminate.o \
+../osprey/targdir/lno/ff_pragmas.o \
+../osprey/targdir/lno/ff_utils.o \
+../osprey/targdir/lno/fis_gthr.o \
+../osprey/targdir/lno/fission.o \
+../osprey/targdir/lno/fiz_fuse.o \
+../osprey/targdir/lno/forward.o \
+../osprey/targdir/lno/frac.o \
+../osprey/targdir/lno/fusion.o \
+../osprey/targdir/lno/if_info.o \
+../osprey/targdir/lno/ifminmax.o \
+../osprey/targdir/lno/init.o \
+../osprey/targdir/lno/inner_fission.o \
+../osprey/targdir/lno/ipa_lno_cost.o \
+../osprey/targdir/lno/ipa_lno_read.o \
+../osprey/targdir/lno/ipa_lno_reshape.o \
+../osprey/targdir/lno/lego.o \
+../osprey/targdir/lno/lego_affinity.o \
+../osprey/targdir/lno/lego_ec.o \
+../osprey/targdir/lno/lego_gen.o \
+../osprey/targdir/lno/lego_io.o \
+../osprey/targdir/lno/lego_local.o \
+../osprey/targdir/lno/lego_opts.o \
+../osprey/targdir/lno/lego_pragma.o \
+../osprey/targdir/lno/lego_skew.o \
+../osprey/targdir/lno/lego_util.o \
+../osprey/targdir/lno/lno_bv.o \
+../osprey/targdir/lno/lno_scc.o \
+../osprey/targdir/lno/lno_split.o \
+../osprey/targdir/lno/lnodriver.o \
+../osprey/targdir/lno/lnopt_hoistif.o \
+../osprey/targdir/lno/lnopt_main.o \
+../osprey/targdir/lno/lnotarget.o \
+../osprey/targdir/lno/lnoutils.o \
+../osprey/targdir/lno/lu_mat_textra.o \
+../osprey/targdir/lno/lwn_util.o \
+../osprey/targdir/lno/lx_prompf_anl.o \
+../osprey/targdir/lno/mat_textra.o \
+../osprey/targdir/lno/mem_sim.o \
+../osprey/targdir/lno/minvariant.o \
+../osprey/targdir/lno/model.o \
+../osprey/targdir/lno/move.o \
+../osprey/targdir/lno/name.o \
+../osprey/targdir/lno/oinvar.o \
+../osprey/targdir/lno/outer.o \
+../osprey/targdir/lno/pad.o \
+../osprey/targdir/lno/parallel.o \
+../osprey/targdir/lno/parids.o \
+../osprey/targdir/lno/parmodel.o \
+../osprey/targdir/lno/permute.o \
+../osprey/targdir/lno/pf_loop.o \
+../osprey/targdir/lno/pf_manual.o \
+../osprey/targdir/lno/pf_ref.o \
+../osprey/targdir/lno/prefetch.o \
+../osprey/targdir/lno/reduc.o \
+../osprey/targdir/lno/reverse.o \
+../osprey/targdir/lno/scalar_expand.o \
+../osprey/targdir/lno/sclrze.o \
+../osprey/targdir/lno/sdlist.o \
+../osprey/targdir/lno/shackle.o \
+../osprey/targdir/lno/shackle_ifs.o \
+../osprey/targdir/lno/shackle_mem.o \
+../osprey/targdir/lno/simd.o \
+../osprey/targdir/lno/simd_util.o \
+../osprey/targdir/lno/small_trips.o \
+../osprey/targdir/lno/snl_deps.o \
+../osprey/targdir/lno/snl_dist.o \
+../osprey/targdir/lno/snl_gen.o \
+../osprey/targdir/lno/snl_inv.o \
+../osprey/targdir/lno/snl_nest.o \
+../osprey/targdir/lno/snl_test.o \
+../osprey/targdir/lno/snl_trans.o \
+../osprey/targdir/lno/snl_utils.o \
+../osprey/targdir/lno/snl_xbounds.o \
+../osprey/targdir/lno/soe.o \
+../osprey/targdir/lno/split_tiles.o \
+../osprey/targdir/lno/sxlimit.o \
+../osprey/targdir/lno/sxlist.o \
+../osprey/targdir/lno/tile.o \
+../osprey/targdir/lno/uh_apo.o \
+../osprey/targdir/lno/uh_ara.o \
+../osprey/targdir/lno/uh_lno.o \
+../osprey/targdir/lno/uh_util.o \
+../osprey/targdir/lno/vintr_fis.o \
+../osprey/targdir/lno/vs_textra.o \
+../osprey/targdir/lno/wind_down.o \
+../osprey/targdir/lno/zmult.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+

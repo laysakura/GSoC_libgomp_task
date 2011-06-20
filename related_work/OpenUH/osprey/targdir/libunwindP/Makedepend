@@ -1,0 +1,108 @@
+libunwindP.a(body.o): ../../../osprey/libunwind/producer/body.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(bsp.o): ../../../osprey/libunwind/producer/bsp.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(bspstore.o): ../../../osprey/libunwind/producer/bspstore.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(dump.o): ../../../osprey/libunwind/utils/dump.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h
+libunwindP.a(dumpelf.o): ../../../osprey/libunwind/producer/dumpelf.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/elf_stuff.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/em_elf.h
+libunwindP.a(fpsr.o): ../../../osprey/libunwind/producer/fpsr.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(header.o): ../../../osprey/libunwind/producer/header.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(lc.o): ../../../osprey/libunwind/producer/lc.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(leb.o): ../../../osprey/libunwind/utils/leb.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h
+libunwindP.a(memstack.o): ../../../osprey/libunwind/producer/memstack.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(overall.o): ../../../osprey/libunwind/producer/overall.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/targ_info/targ_isa_registers.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/targ_info/targ_isa_subset.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/targ_info/topcode.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(pfs.o): ../../../osprey/libunwind/producer/pfs.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(preds.o): ../../../osprey/libunwind/producer/preds.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(preserve.o): ../../../osprey/libunwind/producer/preserve.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(priunat.o): ../../../osprey/libunwind/producer/priunat.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(process.o): ../../../osprey/libunwind/utils/process.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h
+libunwindP.a(producer.o): ../../../osprey/libunwind/producer/producer.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(rnat.o): ../../../osprey/libunwind/producer/rnat.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(rp.o): ../../../osprey/libunwind/producer/rp.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(spill.o): ../../../osprey/libunwind/producer/spill.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h
+libunwindP.a(unat.o): ../../../osprey/libunwind/producer/unat.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwindP.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sys/ia64/unwind_ia64.h \
+ ../../../osprey/libunwind/producer/unwind_producer.h

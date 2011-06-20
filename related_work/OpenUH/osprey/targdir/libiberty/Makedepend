@@ -1,0 +1,155 @@
+(alloca.o): ../../../osprey/libiberty/alloca.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(argv.o): ../../../osprey/libiberty/argv.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(choose-temp.o): ../../../osprey/libiberty/choose-temp.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(concat.o): ../../../osprey/libiberty/concat.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(cp-demangle.o): ../../../osprey/libiberty/cp-demangle.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/dyn-string.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/demangle.h
+(cplus-dem.o): ../../../osprey/libiberty/cplus-dem.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/safe-ctype.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/demangle.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h
+(dyn-string.o): ../../../osprey/libiberty/dyn-string.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/dyn-string.h
+(fdmatch.o): ../../../osprey/libiberty/fdmatch.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(fibheap.o): ../../../osprey/libiberty/fibheap.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/fibheap.h
+(floatformat.o): ../../../osprey/libiberty/floatformat.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/floatformat.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(fnmatch.o): ../../../osprey/libiberty/fnmatch.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/fnmatch.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/safe-ctype.h
+(getopt.o): ../../../osprey/libiberty/getopt.c \
+ ../../../osprey/libiberty/config.h
+(getopt1.o): ../../../osprey/libiberty/getopt1.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/getopt.h
+(getpwd.o): ../../../osprey/libiberty/getpwd.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(getruntime.o): ../../../osprey/libiberty/getruntime.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(hashtab.o): ../../../osprey/libiberty/hashtab.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/hashtab.h
+(hex.o): ../../../osprey/libiberty/hex.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(lbasename.o): ../../../osprey/libiberty/lbasename.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/safe-ctype.h
+(md5.o): ../../../osprey/libiberty/md5.c ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/md5.h
+(mkstemps.o): ../../../osprey/libiberty/mkstemps.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(objalloc.o): ../../../osprey/libiberty/objalloc.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/objalloc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(obstack.o): ../../../osprey/libiberty/obstack.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/obstack.h
+(partition.o): ../../../osprey/libiberty/partition.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/partition.h
+(pexecute.o): ../../../osprey/libiberty/pexecute.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/safe-ctype.h
+(physmem.o): ../../../osprey/libiberty/physmem.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(safe-ctype.o): ../../../osprey/libiberty/safe-ctype.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/safe-ctype.h
+(spaces.o): ../../../osprey/libiberty/spaces.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(splay-tree.o): ../../../osprey/libiberty/splay-tree.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/splay-tree.h
+(strerror.o): ../../../osprey/libiberty/strerror.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ ../../../osprey/libiberty/config.h
+(strsignal.o): ../../../osprey/libiberty/strsignal.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ ../../../osprey/libiberty/config.h
+(xatexit.o): ../../../osprey/libiberty/xatexit.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(xexit.o): ../../../osprey/libiberty/xexit.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(xmalloc.o): ../../../osprey/libiberty/xmalloc.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(xmemdup.o): ../../../osprey/libiberty/xmemdup.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(xstrdup.o): ../../../osprey/libiberty/xstrdup.c \
+ ../../../osprey/libiberty/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h
+(xstrerror.o): ../../../osprey/libiberty/xstrerror.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/libiberty.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/gnu/ansidecl.h \
+ ../../../osprey/libiberty/config.h

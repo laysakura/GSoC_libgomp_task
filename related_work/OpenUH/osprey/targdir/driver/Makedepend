@@ -1,0 +1,130 @@
+errors.o: ../../../osprey/driver/errors.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/string_utils.h
+file_names.o: ../../../osprey/driver/file_names.c \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/file_names.h ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/option_seen.h option_names.h \
+ ../../../osprey/driver/run.h ../../../osprey/driver/version.h
+file_utils.o: ../../../osprey/driver/file_utils.c \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/file_utils.h
+get_options.o: ../../../osprey/driver/get_options.c \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/get_options.h ../../../osprey/driver/options.h \
+ ../../../osprey/driver/lang_defs.h option_names.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/opt_actions.h \
+ get_option.i
+implicits.o: implicits.c ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/basic.h ../../../osprey/driver/options.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/option_seen.h \
+ option_names.h ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/get_options.h ../../../osprey/driver/errors.h
+lang_defs.o: ../../../osprey/driver/lang_defs.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/lib_phase_dir.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/errors.h
+main.o: ../../../osprey/driver/main.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/options.h ../../../osprey/driver/lang_defs.h \
+ ../../../osprey/driver/option_seen.h option_names.h \
+ ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/get_options.h ../../../osprey/driver/errors.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/file_names.h ../../../osprey/driver/run.h \
+ ../../../osprey/driver/objects.h ../../../osprey/driver/version.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././configargs.h
+objects.o: ../../../osprey/driver/objects.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/alloca.h \
+ ../../../osprey/driver/basic.h ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/objects.h option_names.h \
+ ../../../osprey/driver/options.h ../../../osprey/driver/lang_defs.h \
+ ../../../osprey/driver/option_seen.h \
+ ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/get_options.h ../../../osprey/driver/errors.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/file_names.h \
+ ../../../osprey/driver/file_utils.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/run.h
+opt_actions.o: ../../../osprey/driver/opt_actions.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ ../../../osprey/driver/opt_actions.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/options.h ../../../osprey/driver/lang_defs.h \
+ option_names.h ../../../osprey/driver/option_seen.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/file_names.h \
+ ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/get_options.h ../../../osprey/driver/objects.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/run.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/profile_type.h \
+ opt_action.i ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/get_options.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/lib_phase_dir.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h
+option_seen.o: ../../../osprey/driver/option_seen.c \
+ ../../../osprey/driver/option_seen.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/options.h ../../../osprey/driver/lang_defs.h \
+ option_names.h ../../../osprey/driver/errors.h
+options.o: ../../../osprey/driver/options.c \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/options.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/errors.h \
+ option_names.h ../../../osprey/driver/option_seen.h init_options.i \
+ option_names.h ../../../osprey/driver/opt_actions.h
+phases.o: ../../../osprey/driver/phases.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/options.h \
+ ../../../osprey/driver/option_seen.h option_names.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/errors.h \
+ ../../../osprey/driver/file_names.h ../../../osprey/driver/file_utils.h \
+ ../../../osprey/driver/run.h ../../../osprey/driver/objects.h \
+ ../../../osprey/driver/opt_actions.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/profile_type.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/lib_phase_dir.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/get_options.h
+run.o: ../../../osprey/driver/run.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ ../../../osprey/driver/run.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/lang_defs.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/file_names.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/option_seen.h ../../../osprey/driver/file_utils.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ option_names.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/lib_phase_dir.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h
+special_options.o: ../../../osprey/driver/special_options.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/stamp.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/pathscale_defs.h \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/options.h ../../../osprey/driver/lang_defs.h \
+ ../../../osprey/driver/option_seen.h option_names.h \
+ ../../../osprey/driver/errors.h ../../../osprey/driver/opt_actions.h \
+ ../../../osprey/driver/file_names.h ../../../osprey/driver/get_options.h \
+ ../../../osprey/driver/phases.h ../../../osprey/driver/run.h \
+ ../../../osprey/driver/version.h
+string_utils.o: ../../../osprey/driver/string_utils.c \
+ ../../../osprey/driver/string_utils.h ../../../osprey/driver/basic.h
+table.o: ../../../osprey/driver/table.c ../../../osprey/driver/basic.h \
+ ../../../osprey/driver/lang_defs.h ../../../osprey/driver/string_utils.h \
+ ../../../osprey/driver/errors.h
+version_hg.o: version_hg.c ../../../osprey/driver/version.h

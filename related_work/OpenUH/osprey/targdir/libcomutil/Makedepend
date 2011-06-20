@@ -1,0 +1,163 @@
+libcomutil.a(bitset.o): ../../../osprey/common/util/bitset.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/mempool.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/bitset.h
+libcomutil.a(c_a_to_q.o): ../../../osprey/common/util/c_a_to_q.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_add.o): ../../../osprey/common/util/c_q_add.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_div.o): ../../../osprey/common/util/c_q_div.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_mul.o): ../../../osprey/common/util/c_q_mul.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_neg.o): ../../../osprey/common/util/c_q_neg.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_rel.o): ../../../osprey/common/util/c_q_rel.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_sqrt.o): ../../../osprey/common/util/c_q_sqrt.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/sgidefs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_sub.o): ../../../osprey/common/util/c_q_sub.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_q_to_a.o): ../../../osprey/common/util/c_q_to_a.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quad.h
+libcomutil.a(c_qtenscale.o): ../../../osprey/common/util/c_qtenscale.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h
+libcomutil.a(c_qwmultu.o): ../../../osprey/common/util/x8664/c_qwmultu.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h
+libcomutil.a(cxx_memory.o): ../../../osprey/common/util/cxx_memory.cxx \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/cxx_memory.h \
+ ../../../osprey/common/util/mempool.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h
+libcomutil.a(errors.o): ../../../osprey/common/util/errors.cxx \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/file_util.h \
+ ../../../osprey/common/util/tracing.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/glob.h \
+ ../../../osprey/common/util/vstring.h
+libcomutil.a(file_util.o): ../../../osprey/common/util/file_util.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/cmplrs/rcodes.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/file_util.h
+libcomutil.a(flags.o): ../../../osprey/common/util/flags.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/flags.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/tracing.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/config.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/config_host.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/x8664/config_targ.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/mtypes.h \
+ ../../../osprey/common/util/mempool.h \
+ ../../../osprey/common/util/flags.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/language.h
+libcomutil.a(linklist.o): ../../../osprey/common/util/linklist.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/tracing.h \
+ ../../../osprey/common/util/linklist.h
+libcomutil.a(memory.o): ../../../osprey/common/util/memory.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ ../../../osprey/common/util/mempool.h \
+ ../../../osprey/common/util/tracing.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ /usr/include/valgrind/memcheck.h /usr/include/valgrind/valgrind.h
+libcomutil.a(mstack.o): ../../../osprey/common/util/mstack.c \
+ ../../../osprey/common/util/mstack.h
+libcomutil.a(priority_queue.o): ../../../osprey/common/util/priority_queue.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/mempool.h \
+ ../../../osprey/common/util/priority_queue.h
+libcomutil.a(quadsim.o): ../../../osprey/common/util/quadsim.c \
+ ../../../osprey/common/util/quad.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/fp_class.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/quadsim.h
+libcomutil.a(resource.o): ../../../osprey/common/util/resource.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/resource.h
+libcomutil.a(tracing.o): ../../../osprey/common/util/tracing.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/tracing.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/flags.h ../../../osprey/common/util/util.h
+libcomutil.a(util.o): ../../../osprey/common/util/util.c \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/erglob.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h \
+ ../../../osprey/common/util/tracing.h ../../../osprey/common/util/util.h
+libcomutil.a(vcg.o): ../../../osprey/common/util/vcg.cxx \
+ ../../../osprey/common/util/vcg.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h
+libcomutil.a(vstring.o): ../../../osprey/common/util/vstring.c \
+ ../../../osprey/common/util/vstring.h \
+ ../../../osprey/common/util/errors.h \
+ ../../../osprey/common/util/errdesc.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/bstring.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/err_host.h

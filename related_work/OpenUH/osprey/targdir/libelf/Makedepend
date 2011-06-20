@@ -1,0 +1,231 @@
+libelf.a(32.fsize.o): ../../../osprey/libelf/lib/32.fsize.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h
+libelf.a(32.getehdr.o): ../../../osprey/libelf/lib/32.getehdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(32.getphdr.o): ../../../osprey/libelf/lib/32.getphdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(32.getshdr.o): ../../../osprey/libelf/lib/32.getshdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(32.newehdr.o): ../../../osprey/libelf/lib/32.newehdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(32.newphdr.o): ../../../osprey/libelf/lib/32.newphdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(32.xlatetof.o): ../../../osprey/libelf/lib/32.xlatetof.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h
+libelf.a(64.xlatetof.o): ../../../osprey/libelf/lib/64.xlatetof.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h
+libelf.a(assert.o): ../../../osprey/libelf/lib/assert.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(begin.o): ../../../osprey/libelf/lib/begin.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/include/ar.h
+libelf.a(checksum.o): ../../../osprey/libelf/lib/checksum.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(cntl.o): ../../../osprey/libelf/lib/cntl.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(cook.o): ../../../osprey/libelf/lib/cook.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(data.o): ../../../osprey/libelf/lib/data.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(end.o): ../../../osprey/libelf/lib/end.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(errmsg.o): ../../../osprey/libelf/lib/errmsg.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(errno.o): ../../../osprey/libelf/lib/errno.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(fill.o): ../../../osprey/libelf/lib/fill.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(flag.o): ../../../osprey/libelf/lib/flag.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(gelfehdr.o): ../../../osprey/libelf/lib/gelfehdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(gelfphdr.o): ../../../osprey/libelf/lib/gelfphdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(gelfshdr.o): ../../../osprey/libelf/lib/gelfshdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(gelftrans.o): ../../../osprey/libelf/lib/gelftrans.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(getarhdr.o): ../../../osprey/libelf/lib/getarhdr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(getarsym.o): ../../../osprey/libelf/lib/getarsym.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/byteswap.h
+libelf.a(getbase.o): ../../../osprey/libelf/lib/getbase.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(getdata.o): ../../../osprey/libelf/lib/getdata.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(getident.o): ../../../osprey/libelf/lib/getident.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(getscn.o): ../../../osprey/libelf/lib/getscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(hash.o): ../../../osprey/libelf/lib/hash.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(input.o): ../../../osprey/libelf/lib/input.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(kind.o): ../../../osprey/libelf/lib/kind.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(memset.o): ../../../osprey/libelf/lib/memset.c \
+ ../../../osprey/libelf/config.h
+libelf.a(ndxscn.o): ../../../osprey/libelf/lib/ndxscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(newdata.o): ../../../osprey/libelf/lib/newdata.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(newscn.o): ../../../osprey/libelf/lib/newscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(next.o): ../../../osprey/libelf/lib/next.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(nextscn.o): ../../../osprey/libelf/lib/nextscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(nlist.o): ../../../osprey/libelf/lib/nlist.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/nlist.h
+libelf.a(opt.delscn.o): ../../../osprey/libelf/lib/opt.delscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(rand.o): ../../../osprey/libelf/lib/rand.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(rawdata.o): ../../../osprey/libelf/lib/rawdata.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(rawfile.o): ../../../osprey/libelf/lib/rawfile.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(strptr.o): ../../../osprey/libelf/lib/strptr.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(swap64.o): ../../../osprey/libelf/lib/swap64.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/byteswap.h
+libelf.a(update.o): ../../../osprey/libelf/lib/update.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(verdef_32_tof.o): ../../../osprey/libelf/lib/verdef_32_tof.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h \
+ ../../../osprey/libelf/lib/verdef.h ../../../osprey/libelf/lib/verneed.h
+libelf.a(verdef_32_tom.o): ../../../osprey/libelf/lib/verdef_32_tom.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h \
+ ../../../osprey/libelf/lib/verdef.h ../../../osprey/libelf/lib/verneed.h
+libelf.a(verdef_64_tof.o): ../../../osprey/libelf/lib/verdef_64_tof.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h \
+ ../../../osprey/libelf/lib/verdef.h ../../../osprey/libelf/lib/verneed.h
+libelf.a(verdef_64_tom.o): ../../../osprey/libelf/lib/verdef_64_tom.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h \
+ ../../../osprey/libelf/lib/ext_types.h \
+ ../../../osprey/libelf/lib/byteswap.h \
+ ../../../osprey/libelf/lib/verdef.h ../../../osprey/libelf/lib/verneed.h
+libelf.a(version.o): ../../../osprey/libelf/lib/version.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(x.movscn.o): ../../../osprey/libelf/lib/x.movscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
+libelf.a(x.remscn.o): ../../../osprey/libelf/lib/x.remscn.c \
+ ../../../osprey/libelf/lib/private.h ../../../osprey/libelf/config.h \
+ ../../../osprey/libelf/lib/libelf.h ../../../osprey/libelf/lib/sys_elf.h \
+ ../../../osprey/libelf/lib/gelf.h ../../../osprey/libelf/lib/errors.h
