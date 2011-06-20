@@ -73,7 +73,7 @@ gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
   if (this->_top - base == 0)
     return NULL;
 
-  if (this->_top - base > GSOC_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE)
+  if (__builtin_expect(this->_top - base > GSOC_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE, 1))
     {
       /* Pop without lock */
       --this->_top;
