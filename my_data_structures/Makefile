@@ -2,14 +2,15 @@
 
 CC = gcc
 CFLAGS = -Wall -O2 -g -DDEBUG
-LDFLAGS = -lpthread -lrt
+LDFLAGS =
 INCLUDES =
 
 SRCS = $(wildcard *.c)
 OBJS = $(subst .c,.o,$(SRCS))
 DEPENDS = $(subst .c,.d,$(SRCS))
-TARGETS = test_gsoc_taskqueue test_gsoc_task_circular_array
-TEST_TARGETS = TEST_gsoc_task_circular_array \
+TARGETS = test_gsoc_taskqueue \
+	      test_fib_by_hand
+TEST_TARGETS = TEST_fib_by_hand \
                TEST_gsoc_taskqueue
 
 
@@ -80,14 +81,21 @@ TEST_gsoc_taskqueue: test_gsoc_taskqueue
 		echo "Maximum number is $$MAX while upper limit is $$UPPER_LIMIT [OK]" ; \
 	fi
 
+.PHONY: TEST_gsoc_taskqueue
+TEST_fib_by_hand: test_fib_by_hand
+	./test_fib_by_hand 30
+
 test_gsoc_taskqueue: gsoc_taskqueue.o test_gsoc_taskqueue.c
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -lrt -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
 test_gsoc_task_circular_array: gsoc_task_circular_array.h test_gsoc_task_circular_array.o
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread
 
 test_coroutine: test_coroutine.c pcl.o
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread
+
+test_fib_by_hand: pcl.o gsoc_taskqueue.o test_fib_by_hand.c
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
 .PHONY: TEST_coroutine
 TEST_coroutine: test_coroutine
