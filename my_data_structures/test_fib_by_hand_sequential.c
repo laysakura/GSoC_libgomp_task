@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void gsoc_task_scheduler_loop()
 {
   while (1)
@@ -16,11 +15,10 @@ void gsoc_task_scheduler_loop()
          doesn't have to think about context switch from this funciton. */
       gsoc_task* next_task;
 
-
       next_task = gsoc_taskqueue_pop(_workers[_thread_id].taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
-          next_task = gsoc_taskqueue_take(_workers[(_thread_id + 1) % 2].taskq);
+          /* next_task = gsoc_taskqueue_take(_workers[(_thread_id + 1) % 2].taskq); */
           if (!next_task)
             {
               if (num_team_task == 0)
@@ -42,7 +40,9 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
 
   child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
 
-  gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
+  /* gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task); */
+  _workers[_thread_id].current_task = child_task;
+  co_call(child_task);
 }
 
 void
@@ -168,15 +168,15 @@ void* start_slave_thread()
 void gsoc_run_workers(omp_internal_data* data)
 {
   _workers[0].taskq = gsoc_taskqueue_new();
-  _workers[1].taskq = gsoc_taskqueue_new();
+  /* _workers[1].taskq = gsoc_taskqueue_new(); */
 
   pthread_create(&_pthread_id[0], NULL, (void*(*)(void*))start_master_thread, data);
-  pthread_create(&_pthread_id[1], NULL, (void*(*)(void*))start_slave_thread, NULL);
+  /* pthread_create(&_pthread_id[1], NULL, (void*(*)(void*))start_slave_thread, NULL); */
   pthread_join(_pthread_id[0], NULL);
-  pthread_join(_pthread_id[1], NULL);
+  /* pthread_join(_pthread_id[1], NULL); */
 
   gsoc_taskqueue_delete(_workers[0].taskq);
-  gsoc_taskqueue_delete(_workers[1].taskq);
+  /* gsoc_taskqueue_delete(_workers[1].taskq); */
 }
 
 
