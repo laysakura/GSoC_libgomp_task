@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int called_cutoff = 0;
+
 void gsoc_task_scheduler_loop()
 {
   while (1)
@@ -36,16 +38,25 @@ void gsoc_task_scheduler_loop()
 void
 gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
-  gsoc_task* child_task;
+  ++called_cutoff;
+  func(data);
+  --called_cutoff;
 
-  child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
+  if(0)
+    {
+      gsoc_task* child_task;
 
-  gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
+      child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
+
+      gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
+    }
 }
 
 void
 gsoc_encounter_taskwait_directive()
 {
+  if (called_cutoff > 0) return; /* do nothing */
+
   if (_workers[_thread_id].current_task->num_children == 0)
     {
       /* Skip taskwait directive */
@@ -59,6 +70,8 @@ gsoc_encounter_taskwait_directive()
 void
 gsoc_encounter_taskexit_directive()
 {
+  if (called_cutoff > 0) return; /* do nothing */
+
   if (_workers[_thread_id].current_task->creator)
     {
       __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
@@ -76,7 +89,9 @@ int fib(int N);
 void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
-  co_exit_to(_workers[_thread_id].scheduler_task);
+
+  if (!called_cutoff)
+    co_exit_to(_workers[_thread_id].scheduler_task);
 }
 
 int fib(int N)
