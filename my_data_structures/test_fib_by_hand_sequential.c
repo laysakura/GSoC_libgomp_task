@@ -6,8 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int called_cutoff = 0;
-
 void gsoc_task_scheduler_loop()
 {
   while (1)
@@ -38,16 +36,20 @@ void gsoc_task_scheduler_loop()
 void
 gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
-  ++called_cutoff;
-  func(data);
-  --called_cutoff;
+  if(gsoc_cutoff_cond())
+    {
+      _workers[_thread_id].current_task->state = OMP_TASK_CUTOFF;
 
-  if(0)
+      ++_workers[_thread_id].current_task->depth;
+      func(data);
+      --_workers[_thread_id].current_task->depth;
+    }
+  else
     {
       gsoc_task* child_task;
 
       child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
-
+      child_task->state = OMP_TASK_DEFAULT;
       gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
     }
 }
@@ -55,7 +57,10 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
 void
 gsoc_encounter_taskwait_directive()
 {
-  if (called_cutoff > 0) return; /* do nothing */
+  if (_workers[_thread_id].current_task->state == OMP_TASK_CUTOFF)
+    {
+      return;
+    }
 
   if (_workers[_thread_id].current_task->num_children == 0)
     {
@@ -70,18 +75,34 @@ gsoc_encounter_taskwait_directive()
 void
 gsoc_encounter_taskexit_directive()
 {
-  if (called_cutoff > 0) return; /* do nothing */
-
-  if (_workers[_thread_id].current_task->creator)
+  if (_workers[_thread_id].current_task->state == OMP_TASK_DEFAULT)
     {
-      __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
-      if (_workers[_thread_id].current_task->creator->num_children == 0)
-        /* Tell parent task that all of us children finished our work
-           then parent resume its work using our result. */
-        gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
-    }
+      __sync_sub_and_fetch(&num_team_task, 1);
 
-  __sync_sub_and_fetch(&num_team_task, 1);
+      if (_workers[_thread_id].current_task->creator)
+        {
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+          if (_workers[_thread_id].current_task->creator->num_children == 0)
+            /* Tell parent task that all of us children finished our work
+               then parent resume its work using our result. */
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+        }
+    }
+  else if (_workers[_thread_id].current_task->state == OMP_TASK_CUTOFF
+           && _workers[_thread_id].current_task->depth == GSOC_CUTOFF_DEPTH + 1)
+    {
+      __sync_sub_and_fetch(&num_team_task, 1);
+      _workers[_thread_id].current_task->state = OMP_TASK_DEFAULT;
+
+      if (_workers[_thread_id].current_task->creator)
+        {
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+          if (_workers[_thread_id].current_task->creator->num_children == 0)
+            /* Tell parent task that all of us children finished our work
+               then parent resume its work using our result. */
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+        }
+    }
 }
 
 int fib(int N);
@@ -90,8 +111,10 @@ void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
 
-  if (!called_cutoff)
-    co_exit_to(_workers[_thread_id].scheduler_task);
+  if (!gsoc_cutoff_cond())
+    {
+      co_exit_to(_workers[_thread_id].scheduler_task);
+    }
 }
 
 int fib(int N)

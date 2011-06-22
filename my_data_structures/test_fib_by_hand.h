@@ -7,6 +7,7 @@
 
 
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
+#define GSOC_CUTOFF_DEPTH 4
 #define NUM_THREADS 2
 
 typedef struct {
@@ -42,9 +43,15 @@ gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gs
   ret->creator = parent_task;
   __sync_add_and_fetch(&num_team_task, 1);
   if (__builtin_expect(parent_task != NULL, 1)) /* Fauls only if the task to be created is root task */
-    __sync_add_and_fetch(&parent_task->num_children, 1);
+    {
+      __sync_add_and_fetch(&parent_task->num_children, 1);
+      ret->depth = parent_task->depth + 1;
+    }
+  else
+    ret->depth = 0;
   return ret;
 }
 
+#define gsoc_cutoff_cond() (_workers[_thread_id].current_task->depth > GSOC_CUTOFF_DEPTH)
 
 #endif /* _TEST_FIB_BY_HAND_H_ */
