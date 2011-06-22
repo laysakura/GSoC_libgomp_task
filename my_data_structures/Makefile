@@ -22,7 +22,10 @@ all: $(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(TARGETS) $(DEPENDS)
+	rm -f $(TARGETS) *.d *.gch *_flymake*
+
+pcl.o: pcl.c pcl.h pcl_config.h pcl_private.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c pcl.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
 
 .PHONY: debug
 debug:
