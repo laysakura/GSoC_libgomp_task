@@ -5,7 +5,29 @@
 #include "test_fib_by_hand.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 
+
+long num_cpu;
+
+
+unsigned int
+gsoc_choose_victim(unsigned int criminal, unsigned int num_cpu)
+{
+  static unsigned int seed = 0;  /* rand_r() changes this value */
+  unsigned int ret;
+
+  if (seed == 0)
+    seed = (unsigned int)time(NULL);
+
+  do
+    ret = (int)(rand_r(&seed) * (double)num_cpu / (1.0 + RAND_MAX)); /* Mayby using Xorshift(google) is better
+                                                                        rather than rand_r() */
+  while (ret == criminal);
+
+  return ret;
+}
 
 void gsoc_task_scheduler_loop()
 {
@@ -20,7 +42,7 @@ void gsoc_task_scheduler_loop()
       next_task = gsoc_taskqueue_pop(_workers[_thread_id].taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
-          next_task = gsoc_taskqueue_take(_workers[(_thread_id + 1) % 2].taskq);
+          next_task = gsoc_taskqueue_take(_workers[gsoc_choose_victim(_thread_id, num_cpu)].taskq);
           if (!next_task)
             {
               if (num_team_task == 0)
@@ -151,60 +173,80 @@ void gsoc_setaffinity()
   pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset);
 }
 
-void* start_master_thread(omp_internal_data* data)
+/* Called by pthread_create() */
+void* start_thread(int* rank)
 {
-  gsoc_task* root_task;
-
-  /* Set thread id incrementally */
-  _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
+  _thread_id = *rank;
 
   gsoc_setaffinity();
-  fprintf(stderr, "master CPU %d\n", sched_getcpu());
-
-  _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-  root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+  fprintf(stderr, "Starting thread on CPU %d\n", sched_getcpu());
 
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
-  gsoc_taskqueue_push(_workers[_thread_id].taskq, root_task);
   co_call(_workers[_thread_id].scheduler_task);
 
   return NULL;
 }
 
-void* start_slave_thread()
+void* setup_master_thread(omp_internal_data* data, int rank)
 {
-  /* Set thread id incrementally */
-  _thread_id = __sync_add_and_fetch(&_num_detected_threads, 1) - 1;
+  gsoc_task* root_task;
 
+  _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+  root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+
+  gsoc_taskqueue_push(_workers[rank].taskq, root_task);
+
+  return NULL;
+}
+
+void* setup_slave_thread(int rank)
+{
   gsoc_setaffinity();
-  fprintf(stderr, "slave CPU %d\n", sched_getcpu());
 
-  _workers[_thread_id].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-
-  co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
-                   Without this, SEGV would happen because
-                   swapcontext(co_curr__->context, co_next->context)
-                   is called in pcl.c internally. */
-  co_call(_workers[_thread_id].scheduler_task);
+  _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 
   return NULL;
 }
 
 void gsoc_run_workers(omp_internal_data* data)
 {
-  _workers[0].taskq = gsoc_taskqueue_new();
-  _workers[1].taskq = gsoc_taskqueue_new();
+  long i;
+  int ranks[num_cpu];
 
-  pthread_create(&_pthread_id[0], NULL, (void*(*)(void*))start_master_thread, data);
-  pthread_create(&_pthread_id[1], NULL, (void*(*)(void*))start_slave_thread, NULL);
+  for (i = 0; i < num_cpu; ++i)
+    ranks[i] = i;
+
+  _workers = malloc(sizeof(gsoc_worker) * num_cpu);
+  _pthread_id = malloc(sizeof(pthread_t) * num_cpu);
+
+  /* Master thread */
+  _workers[0].taskq = gsoc_taskqueue_new();
+  setup_master_thread(data, 0);
+
+  /* Slave threads */
+  for (i = 1; i < num_cpu; ++i)
+    {
+      _workers[i].taskq = gsoc_taskqueue_new();
+      setup_slave_thread(i);
+    }
+
+  pthread_create(&_pthread_id[0], NULL, (void*(*)(void*))start_thread, &ranks[0]);
+  for (i = 1; i < num_cpu; ++i)
+    pthread_create(&_pthread_id[i], NULL, (void*(*)(void*))start_thread, &ranks[i]);
+
   pthread_join(_pthread_id[0], NULL);
-  pthread_join(_pthread_id[1], NULL);
+  for (i = 1; i < num_cpu; ++i)
+    pthread_join(_pthread_id[i], NULL);
 
   gsoc_taskqueue_delete(_workers[0].taskq);
-  gsoc_taskqueue_delete(_workers[1].taskq);
+  for (i = 1; i < num_cpu; ++i)
+    gsoc_taskqueue_delete(_workers[i].taskq);
+
+  free(_workers);
+  free(_pthread_id);
 }
 
 
@@ -213,6 +255,8 @@ int main(int argc, char** argv)
   omp_internal_data data;
   int retval;
   data.retval = &retval;
+
+  num_cpu = sysconf(_SC_NPROCESSORS_CONF);
 
   if (argc != 2)
     {

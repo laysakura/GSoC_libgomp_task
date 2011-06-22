@@ -8,7 +8,6 @@
 
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
 #define GSOC_CUTOFF_DEPTH 4
-#define NUM_THREADS 2
 
 typedef struct {
   int* retval;
@@ -25,13 +24,13 @@ typedef struct {
 
 __thread unsigned int _thread_id;
 unsigned int _num_detected_threads = 0;
-pthread_t _pthread_id[NUM_THREADS];
+pthread_t* _pthread_id;
 
 
 unsigned int num_team_task;
 
 
-gsoc_worker _workers[NUM_THREADS];
+gsoc_worker* _workers;
 
 
 static inline gsoc_task*
