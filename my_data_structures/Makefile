@@ -97,6 +97,9 @@ test_coroutine: test_coroutine.c pcl.o
 test_fib_by_hand: pcl.o gsoc_taskqueue.o test_fib_by_hand.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
+test_fib_by_hand_callgraph: pcl_callgraph.o gsoc_taskqueue.o test_fib_by_hand_callgraph.c
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
+
 .PHONY: TEST_coroutine
 TEST_coroutine: test_coroutine
 	@echo "Testing behavior of coroutine library in OpenUH"

@@ -47,7 +47,8 @@ typedef jmp_buf co_core_ctx_t;
 typedef enum {
   OMP_TASK_DEFAULT,
   OMP_TASK_SUSPENDED,
-  OMP_TASK_EXIT
+  OMP_TASK_EXIT,
+  OMP_TASK_CUTOFF
 } omp_task_state_t;
 
 

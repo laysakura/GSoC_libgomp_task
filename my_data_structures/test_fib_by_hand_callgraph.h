@@ -8,7 +8,8 @@
 
 
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
-#define NUM_THREADS 2
+#define GSOC_CUTOFF_DEPTH 8
+
 
 typedef struct {
   int* retval;
@@ -25,13 +26,13 @@ typedef struct {
 
 __thread unsigned int _thread_id;
 unsigned int _num_detected_threads = 0;
-pthread_t _pthread_id[NUM_THREADS];
+pthread_t* _pthread_id;
 
 
 unsigned int num_team_task;
 
 
-gsoc_worker _workers[NUM_THREADS];
+gsoc_worker* _workers;
 
 
 unsigned long long _callgraph_num_tasks = 0;
@@ -46,7 +47,12 @@ gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gs
   ret->creator = parent_task;
   __sync_add_and_fetch(&num_team_task, 1);
   if (__builtin_expect(parent_task != NULL, 1)) /* Fauls only if the task to be created is root task */
-    __sync_add_and_fetch(&parent_task->num_children, 1);
+    {
+      __sync_add_and_fetch(&parent_task->num_children, 1);
+      ret->depth = parent_task->depth + 1;
+    }
+  else
+    ret->depth = 0;
 
   /* Call graph */
   ret->callgraph_task_id = __sync_add_and_fetch(&_callgraph_num_tasks, 1);
@@ -67,6 +73,8 @@ gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gs
 
   return ret;
 }
+
+#define gsoc_cutoff_cond() (_workers[_thread_id].current_task->depth > GSOC_CUTOFF_DEPTH)
 
 
 #endif /* _TEST_FIB_BY_HAND_H_ */

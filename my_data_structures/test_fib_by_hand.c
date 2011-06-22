@@ -190,25 +190,19 @@ void* start_thread(int* rank)
   return NULL;
 }
 
-void* setup_master_thread(omp_internal_data* data, int rank)
+void setup_master_thread(omp_internal_data* data, int rank)
 {
   gsoc_task* root_task;
 
   _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
+
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
-
   gsoc_taskqueue_push(_workers[rank].taskq, root_task);
-
-  return NULL;
 }
 
-void* setup_slave_thread(int rank)
+void setup_slave_thread(int rank)
 {
-  gsoc_setaffinity();
-
   _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
-
-  return NULL;
 }
 
 void gsoc_run_workers(omp_internal_data* data)
