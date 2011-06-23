@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "pcl_config.h"
 #include "pcl.h"
 
@@ -56,6 +57,13 @@ typedef struct s_coroutine {
 	struct s_coroutine *restarget;
 	void (*func)(void *);
 	void *data;
+
+  /* Sho Nakatani added below.
+     These members are not accessed in PCL. */
+  struct s_coroutine* parent;
+  unsigned int num_children;
+  unsigned int depth;
+  bool cutoff;
 } coroutine;
 
 typedef struct s_cothread_ctx {

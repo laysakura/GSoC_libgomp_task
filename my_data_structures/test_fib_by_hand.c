@@ -62,7 +62,7 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   if(gsoc_cutoff_cond())
     {
-      _workers[_thread_id].current_task->state = OMP_TASK_CUTOFF;
+      _workers[_thread_id].current_task->cutoff = true;
 
       ++_workers[_thread_id].current_task->depth;
       func(data);
@@ -72,8 +72,9 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
     {
       gsoc_task* child_task;
 
-      child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
-      child_task->state = OMP_TASK_DEFAULT;
+      child_task = gsoc_task_new(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
+      __sync_add_and_fetch(&num_team_task, 1);
+      child_task->cutoff = false;
       gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
     }
 }
@@ -82,7 +83,7 @@ void
 gsoc_encounter_taskwait_directive()
 {
   if (_workers[_thread_id].current_task->num_children == 0
-      || _workers[_thread_id].current_task->state == OMP_TASK_CUTOFF)
+      || _workers[_thread_id].current_task->cutoff)
       return;
 
   /* This task sleeps until the last child wakes it up */
@@ -92,32 +93,33 @@ gsoc_encounter_taskwait_directive()
 void
 gsoc_encounter_taskexit_directive()
 {
-  if (_workers[_thread_id].current_task->state == OMP_TASK_DEFAULT)
+  if (!_workers[_thread_id].current_task->cutoff)
     {
       __sync_sub_and_fetch(&num_team_task, 1);
 
-      if (_workers[_thread_id].current_task->creator)
+      if (_workers[_thread_id].current_task->parent)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
-          if (_workers[_thread_id].current_task->creator->num_children == 0)
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->parent->num_children, 1);
+          if (_workers[_thread_id].current_task->parent->num_children == 0)
             /* Tell parent task that all of us children finished our work
                then parent resume its work using our result. */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+            /* This is illegal for tied task since parent task might be executed on other worker */
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->parent);
         }
     }
-  else if (_workers[_thread_id].current_task->state == OMP_TASK_CUTOFF
+  else if (_workers[_thread_id].current_task->cutoff
            && _workers[_thread_id].current_task->depth == GSOC_CUTOFF_DEPTH + 1)
     {
       __sync_sub_and_fetch(&num_team_task, 1);
-      _workers[_thread_id].current_task->state = OMP_TASK_DEFAULT;
+      _workers[_thread_id].current_task->cutoff = false;
 
-      if (_workers[_thread_id].current_task->creator)
+      if (_workers[_thread_id].current_task->parent)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
-          if (_workers[_thread_id].current_task->creator->num_children == 0)
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->parent->num_children, 1);
+          if (_workers[_thread_id].current_task->parent->num_children == 0)
             /* Tell parent task that all of us children finished our work
                then parent resume its work using our result. */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->parent);
         }
     }
 }
@@ -181,7 +183,7 @@ void* start_thread(int* rank)
   gsoc_setaffinity();
   fprintf(stderr, "Starting thread on CPU %d\n", sched_getcpu());
 
-  co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
+  co_thread_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
@@ -196,7 +198,8 @@ void setup_master_thread(omp_internal_data* data, int rank)
 
   _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 
-  root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+  root_task = gsoc_task_new((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+  __sync_add_and_fetch(&num_team_task, 1);
   gsoc_taskqueue_push(_workers[rank].taskq, root_task);
 }
 

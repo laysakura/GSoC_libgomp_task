@@ -27,6 +27,9 @@ clean:
 pcl.o: pcl.c pcl.h pcl_config.h pcl_private.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c pcl.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
 
+pcl_private.o: pcl_private.c pcl.h pcl_config.h pcl_private.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c pcl_private.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
+
 .PHONY: debug
 debug:
 	@make test
@@ -97,7 +100,7 @@ test_gsoc_task_circular_array: gsoc_task_circular_array.h test_gsoc_task_circula
 test_coroutine: test_coroutine.c pcl.o
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread
 
-test_fib_by_hand: pcl.o gsoc_taskqueue.o test_fib_by_hand.c
+test_fib_by_hand: pcl.o pcl_private.o gsoc_taskqueue.o test_fib_by_hand.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
 test_fib_by_hand_callgraph: pcl_callgraph.o gsoc_taskqueue.o test_fib_by_hand_callgraph.c
