@@ -22,7 +22,7 @@ all: $(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(TARGETS) $(DEPENDS)
+	rm -f $(TARGETS) *.o *.d *.gch *_flymake* *~
 
 .PHONY: debug
 debug:
