@@ -8,7 +8,6 @@
 #include <unistd.h>
 #include <time.h>
 
-
 long num_cpu;
 
 
@@ -38,7 +37,6 @@ void gsoc_task_scheduler_loop()
          doesn't have to think about context switch from this funciton. */
       gsoc_task* next_task;
 
-
       next_task = gsoc_taskqueue_pop(_workers[_thread_id].taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
@@ -51,7 +49,6 @@ void gsoc_task_scheduler_loop()
               continue; /* try again */
             }
         }
-
       _workers[_thread_id].current_task = next_task;
       co_call(_workers[_thread_id].current_task);
     }
@@ -62,7 +59,7 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
 {
   if(gsoc_cutoff_cond())
     {
-      _workers[_thread_id].current_task->state = OMP_TASK_CUTOFF;
+      _workers[_thread_id].current_task->cutoff = true;
 
       ++_workers[_thread_id].current_task->depth;
       func(data);
@@ -73,8 +70,9 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
       gsoc_task* child_task;
 
       child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
-      child_task->state = OMP_TASK_DEFAULT;
+      child_task->cutoff = false;
       gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
+      __sync_add_and_fetch(&num_team_task, 1);
     }
 }
 
@@ -82,7 +80,7 @@ void
 gsoc_encounter_taskwait_directive()
 {
   if (_workers[_thread_id].current_task->num_children == 0
-      || _workers[_thread_id].current_task->state == OMP_TASK_CUTOFF)
+      || _workers[_thread_id].current_task->cutoff)
       return;
 
   /* This task sleeps until the last child wakes it up */
@@ -92,7 +90,7 @@ gsoc_encounter_taskwait_directive()
 void
 gsoc_encounter_taskexit_directive()
 {
-  if (_workers[_thread_id].current_task->state == OMP_TASK_DEFAULT)
+  if (!_workers[_thread_id].current_task->cutoff)
     {
       __sync_sub_and_fetch(&num_team_task, 1);
 
@@ -105,11 +103,11 @@ gsoc_encounter_taskexit_directive()
             gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
     }
-  else if (_workers[_thread_id].current_task->state == OMP_TASK_CUTOFF
+  else if (_workers[_thread_id].current_task->cutoff
            && _workers[_thread_id].current_task->depth == GSOC_CUTOFF_DEPTH + 1)
     {
       __sync_sub_and_fetch(&num_team_task, 1);
-      _workers[_thread_id].current_task->state = OMP_TASK_DEFAULT;
+      _workers[_thread_id].current_task->cutoff = false;
 
       if (_workers[_thread_id].current_task->creator)
         {
@@ -179,12 +177,15 @@ void* start_thread(int* rank)
   _thread_id = *rank;
 
   gsoc_setaffinity();
-  fprintf(stderr, "Starting thread on CPU %d\n", sched_getcpu());
-
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
+  if (*rank == 0)
+    fprintf(stderr, "start_threadStarting Master Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
+  else
+    fprintf(stderr, "Starting Slave Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
+
   co_call(_workers[_thread_id].scheduler_task);
 
   return NULL;
@@ -197,7 +198,9 @@ void setup_master_thread(omp_internal_data* data, int rank)
   _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
+  fprintf(stderr, "Root task is %p\n", root_task);
   gsoc_taskqueue_push(_workers[rank].taskq, root_task);
+  __sync_add_and_fetch(&num_team_task, 1);
 }
 
 void setup_slave_thread(int rank)

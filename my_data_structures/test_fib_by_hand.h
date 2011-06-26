@@ -40,11 +40,10 @@ gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gs
   ret = co_create(func, data, stack, stacksize);
   ret->num_children = 0;
   ret->creator = parent_task;
-  __sync_add_and_fetch(&num_team_task, 1);
-  if (__builtin_expect(parent_task != NULL, 1)) /* Fauls only if the task to be created is root task */
+  if (parent_task)
     {
-      __sync_add_and_fetch(&parent_task->num_children, 1);
       ret->depth = parent_task->depth + 1;
+      __sync_add_and_fetch(&parent_task->num_children, 1);
     }
   else
     ret->depth = 0;

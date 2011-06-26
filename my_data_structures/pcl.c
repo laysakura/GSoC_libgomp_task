@@ -454,9 +454,6 @@ void co_call(coroutine_t coro) {
   co->caller = co_curr;
   co_curr = co;
 
-
-  co->safe_to_enqueue = 0;
-  oldco->safe_to_enqueue = 1;
   if (swapcontext(&oldco->ctx.cc, &co->ctx.cc) < 0) {
     fprintf(stderr, "[PCL] Context switch failed: curr=%p\n",
             co_curr);
@@ -506,8 +503,8 @@ void co_exit_to(coroutine_t coro)
  
   co_call((coroutine_t) dchelper);
 
-  fprintf(stderr, "[PCL] Stale coroutine called: curr=%p\n",
-          co_curr);
+  fprintf(stderr, "[PCL] Stale coroutine called on CPU %d: curr=%p, next=%p\n",
+          sched_getcpu(),  co_curr, coro);
   exit(1);
 }
 

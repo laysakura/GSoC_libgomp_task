@@ -20,6 +20,7 @@
  *
  */
 #include <stdint.h>
+#include <stdbool.h>
 
 #if !defined(PCL_H)
 #define PCL_H
@@ -30,6 +31,7 @@ extern "C" {
 
 
 #define CO_USE_UCONEXT
+#undef CO_USE_SIGCONTEXT
 
 #if defined(CO_USE_UCONEXT)
 #include <ucontext.h>
@@ -47,8 +49,7 @@ typedef jmp_buf co_core_ctx_t;
 typedef enum {
   OMP_TASK_DEFAULT,
   OMP_TASK_SUSPENDED,
-  OMP_TASK_EXIT,
-  OMP_TASK_CUTOFF
+  OMP_TASK_EXIT
 } omp_task_state_t;
 
 
@@ -64,21 +65,13 @@ typedef struct s_coroutine {
   void (*func)(void *);
   void *data;
 
-  struct s_coroutine *next;
-  struct s_coroutine *prev;
-
+  /* 以下は全てOpenMP用に追加されたメンバ．
+   * 何故直接構造体にメンバを追加しているかというと，PCLはGC的な機構を持っているため，
+   * 直接メンバを持たせればそのメンバもGCしてくれる． */
   struct s_coroutine *creator;
   volatile uint32_t num_children;
-  int is_parallel_task;
-  int is_tied;
-  int started;
-  volatile omp_task_state_t state;
-  volatile int safe_to_enqueue;
+  volatile bool cutoff;
   int depth;
-  int pdepth;
-  volatile int context_flag;
-  int threadid;
-  pthread_mutex_t lock;
 } coroutine;
 
 typedef coroutine * coroutine_t;
