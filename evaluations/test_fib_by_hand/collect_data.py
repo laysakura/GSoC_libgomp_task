@@ -5,6 +5,10 @@ import re
 def is_valid_result(n_for_fib, result):
     if n_for_fib == 30:
         return result == 832040
+    elif n_for_fib == 31:
+        return result == 1346269
+    elif n_for_fib == 32:
+        return result == 2178309
     elif n_for_fib == 40:
         return result == 102334155
     else:
