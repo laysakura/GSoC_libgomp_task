@@ -5,6 +5,7 @@
 #include "test_fib_by_hand.h"
 #include "gsoc_worker.h"
 #include "gsoc_env.h"
+#include "gsoc_time.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -251,6 +252,7 @@ int main(int argc, char** argv)
 {
   omp_internal_data data;
   int retval;
+  double t1, t2;
   data.retval = &retval;
 
   if (argc != 2)
@@ -261,9 +263,13 @@ int main(int argc, char** argv)
   data.arg = atoi(argv[1]);
 
   gsoc_get_env(&_num_workers, &_gsoc_cutoff_depth);
-  gsoc_run_workers(&data);
 
-  fprintf(stderr, "fib(%d) = %d\n", data.arg, *data.retval);
+  t1 = gettimeofday_sec();
+  gsoc_run_workers(&data);
+  t2 = gettimeofday_sec();
+
+  fprintf(stdout, "fib(%d):%d\n", data.arg, *data.retval);
+  fprintf(stdout, "exectime:%f\n", t2 - t1);
 
   return 0;
 }
