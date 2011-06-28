@@ -8,6 +8,23 @@
 
 typedef coroutine gsoc_task;
 
+static inline gsoc_task*
+gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gsoc_task* parent_task)
+{
+  gsoc_task* ret;
+  ret = co_create(func, data, stack, stacksize);
+  ret->num_children = 0;
+  ret->creator = parent_task;
+  if (parent_task)
+    {
+      ret->depth = parent_task->depth + 1;
+      __sync_add_and_fetch(&parent_task->num_children, 1);
+    }
+  else
+    ret->depth = 0;
+  return ret;
+}
+
 
 /* gsoc_task_delete is not there
    because object created by co_create() is automatically deleted. */

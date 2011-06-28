@@ -64,6 +64,10 @@ typedef struct s_coroutine {
   void (*func)(void *);
   void *data;
 
+
+  /* 以下は全てOpenMP用に追加されたメンバ．
+   * 何故直接構造体にメンバを追加しているかというと，PCLはGC的な機構を持っているため，
+   * 直接メンバを持たせればそのメンバもGCしてくれる． */
   struct s_coroutine *next;
   struct s_coroutine *prev;
 
