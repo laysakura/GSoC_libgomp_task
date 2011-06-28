@@ -37,8 +37,9 @@ def exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth):
     result, exectime = parse_output(output)
     return result, exectime
 
-def data2log_str(num_cpu, cutoff_depth, exectime, logfile_path):
-    return str(num_cpu) + "\t" + str(cutoff_depth) + "\t" + str(exectime) + "\n"
+def data2log_str(num_cpu, cutoff_depth, exectime1, exectime2, exectime3, logfile_path):
+    return (str(num_cpu) + "\t" + str(cutoff_depth) + "\t" +
+            str((exectime1 + exectime2 + exectime3) / 3) + "\n")
 
 def parse_args():
     if len(sys.argv) != 5:
@@ -48,14 +49,22 @@ def parse_args():
 
 def main():
     n_for_fib, num_cpu, cutoff_depth, logfile_path = parse_args()
-    result, exectime = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
 
-    if is_valid_result(n_for_fib, result) == False:
-        print("Invalid result: fib(" + n_for_fib + ") = " + result)
+    result1, exectime1 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    if is_valid_result(n_for_fib, result1) == False:
+        print("Invalid result: fib(" + n_for_fib + ") = " + result1)
+        exit(1)
+    result2, exectime2 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    if is_valid_result(n_for_fib, result2) == False:
+        print("Invalid result: fib(" + n_for_fib + ") = " + result2)
+        exit(1)
+    result3, exectime3 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    if is_valid_result(n_for_fib, result3) == False:
+        print("Invalid result: fib(" + n_for_fib + ") = " + result3)
         exit(1)
 
     logfile = open(logfile_path, 'a')
-    logfile.write(data2log_str(num_cpu, cutoff_depth, exectime, logfile_path))
+    logfile.write(data2log_str(num_cpu, cutoff_depth, exectime1, exectime2, exectime3, logfile_path))
     logfile.close()
 
 if __name__ == '__main__':
