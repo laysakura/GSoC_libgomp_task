@@ -9,6 +9,12 @@ def is_valid_result(n_for_fib, result):
         return result == 1346269
     elif n_for_fib == 32:
         return result == 2178309
+    elif n_for_fib == 33:
+        return result == 3524578
+    elif n_for_fib == 34:
+        return result == 5702887
+    elif n_for_fib == 35:
+        return result == 9227465
     elif n_for_fib == 40:
         return result == 102334155
     else:
