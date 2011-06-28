@@ -2,8 +2,6 @@ import sys
 import commands
 import re
 
-EXEC_FILE = "../../my_data_structures/test_fib_by_hand"
-
 def is_valid_result(n_for_fib, result):
     if n_for_fib == 30:
         return result == 832040
@@ -28,11 +26,11 @@ def parse_output(output):
 
     return result, exectime
 
-def exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth):
+def exec_test_fib_by_hand(exec_file, n_for_fib, num_cpu, cutoff_depth):
     output = commands.getoutput(
         "export OMP_NUM_THREADS=" + str(num_cpu) +
         " ; export GSOC_CUTOFF_DEPTH=" + str(cutoff_depth) +
-        " ; " + EXEC_FILE + " " + str(n_for_fib) + " 2> /dev/null")
+        " ; " + exec_file + " " + str(n_for_fib) + " 2> /dev/null")
 
     result, exectime = parse_output(output)
     return result, exectime
@@ -42,23 +40,23 @@ def data2log_str(num_cpu, cutoff_depth, exectime1, exectime2, exectime3, logfile
             str((exectime1 + exectime2 + exectime3) / 3) + "\n")
 
 def parse_args():
-    if len(sys.argv) != 5:
-        print("ARGS: <N_for_fib(N)> <num_cpu> <cutoff_depth> <logfile_path>")
+    if len(sys.argv) != 6:
+        print("ARGS: <path_to_executable> <N_for_fib(N)> <num_cpu> <cutoff_depth> <logfile_path>")
         exit(1)
-    return int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+    return sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
 
 def main():
-    n_for_fib, num_cpu, cutoff_depth, logfile_path = parse_args()
+    exec_file, n_for_fib, num_cpu, cutoff_depth, logfile_path = parse_args()
 
-    result1, exectime1 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    result1, exectime1 = exec_test_fib_by_hand(exec_file, n_for_fib, num_cpu, cutoff_depth)
     if is_valid_result(n_for_fib, result1) == False:
         print("Invalid result: fib(" + n_for_fib + ") = " + result1)
         exit(1)
-    result2, exectime2 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    result2, exectime2 = exec_test_fib_by_hand(exec_file, n_for_fib, num_cpu, cutoff_depth)
     if is_valid_result(n_for_fib, result2) == False:
         print("Invalid result: fib(" + n_for_fib + ") = " + result2)
         exit(1)
-    result3, exectime3 = exec_test_fib_by_hand(n_for_fib, num_cpu, cutoff_depth)
+    result3, exectime3 = exec_test_fib_by_hand(exec_file, n_for_fib, num_cpu, cutoff_depth)
     if is_valid_result(n_for_fib, result3) == False:
         print("Invalid result: fib(" + n_for_fib + ") = " + result3)
         exit(1)
