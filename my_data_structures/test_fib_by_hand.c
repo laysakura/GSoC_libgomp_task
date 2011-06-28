@@ -172,7 +172,7 @@ void* start_thread(int* rank)
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
   if (*rank == 0)
-    fprintf(stderr, "start_threadStarting Master Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
+    fprintf(stderr, "Starting Master Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
   else
     fprintf(stderr, "Starting Slave Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
 
