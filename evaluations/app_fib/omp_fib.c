@@ -9,10 +9,10 @@ int fib(int n)
 
   if (n <= 1) return n;
 
-  #pragma omp task shared(f1) firstprivate(n)
+  #pragma omp task untied shared(f1) firstprivate(n)
   f1 = fib(n-1);
 
-  #pragma omp task shared(f2) firstprivate(n)
+  #pragma omp task untied shared(f2) firstprivate(n)
   f2 = fib(n-2);
 
   #pragma omp taskwait
