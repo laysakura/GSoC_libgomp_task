@@ -203,9 +203,6 @@ void gsoc_run_workers(omp_internal_data* data)
   long i;
   int ranks[_num_workers];
 
-  _num_workers = gsoc_get_num_workers();
-  _gsoc_cutoff_depth = gsoc_get_cutoff_depth();
-
   for (i = 0; i < _num_workers; ++i)
     ranks[i] = i;
 
@@ -242,6 +239,14 @@ void gsoc_run_workers(omp_internal_data* data)
 }
 
 
+void
+gsoc_get_env(long int* num_workers, unsigned int* cutoff_depth)
+{
+  *num_workers = gsoc_get_num_workers();
+  *cutoff_depth = gsoc_get_cutoff_depth();
+}
+
+
 int main(int argc, char** argv)
 {
   omp_internal_data data;
@@ -255,6 +260,7 @@ int main(int argc, char** argv)
     }
   data.arg = atoi(argv[1]);
 
+  gsoc_get_env(&_num_workers, &_gsoc_cutoff_depth);
   gsoc_run_workers(&data);
 
   fprintf(stderr, "fib(%d) = %d\n", data.arg, *data.retval);
