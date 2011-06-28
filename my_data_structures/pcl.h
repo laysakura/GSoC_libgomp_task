@@ -1,11 +1,6 @@
 /*
-<<<<<<< HEAD
- *  PCL by Davide Libenzi (Portable Coroutine Library)
- *  Copyright (C) 2003..2010  Davide Libenzi
-=======
  *  PCL by Davide Libenzi ( Portable Coroutine Library )
  *  Copyright (C) 2003  Davide Libenzi
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -24,38 +19,13 @@
  *  Davide Libenzi <davidel@xmailserver.org>
  *
  */
-<<<<<<< HEAD
-=======
 #include <stdint.h>
 #include <stdbool.h>
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
 
 #if !defined(PCL_H)
 #define PCL_H
 
 #ifdef __cplusplus
-<<<<<<< HEAD
-#define PCLXC extern "C"
-#else
-#define PCLXC
-#endif
-
-typedef void *coroutine_t;
-
-PCLXC int co_thread_init(void);
-PCLXC void co_thread_cleanup(void);
-
-PCLXC coroutine_t co_create(void (*func)(void *), void *data, void *stack,
-			    int size);
-PCLXC void co_delete(coroutine_t coro);
-PCLXC void co_call(coroutine_t coro);
-PCLXC void co_resume(void);
-PCLXC void co_exit_to(coroutine_t coro);
-PCLXC void co_exit(void);
-PCLXC coroutine_t co_current(void);
-PCLXC void *co_get_data(coroutine_t coro);
-PCLXC void *co_set_data(coroutine_t coro, void *data);
-=======
 extern "C" {
 #endif
 
@@ -119,7 +89,6 @@ void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx);
 #ifdef __cplusplus
 }
 #endif
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
 
 #endif
 

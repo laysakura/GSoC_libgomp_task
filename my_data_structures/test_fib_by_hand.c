@@ -57,12 +57,7 @@ gsoc_encounter_task_directive(void(*func)(void*), void* data)
     {
       gsoc_task* child_task;
 
-<<<<<<< HEAD
-      child_task = gsoc_task_new(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
-      __sync_add_and_fetch(&num_team_task, 1);
-=======
       child_task = gsoc_task_create(func, (omp_internal_data*)data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, _workers[_thread_id].current_task);
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
       child_task->cutoff = false;
       gsoc_taskqueue_push(_workers[_thread_id].taskq, child_task);
       __sync_add_and_fetch(&_num_team_tasks, 1);
@@ -87,36 +82,29 @@ gsoc_encounter_taskexit_directive()
     {
       __sync_sub_and_fetch(&_num_team_tasks, 1);
 
-      if (_workers[_thread_id].current_task->parent)
+      if (_workers[_thread_id].current_task->creator)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->parent->num_children, 1);
-          if (_workers[_thread_id].current_task->parent->num_children == 0)
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+          if (_workers[_thread_id].current_task->creator->num_children == 0)
             /* Tell parent task that all of us children finished our work
                then parent resume its work using our result. */
-            /* This is illegal for tied task since parent task might be executed on other worker */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->parent);
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
     }
   else if (_workers[_thread_id].current_task->cutoff
-<<<<<<< HEAD
-           && _workers[_thread_id].current_task->depth == GSOC_CUTOFF_DEPTH + 1)
-    {
-      __sync_sub_and_fetch(&num_team_task, 1);
-=======
            && _workers[_thread_id].current_task->depth == _gsoc_cutoff_depth + 1)
     {
       /* When the root cutoff task exits */
       __sync_sub_and_fetch(&_num_team_tasks, 1);
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
       _workers[_thread_id].current_task->cutoff = false;
 
-      if (_workers[_thread_id].current_task->parent)
+      if (_workers[_thread_id].current_task->creator)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->parent->num_children, 1);
-          if (_workers[_thread_id].current_task->parent->num_children == 0)
+          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+          if (_workers[_thread_id].current_task->creator->num_children == 0)
             /* Tell parent task that all of us children finished our work
                then parent resume its work using our result. */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->parent);
+            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
     }
   /* Cutoff task does nothing here */
@@ -179,13 +167,7 @@ void* start_thread(int* rank)
   _thread_id = *rank;
 
   gsoc_setaffinity();
-<<<<<<< HEAD
-  fprintf(stderr, "Starting thread on CPU %d\n", sched_getcpu());
-
-  co_thread_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
-=======
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
@@ -205,13 +187,8 @@ void setup_master_thread(omp_internal_data* data, int rank)
 
   _workers[rank].scheduler_task = co_create(gsoc_task_scheduler_loop, NULL, NULL, OMP_TASK_STACK_SIZE_DEFAULT);
 
-<<<<<<< HEAD
-  root_task = gsoc_task_new((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
-  __sync_add_and_fetch(&num_team_task, 1);
-=======
   root_task = gsoc_task_create((void(*)(void*))fib_outlined, data, NULL, OMP_TASK_STACK_SIZE_DEFAULT, NULL);
   fprintf(stderr, "Root task is %p\n", root_task);
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
   gsoc_taskqueue_push(_workers[rank].taskq, root_task);
   __sync_add_and_fetch(&_num_team_tasks, 1);
 }

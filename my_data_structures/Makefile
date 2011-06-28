@@ -24,12 +24,6 @@ all: $(TARGETS)
 clean:
 	rm -f $(TARGETS) *.o *.d *.gch *_flymake* *~
 
-pcl.o: pcl.c pcl.h pcl_config.h pcl_private.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c pcl.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
-
-pcl_private.o: pcl_private.c pcl.h pcl_config.h pcl_private.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c pcl_private.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
-
 .PHONY: debug
 debug:
 	@make test
