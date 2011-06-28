@@ -22,17 +22,13 @@ all: $(TARGETS)
 
 .PHONY: clean
 clean:
-<<<<<<< HEAD
-	rm -f $(TARGETS) *.d *.gch *_flymake*
+	rm -f $(TARGETS) *.o *.d *.gch *_flymake* *~
 
 pcl.o: pcl.c pcl.h pcl_config.h pcl_private.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c pcl.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
 
 pcl_private.o: pcl_private.c pcl.h pcl_config.h pcl_private.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c pcl_private.c -o $@ $(LDFLAGS) -D HAVE_GETCONTEXT -D HAVE_MAKECONTEXT -D HAVE_SWAPCONTEXT
-=======
-	rm -f $(TARGETS) *.o *.d *.gch *_flymake* *~
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
 
 .PHONY: debug
 debug:
@@ -104,11 +100,7 @@ test_gsoc_task_circular_array: gsoc_task_circular_array.h test_gsoc_task_circula
 test_coroutine: test_coroutine.c pcl.o
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread
 
-<<<<<<< HEAD
-test_fib_by_hand: pcl.o pcl_private.o gsoc_taskqueue.o test_fib_by_hand.c
-=======
 test_fib_by_hand: pcl.o gsoc_taskqueue.o gsoc_worker.o test_fib_by_hand.c
->>>>>>> 8fda589c9d61bd6b27afa1065940d2d18b84cbb5
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
 test_fib_by_hand_callgraph: pcl_callgraph.o gsoc_taskqueue.o test_fib_by_hand_callgraph.c
