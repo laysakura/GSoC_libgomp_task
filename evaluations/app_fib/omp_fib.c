@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
-#include "/home/sho/src/gcc/libgomp/my_log.h"
+#include "../../my_data_structures/gsoc_time.h"
 
 int fib(int n)
 {
@@ -22,15 +22,19 @@ int fib(int n)
 
 int main(int argc, char** argv)
 {
+  double t1, t2;
   int N = atoi(argv[1]);
+  int result;
 
   #pragma omp parallel
   {
     #pragma omp single
     {
-      laysakura_log("Start");
-      printf("fib(%d) = %d\n", N, fib(N));
-      laysakura_log("End");
+      t1 = gettimeofday_sec();
+      result = fib(N);
+      t2 = gettimeofday_sec();
+      fprintf(stdout, "fib(%d):%d\n", N, result);
+      fprintf(stdout, "exectime:%f\n", t2 - t1);
     }
   }
   return 0;
