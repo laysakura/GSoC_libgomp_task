@@ -28,6 +28,10 @@
 #include "pcl.h"
 
 
+#define GSOC_POOL_SIZE 100
+__thread void *gsoc_current_pool;
+__thread int gsoc_pool_index = GSOC_POOL_SIZE + 1;
+
 
 #if defined(CO_USE_SIGCONTEXT)
 #include <signal.h>
@@ -408,7 +412,18 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
     return NULL;
   if (!stack) {
     size = (size + sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1); /* 何行か下の "co = stack" のコメント参照 */
-    stack = malloc(size); /* heap上にstackを作成 */
+
+    if (gsoc_pool_index >= GSOC_POOL_SIZE)
+      {
+        stack = gsoc_current_pool = malloc(size * GSOC_POOL_SIZE);
+        gsoc_pool_index = 1;
+      }
+    else
+      {
+        stack = gsoc_current_pool + size * gsoc_pool_index;
+        ++gsoc_pool_index;
+      }
+
     if (!stack)
       return NULL;
     alloc = size;
@@ -441,8 +456,8 @@ void co_delete(coroutine_t coro) {
             co_curr);
     exit(1);
   }
-  if (co->alloc)
-    free(co);
+  /*if (co->alloc)
+    free(co);*/
 }
 
 
@@ -468,14 +483,15 @@ void co_resume(void) {
   co_curr->restarget = co_curr->caller;
 }
 
-
+/* 全然難しいことしてなくてワロタ */
 static void co_del_helper(void *data) {
   coroutine *cdh;
 
-  for (;;) {
-    cdh = co_dhelper;
+  for (;;) { /* この関数はcoroutineとして呼ばれるので，1呼び出しがこのループの中1iterationに対応 */
+    cdh = co_dhelper; /* co_exit_to(to) のto */
     co_dhelper = NULL;
-    co_delete(co_curr->caller);
+    co_delete(co_curr->caller); /* curr はこのco_del_helperにbindされたcoroutine．
+                                   そのcallerは，co_exit_to()に至ったcoroutine */
     co_call((coroutine_t) cdh);
     if (!co_dhelper) {
       fprintf(stderr, "[PCL] Resume to delete helper coroutine: curr=%p\n",
