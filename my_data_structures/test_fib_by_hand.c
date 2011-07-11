@@ -91,6 +91,7 @@ gsoc_encounter_taskexit_directive()
                then parent resume its work using our result. */
             gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
+      co_exit_to(_workers[_thread_id].scheduler_task);  /* TODO: make wrap for this conditional exit */
     }
   else if (_workers[_thread_id].current_task->cutoff
            && _workers[_thread_id].current_task->depth == _gsoc_cutoff_depth + 1)
@@ -108,7 +109,6 @@ gsoc_encounter_taskexit_directive()
             gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
     }
-  /* Cutoff task does nothing here */
 }
 
 int fib(int N);
@@ -116,8 +116,8 @@ int fib(int N);
 void fib_outlined(omp_internal_data* data)
 {
   *data->retval = fib(data->arg);
-  if (_workers[_thread_id].current_task->depth <= _gsoc_cutoff_depth)
-    co_exit_to(_workers[_thread_id].scheduler_task);  /* TODO: make wrap for this conditional exit */
+
+  gsoc_encounter_taskexit_directive();
 }
 
 int fib(int N)
@@ -126,10 +126,8 @@ int fib(int N)
   omp_internal_data omp_data1, omp_data2;
 
   if (N <= 1)
-    {
-      gsoc_encounter_taskexit_directive();
-      return N;
-    }
+    return N;
+
 
 
   /* #pragma omp task shared(f1) firstprivate(N) */
@@ -147,9 +145,6 @@ int fib(int N)
   gsoc_encounter_task_directive((void (*)(void*))fib_outlined, (omp_internal_data*)&omp_data2);
 
   gsoc_encounter_taskwait_directive();
-
-
-  gsoc_encounter_taskexit_directive();
 
   return f1 + f2;
 }
