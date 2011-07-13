@@ -6209,6 +6209,7 @@ w2op.o: \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/stab.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/wn_util.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/wn.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/wn_util.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/opcode.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/config.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/config_debug.h \

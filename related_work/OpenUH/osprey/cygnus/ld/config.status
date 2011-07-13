@@ -79,9 +79,9 @@ s%@INSTALL_DATA@%${INSTALL} -m 644%g
 s%@PACKAGE@%ld%g
 s%@VERSION@%2.16.1%g
 s%@ACLOCAL@%/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing aclocal-1.4%g
-s%@AUTOCONF@%/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing autoconf%g
+s%@AUTOCONF@%autoconf%g
 s%@AUTOMAKE@%/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing automake-1.4%g
-s%@AUTOHEADER@%/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing autoheader%g
+s%@AUTOHEADER@%autoheader%g
 s%@MAKEINFO@%/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing makeinfo%g
 s%@SET_MAKE@%%g
 s%@CC@%gcc -m32%g

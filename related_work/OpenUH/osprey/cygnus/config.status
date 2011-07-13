@@ -165,7 +165,7 @@ s%@OBJCOPY@%objcopy%g
 s%@ncn_cv_OBJCOPY@%objcopy%g
 s%@OBJDUMP@%objdump%g
 s%@ncn_cv_OBJDUMP@%objdump%g
-s%@CXX@%c++%g
+s%@CXX@%g++-4.4%g
 s%@CFLAGS_FOR_BUILD@%-g%g
 s%@CONFIGURED_AR_FOR_TARGET@%x86_64-open64-linux-ar%g
 s%@ncn_cv_CONFIGURED_AR_FOR_TARGET@%%g

@@ -10,10 +10,10 @@ typedef struct {
 
 static const PSEUDO pseudos[1] = {
   /*  0: TOP_UNDEFINED => TOP_UNDEFINED */
-  { 3591, 3591, { 0 }, { {0, 0} }}
+  { 3623, 3623, { 0 }, { {0, 0} }}
 };
 
-static const mUINT8 pseudo_index[3591][2] = {
+static const mUINT8 pseudo_index[3623][2] = {
   {  0,  0 }, /* add8      */
   {  0,  0 }, /* add16     */
   {  0,  0 }, /* add32     */
@@ -2252,14 +2252,14 @@ static const mUINT8 pseudo_index[3591][2] = {
   {  0,  0 }, /* vfcmpx128v32 */
   {  0,  0 }, /* vfcmpxx128v32 */
   {  0,  0 }, /* vfcmpxxx128v32 */
-  {  0,  0 }, /* vfcmpsd   */
-  {  0,  0 }, /* vfcmpxsd  */
-  {  0,  0 }, /* vfcmpxxsd */
-  {  0,  0 }, /* vfcmpxxxsd */
-  {  0,  0 }, /* vfcmpss   */
-  {  0,  0 }, /* vfcmpxss  */
-  {  0,  0 }, /* vfcmpxxss */
-  {  0,  0 }, /* vfcmpxxxss */
+  {  0,  0 }, /* vcmpsd    */
+  {  0,  0 }, /* vcmpxsd   */
+  {  0,  0 }, /* vcmpxxsd  */
+  {  0,  0 }, /* vcmpxxxsd */
+  {  0,  0 }, /* vcmpss    */
+  {  0,  0 }, /* vcmpxss   */
+  {  0,  0 }, /* vcmpxxss  */
+  {  0,  0 }, /* vcmpxxxss */
   {  0,  0 }, /* vcomisd   */
   {  0,  0 }, /* vcomixsd  */
   {  0,  0 }, /* vcomixxsd */
@@ -3308,6 +3308,38 @@ static const mUINT8 pseudo_index[3591][2] = {
   {  0,  0 }, /* vxzero128v32 */
   {  0,  0 }, /* vxzero32  */
   {  0,  0 }, /* vzeroall  */
+  {  0,  0 }, /* vcmpeqpd  */
+  {  0,  0 }, /* vcmpltpd  */
+  {  0,  0 }, /* vcmplepd  */
+  {  0,  0 }, /* vcmpunordpd */
+  {  0,  0 }, /* vcmpneqpd */
+  {  0,  0 }, /* vcmpnltpd */
+  {  0,  0 }, /* vcmpnlepd */
+  {  0,  0 }, /* vcmpordpd */
+  {  0,  0 }, /* vcmpeqps  */
+  {  0,  0 }, /* vcmpltps  */
+  {  0,  0 }, /* vcmpleps  */
+  {  0,  0 }, /* vcmpunordps */
+  {  0,  0 }, /* vcmpneqps */
+  {  0,  0 }, /* vcmpnltps */
+  {  0,  0 }, /* vcmpnleps */
+  {  0,  0 }, /* vcmpordps */
+  {  0,  0 }, /* vcmpeqsd  */
+  {  0,  0 }, /* vcmpltsd  */
+  {  0,  0 }, /* vcmplesd  */
+  {  0,  0 }, /* vcmpunordsd */
+  {  0,  0 }, /* vcmpneqsd */
+  {  0,  0 }, /* vcmpnltsd */
+  {  0,  0 }, /* vcmpnlesd */
+  {  0,  0 }, /* vcmpordsd */
+  {  0,  0 }, /* vcmpeqss  */
+  {  0,  0 }, /* vcmpltss  */
+  {  0,  0 }, /* vcmpless  */
+  {  0,  0 }, /* vcmpunordss */
+  {  0,  0 }, /* vcmpneqss */
+  {  0,  0 }, /* vcmpnltss */
+  {  0,  0 }, /* vcmpnless */
+  {  0,  0 }, /* vcmpordss */
   {  0,  0 }, /* xfmadd132pd */
   {  0,  0 }, /* xfmadd132xpd */
   {  0,  0 }, /* xfmadd132xxpd */

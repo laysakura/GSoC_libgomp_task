@@ -5,7 +5,7 @@
 
 
 static const mUINT16 state_unit_tab[8] = {
-  3591, 3591, 3591, 3591, 3591, 3591, 3591, 3591,
+  3623, 3623, 3623, 3623, 3623, 3623, 3623, 3623,
 };
 
 TOP ISA_Decode_Inst(const ISA_PACK_INST *pinst, ISA_EXEC_UNIT unit)

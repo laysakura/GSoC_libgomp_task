@@ -402,8 +402,7 @@ libdwarf.a(print_die.o): ../../../osprey/libdwarf/dwarfdump/print_die.c \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
  ../../../osprey/libdwarf/libdwarf/dwarf.h \
- ../../../osprey/libdwarf/libdwarf/libdwarf.h dwarf_names.h \
- _tag_tree_table.c _tag_attr_table.c
+ ../../../osprey/libdwarf/libdwarf/libdwarf.h
 libdwarf.a(print_reloc.o): ../../../osprey/libdwarf/dwarfdump/print_reloc.c \
  ../../../osprey/libdwarf/dwarfdump/globals.h \
  ../../../osprey/libdwarf/dwarfdump/config.h \
@@ -417,7 +416,7 @@ libdwarf.a(print_sections.o): ../../../osprey/libdwarf/dwarfdump/print_sections.
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/libelf.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/.././osprey/targdir/include/libelf/sys_elf.h \
  ../../../osprey/libdwarf/libdwarf/dwarf.h \
- ../../../osprey/libdwarf/libdwarf/libdwarf.h dwarf_names.h
+ ../../../osprey/libdwarf/libdwarf/libdwarf.h
 libdwarf.a(pro_alloc.o): ../../../osprey/libdwarf/libdwarf/pro_alloc.c \
  ../../../osprey/libdwarf/libdwarf/config.h \
  ../../../osprey/libdwarf/libdwarf/dwarf_incl.h \

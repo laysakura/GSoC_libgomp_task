@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libu/util/i3e
 http://svn.open64.net/svnroot/open64
 
@@ -502,40 +502,6 @@ marcel
 
 2622
 
-ieee_next_after_r_d.c
-file
-
-
-
-
-2011-05-17T07:40:35.987226Z
-489121ef974cdc14ba5c2412e24064c5
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4188
-
 ieee_next_after_d_r.c
 file
 
@@ -569,6 +535,40 @@ marcel
 
 
 4451
+
+ieee_next_after_r_d.c
+file
+
+
+
+
+2011-05-17T07:40:35.987226Z
+489121ef974cdc14ba5c2412e24064c5
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4188
 
 ieee_remainder_h_h.c
 file
@@ -604,40 +604,6 @@ marcel
 
 4987
 
-ieee_next_after_h_r.c
-file
-
-
-
-
-2011-05-17T07:40:35.987226Z
-6710bf0f4d7ec1b645aa9c2d6a7ddfc8
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4106
-
 ieee_next_after_r_h.c
 file
 
@@ -672,16 +638,16 @@ marcel
 
 4116
 
-ieee_remainder_d_r.c
+ieee_next_after_h_r.c
 file
 
 
 
 
 2011-05-17T07:40:35.987226Z
-1c2ae90417b6ce5f6ce152fa1ed22f29
-2005-10-25T01:22:06.291212Z
-2
+6710bf0f4d7ec1b645aa9c2d6a7ddfc8
+2005-11-18T22:20:42.308833Z
+71
 marcel
 
 
@@ -704,7 +670,7 @@ marcel
 
 
 
-2775
+4106
 
 ieee_remainder_r_d.c
 file
@@ -740,6 +706,40 @@ marcel
 
 2762
 
+ieee_remainder_d_r.c
+file
+
+
+
+
+2011-05-17T07:40:35.987226Z
+1c2ae90417b6ce5f6ce152fa1ed22f29
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2775
+
 ieee_expon_r_r.c
 file
 
@@ -774,40 +774,6 @@ marcel
 
 3152
 
-ieee_remainder_r_h.c
-file
-
-
-
-
-2011-05-17T07:40:35.987226Z
-bbf2d11fad343b3f5fc288faf884ad56
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2972
-
 ieee_remainder_h_r.c
 file
 
@@ -841,6 +807,40 @@ marcel
 
 
 2988
+
+ieee_remainder_r_h.c
+file
+
+
+
+
+2011-05-17T07:40:35.987226Z
+bbf2d11fad343b3f5fc288faf884ad56
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2972
 
 ieee_next_after_r_r.c
 file
@@ -1012,40 +1012,6 @@ marcel
 
 5343
 
-ieee_binary_scale_h_i4.c
-file
-
-
-
-
-2011-05-17T07:40:35.991226Z
-6702c8d439a45724d0d9f11a7e617f5d
-2005-11-18T22:20:42.308833Z
-71
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3976
-
 ieee_binary_scale_d_i8.c
 file
 
@@ -1079,6 +1045,40 @@ marcel
 
 
 5446
+
+ieee_binary_scale_h_i4.c
+file
+
+
+
+
+2011-05-17T07:40:35.991226Z
+6702c8d439a45724d0d9f11a7e617f5d
+2005-11-18T22:20:42.308833Z
+71
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3976
 
 ieee_expon_d_d.c
 file

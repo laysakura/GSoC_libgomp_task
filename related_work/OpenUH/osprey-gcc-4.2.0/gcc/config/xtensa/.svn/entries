@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc-4.2.0/gcc/config/xtensa
 http://svn.open64.net/svnroot/open64
 
@@ -128,40 +128,6 @@ leihuang
 
 70754
 
-crtn.asm
-file
-
-
-
-
-2011-05-17T07:41:29.847493Z
-a9c9fbaa7727f1eefe76249a9ea6f65d
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1757
-
 linux.h
 file
 
@@ -196,14 +162,14 @@ leihuang
 
 1952
 
-lib2funcs.S
+crtn.asm
 file
 
 
 
 
 2011-05-17T07:41:29.847493Z
-add50d3b5d97b3c8f152fc3286ec76c7
+a9c9fbaa7727f1eefe76249a9ea6f65d
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -228,7 +194,7 @@ leihuang
 
 
 
-6545
+1757
 
 xtensa.h
 file
@@ -263,6 +229,40 @@ leihuang
 
 
 47005
+
+lib2funcs.S
+file
+
+
+
+
+2011-05-17T07:41:29.847493Z
+add50d3b5d97b3c8f152fc3286ec76c7
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6545
 
 elf.h
 file
@@ -400,40 +400,6 @@ leihuang
 
 59038
 
-xtensa.opt
-file
-
-
-
-
-2011-05-17T07:41:29.847493Z
-cd6170fa99a78136b565a7d8a5eda9e9
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1254
-
 t-xtensa
 file
 
@@ -467,6 +433,40 @@ leihuang
 
 
 924
+
+xtensa.opt
+file
+
+
+
+
+2011-05-17T07:41:29.847493Z
+cd6170fa99a78136b565a7d8a5eda9e9
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1254
 
 lib1funcs.asm
 file

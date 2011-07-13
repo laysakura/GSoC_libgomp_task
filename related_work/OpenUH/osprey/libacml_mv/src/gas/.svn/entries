@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libacml_mv/src/gas
 http://svn.open64.net/svnroot/open64
 
@@ -60,40 +60,6 @@ leihuang
 
 65000
 
-vrdalog2.S
-file
-
-
-
-
-2011-05-17T07:39:56.447030Z
-430ddea32fc693a83a7790b43d5c3ba2
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-29054
-
 v4hlog10l.S
 file
 
@@ -128,14 +94,14 @@ leihuang
 
 1807
 
-vrs4expf.S
+vrdalog2.S
 file
 
 
 
 
 2011-05-17T07:39:56.447030Z
-1caf8c71d87a5edc53866bec89eb822b
+430ddea32fc693a83a7790b43d5c3ba2
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -160,7 +126,7 @@ leihuang
 
 
 
-12199
+29054
 
 fabsf.S
 file
@@ -195,6 +161,40 @@ leihuang
 
 
 1549
+
+vrs4expf.S
+file
+
+
+
+
+2011-05-17T07:39:56.447030Z
+1caf8c71d87a5edc53866bec89eb822b
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12199
 
 v4hcosl.S
 file
@@ -264,40 +264,6 @@ leihuang
 
 24130
 
-logf.S
-file
-
-
-
-
-2011-05-17T07:39:56.447030Z
-13f3982fc4fa4508a0862241fc9228ff
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-23294
-
 round.S
 file
 
@@ -331,6 +297,40 @@ leihuang
 
 
 4347
+
+logf.S
+file
+
+
+
+
+2011-05-17T07:39:56.447030Z
+13f3982fc4fa4508a0862241fc9228ff
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+23294
 
 vrs4log2f.S
 file
@@ -400,14 +400,14 @@ leihuang
 
 1412
 
-vrs4powf.S
+vrd2exp.S
 file
 
 
 
 
 2011-05-17T07:39:56.447030Z
-2e90483ba7d5d14550bf9249ace50189
+fcc0af70902d381dd657fdfdbef9fc23
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -432,41 +432,7 @@ leihuang
 
 
 
-17578
-
-cbrt.S
-file
-
-
-
-
-2011-05-17T07:39:56.447030Z
-76d388fcda59c70c5c0a9647d7d0c4bb
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-49681
+11128
 
 expm1.S
 file
@@ -502,14 +468,14 @@ leihuang
 
 10590
 
-vrd2exp.S
+cbrt.S
 file
 
 
 
 
 2011-05-17T07:39:56.447030Z
-fcc0af70902d381dd657fdfdbef9fc23
+76d388fcda59c70c5c0a9647d7d0c4bb
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -534,7 +500,41 @@ leihuang
 
 
 
-11128
+49681
+
+vrs4powf.S
+file
+
+
+
+
+2011-05-17T07:39:56.447030Z
+2e90483ba7d5d14550bf9249ace50189
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+17578
 
 vrd4frcpa.S
 file
@@ -1114,14 +1114,14 @@ leihuang
 
 17708
 
-vrs8log10f.S
+powf.S
 file
 
 
 
 
 2011-05-17T07:39:56.451030Z
-c54351d49fbf2cf49af81e605fd8be94
+37d503c071817d13f2376684f71cd3fa
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1146,7 +1146,7 @@ leihuang
 
 
 
-29447
+33163
 
 fabs.S
 file
@@ -1182,14 +1182,14 @@ leihuang
 
 1509
 
-powf.S
+vrs8log10f.S
 file
 
 
 
 
 2011-05-17T07:39:56.451030Z
-37d503c071817d13f2376684f71cd3fa
+c54351d49fbf2cf49af81e605fd8be94
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1214,7 +1214,7 @@ leihuang
 
 
 
-33163
+29447
 
 remainderf.S
 file
@@ -1386,40 +1386,6 @@ leihuang
 
 25131
 
-vrs4powxf.S
-file
-
-
-
-
-2011-05-17T07:39:56.455030Z
-a11abdf41cccc233b06e2be507953d37
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13828
-
 log10.S
 file
 
@@ -1453,6 +1419,40 @@ leihuang
 
 
 45168
+
+vrs4powxf.S
+file
+
+
+
+
+2011-05-17T07:39:56.455030Z
+a11abdf41cccc233b06e2be507953d37
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13828
 
 vrs4sincosf.S
 file
@@ -1488,40 +1488,6 @@ leihuang
 
 51092
 
-exp2f.S
-file
-
-
-
-
-2011-05-17T07:39:56.455030Z
-cae1435af8ca099db26dfecd6baaadae
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5657
-
 vrd4cos.S
 file
 
@@ -1555,6 +1521,40 @@ leihuang
 
 
 90187
+
+exp2f.S
+file
+
+
+
+
+2011-05-17T07:39:56.455030Z
+cae1435af8ca099db26dfecd6baaadae
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5657
 
 fdimf.S
 file
@@ -1692,40 +1692,6 @@ leihuang
 
 1713
 
-vrsapowxf.S
-file
-
-
-
-
-2011-05-17T07:39:56.455030Z
-39fc65eeb15b79aaad2d42c7499d1861
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-19215
-
 fminf.S
 file
 
@@ -1759,6 +1725,40 @@ leihuang
 
 
 1415
+
+vrsapowxf.S
+file
+
+
+
+
+2011-05-17T07:39:56.455030Z
+39fc65eeb15b79aaad2d42c7499d1861
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19215
 
 copysignf.S
 file
@@ -2100,40 +2100,6 @@ leihuang
 
 1475
 
-nearbyint.S
-file
-
-
-
-
-2011-05-17T07:39:56.459030Z
-76fef6a8f0ac80acada679af967bc97b
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2715
-
 copysign.S
 file
 
@@ -2167,6 +2133,40 @@ leihuang
 
 
 1544
+
+nearbyint.S
+file
+
+
+
+
+2011-05-17T07:39:56.459030Z
+76fef6a8f0ac80acada679af967bc97b
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2715
 
 vrd4exp.S
 file

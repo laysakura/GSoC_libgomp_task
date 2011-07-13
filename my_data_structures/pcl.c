@@ -20,13 +20,16 @@
  *
  */
 
+#ifndef _PCL_H_
+#define _PCL_H_
+
+
 #undef CO_USE_SIGCONTEXT
 #define CO_USE_UCONTEXT
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "pcl.h"
-
 
 
 #if defined(CO_USE_SIGCONTEXT)
@@ -83,26 +86,11 @@ cothread
 
 
 
-static int co_ctx_sdir(unsigned long psp) {
-  int nav = 0;
-  unsigned long csp = (unsigned long) &nav;
-
-  return psp > csp ? -1: +1;
-}
-
-
-static int co_ctx_stackdir(void) {
-  int cav = 0;
-
-  return co_ctx_sdir((unsigned long) &cav);
-}
-
-
 #if defined(CO_USE_UCONTEXT)
 
 static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
 
-	if (getcontext(&ctx->cc)) /* これの必要性は分からない */
+  if (getcontext(&ctx->cc)) /* 正にこの行のcontextをctx->ccに保存 */
     return -1;
  
   ctx->cc.uc_link = NULL;
@@ -112,14 +100,14 @@ static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz)
   ctx->cc.uc_stack.ss_flags = 0;
  
   makecontext(&ctx->cc, func, 1); /* 関数コールのプロローグ・エピローグの代替といった難しいことをやってくれているんだと思う
-                                     作成されたcontextはctx->ccに対する変更で反映される */
+                                     作成されたcontextはctx->ccに対する変更で反映される
+                                     funcにはco_runnerが入る */
 
   return 0;
 }
 
 
 void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
-
 
   if (swapcontext(&octx->cc, &nctx->cc) < 0) {
     fprintf(stderr, "[PCL] Context switch failed: curr=%p\n",
@@ -376,18 +364,22 @@ static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 
 #endif /* #if defined(CO_USE_UCONTEXT) */
 
+static void co_del_helper(void*);
+void *fib_outlined(void*);
+
 /* makecontext()の引数として与えるために，void()(void)型．
  * */
 static void co_runner(void) {
   coroutine *co = co_curr;
 
-  co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる．
-                                 ここまで来るとcoroutineという抽象化は非常に妥当な気もする */
+  co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる． */
   co->func(co->data); /* funcは戻り値のないoutlined function. この中で *data->ret = fib(*data->arg) とかやってるから大丈夫
 
                          「funcの中でちゃんとコンテキストスイッチ起きるの?」と思うかも知れないが，大丈夫．
                          OpenMP directiveの各種ABIが，__ompc_task_switch()を呼び出していて，その中では実質swapcontext()呼び出しをしている */
-  co_exit();
+
+  /* ここにfinish_current_task()を入れれば良いんじゃね? */
+  co_exit(); /* laysakura: ここでexitしているので，co_exit()を明示的に呼ぶ必要が無くなっている */
 }
 
 void co_vp_init()
@@ -401,7 +393,7 @@ void co_vp_init()
  * stack: funcが使用するスタックフレーム．NULLなら，この関数がstack frameをheap上に作成する
  * size: stackのサイズ */
 coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
-  int alloc = 0, r = CO_STK_COROSIZE;
+  int alloc = 0;
   coroutine *co;
 
   if ((size &= ~(sizeof(long) - 1)) < CO_MIN_SIZE)
@@ -423,6 +415,7 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
   co->alloc = alloc;
   co->func = func;
   co->data = data;
+
   if (co_set_context(&co->ctx, co_runner, stack, size - CO_STK_COROSIZE) < 0) {
     if (alloc)
       free(co);
@@ -435,6 +428,8 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
 
 void co_delete(coroutine_t coro) {
   coroutine *co = (coroutine *) coro;
+
+  /* fprintf(stderr, "co_delete(): delete %p\n", co); */
 
   if (co == co_curr) {
     fprintf(stderr, "[PCL] Cannot delete itself: curr=%p\n",
@@ -462,17 +457,10 @@ void co_call(coroutine_t coro) {
 }
 
 
-void co_resume(void) {
-
-  co_call(co_curr->restarget);
-  co_curr->restarget = co_curr->caller;
-}
-
-
 static void co_del_helper(void *data) {
   coroutine *cdh;
 
-  for (;;) {
+  for (;;) { /* laysakura: このforはなくても動いたりする */
     cdh = co_dhelper;
     co_dhelper = NULL;
     co_delete(co_curr->caller);
@@ -499,17 +487,19 @@ void co_exit_to(coroutine_t coro)
             co_curr);
     exit(1);
   }
-  co_dhelper = co;
+  co_dhelper = co;  /* laysakura: こいつがco_del_helper()の中でco_callされる */
  
   co_call((coroutine_t) dchelper);
+ /* laysakura: co_del_helperの中でco_dhelperがco_callされるので，以降の行には来ない */
 
-  fprintf(stderr, "[PCL] Stale coroutine called on CPU %d: curr=%p, next=%p\n",
+  fprintf(stderr, "[PCL] co_exit_to(): Stale coroutine called on CPU %d: curr=%p, next=%p\n",
           sched_getcpu(),  co_curr, coro);
   exit(1);
 }
 
 
 void co_exit(void) {
+  /* fprintf(stderr, "co_exit(): CPU%d restarget:%p\n", sched_getcpu(), co_curr->restarget); */
   co_exit_to((coroutine_t) co_curr->restarget);
 }
 
@@ -518,3 +508,5 @@ coroutine_t co_current(void) {
   return (coroutine_t) co_curr;
 }
 
+
+#endif /* _PCL_H_ */

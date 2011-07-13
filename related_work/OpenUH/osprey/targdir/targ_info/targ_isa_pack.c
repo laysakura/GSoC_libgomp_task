@@ -11,7 +11,7 @@ const ISA_PACK_INFO ISA_PACK_info[] = {
 };
 
 
-const mUINT8 ISA_PACK_info_index[3591] = {
+const mUINT8 ISA_PACK_info_index[3623] = {
     1,  /* add8: p1 */
     1,  /* add16: p1 */
     1,  /* add32: p1 */
@@ -2250,14 +2250,14 @@ const mUINT8 ISA_PACK_info_index[3591] = {
     1,  /* vfcmpx128v32: p1 */
     1,  /* vfcmpxx128v32: p1 */
     1,  /* vfcmpxxx128v32: p1 */
-    1,  /* vfcmpsd: p1 */
-    1,  /* vfcmpxsd: p1 */
-    1,  /* vfcmpxxsd: p1 */
-    1,  /* vfcmpxxxsd: p1 */
-    1,  /* vfcmpss: p1 */
-    1,  /* vfcmpxss: p1 */
-    1,  /* vfcmpxxss: p1 */
-    1,  /* vfcmpxxxss: p1 */
+    1,  /* vcmpsd: p1 */
+    1,  /* vcmpxsd: p1 */
+    1,  /* vcmpxxsd: p1 */
+    1,  /* vcmpxxxsd: p1 */
+    1,  /* vcmpss: p1 */
+    1,  /* vcmpxss: p1 */
+    1,  /* vcmpxxss: p1 */
+    1,  /* vcmpxxxss: p1 */
     1,  /* vcomisd: p1 */
     1,  /* vcomixsd: p1 */
     1,  /* vcomixxsd: p1 */
@@ -3306,6 +3306,38 @@ const mUINT8 ISA_PACK_info_index[3591] = {
     1,  /* vxzero128v32: p1 */
     1,  /* vxzero32: p1 */
     1,  /* vzeroall: p1 */
+    1,  /* vcmpeqpd: p1 */
+    1,  /* vcmpltpd: p1 */
+    1,  /* vcmplepd: p1 */
+    1,  /* vcmpunordpd: p1 */
+    1,  /* vcmpneqpd: p1 */
+    1,  /* vcmpnltpd: p1 */
+    1,  /* vcmpnlepd: p1 */
+    1,  /* vcmpordpd: p1 */
+    1,  /* vcmpeqps: p1 */
+    1,  /* vcmpltps: p1 */
+    1,  /* vcmpleps: p1 */
+    1,  /* vcmpunordps: p1 */
+    1,  /* vcmpneqps: p1 */
+    1,  /* vcmpnltps: p1 */
+    1,  /* vcmpnleps: p1 */
+    1,  /* vcmpordps: p1 */
+    1,  /* vcmpeqsd: p1 */
+    1,  /* vcmpltsd: p1 */
+    1,  /* vcmplesd: p1 */
+    1,  /* vcmpunordsd: p1 */
+    1,  /* vcmpneqsd: p1 */
+    1,  /* vcmpnltsd: p1 */
+    1,  /* vcmpnlesd: p1 */
+    1,  /* vcmpordsd: p1 */
+    1,  /* vcmpeqss: p1 */
+    1,  /* vcmpltss: p1 */
+    1,  /* vcmpless: p1 */
+    1,  /* vcmpunordss: p1 */
+    1,  /* vcmpneqss: p1 */
+    1,  /* vcmpnltss: p1 */
+    1,  /* vcmpnless: p1 */
+    1,  /* vcmpordss: p1 */
     1,  /* xfmadd132pd: p1 */
     1,  /* xfmadd132xpd: p1 */
     1,  /* xfmadd132xxpd: p1 */
@@ -3605,7 +3637,7 @@ const mUINT8 ISA_PACK_info_index[3591] = {
     0,  /* noop */
 };
 
-const mUINT32 ISA_PACK_init_mask[3591][1] = {
+const mUINT32 ISA_PACK_init_mask[3623][1] = {
   { 0x000000ffLL, }, /* add8 */
   { 0x000000ffLL, }, /* add16 */
   { 0x000000ffLL, }, /* add32 */
@@ -5844,14 +5876,14 @@ const mUINT32 ISA_PACK_init_mask[3591][1] = {
   { 0x000000ffLL, }, /* vfcmpx128v32 */
   { 0x000000ffLL, }, /* vfcmpxx128v32 */
   { 0x000000ffLL, }, /* vfcmpxxx128v32 */
-  { 0x000000ffLL, }, /* vfcmpsd */
-  { 0x000000ffLL, }, /* vfcmpxsd */
-  { 0x000000ffLL, }, /* vfcmpxxsd */
-  { 0x000000ffLL, }, /* vfcmpxxxsd */
-  { 0x000000ffLL, }, /* vfcmpss */
-  { 0x000000ffLL, }, /* vfcmpxss */
-  { 0x000000ffLL, }, /* vfcmpxxss */
-  { 0x000000ffLL, }, /* vfcmpxxxss */
+  { 0x000000ffLL, }, /* vcmpsd */
+  { 0x000000ffLL, }, /* vcmpxsd */
+  { 0x000000ffLL, }, /* vcmpxxsd */
+  { 0x000000ffLL, }, /* vcmpxxxsd */
+  { 0x000000ffLL, }, /* vcmpss */
+  { 0x000000ffLL, }, /* vcmpxss */
+  { 0x000000ffLL, }, /* vcmpxxss */
+  { 0x000000ffLL, }, /* vcmpxxxss */
   { 0x000000ffLL, }, /* vcomisd */
   { 0x000000ffLL, }, /* vcomixsd */
   { 0x000000ffLL, }, /* vcomixxsd */
@@ -6900,6 +6932,38 @@ const mUINT32 ISA_PACK_init_mask[3591][1] = {
   { 0x000000ffLL, }, /* vxzero128v32 */
   { 0x000000ffLL, }, /* vxzero32 */
   { 0x000000ffLL, }, /* vzeroall */
+  { 0x000000ffLL, }, /* vcmpeqpd */
+  { 0x000000ffLL, }, /* vcmpltpd */
+  { 0x000000ffLL, }, /* vcmplepd */
+  { 0x000000ffLL, }, /* vcmpunordpd */
+  { 0x000000ffLL, }, /* vcmpneqpd */
+  { 0x000000ffLL, }, /* vcmpnltpd */
+  { 0x000000ffLL, }, /* vcmpnlepd */
+  { 0x000000ffLL, }, /* vcmpordpd */
+  { 0x000000ffLL, }, /* vcmpeqps */
+  { 0x000000ffLL, }, /* vcmpltps */
+  { 0x000000ffLL, }, /* vcmpleps */
+  { 0x000000ffLL, }, /* vcmpunordps */
+  { 0x000000ffLL, }, /* vcmpneqps */
+  { 0x000000ffLL, }, /* vcmpnltps */
+  { 0x000000ffLL, }, /* vcmpnleps */
+  { 0x000000ffLL, }, /* vcmpordps */
+  { 0x000000ffLL, }, /* vcmpeqsd */
+  { 0x000000ffLL, }, /* vcmpltsd */
+  { 0x000000ffLL, }, /* vcmplesd */
+  { 0x000000ffLL, }, /* vcmpunordsd */
+  { 0x000000ffLL, }, /* vcmpneqsd */
+  { 0x000000ffLL, }, /* vcmpnltsd */
+  { 0x000000ffLL, }, /* vcmpnlesd */
+  { 0x000000ffLL, }, /* vcmpordsd */
+  { 0x000000ffLL, }, /* vcmpeqss */
+  { 0x000000ffLL, }, /* vcmpltss */
+  { 0x000000ffLL, }, /* vcmpless */
+  { 0x000000ffLL, }, /* vcmpunordss */
+  { 0x000000ffLL, }, /* vcmpneqss */
+  { 0x000000ffLL, }, /* vcmpnltss */
+  { 0x000000ffLL, }, /* vcmpnless */
+  { 0x000000ffLL, }, /* vcmpordss */
   { 0x000000ffLL, }, /* xfmadd132pd */
   { 0x000000ffLL, }, /* xfmadd132xpd */
   { 0x000000ffLL, }, /* xfmadd132xxpd */
@@ -9442,14 +9506,14 @@ const mUINT8 ISA_PACK_adj_info_index[] = {
    0,  /* vfcmpx128v32 */
    0,  /* vfcmpxx128v32 */
    0,  /* vfcmpxxx128v32 */
-   0,  /* vfcmpsd */
-   0,  /* vfcmpxsd */
-   0,  /* vfcmpxxsd */
-   0,  /* vfcmpxxxsd */
-   0,  /* vfcmpss */
-   0,  /* vfcmpxss */
-   0,  /* vfcmpxxss */
-   0,  /* vfcmpxxxss */
+   0,  /* vcmpsd */
+   0,  /* vcmpxsd */
+   0,  /* vcmpxxsd */
+   0,  /* vcmpxxxsd */
+   0,  /* vcmpss */
+   0,  /* vcmpxss */
+   0,  /* vcmpxxss */
+   0,  /* vcmpxxxss */
    0,  /* vcomisd */
    0,  /* vcomixsd */
    0,  /* vcomixxsd */
@@ -10498,6 +10562,38 @@ const mUINT8 ISA_PACK_adj_info_index[] = {
    0,  /* vxzero128v32 */
    0,  /* vxzero32 */
    0,  /* vzeroall */
+   0,  /* vcmpeqpd */
+   0,  /* vcmpltpd */
+   0,  /* vcmplepd */
+   0,  /* vcmpunordpd */
+   0,  /* vcmpneqpd */
+   0,  /* vcmpnltpd */
+   0,  /* vcmpnlepd */
+   0,  /* vcmpordpd */
+   0,  /* vcmpeqps */
+   0,  /* vcmpltps */
+   0,  /* vcmpleps */
+   0,  /* vcmpunordps */
+   0,  /* vcmpneqps */
+   0,  /* vcmpnltps */
+   0,  /* vcmpnleps */
+   0,  /* vcmpordps */
+   0,  /* vcmpeqsd */
+   0,  /* vcmpltsd */
+   0,  /* vcmplesd */
+   0,  /* vcmpunordsd */
+   0,  /* vcmpneqsd */
+   0,  /* vcmpnltsd */
+   0,  /* vcmpnlesd */
+   0,  /* vcmpordsd */
+   0,  /* vcmpeqss */
+   0,  /* vcmpltss */
+   0,  /* vcmpless */
+   0,  /* vcmpunordss */
+   0,  /* vcmpneqss */
+   0,  /* vcmpnltss */
+   0,  /* vcmpnless */
+   0,  /* vcmpordss */
    0,  /* xfmadd132pd */
    0,  /* xfmadd132xpd */
    0,  /* xfmadd132xxpd */

@@ -2,7 +2,9 @@
 
 
 #define _GNU_SOURCE
+#include "pcl.h"
 #include "test_fib_by_hand.h"
+#include "gsoc_taskqueue.h"
 #include "gsoc_worker.h"
 #include "gsoc_env.h"
 #include "gsoc_time.h"
@@ -40,6 +42,7 @@ void gsoc_task_scheduler_loop()
         }
       _workers[_thread_id].current_task = next_task;
       co_call(_workers[_thread_id].current_task);
+      /* fprintf(stderr, "gsoc_task_scheduler_loop(): returned from co_call\n"); */
     }
 }
 
@@ -91,7 +94,11 @@ gsoc_finish_current_task()
                then parent resume its work using our result. */
             gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
         }
-      co_exit_to(_workers[_thread_id].scheduler_task);  /* TODO: make wrap for this conditional exit */
+      /* ここをco_call(scheduler)にすると，current_taskの実行は今後ない．
+         つまり，co_runnerを最後まで実行できないので，メモリリークになる */
+      /* co_exit_to(scheduler)だと，確かにメモリリークは観測されない． */
+
+      co_exit_to(_workers[_thread_id].scheduler_task);
     }
   else if (_workers[_thread_id].current_task->cutoff
            && _workers[_thread_id].current_task->depth == _gsoc_cutoff_depth + 1)

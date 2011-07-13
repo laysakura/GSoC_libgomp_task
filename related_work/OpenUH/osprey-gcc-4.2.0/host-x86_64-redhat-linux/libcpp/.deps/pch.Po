@@ -1,4 +1,4 @@
-pch.o: ../.././libcpp/pch.c config.h ../.././libcpp/system.h \
+pch.o: ../.././libcpp/pch.c ../.././libcpp/system.h \
  ../.././libcpp/../include/filenames.h \
  ../.././libcpp/../include/libiberty.h \
  ../.././libcpp/../include/ansidecl.h \
@@ -8,8 +8,6 @@ pch.o: ../.././libcpp/pch.c config.h ../.././libcpp/system.h \
  ../.././libcpp/include/symtab.h ../.././libcpp/include/cpp-id-data.h \
  ../.././libcpp/include/cpplib.h ../.././libcpp/../include/hashtab.h \
  ../.././libcpp/include/mkdeps.h
-
-config.h:
 
 ../.././libcpp/system.h:
 

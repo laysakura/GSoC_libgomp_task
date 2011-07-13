@@ -336,7 +336,7 @@ CC = gcc -m32
 CFLAGS = -g
 LIBCFLAGS = $(CFLAGS)
 
-CXX = c++
+CXX = g++-4.4
 CXXFLAGS = -g -O2
 LIBCXXFLAGS = $(CXXFLAGS) -fno-implicit-templates
 

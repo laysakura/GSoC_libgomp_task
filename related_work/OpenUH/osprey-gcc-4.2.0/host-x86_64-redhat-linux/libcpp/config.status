@@ -507,9 +507,9 @@ s,@EXEEXT@,,;t t
 s,@OBJEXT@,o,;t t
 s,@RANLIB@,ranlib,;t t
 s,@ac_ct_RANLIB@,,;t t
-s,@ACLOCAL@,/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey-gcc-4.2.0/missing aclocal,;t t
-s,@AUTOCONF@,/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey-gcc-4.2.0/missing autoconf,;t t
-s,@AUTOHEADER@,/home/sho/src/myproject/gsoc/related_work/OpenUH/osprey-gcc-4.2.0/missing autoheader,;t t
+s,@ACLOCAL@,aclocal,;t t
+s,@AUTOCONF@,autoconf,;t t
+s,@AUTOHEADER@,autoheader,;t t
 s,@WARN_CFLAGS@,-W -Wall -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wmissing-format-attribute,;t t
 s,@WARN_PEDANTIC@,-pedantic -Wno-long-long,;t t
 s,@WERROR@,,;t t

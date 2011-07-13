@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/vho
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/vho
 END
 f90_lower_dep.cxx
 K 25
@@ -31,7 +31,7 @@ vho_lower.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 73
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/vho/vho_lower.cxx
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/vho/vho_lower.cxx
 END
 f90_lower.cxx
 K 25

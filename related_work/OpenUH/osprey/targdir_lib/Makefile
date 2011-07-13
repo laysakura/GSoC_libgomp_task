@@ -1,5 +1,5 @@
 
-SUBDIRS = libopen64rt libacml_mv include libopenmp libhugetlbfs libmv libfortran libu libinstr2
+SUBDIRS = libopen64rt libacml_mv include libopenmp libhugetlbfs libmv libopenmp-pcl libfortran libu libinstr2
 
 default: ACTION = default
 
@@ -23,5 +23,5 @@ $(SUBDIRS):
 	@echo "MAKE   $(ACTION) in $(PWD)/$@"; \
 	$(MAKE) $(if $V,,--no-print-directory) -C $@ $(ACTION)
 
-.PHONY: default clean clobber libopen64rt libacml_mv include libopenmp libhugetlbfs libmv libfortran libu libinstr2
+.PHONY: default clean clobber libopen64rt libacml_mv include libopenmp libhugetlbfs libmv libopenmp-pcl libfortran libu libinstr2
 

@@ -1722,30 +1722,30 @@ const mUINT64 ISA_PROPERTIES_flags[] = {
   0x000c000000004200ULL, /* insrx128v64: opcode_4 load_exe vector_op x86_style */
   0x000c000000004200ULL, /* insrxx128v64: opcode_4 load_exe vector_op x86_style */
   0x000c000000004200ULL, /* insrxxx128v64: opcode_4 load_exe vector_op x86_style */
-  0x000c000000000200ULL, /* extr128v8: opcode_4 vector_op x86_style */
-  0x000c000000004200ULL, /* extrx128v8: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxx128v8: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxxx128v8: opcode_4 load_exe vector_op x86_style */
-  0x008c000000000300ULL, /* extr128v16: opcode_3 opcode_4 vector_op x86_style fastpath_db */
-  0x008c000000004300ULL, /* extrx128v16: opcode_3 opcode_4 load_exe vector_op x86_style fastpath_db */
-  0x008c000000004300ULL, /* extrxx128v16: opcode_3 opcode_4 load_exe vector_op x86_style fastpath_db */
-  0x008c000000004300ULL, /* extrxxx128v16: opcode_3 opcode_4 load_exe vector_op x86_style fastpath_db */
-  0x000c000000000200ULL, /* extr128v32: opcode_4 vector_op x86_style */
-  0x000c000000004200ULL, /* extrx128v32: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxx128v32: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxxx128v32: opcode_4 load_exe vector_op x86_style */
-  0x000c000000000200ULL, /* extr128v64: opcode_4 vector_op x86_style */
-  0x000c000000004200ULL, /* extrx128v64: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxx128v64: opcode_4 load_exe vector_op x86_style */
-  0x000c000000004200ULL, /* extrxxx128v64: opcode_4 load_exe vector_op x86_style */
+  0x0008000000000200ULL, /* extr128v8: opcode_4 x86_style */
+  0x0008000000004200ULL, /* extrx128v8: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxx128v8: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxxx128v8: opcode_4 load_exe x86_style */
+  0x0088000000000300ULL, /* extr128v16: opcode_3 opcode_4 x86_style fastpath_db */
+  0x0088000000004300ULL, /* extrx128v16: opcode_3 opcode_4 load_exe x86_style fastpath_db */
+  0x0088000000004300ULL, /* extrxx128v16: opcode_3 opcode_4 load_exe x86_style fastpath_db */
+  0x0088000000004300ULL, /* extrxxx128v16: opcode_3 opcode_4 load_exe x86_style fastpath_db */
+  0x0008000000000200ULL, /* extr128v32: opcode_4 x86_style */
+  0x0008000000004200ULL, /* extrx128v32: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxx128v32: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxxx128v32: opcode_4 load_exe x86_style */
+  0x0008000000000200ULL, /* extr128v64: opcode_4 x86_style */
+  0x0008000000004200ULL, /* extrx128v64: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxx128v64: opcode_4 load_exe x86_style */
+  0x0008000000004200ULL, /* extrxxx128v64: opcode_4 load_exe x86_style */
   0x000c000400000200ULL, /* finsr128v32: opcode_4 flop vector_op x86_style */
   0x000c000400004200ULL, /* finsrx128v32: opcode_4 load_exe flop vector_op x86_style */
   0x000c000400004200ULL, /* finsrxx128v32: opcode_4 load_exe flop vector_op x86_style */
   0x000c000400004200ULL, /* finsrxxx128v32: opcode_4 load_exe flop vector_op x86_style */
-  0x000c000400000200ULL, /* fextr128v32: opcode_4 flop vector_op x86_style */
-  0x000c000400004200ULL, /* fextrx128v32: opcode_4 load_exe flop vector_op x86_style */
-  0x000c000400004200ULL, /* fextrxx128v32: opcode_4 load_exe flop vector_op x86_style */
-  0x000c000400004200ULL, /* fextrxxx128v32: opcode_4 load_exe flop vector_op x86_style */
+  0x0004000400000200ULL, /* fextr128v32: opcode_4 flop vector_op */
+  0x0004000400004200ULL, /* fextrx128v32: opcode_4 load_exe flop vector_op */
+  0x0004000400004200ULL, /* fextrxx128v32: opcode_4 load_exe flop vector_op */
+  0x0004000400004200ULL, /* fextrxxx128v32: opcode_4 load_exe flop vector_op */
   0x000c000000000200ULL, /* fblendv128v32: opcode_4 vector_op x86_style */
   0x000c000000004200ULL, /* fblendvx128v32: opcode_4 load_exe vector_op x86_style */
   0x000c000000004200ULL, /* fblendvxx128v32: opcode_4 load_exe vector_op x86_style */
@@ -2239,14 +2239,14 @@ const mUINT64 ISA_PROPERTIES_flags[] = {
   0x1004000400404040ULL, /* vfcmpx128v32: opcode_1 load_exe avx flop vector_op non_destructive */
   0x1004000400404040ULL, /* vfcmpxx128v32: opcode_1 load_exe avx flop vector_op non_destructive */
   0x1004000400404040ULL, /* vfcmpxxx128v32: opcode_1 load_exe avx flop vector_op non_destructive */
-  0x1000000400400040ULL, /* vfcmpsd: opcode_1 avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxsd: opcode_1 load_exe avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxxsd: opcode_1 load_exe avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxxxsd: opcode_1 load_exe avx flop non_destructive */
-  0x1000000400400040ULL, /* vfcmpss: opcode_1 avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxss: opcode_1 load_exe avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxxss: opcode_1 load_exe avx flop non_destructive */
-  0x1000000400404040ULL, /* vfcmpxxxss: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpsd: opcode_1 avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxsd: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxxsd: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxxxsd: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpss: opcode_1 avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxss: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxxss: opcode_1 load_exe avx flop non_destructive */
+  0x1000000400404040ULL, /* vcmpxxxss: opcode_1 load_exe avx flop non_destructive */
   0x0080800400400044ULL, /* vcomisd: change_rflags opcode_1 avx flop icmp fastpath_db */
   0x0080800400404044ULL, /* vcomixsd: change_rflags opcode_1 load_exe avx flop icmp fastpath_db */
   0x0080800400404044ULL, /* vcomixxsd: change_rflags opcode_1 load_exe avx flop icmp fastpath_db */
@@ -2484,34 +2484,34 @@ const mUINT64 ISA_PROPERTIES_flags[] = {
   0x0004000008420040ULL, /* vstdqux: opcode_1 store avx unalign_store vector_op */
   0x0004000008420040ULL, /* vstdquxx: opcode_1 store avx unalign_store vector_op */
   0x0004000000420040ULL, /* vstdqu_n32: opcode_1 store avx vector_op */
-  0x0204000400400440ULL, /* vldhpd: opcode_1 load avx flop vector_op vector_high_loadstore */
-  0x0204000400400440ULL, /* vldhpdx: opcode_1 load avx flop vector_op vector_high_loadstore */
-  0x0204000400400440ULL, /* vldhpdxx: opcode_1 load avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhpd: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhpdx: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhpdxx: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
   0x0200000400400440ULL, /* vldhpd_n32: opcode_1 load avx flop vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpd: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpdx: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpdxx: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpd_n32: opcode_1 store avx flop fastpath_db vector_high_loadstore */
-  0x0204000400400440ULL, /* vldhps: opcode_1 load avx flop vector_op vector_high_loadstore */
-  0x0204000400400440ULL, /* vldhpsx: opcode_1 load avx flop vector_op vector_high_loadstore */
-  0x0204000400400440ULL, /* vldhpsxx: opcode_1 load avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhps: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhpsx: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
+  0x0204000400404440ULL, /* vldhpsxx: opcode_1 load load_exe avx flop vector_op vector_high_loadstore */
   0x0200000400400440ULL, /* vldhps_n32: opcode_1 load avx flop vector_high_loadstore */
   0x0280000400420040ULL, /* vsthps: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpsx: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthpsxx: opcode_1 store avx flop fastpath_db vector_high_loadstore */
   0x0280000400420040ULL, /* vsthps_n32: opcode_1 store avx flop fastpath_db vector_high_loadstore */
-  0x0004000400400440ULL, /* vldlpd: opcode_1 load avx flop vector_op */
-  0x0004000400400440ULL, /* vldlpdx: opcode_1 load avx flop vector_op */
-  0x0004000400400440ULL, /* vldlpdxx: opcode_1 load avx flop vector_op */
+  0x0004000400404440ULL, /* vldlpd: opcode_1 load load_exe avx flop vector_op */
+  0x0004000400404440ULL, /* vldlpdx: opcode_1 load load_exe avx flop vector_op */
+  0x0004000400404440ULL, /* vldlpdxx: opcode_1 load load_exe avx flop vector_op */
   0x0000000400400440ULL, /* vldlpd_n32: opcode_1 load avx flop */
   0x0004000400420040ULL, /* vstorelpd: opcode_1 store avx flop vector_op */
   0x0000000400420040ULL, /* vstlpd: opcode_1 store avx flop */
   0x0000000400420040ULL, /* vstlpdx: opcode_1 store avx flop */
   0x0000000400420040ULL, /* vstlpdxx: opcode_1 store avx flop */
   0x0000000400420040ULL, /* vstlpd_n32: opcode_1 store avx flop */
-  0x0104000400400440ULL, /* vldlps: opcode_1 load avx flop vector_op vector_lo_loadstore */
-  0x0104000400400440ULL, /* vldlpsx: opcode_1 load avx flop vector_op vector_lo_loadstore */
-  0x0104000400400440ULL, /* vldlpsxx: opcode_1 load avx flop vector_op vector_lo_loadstore */
+  0x0104000400404440ULL, /* vldlps: opcode_1 load load_exe avx flop vector_op vector_lo_loadstore */
+  0x0104000400404440ULL, /* vldlpsx: opcode_1 load load_exe avx flop vector_op vector_lo_loadstore */
+  0x0104000400404440ULL, /* vldlpsxx: opcode_1 load load_exe avx flop vector_op vector_lo_loadstore */
   0x0100000400400440ULL, /* vldlps_n32: opcode_1 load avx flop vector_lo_loadstore */
   0x0100000400420040ULL, /* vstlps: opcode_1 store avx flop vector_lo_loadstore */
   0x0100000400420040ULL, /* vstlpsx: opcode_1 store avx flop vector_lo_loadstore */
@@ -3295,6 +3295,38 @@ const mUINT64 ISA_PROPERTIES_flags[] = {
   0x1004000400400040ULL, /* vxzero128v32: opcode_1 avx flop vector_op non_destructive */
   0x1004000400400040ULL, /* vxzero32: opcode_1 avx flop vector_op non_destructive */
   0x0000000000400040ULL, /* vzeroall: opcode_1 avx */
+  0x1000000400400040ULL, /* vcmpeqpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpltpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmplepd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpunordpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpneqpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnltpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnlepd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpordpd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpeqps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpltps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpleps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpunordps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpneqps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnltps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnleps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpordps: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpeqsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpltsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmplesd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpunordsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpneqsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnltsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnlesd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpordsd: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpeqss: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpltss: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpless: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpunordss: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpneqss: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnltss: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpnless: opcode_1 avx flop non_destructive */
+  0x1000000400400040ULL, /* vcmpordss: opcode_1 avx flop non_destructive */
   0x000c000400000040ULL, /* xfmadd132pd: opcode_1 flop vector_op x86_style */
   0x000c000400404040ULL, /* xfmadd132xpd: opcode_1 load_exe avx flop vector_op x86_style */
   0x000c000400404040ULL, /* xfmadd132xxpd: opcode_1 load_exe avx flop vector_op x86_style */

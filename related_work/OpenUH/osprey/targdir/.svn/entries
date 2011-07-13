@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/targdir
 http://svn.open64.net/svnroot/open64
 
@@ -71,10 +71,10 @@ dir
 orc_ict
 dir
 
-include
+libspin_4_2_0
 dir
 
-libspin_4_2_0
+include
 dir
 
 libiberty
@@ -83,10 +83,10 @@ dir
 g++fe
 dir
 
-cg
+wopt
 dir
 
-wopt
+cg
 dir
 
 libdwarf
@@ -110,10 +110,10 @@ dir
 libunwindP
 dir
 
-crayf90
+whirl2f
 dir
 
-whirl2f
+crayf90
 dir
 
 orc_intel

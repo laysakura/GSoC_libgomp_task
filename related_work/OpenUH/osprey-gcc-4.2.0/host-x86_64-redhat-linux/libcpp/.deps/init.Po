@@ -1,4 +1,4 @@
-init.o: ../.././libcpp/init.c config.h ../.././libcpp/system.h \
+init.o: ../.././libcpp/init.c ../.././libcpp/system.h \
  ../.././libcpp/../include/filenames.h \
  ../.././libcpp/../include/libiberty.h \
  ../.././libcpp/../include/ansidecl.h \
@@ -6,10 +6,7 @@ init.o: ../.././libcpp/init.c config.h ../.././libcpp/system.h \
  ../.././libcpp/include/symtab.h ../.././libcpp/../include/obstack.h \
  ../.././libcpp/include/line-map.h ../.././libcpp/internal.h \
  ../.././libcpp/include/symtab.h ../.././libcpp/include/cpp-id-data.h \
- ../.././libcpp/include/cpplib.h ../.././libcpp/include/mkdeps.h \
- localedir.h
-
-config.h:
+ ../.././libcpp/include/cpplib.h ../.././libcpp/include/mkdeps.h
 
 ../.././libcpp/system.h:
 
@@ -38,5 +35,3 @@ config.h:
 ../.././libcpp/include/cpplib.h:
 
 ../.././libcpp/include/mkdeps.h:
-
-localedir.h:

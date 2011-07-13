@@ -19,6 +19,9 @@
  *  Davide Libenzi <davidel@xmailserver.org>
  *
  */
+
+/* Copyright (C) 2008-2011 University of Houston. */
+
 #include <stdint.h>
 
 #if !defined(PCL_H)
@@ -43,15 +46,6 @@ typedef ucontext_t co_core_ctx_t;
 typedef jmp_buf co_core_ctx_t;
 #endif
 
-
-typedef enum {
-  OMP_TASK_DEFAULT,
-  OMP_TASK_SUSPENDED,
-  OMP_TASK_EXIT,
-  OMP_TASK_CUTOFF
-} omp_task_state_t;
-
-
 typedef struct s_co_ctx {
   co_core_ctx_t cc;
 } co_ctx_t;
@@ -60,34 +54,23 @@ typedef struct s_coroutine {
   co_ctx_t ctx;
   int alloc;
   struct s_coroutine *caller;
-  struct s_coroutine *restarget; /* swapcontext()でswap後に行った関数の戻り先 */
+  struct s_coroutine *restarget;
+#ifdef UH_PCL
+  void (*func)(void *, void *);
+  void *slink;
+#else
   void (*func)(void *);
+#endif
   void *data;
-
-
-  /* 以下は全てOpenMP用に追加されたメンバ．
-   * 何故直接構造体にメンバを追加しているかというと，PCLはGC的な機構を持っているため，
-   * 直接メンバを持たせればそのメンバもGCしてくれる． */
-  struct s_coroutine *next;
-  struct s_coroutine *prev;
-
-  struct s_coroutine *creator;
-  volatile uint32_t num_children;
-  int is_parallel_task;
-  int is_tied;
-  int started;
-  volatile omp_task_state_t state;
-  volatile int safe_to_enqueue;
-  int depth;
-  int pdepth;
-  volatile int context_flag;
-  int threadid;
-  pthread_mutex_t lock;
 } coroutine;
 
 typedef coroutine * coroutine_t;
 
+#ifdef UH_PCL
+coroutine_t co_create(void (*func)(void *, void *), void *data, void *slink, void *stack, int size);
+#else
 coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size);
+#endif
 void co_delete(coroutine_t coro);
 void co_call(coroutine_t coro);
 void co_resume(void);
@@ -95,7 +78,7 @@ void co_exit_to(coroutine_t coro);
 void co_exit(void);
 coroutine_t co_current(void);
 void co_vp_init();
-void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx);
+
 
 #ifdef __cplusplus
 }

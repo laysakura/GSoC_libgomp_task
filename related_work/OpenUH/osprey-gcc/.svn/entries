@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc
 http://svn.open64.net/svnroot/open64
 
@@ -743,40 +743,6 @@ laijx
 
 58893
 
-mkinstalldirs
-file
-
-
-
-
-2011-05-17T07:42:09.175688Z
-cfbd1f0cc32bb4f6feb804354401e61a
-2007-04-25T22:23:37.006709Z
-950
-laijx
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3421
-
 README.SCO
 file
 
@@ -811,10 +777,41 @@ laijx
 
 383
 
-include
-dir
+mkinstalldirs
+file
+
+
+
+
+2011-05-17T07:42:09.175688Z
+cfbd1f0cc32bb4f6feb804354401e61a
+2007-04-25T22:23:37.006709Z
+950
+laijx
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3421
 
-libiberty
+include
 dir
 
 move-if-change
@@ -850,6 +847,9 @@ has-props
 
 
 880
+
+libiberty
+dir
 
 configure.in
 file
