@@ -772,6 +772,9 @@ const ISA_OPERAND_INFO ISA_OPERAND_info[] = {
   { 1, {   4,  -1,  -1,  -1,  -1,  -1,  -1,  -1 },/* float load vector w/o base or index */
        {   5,   0,   0,   0,   0,   0,   0,   0 },/* float load vector w/o base or index */
     1, {  27,  -1 } },                            /* float load vector w/o base or index */
+  { 2, {  27,   4,  -1,  -1,  -1,  -1,  -1,  -1 },/* avx float load vector w/o base or index */
+       {   8,   5,   0,   0,   0,   0,   0,   0 },/* avx float load vector w/o base or index */
+    1, {  27,  -1 } },                            /* avx float load vector w/o base or index */
   { 2, {   8,   4,  -1,  -1,  -1,  -1,  -1,  -1 },/* float load vector */
        {   2,   5,   0,   0,   0,   0,   0,   0 },/* float load vector */
     1, {  27,  -1 } },                            /* float load vector */
@@ -1511,24 +1514,24 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* addx128v64: vector arithmetic mem opnd */
    59,  /* addxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* addxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  400,  /* add64v8: mmx vector arithmetic */
-  400,  /* add64v16: mmx vector arithmetic */
-  400,  /* add64v32: mmx vector arithmetic */
-  400,  /* paddsb: mmx vector arithmetic */
-  400,  /* paddsw: mmx vector arithmetic */
-  400,  /* paddq: mmx vector arithmetic */
-  400,  /* psubsb: mmx vector arithmetic */
-  400,  /* psubsw: mmx vector arithmetic */
-  400,  /* psubq: mmx vector arithmetic */
-  400,  /* paddusb: mmx vector arithmetic */
-  400,  /* paddusw: mmx vector arithmetic */
-  400,  /* psubusb: mmx vector arithmetic */
-  400,  /* psubusw: mmx vector arithmetic */
-  400,  /* pmullw: mmx vector arithmetic */
-  400,  /* pmulhw: mmx vector arithmetic */
-  400,  /* pmulhuw: mmx vector arithmetic */
-  400,  /* pmuludq: mmx vector arithmetic */
-  400,  /* pmaddwd: mmx vector arithmetic */
+  401,  /* add64v8: mmx vector arithmetic */
+  401,  /* add64v16: mmx vector arithmetic */
+  401,  /* add64v32: mmx vector arithmetic */
+  401,  /* paddsb: mmx vector arithmetic */
+  401,  /* paddsw: mmx vector arithmetic */
+  401,  /* paddq: mmx vector arithmetic */
+  401,  /* psubsb: mmx vector arithmetic */
+  401,  /* psubsw: mmx vector arithmetic */
+  401,  /* psubq: mmx vector arithmetic */
+  401,  /* paddusb: mmx vector arithmetic */
+  401,  /* paddusw: mmx vector arithmetic */
+  401,  /* psubusb: mmx vector arithmetic */
+  401,  /* psubusw: mmx vector arithmetic */
+  401,  /* pmullw: mmx vector arithmetic */
+  401,  /* pmulhw: mmx vector arithmetic */
+  401,  /* pmulhuw: mmx vector arithmetic */
+  401,  /* pmuludq: mmx vector arithmetic */
+  401,  /* pmaddwd: mmx vector arithmetic */
    57,  /* paddsb128: vector arithmetic */
    57,  /* paddsw128: vector arithmetic */
    57,  /* paddq128: vector arithmetic */
@@ -1612,55 +1615,55 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   138,  /* andi16: int16 arithmetic with simm */
   139,  /* andi32: int32 arithmetic with simm */
   140,  /* andi64: int64 arithmetic with simm */
-  362,  /* call: jump */
-  363,  /* icall: jump register */
-  364,  /* icallx: jump mem */
-  365,  /* icallxx: jump mem w/ scaled index */
-  366,  /* icallxxx: jump mem w/ scaled index w/o base */
-  281,  /* cmp8: int8 compare/test */
-  285,  /* cmpx8: int8 compare/test mem opnd */
-  289,  /* cmpxx8: int8 compare/test mem opnd w/ scaled-index */
-  293,  /* cmpxxx8: int8 compare/test mem opnd w/ scaled-index w/o base */
-  282,  /* cmp16: int16 compare/test */
-  286,  /* cmpx16: int16 compare/test mem opnd */
-  290,  /* cmpxx16: int16 compare/test mem opnd w/ scaled-index */
-  294,  /* cmpxxx16: int16 compare/test mem opnd w/ scaled-index w/o base */
-  283,  /* cmp32: int32 compare/test */
-  287,  /* cmpx32: int32 compare/test mem opnd */
-  291,  /* cmpxx32: int32 compare/test mem opnd w/ scaled-index */
-  295,  /* cmpxxx32: int32 compare/test mem opnd w/ scaled-index w/o base */
-  284,  /* cmp64: int64 compare/test */
-  288,  /* cmpx64: int64 compare/test mem opnd */
-  292,  /* cmpxx64: int64 compare/test mem opnd w/ scaled-index */
-  296,  /* cmpxxx64: int64 compare/test mem opnd w/ scaled-index w/o base */
-  271,  /* cmpi8: int8 compare/test with simm */
-  297,  /* cmpxr8: int8 compare/test mem opnd */
-  275,  /* cmpxi8: int compare/test with simm and mem opnd */
-  301,  /* cmpxxr8: int8 compare/test mem opnd w/ scaled-index */
-  277,  /* cmpxxi8: int compare/test with simm and mem opnd scaled-index */
-  305,  /* cmpxxxr8: int8 compare/test mem opnd w/ scaled-index w/o base */
-  279,  /* cmpxxxi8: int compare/test with simm and mem opnd scaled-index w/o base */
-  272,  /* cmpi16: int16 compare/test with simm */
-  298,  /* cmpxr16: int16 compare/test mem opnd */
-  275,  /* cmpxi16: int compare/test with simm and mem opnd */
-  302,  /* cmpxxr16: int16 compare/test mem opnd w/ scaled-index */
-  277,  /* cmpxxi16: int compare/test with simm and mem opnd scaled-index */
-  306,  /* cmpxxxr16: int16 compare/test mem opnd w/ scaled-index w/o base */
-  279,  /* cmpxxxi16: int compare/test with simm and mem opnd scaled-index w/o base */
-  273,  /* cmpi32: int32 compare/test with simm */
-  299,  /* cmpxr32: int32 compare/test mem opnd */
-  275,  /* cmpxi32: int compare/test with simm and mem opnd */
-  303,  /* cmpxxr32: int32 compare/test mem opnd w/ scaled-index */
-  277,  /* cmpxxi32: int compare/test with simm and mem opnd scaled-index */
-  307,  /* cmpxxxr32: int32 compare/test mem opnd w/ scaled-index w/o base */
-  279,  /* cmpxxxi32: int compare/test with simm and mem opnd scaled-index w/o base */
-  274,  /* cmpi64: int64 compare/test with simm */
-  300,  /* cmpxr64: int64 compare/test mem opnd */
-  276,  /* cmpxi64: int64 compare/test with simm and mem opnd */
-  304,  /* cmpxxr64: int64 compare/test mem opnd w/ scaled-index */
-  278,  /* cmpxxi64: int64 compare/test with simm and mem opnd scaled-index */
-  308,  /* cmpxxxr64: int64 compare/test mem opnd w/ scaled-index w/o base */
-  280,  /* cmpxxxi64: int64 compare/test with simm and mem opnd scaled-index w/o base */
+  363,  /* call: jump */
+  364,  /* icall: jump register */
+  365,  /* icallx: jump mem */
+  366,  /* icallxx: jump mem w/ scaled index */
+  367,  /* icallxxx: jump mem w/ scaled index w/o base */
+  282,  /* cmp8: int8 compare/test */
+  286,  /* cmpx8: int8 compare/test mem opnd */
+  290,  /* cmpxx8: int8 compare/test mem opnd w/ scaled-index */
+  294,  /* cmpxxx8: int8 compare/test mem opnd w/ scaled-index w/o base */
+  283,  /* cmp16: int16 compare/test */
+  287,  /* cmpx16: int16 compare/test mem opnd */
+  291,  /* cmpxx16: int16 compare/test mem opnd w/ scaled-index */
+  295,  /* cmpxxx16: int16 compare/test mem opnd w/ scaled-index w/o base */
+  284,  /* cmp32: int32 compare/test */
+  288,  /* cmpx32: int32 compare/test mem opnd */
+  292,  /* cmpxx32: int32 compare/test mem opnd w/ scaled-index */
+  296,  /* cmpxxx32: int32 compare/test mem opnd w/ scaled-index w/o base */
+  285,  /* cmp64: int64 compare/test */
+  289,  /* cmpx64: int64 compare/test mem opnd */
+  293,  /* cmpxx64: int64 compare/test mem opnd w/ scaled-index */
+  297,  /* cmpxxx64: int64 compare/test mem opnd w/ scaled-index w/o base */
+  272,  /* cmpi8: int8 compare/test with simm */
+  298,  /* cmpxr8: int8 compare/test mem opnd */
+  276,  /* cmpxi8: int compare/test with simm and mem opnd */
+  302,  /* cmpxxr8: int8 compare/test mem opnd w/ scaled-index */
+  278,  /* cmpxxi8: int compare/test with simm and mem opnd scaled-index */
+  306,  /* cmpxxxr8: int8 compare/test mem opnd w/ scaled-index w/o base */
+  280,  /* cmpxxxi8: int compare/test with simm and mem opnd scaled-index w/o base */
+  273,  /* cmpi16: int16 compare/test with simm */
+  299,  /* cmpxr16: int16 compare/test mem opnd */
+  276,  /* cmpxi16: int compare/test with simm and mem opnd */
+  303,  /* cmpxxr16: int16 compare/test mem opnd w/ scaled-index */
+  278,  /* cmpxxi16: int compare/test with simm and mem opnd scaled-index */
+  307,  /* cmpxxxr16: int16 compare/test mem opnd w/ scaled-index w/o base */
+  280,  /* cmpxxxi16: int compare/test with simm and mem opnd scaled-index w/o base */
+  274,  /* cmpi32: int32 compare/test with simm */
+  300,  /* cmpxr32: int32 compare/test mem opnd */
+  276,  /* cmpxi32: int compare/test with simm and mem opnd */
+  304,  /* cmpxxr32: int32 compare/test mem opnd w/ scaled-index */
+  278,  /* cmpxxi32: int compare/test with simm and mem opnd scaled-index */
+  308,  /* cmpxxxr32: int32 compare/test mem opnd w/ scaled-index w/o base */
+  280,  /* cmpxxxi32: int compare/test with simm and mem opnd scaled-index w/o base */
+  275,  /* cmpi64: int64 compare/test with simm */
+  301,  /* cmpxr64: int64 compare/test mem opnd */
+  277,  /* cmpxi64: int64 compare/test with simm and mem opnd */
+  305,  /* cmpxxr64: int64 compare/test mem opnd w/ scaled-index */
+  279,  /* cmpxxi64: int64 compare/test with simm and mem opnd scaled-index */
+  309,  /* cmpxxxr64: int64 compare/test mem opnd w/ scaled-index w/o base */
+  281,  /* cmpxxxi64: int64 compare/test with simm and mem opnd scaled-index w/o base */
   191,  /* cmovb: cond int mov */
   191,  /* cmovae: cond int mov */
   191,  /* cmovp: cond int mov */
@@ -1727,47 +1730,47 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   102,  /* decxxr64: int unary index w/ base res */
   103,  /* decxxxr64: int unary index w/o base res */
   104,  /* decxr64_off: int unary n32 res */
-  266,  /* jb: conditional jump */
-  266,  /* jae: conditional jump */
-  266,  /* jp: conditional jump */
-  266,  /* jnp: conditional jump */
-  266,  /* je: conditional jump */
-  266,  /* jne: conditional jump */
-  266,  /* jbe: conditional jump */
-  266,  /* ja: conditional jump */
-  266,  /* jl: conditional jump */
-  266,  /* jge: conditional jump */
-  266,  /* jle: conditional jump */
-  266,  /* jg: conditional jump */
-  266,  /* jcxz: conditional jump */
-  266,  /* jecxz: conditional jump */
-  266,  /* jrcxz: conditional jump */
-  266,  /* js: conditional jump */
-  266,  /* jns: conditional jump */
-  362,  /* jmp: jump */
-  363,  /* ijmp: jump register */
-  364,  /* ijmpx: jump mem */
-  365,  /* ijmpxx: jump mem w/ scaled index */
-  366,  /* ijmpxxx: jump mem w/ scaled index w/o base */
+  267,  /* jb: conditional jump */
+  267,  /* jae: conditional jump */
+  267,  /* jp: conditional jump */
+  267,  /* jnp: conditional jump */
+  267,  /* je: conditional jump */
+  267,  /* jne: conditional jump */
+  267,  /* jbe: conditional jump */
+  267,  /* ja: conditional jump */
+  267,  /* jl: conditional jump */
+  267,  /* jge: conditional jump */
+  267,  /* jle: conditional jump */
+  267,  /* jg: conditional jump */
+  267,  /* jcxz: conditional jump */
+  267,  /* jecxz: conditional jump */
+  267,  /* jrcxz: conditional jump */
+  267,  /* js: conditional jump */
+  267,  /* jns: conditional jump */
+  363,  /* jmp: jump */
+  364,  /* ijmp: jump register */
+  365,  /* ijmpx: jump mem */
+  366,  /* ijmpxx: jump mem w/ scaled index */
+  367,  /* ijmpxxx: jump mem w/ scaled index w/o base */
   148,  /* ld64: int64 load */
-  329,  /* ldx64: int64 load w/ indx */
-  331,  /* ldxx64: int64 load w/ indx w/o base */
-  391,  /* ld64_2m: int64 load to mmx */
-  412,  /* ld64_2sse: int64 load to sse */
-  322,  /* lea32: load32 effective addr */
-  323,  /* lea64: load64 effective addr */
-  324,  /* leax32: load32 effective addr w/ indx */
-  325,  /* leax64: load64 effective addr w/ indx */
-  326,  /* leaxx32: load32 effective addr w/ indx w/o base */
-  327,  /* leaxx64: load64 effective addr w/ indx w/o base */
-  372,  /* leave: leave */
+  330,  /* ldx64: int64 load w/ indx */
+  332,  /* ldxx64: int64 load w/ indx w/o base */
+  392,  /* ld64_2m: int64 load to mmx */
+  413,  /* ld64_2sse: int64 load to sse */
+  323,  /* lea32: load32 effective addr */
+  324,  /* lea64: load64 effective addr */
+  325,  /* leax32: load32 effective addr w/ indx */
+  326,  /* leax64: load64 effective addr w/ indx */
+  327,  /* leaxx32: load32 effective addr w/ indx w/o base */
+  328,  /* leaxx64: load64 effective addr w/ indx w/o base */
+  373,  /* leave: leave */
     5,  /* ldc32: int load imm32 */
     6,  /* ldc64: int load imm64 */
   184,  /* mul32: int32 mult uses eax and edx registers */
   185,  /* mulx64: int64 mult uses rax and rdx registers */
   180,  /* mov32: int32 mov */
   181,  /* mov64: int64 mov */
-  395,  /* mov64_m: int64 mov between mmx */
+  396,  /* mov64_m: int64 mov between mmx */
   145,  /* ld32_64_off: int64 load w/o base or index */
   145,  /* ld64_off: int64 load w/o base or index */
   157,  /* store64_off: int64 store w/o base or index */
@@ -1789,71 +1792,71 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   229,  /* ldlpd_n32: float load vector w/o base or index */
   229,  /* ldhps_n32: float load vector w/o base or index */
   229,  /* ldhpd_n32: float load vector w/o base or index */
-  392,  /* ld64_2m_n32: int64 load to mmx w/o base or index */
-  415,  /* ld64_2sse_n32: int64 load to sse w/o base or index */
+  393,  /* ld64_2m_n32: int64 load to mmx w/o base or index */
+  416,  /* ld64_2sse_n32: int64 load to sse w/o base or index */
   152,  /* store8_n32: int8 store w/o base or index */
   159,  /* storei8_n32: imm8 store w/o base or index */
   154,  /* store16_n32: int16 store w/o base or index */
   160,  /* storei16_n32: imm16 store w/o base or index */
   156,  /* store32_n32: int32 store w/o base or index */
   161,  /* storei32_n32: imm32 store w/o base or index */
-  231,  /* stss_n32: float store w/o base or index */
-  231,  /* stsd_n32: float store w/o base or index */
-  233,  /* staps_n32: float store vector w/o base or index */
-  233,  /* stapd_n32: float store vector w/o base or index */
-  233,  /* stdqa_n32: float store vector w/o base or index */
-  233,  /* stdqu_n32: float store vector w/o base or index */
-  233,  /* stlps_n32: float store vector w/o base or index */
-  233,  /* sthps_n32: float store vector w/o base or index */
-  233,  /* stlpd_n32: float store vector w/o base or index */
-  233,  /* sthpd_n32: float store vector w/o base or index */
-  394,  /* store64_fm_n32: int64 store from mmx w/o base or index */
-  419,  /* store64_fsse_n32: int64 store from sse w/o base or index */
+  232,  /* stss_n32: float store w/o base or index */
+  232,  /* stsd_n32: float store w/o base or index */
+  234,  /* staps_n32: float store vector w/o base or index */
+  234,  /* stapd_n32: float store vector w/o base or index */
+  234,  /* stdqa_n32: float store vector w/o base or index */
+  234,  /* stdqu_n32: float store vector w/o base or index */
+  234,  /* stlps_n32: float store vector w/o base or index */
+  234,  /* sthps_n32: float store vector w/o base or index */
+  234,  /* stlpd_n32: float store vector w/o base or index */
+  234,  /* sthpd_n32: float store vector w/o base or index */
+  395,  /* store64_fm_n32: int64 store from mmx w/o base or index */
+  420,  /* store64_fsse_n32: int64 store from sse w/o base or index */
   149,  /* ld32_gs_seg_off: int32 load from %gs segment w/o base or index */
   150,  /* ld64_fs_seg_off: int64 load from %fs segment w/o base or index */
   174,  /* movsbl: int8_32 mov */
   147,  /* ld8_32: int32 load */
-  328,  /* ldx8_32: int32 load w/ indx */
-  330,  /* ldxx8_32: int32 load w/ indx w/o base */
+  329,  /* ldx8_32: int32 load w/ indx */
+  331,  /* ldxx8_32: int32 load w/ indx w/o base */
   174,  /* movzbl: int8_32 mov */
   147,  /* ldu8_32: int32 load */
-  328,  /* ldxu8_32: int32 load w/ indx */
-  330,  /* ldxxu8_32: int32 load w/ indx w/o base */
+  329,  /* ldxu8_32: int32 load w/ indx */
+  331,  /* ldxxu8_32: int32 load w/ indx w/o base */
   175,  /* movswl: int16_32 mov */
   147,  /* ld16_32: int32 load */
-  328,  /* ldx16_32: int32 load w/ indx */
-  330,  /* ldxx16_32: int32 load w/ indx w/o base */
+  329,  /* ldx16_32: int32 load w/ indx */
+  331,  /* ldxx16_32: int32 load w/ indx w/o base */
   175,  /* movzwl: int16_32 mov */
   147,  /* ldu16_32: int32 load */
-  328,  /* ldxu16_32: int32 load w/ indx */
-  330,  /* ldxxu16_32: int32 load w/ indx w/o base */
+  329,  /* ldxu16_32: int32 load w/ indx */
+  331,  /* ldxxu16_32: int32 load w/ indx w/o base */
   176,  /* movsbq: int8_64 mov */
   148,  /* ld8_64: int64 load */
-  329,  /* ldx8_64: int64 load w/ indx */
-  331,  /* ldxx8_64: int64 load w/ indx w/o base */
+  330,  /* ldx8_64: int64 load w/ indx */
+  332,  /* ldxx8_64: int64 load w/ indx w/o base */
   145,  /* ld8_64_off: int64 load w/o base or index */
   176,  /* movzbq: int8_64 mov */
   148,  /* ldu8_64: int64 load */
-  329,  /* ldxu8_64: int64 load w/ indx */
-  331,  /* ldxxu8_64: int64 load w/ indx w/o base */
+  330,  /* ldxu8_64: int64 load w/ indx */
+  332,  /* ldxxu8_64: int64 load w/ indx w/o base */
   145,  /* ldu8_64_off: int64 load w/o base or index */
   177,  /* movswq: int16_64 mov */
   148,  /* ld16_64: int64 load */
-  329,  /* ldx16_64: int64 load w/ indx */
-  331,  /* ldxx16_64: int64 load w/ indx w/o base */
+  330,  /* ldx16_64: int64 load w/ indx */
+  332,  /* ldxx16_64: int64 load w/ indx w/o base */
   145,  /* ld16_64_off: int64 load w/o base or index */
   177,  /* movzwq: int16_64 mov */
   148,  /* ldu16_64: int64 load */
-  329,  /* ldxu16_64: int64 load w/ indx */
-  331,  /* ldxxu16_64: int64 load w/ indx w/o base */
+  330,  /* ldxu16_64: int64 load w/ indx */
+  332,  /* ldxxu16_64: int64 load w/ indx w/o base */
   145,  /* ldu16_64_off: int64 load w/o base or index */
   178,  /* movslq: int32_64 sign-ext mov */
   148,  /* ld32_64: int64 load */
-  329,  /* ldx32_64: int64 load w/ indx */
-  331,  /* ldxx32_64: int64 load w/ indx w/o base */
+  330,  /* ldx32_64: int64 load w/ indx */
+  332,  /* ldxx32_64: int64 load w/ indx w/o base */
   147,  /* ld32: int32 load */
-  328,  /* ldx32: int32 load w/ indx */
-  330,  /* ldxx32: int32 load w/ indx w/o base */
+  329,  /* ldx32: int32 load w/ indx */
+  331,  /* ldxx32: int32 load w/ indx w/o base */
   179,  /* movzlq: int32_64 zero-ext mov */
   133,  /* neg8: unary int8 arithmetic */
   134,  /* neg16: unary int16 arithmetic */
@@ -1963,10 +1966,10 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   138,  /* ori16: int16 arithmetic with simm */
   139,  /* ori32: int32 arithmetic with simm */
   140,  /* ori64: int64 arithmetic with simm */
-  267,  /* popl: pop32 */
-  268,  /* popq: pop64 */
-  269,  /* pushl: push32 */
-  270,  /* pushq: push64 */
+  268,  /* popl: pop32 */
+  269,  /* popq: pop64 */
+  270,  /* pushl: push32 */
+  271,  /* pushq: push64 */
     0,  /* ret: no operand */
     4,  /* reti: ret imm16 */
   214,  /* ror8: variable shifts32 */
@@ -2018,37 +2021,37 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   190,  /* setz: int8 set */
   163,  /* store8: int8 store */
   167,  /* storei8: imm8 store */
-  332,  /* storex8: int8 store w/ indx */
-  336,  /* storeix8: imm8 store w/ indx */
-  340,  /* storexx8: int8 store w/ indx w/o base */
-  344,  /* storeixx8: imm8 store w/ indx w/o base */
+  333,  /* storex8: int8 store w/ indx */
+  337,  /* storeix8: imm8 store w/ indx */
+  341,  /* storexx8: int8 store w/ indx w/o base */
+  345,  /* storeixx8: imm8 store w/ indx w/o base */
   164,  /* store16: int16 store */
   168,  /* storei16: imm16 store */
-  333,  /* storex16: int16 store w/ indx */
-  337,  /* storeix16: imm16 store w/ indx */
-  341,  /* storexx16: int16 store w/ indx w/o base */
-  345,  /* storeixx16: imm16 store w/ indx w/o base */
+  334,  /* storex16: int16 store w/ indx */
+  338,  /* storeix16: imm16 store w/ indx */
+  342,  /* storexx16: int16 store w/ indx w/o base */
+  346,  /* storeixx16: imm16 store w/ indx w/o base */
   165,  /* store32: int32 store */
   169,  /* storei32: imm32 store */
-  334,  /* storex32: int32 store w/ indx */
-  338,  /* storeix32: imm32 store w/ indx */
-  342,  /* storexx32: int32 store w/ indx w/o base */
-  346,  /* storeixx32: imm32 store w/ indx w/o base */
+  335,  /* storex32: int32 store w/ indx */
+  339,  /* storeix32: imm32 store w/ indx */
+  343,  /* storexx32: int32 store w/ indx w/o base */
+  347,  /* storeixx32: imm32 store w/ indx w/o base */
   166,  /* store64: int64 store */
   170,  /* storei64: imm64 store */
-  335,  /* storex64: int64 store w/ indx */
-  339,  /* storeix64: imm64 store w/ indx */
-  343,  /* storexx64: int64 store w/ indx w/o base */
-  347,  /* storeixx64: imm64 store w/ indx w/o base */
-  393,  /* store64_fm: int64 store from mmx */
-  416,  /* store64_fsse: int64 store from sse */
+  336,  /* storex64: int64 store w/ indx */
+  340,  /* storeix64: imm64 store w/ indx */
+  344,  /* storexx64: int64 store w/ indx w/o base */
+  348,  /* storeixx64: imm64 store w/ indx w/o base */
+  394,  /* store64_fm: int64 store from mmx */
+  417,  /* store64_fsse: int64 store from sse */
   165,  /* storenti32: int32 store */
-  334,  /* storentix32: int32 store w/ indx */
-  342,  /* storentixx32: int32 store w/ indx w/o base */
+  335,  /* storentix32: int32 store w/ indx */
+  343,  /* storentixx32: int32 store w/ indx w/o base */
   166,  /* storenti64: int64 store */
-  335,  /* storentix64: int64 store w/ indx */
-  343,  /* storentixx64: int64 store w/ indx w/o base */
-  234,  /* storenti128: float store vector */
+  336,  /* storentix64: int64 store w/ indx */
+  344,  /* storentixx64: int64 store w/ indx w/o base */
+  235,  /* storenti128: float store vector */
   214,  /* sar32: variable shifts32 */
   217,  /* sar64: variable shifts64 */
   212,  /* sari32: shifts32 */
@@ -2129,29 +2132,29 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* subx128v64: vector arithmetic mem opnd */
    59,  /* subxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* subxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  400,  /* sub64v8: mmx vector arithmetic */
-  400,  /* sub64v16: mmx vector arithmetic */
-  400,  /* sub64v32: mmx vector arithmetic */
-  281,  /* test8: int8 compare/test */
-  285,  /* testx8: int8 compare/test mem opnd */
-  289,  /* testxx8: int8 compare/test mem opnd w/ scaled-index */
-  293,  /* testxxx8: int8 compare/test mem opnd w/ scaled-index w/o base */
-  282,  /* test16: int16 compare/test */
-  286,  /* testx16: int16 compare/test mem opnd */
-  290,  /* testxx16: int16 compare/test mem opnd w/ scaled-index */
-  294,  /* testxxx16: int16 compare/test mem opnd w/ scaled-index w/o base */
-  283,  /* test32: int32 compare/test */
-  287,  /* testx32: int32 compare/test mem opnd */
-  291,  /* testxx32: int32 compare/test mem opnd w/ scaled-index */
-  295,  /* testxxx32: int32 compare/test mem opnd w/ scaled-index w/o base */
-  284,  /* test64: int64 compare/test */
-  288,  /* testx64: int64 compare/test mem opnd */
-  292,  /* testxx64: int64 compare/test mem opnd w/ scaled-index */
-  296,  /* testxxx64: int64 compare/test mem opnd w/ scaled-index w/o base */
-  271,  /* testi8: int8 compare/test with simm */
-  272,  /* testi16: int16 compare/test with simm */
-  273,  /* testi32: int32 compare/test with simm */
-  274,  /* testi64: int64 compare/test with simm */
+  401,  /* sub64v8: mmx vector arithmetic */
+  401,  /* sub64v16: mmx vector arithmetic */
+  401,  /* sub64v32: mmx vector arithmetic */
+  282,  /* test8: int8 compare/test */
+  286,  /* testx8: int8 compare/test mem opnd */
+  290,  /* testxx8: int8 compare/test mem opnd w/ scaled-index */
+  294,  /* testxxx8: int8 compare/test mem opnd w/ scaled-index w/o base */
+  283,  /* test16: int16 compare/test */
+  287,  /* testx16: int16 compare/test mem opnd */
+  291,  /* testxx16: int16 compare/test mem opnd w/ scaled-index */
+  295,  /* testxxx16: int16 compare/test mem opnd w/ scaled-index w/o base */
+  284,  /* test32: int32 compare/test */
+  288,  /* testx32: int32 compare/test mem opnd */
+  292,  /* testxx32: int32 compare/test mem opnd w/ scaled-index */
+  296,  /* testxxx32: int32 compare/test mem opnd w/ scaled-index w/o base */
+  285,  /* test64: int64 compare/test */
+  289,  /* testx64: int64 compare/test mem opnd */
+  293,  /* testxx64: int64 compare/test mem opnd w/ scaled-index */
+  297,  /* testxxx64: int64 compare/test mem opnd w/ scaled-index w/o base */
+  272,  /* testi8: int8 compare/test with simm */
+  273,  /* testi16: int16 compare/test with simm */
+  274,  /* testi32: int32 compare/test with simm */
+  275,  /* testi64: int64 compare/test with simm */
     7,  /* xor8: int8 arithmetic */
     8,  /* xor16: int16 arithmetic */
     9,  /* xor32: int32 arithmetic */
@@ -2230,14 +2233,14 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    60,  /* fxorxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
    57,  /* xorps: vector arithmetic */
    57,  /* xorpd: vector arithmetic */
-  254,  /* addsd: float arithmetic */
-  254,  /* addss: float arithmetic */
-  257,  /* addxsd: float arithmetic mem operand */
-  257,  /* addxss: float arithmetic mem operand */
-  258,  /* addxxsd: float arithmetic mem operand w/ scaled-index */
-  259,  /* addxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
-  258,  /* addxxss: float arithmetic mem operand w/ scaled-index */
-  259,  /* addxxxss: float arithmetic mem operand w/ scaled-index w/o base */
+  255,  /* addsd: float arithmetic */
+  255,  /* addss: float arithmetic */
+  258,  /* addxsd: float arithmetic mem operand */
+  258,  /* addxss: float arithmetic mem operand */
+  259,  /* addxxsd: float arithmetic mem operand w/ scaled-index */
+  260,  /* addxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
+  259,  /* addxxss: float arithmetic mem operand w/ scaled-index */
+  260,  /* addxxxss: float arithmetic mem operand w/ scaled-index w/o base */
    57,  /* faddsub128v32: vector arithmetic */
    58,  /* faddsubx128v32: vector arithmetic mem opnd */
    59,  /* faddsubxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2272,8 +2275,8 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    60,  /* fandxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
    57,  /* andps: vector arithmetic */
    57,  /* andpd: vector arithmetic */
-  254,  /* andnps: float arithmetic */
-  254,  /* andnpd: float arithmetic */
+  255,  /* andnps: float arithmetic */
+  255,  /* andnpd: float arithmetic */
    57,  /* for128v32: vector arithmetic */
    58,  /* forx128v32: vector arithmetic mem opnd */
    59,  /* forxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2284,18 +2287,18 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    60,  /* forxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
    57,  /* orps: vector arithmetic */
    57,  /* orpd: vector arithmetic */
-  309,  /* comisd: fp ordered compare */
-  310,  /* comixsd: fp ordered compare mem opnd */
-  311,  /* comixxsd: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* comixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
-  309,  /* comiss: fp ordered compare */
-  310,  /* comixss: fp ordered compare mem opnd */
-  311,  /* comixxss: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* comixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
-  314,  /* cmpss: fp compare */
-  314,  /* cmpsd: fp compare */
-  320,  /* cmpps: fp vector compare */
-  320,  /* cmppd: fp vector compare */
+  310,  /* comisd: fp ordered compare */
+  311,  /* comixsd: fp ordered compare mem opnd */
+  312,  /* comixxsd: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* comixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
+  310,  /* comiss: fp ordered compare */
+  311,  /* comixss: fp ordered compare mem opnd */
+  312,  /* comixxss: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* comixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
+  315,  /* cmpss: fp compare */
+  315,  /* cmpsd: fp compare */
+  321,  /* cmpps: fp vector compare */
+  321,  /* cmppd: fp vector compare */
    57,  /* cmpeq128v8: vector arithmetic */
    57,  /* cmpeq128v16: vector arithmetic */
    57,  /* cmpeq128v32: vector arithmetic */
@@ -2320,47 +2323,47 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    60,  /* cmpgtxxx128v8: vector arithmetic mem opnd w/ scaled index w/o base */
    60,  /* cmpgtxxx128v16: vector arithmetic mem opnd w/ scaled index w/o base */
    60,  /* cmpgtxxx128v32: vector arithmetic mem opnd w/ scaled index w/o base */
-  400,  /* pcmpeqb: mmx vector arithmetic */
-  400,  /* pcmpeqw: mmx vector arithmetic */
-  400,  /* pcmpeqd: mmx vector arithmetic */
-  400,  /* pcmpgtb: mmx vector arithmetic */
-  400,  /* pcmpgtw: mmx vector arithmetic */
-  400,  /* pcmpgtd: mmx vector arithmetic */
-  262,  /* fmovsldup: xmm to xmm */
-  262,  /* fmovshdup: xmm to xmm */
-  262,  /* fmovddup: xmm to xmm */
-  230,  /* fmovsldupx: float load vector */
-  230,  /* fmovshdupx: float load vector */
-  230,  /* fmovddupx: float load vector */
-  351,  /* fmovsldupxx: fp load vector w/ indx */
-  351,  /* fmovshdupxx: fp load vector w/ indx */
-  351,  /* fmovddupxx: fp load vector w/ indx */
-  355,  /* fmovsldupxxx: fp load vector w/ indx w/o base */
-  355,  /* fmovshdupxxx: fp load vector w/ indx w/o base */
-  355,  /* fmovddupxxx: fp load vector w/ indx w/o base */
+  401,  /* pcmpeqb: mmx vector arithmetic */
+  401,  /* pcmpeqw: mmx vector arithmetic */
+  401,  /* pcmpeqd: mmx vector arithmetic */
+  401,  /* pcmpgtb: mmx vector arithmetic */
+  401,  /* pcmpgtw: mmx vector arithmetic */
+  401,  /* pcmpgtd: mmx vector arithmetic */
+  263,  /* fmovsldup: xmm to xmm */
+  263,  /* fmovshdup: xmm to xmm */
+  263,  /* fmovddup: xmm to xmm */
+  231,  /* fmovsldupx: float load vector */
+  231,  /* fmovshdupx: float load vector */
+  231,  /* fmovddupx: float load vector */
+  352,  /* fmovsldupxx: fp load vector w/ indx */
+  352,  /* fmovshdupxx: fp load vector w/ indx */
+  352,  /* fmovddupxx: fp load vector w/ indx */
+  356,  /* fmovsldupxxx: fp load vector w/ indx w/o base */
+  356,  /* fmovshdupxxx: fp load vector w/ indx w/o base */
+  356,  /* fmovddupxxx: fp load vector w/ indx w/o base */
   218,  /* cltd: sign32 extend */
   219,  /* cqto: sign64 extend */
   193,  /* cvtss2sd: fp 2 fp */
   193,  /* cvtsd2ss: fp 2 fp */
   222,  /* cvtsd2ss_x: float convert */
-  349,  /* cvtsd2ss_xx: fp convert w/ indx */
-  353,  /* cvtsd2ss_xxx: fp convert w/ indx w/o base */
+  350,  /* cvtsd2ss_xx: fp convert w/ indx */
+  354,  /* cvtsd2ss_xxx: fp convert w/ indx w/o base */
   203,  /* cvtsi2sd: int32 2 float */
   222,  /* cvtsi2sd_x: float convert */
-  349,  /* cvtsi2sd_xx: fp convert w/ indx */
-  353,  /* cvtsi2sd_xxx: fp convert w/ indx w/o base */
+  350,  /* cvtsi2sd_xx: fp convert w/ indx */
+  354,  /* cvtsi2sd_xxx: fp convert w/ indx w/o base */
   203,  /* cvtsi2ss: int32 2 float */
   222,  /* cvtsi2ss_x: float convert */
-  349,  /* cvtsi2ss_xx: fp convert w/ indx */
-  353,  /* cvtsi2ss_xxx: fp convert w/ indx w/o base */
+  350,  /* cvtsi2ss_xx: fp convert w/ indx */
+  354,  /* cvtsi2ss_xxx: fp convert w/ indx w/o base */
   205,  /* cvtsi2sdq: int64 2 float */
   222,  /* cvtsi2sdq_x: float convert */
-  349,  /* cvtsi2sdq_xx: fp convert w/ indx */
-  353,  /* cvtsi2sdq_xxx: fp convert w/ indx w/o base */
+  350,  /* cvtsi2sdq_xx: fp convert w/ indx */
+  354,  /* cvtsi2sdq_xxx: fp convert w/ indx w/o base */
   205,  /* cvtsi2ssq: int64 2 float */
   222,  /* cvtsi2ssq_x: float convert */
-  349,  /* cvtsi2ssq_xx: fp convert w/ indx */
-  353,  /* cvtsi2ssq_xxx: fp convert w/ indx w/o base */
+  350,  /* cvtsi2ssq_xx: fp convert w/ indx */
+  354,  /* cvtsi2ssq_xxx: fp convert w/ indx w/o base */
   207,  /* cvtss2si: fp 2 int32 */
   207,  /* cvtsd2si: fp 2 int32 */
   208,  /* cvtss2siq: fp 2 int64 */
@@ -2401,90 +2404,90 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   202,  /* cvtpd2dq_xxx: vector cvt w/ trunc III */
   202,  /* cvttps2dq_xxx: vector cvt w/ trunc III */
   202,  /* cvttpd2dq_xxx: vector cvt w/ trunc III */
-  411,  /* cvtpi2ps: vector cvt mmx pi 2 sse ps/pd */
-  410,  /* cvtps2pi: vector cvt sse ps/pd 2 mmx pi */
-  410,  /* cvttps2pi: vector cvt sse ps/pd 2 mmx pi */
-  411,  /* cvtpi2pd: vector cvt mmx pi 2 sse ps/pd */
-  410,  /* cvtpd2pi: vector cvt sse ps/pd 2 mmx pi */
-  410,  /* cvttpd2pi: vector cvt sse ps/pd 2 mmx pi */
+  412,  /* cvtpi2ps: vector cvt mmx pi 2 sse ps/pd */
+  411,  /* cvtps2pi: vector cvt sse ps/pd 2 mmx pi */
+  411,  /* cvttps2pi: vector cvt sse ps/pd 2 mmx pi */
+  412,  /* cvtpi2pd: vector cvt mmx pi 2 sse ps/pd */
+  411,  /* cvtpd2pi: vector cvt sse ps/pd 2 mmx pi */
+  411,  /* cvttpd2pi: vector cvt sse ps/pd 2 mmx pi */
   221,  /* ldsd: float load */
-  348,  /* ldsdx: fp load w/ indx */
-  352,  /* ldsdxx: fp load w/ indx w/o base */
+  349,  /* ldsdx: fp load w/ indx */
+  353,  /* ldsdxx: fp load w/ indx w/o base */
   221,  /* ldss: float load */
-  348,  /* ldssx: fp load w/ indx */
-  352,  /* ldssxx: fp load w/ indx w/o base */
-  230,  /* lddqa: float load vector */
-  230,  /* lddqu: float load vector */
-  230,  /* ldlps: float load vector */
-  230,  /* ldhps: float load vector */
-  230,  /* ldlpd: float load vector */
-  230,  /* ldhpd: float load vector */
-  234,  /* stdqa: float store vector */
-  234,  /* stdqu: float store vector */
-  234,  /* stlps: float store vector */
-  234,  /* sthps: float store vector */
-  234,  /* stlpd: float store vector */
-  234,  /* storelpd: float store vector */
-  234,  /* sthpd: float store vector */
-  234,  /* stntpd: float store vector */
-  234,  /* stntps: float store vector */
-  393,  /* storent64_fm: int64 store from mmx */
-  351,  /* lddqax: fp load vector w/ indx */
-  351,  /* lddqux: fp load vector w/ indx */
-  351,  /* ldlpsx: fp load vector w/ indx */
-  351,  /* ldhpsx: fp load vector w/ indx */
-  351,  /* ldlpdx: fp load vector w/ indx */
-  351,  /* ldhpdx: fp load vector w/ indx */
-  357,  /* stdqax: fp store vector w/ indx */
-  357,  /* stntpdx: fp store vector w/ indx */
-  357,  /* stntpsx: fp store vector w/ indx */
-  357,  /* stdqux: fp store vector w/ indx */
-  357,  /* stlpsx: fp store vector w/ indx */
-  357,  /* sthpsx: fp store vector w/ indx */
-  357,  /* stlpdx: fp store vector w/ indx */
-  357,  /* sthpdx: fp store vector w/ indx */
-  355,  /* lddqaxx: fp load vector w/ indx w/o base */
-  355,  /* lddquxx: fp load vector w/ indx w/o base */
-  355,  /* ldlpsxx: fp load vector w/ indx w/o base */
-  355,  /* ldhpsxx: fp load vector w/ indx w/o base */
-  355,  /* ldlpdxx: fp load vector w/ indx w/o base */
-  355,  /* ldhpdxx: fp load vector w/ indx w/o base */
-  230,  /* ldaps: float load vector */
-  351,  /* ldapsx: fp load vector w/ indx */
-  355,  /* ldapsxx: fp load vector w/ indx w/o base */
-  230,  /* ldapd: float load vector */
-  351,  /* ldapdx: fp load vector w/ indx */
-  355,  /* ldapdxx: fp load vector w/ indx w/o base */
-  230,  /* ldups: float load vector */
-  351,  /* ldupsx: fp load vector w/ indx */
-  355,  /* ldupsxx: fp load vector w/ indx w/o base */
-  230,  /* ldupd: float load vector */
-  351,  /* ldupdx: fp load vector w/ indx */
-  355,  /* ldupdxx: fp load vector w/ indx w/o base */
-  359,  /* stdqaxx: fp store vector w/ indx w/o base */
-  359,  /* stntpdxx: fp store vector w/ indx w/o base */
-  359,  /* stntpsxx: fp store vector w/ indx w/o base */
-  359,  /* stdquxx: fp store vector w/ indx w/o base */
-  359,  /* stlpsxx: fp store vector w/ indx w/o base */
-  359,  /* sthpsxx: fp store vector w/ indx w/o base */
-  359,  /* stlpdxx: fp store vector w/ indx w/o base */
-  359,  /* sthpdxx: fp store vector w/ indx w/o base */
-  234,  /* staps: float store vector */
-  357,  /* stapsx: fp store vector w/ indx */
-  359,  /* stapsxx: fp store vector w/ indx w/o base */
-  234,  /* stapd: float store vector */
-  357,  /* stapdx: fp store vector w/ indx */
-  359,  /* stapdxx: fp store vector w/ indx w/o base */
-  234,  /* stups: float store vector */
-  357,  /* stupsx: fp store vector w/ indx */
-  359,  /* stupsxx: fp store vector w/ indx w/o base */
-  233,  /* stups_n32: float store vector w/o base or index */
-  234,  /* stupd: float store vector */
-  357,  /* stupdx: fp store vector w/ indx */
-  359,  /* stupdxx: fp store vector w/ indx w/o base */
-  233,  /* stupd_n32: float store vector w/o base or index */
-  254,  /* maxsd: float arithmetic */
-  254,  /* maxss: float arithmetic */
+  349,  /* ldssx: fp load w/ indx */
+  353,  /* ldssxx: fp load w/ indx w/o base */
+  231,  /* lddqa: float load vector */
+  231,  /* lddqu: float load vector */
+  231,  /* ldlps: float load vector */
+  231,  /* ldhps: float load vector */
+  231,  /* ldlpd: float load vector */
+  231,  /* ldhpd: float load vector */
+  235,  /* stdqa: float store vector */
+  235,  /* stdqu: float store vector */
+  235,  /* stlps: float store vector */
+  235,  /* sthps: float store vector */
+  235,  /* stlpd: float store vector */
+  235,  /* storelpd: float store vector */
+  235,  /* sthpd: float store vector */
+  235,  /* stntpd: float store vector */
+  235,  /* stntps: float store vector */
+  394,  /* storent64_fm: int64 store from mmx */
+  352,  /* lddqax: fp load vector w/ indx */
+  352,  /* lddqux: fp load vector w/ indx */
+  352,  /* ldlpsx: fp load vector w/ indx */
+  352,  /* ldhpsx: fp load vector w/ indx */
+  352,  /* ldlpdx: fp load vector w/ indx */
+  352,  /* ldhpdx: fp load vector w/ indx */
+  358,  /* stdqax: fp store vector w/ indx */
+  358,  /* stntpdx: fp store vector w/ indx */
+  358,  /* stntpsx: fp store vector w/ indx */
+  358,  /* stdqux: fp store vector w/ indx */
+  358,  /* stlpsx: fp store vector w/ indx */
+  358,  /* sthpsx: fp store vector w/ indx */
+  358,  /* stlpdx: fp store vector w/ indx */
+  358,  /* sthpdx: fp store vector w/ indx */
+  356,  /* lddqaxx: fp load vector w/ indx w/o base */
+  356,  /* lddquxx: fp load vector w/ indx w/o base */
+  356,  /* ldlpsxx: fp load vector w/ indx w/o base */
+  356,  /* ldhpsxx: fp load vector w/ indx w/o base */
+  356,  /* ldlpdxx: fp load vector w/ indx w/o base */
+  356,  /* ldhpdxx: fp load vector w/ indx w/o base */
+  231,  /* ldaps: float load vector */
+  352,  /* ldapsx: fp load vector w/ indx */
+  356,  /* ldapsxx: fp load vector w/ indx w/o base */
+  231,  /* ldapd: float load vector */
+  352,  /* ldapdx: fp load vector w/ indx */
+  356,  /* ldapdxx: fp load vector w/ indx w/o base */
+  231,  /* ldups: float load vector */
+  352,  /* ldupsx: fp load vector w/ indx */
+  356,  /* ldupsxx: fp load vector w/ indx w/o base */
+  231,  /* ldupd: float load vector */
+  352,  /* ldupdx: fp load vector w/ indx */
+  356,  /* ldupdxx: fp load vector w/ indx w/o base */
+  360,  /* stdqaxx: fp store vector w/ indx w/o base */
+  360,  /* stntpdxx: fp store vector w/ indx w/o base */
+  360,  /* stntpsxx: fp store vector w/ indx w/o base */
+  360,  /* stdquxx: fp store vector w/ indx w/o base */
+  360,  /* stlpsxx: fp store vector w/ indx w/o base */
+  360,  /* sthpsxx: fp store vector w/ indx w/o base */
+  360,  /* stlpdxx: fp store vector w/ indx w/o base */
+  360,  /* sthpdxx: fp store vector w/ indx w/o base */
+  235,  /* staps: float store vector */
+  358,  /* stapsx: fp store vector w/ indx */
+  360,  /* stapsxx: fp store vector w/ indx w/o base */
+  235,  /* stapd: float store vector */
+  358,  /* stapdx: fp store vector w/ indx */
+  360,  /* stapdxx: fp store vector w/ indx w/o base */
+  235,  /* stups: float store vector */
+  358,  /* stupsx: fp store vector w/ indx */
+  360,  /* stupsxx: fp store vector w/ indx w/o base */
+  234,  /* stups_n32: float store vector w/o base or index */
+  235,  /* stupd: float store vector */
+  358,  /* stupdx: fp store vector w/ indx */
+  360,  /* stupdxx: fp store vector w/ indx w/o base */
+  234,  /* stupd_n32: float store vector w/o base or index */
+  255,  /* maxsd: float arithmetic */
+  255,  /* maxss: float arithmetic */
    57,  /* fmax128v32: vector arithmetic */
    58,  /* fmaxx128v32: vector arithmetic mem opnd */
    59,  /* fmaxxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2493,12 +2496,12 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* fmaxx128v64: vector arithmetic mem opnd */
    59,  /* fmaxxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* fmaxxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  400,  /* max64v8: mmx vector arithmetic */
-  400,  /* max64v16: mmx vector arithmetic */
-  400,  /* min64v8: mmx vector arithmetic */
-  400,  /* min64v16: mmx vector arithmetic */
-  254,  /* minsd: float arithmetic */
-  254,  /* minss: float arithmetic */
+  401,  /* max64v8: mmx vector arithmetic */
+  401,  /* max64v16: mmx vector arithmetic */
+  401,  /* min64v8: mmx vector arithmetic */
+  401,  /* min64v16: mmx vector arithmetic */
+  255,  /* minsd: float arithmetic */
+  255,  /* minss: float arithmetic */
    57,  /* fmin128v32: vector arithmetic */
    58,  /* fminx128v32: vector arithmetic mem opnd */
    59,  /* fminxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2513,19 +2516,19 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   203,  /* movg2x: int32 2 float */
   193,  /* movsd: fp 2 fp */
   193,  /* movss: fp 2 fp */
-  262,  /* movdq: xmm to xmm */
-  262,  /* movapd: xmm to xmm */
-  262,  /* movaps: xmm to xmm */
-  406,  /* movq2dq: mov mmx 2 sse */
-  407,  /* movdq2q: mov sse 2 mmx */
-  254,  /* divsd: float arithmetic */
-  257,  /* divxsd: float arithmetic mem operand */
-  258,  /* divxxsd: float arithmetic mem operand w/ scaled-index */
-  259,  /* divxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
-  254,  /* divss: float arithmetic */
-  257,  /* divxss: float arithmetic mem operand */
-  258,  /* divxxss: float arithmetic mem operand w/ scaled-index */
-  259,  /* divxxxss: float arithmetic mem operand w/ scaled-index w/o base */
+  263,  /* movdq: xmm to xmm */
+  263,  /* movapd: xmm to xmm */
+  263,  /* movaps: xmm to xmm */
+  407,  /* movq2dq: mov mmx 2 sse */
+  408,  /* movdq2q: mov sse 2 mmx */
+  255,  /* divsd: float arithmetic */
+  258,  /* divxsd: float arithmetic mem operand */
+  259,  /* divxxsd: float arithmetic mem operand w/ scaled-index */
+  260,  /* divxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
+  255,  /* divss: float arithmetic */
+  258,  /* divxss: float arithmetic mem operand */
+  259,  /* divxxss: float arithmetic mem operand w/ scaled-index */
+  260,  /* divxxxss: float arithmetic mem operand w/ scaled-index w/o base */
    57,  /* fdiv128v32: vector arithmetic */
    58,  /* fdivx128v32: vector arithmetic mem opnd */
    59,  /* fdivxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2534,8 +2537,8 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* fdivx128v64: vector arithmetic mem opnd */
    59,  /* fdivxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* fdivxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  254,  /* mulsd: float arithmetic */
-  254,  /* mulss: float arithmetic */
+  255,  /* mulsd: float arithmetic */
+  255,  /* mulss: float arithmetic */
    57,  /* fmul128v32: vector arithmetic */
    58,  /* fmulx128v32: vector arithmetic mem opnd */
    59,  /* fmulxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2544,28 +2547,28 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* fmulx128v64: vector arithmetic mem opnd */
    59,  /* fmulxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* fmulxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  257,  /* mulxsd: float arithmetic mem operand */
-  257,  /* mulxss: float arithmetic mem operand */
-  258,  /* mulxxsd: float arithmetic mem operand w/ scaled-index */
-  259,  /* mulxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
-  258,  /* mulxxss: float arithmetic mem operand w/ scaled-index */
-  259,  /* mulxxxss: float arithmetic mem operand w/ scaled-index w/o base */
-  254,  /* subsd: float arithmetic */
-  254,  /* subss: float arithmetic */
-  257,  /* subxsd: float arithmetic mem operand */
-  257,  /* subxss: float arithmetic mem operand */
-  258,  /* subxxsd: float arithmetic mem operand w/ scaled-index */
-  259,  /* subxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
-  258,  /* subxxss: float arithmetic mem operand w/ scaled-index */
-  259,  /* subxxxss: float arithmetic mem operand w/ scaled-index w/o base */
-  309,  /* ucomisd: fp ordered compare */
-  310,  /* ucomixsd: fp ordered compare mem opnd */
-  311,  /* ucomixxsd: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* ucomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
-  309,  /* ucomiss: fp ordered compare */
-  310,  /* ucomixss: fp ordered compare mem opnd */
-  311,  /* ucomixxss: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* ucomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
+  258,  /* mulxsd: float arithmetic mem operand */
+  258,  /* mulxss: float arithmetic mem operand */
+  259,  /* mulxxsd: float arithmetic mem operand w/ scaled-index */
+  260,  /* mulxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
+  259,  /* mulxxss: float arithmetic mem operand w/ scaled-index */
+  260,  /* mulxxxss: float arithmetic mem operand w/ scaled-index w/o base */
+  255,  /* subsd: float arithmetic */
+  255,  /* subss: float arithmetic */
+  258,  /* subxsd: float arithmetic mem operand */
+  258,  /* subxss: float arithmetic mem operand */
+  259,  /* subxxsd: float arithmetic mem operand w/ scaled-index */
+  260,  /* subxxxsd: float arithmetic mem operand w/ scaled-index w/o base */
+  259,  /* subxxss: float arithmetic mem operand w/ scaled-index */
+  260,  /* subxxxss: float arithmetic mem operand w/ scaled-index w/o base */
+  310,  /* ucomisd: fp ordered compare */
+  311,  /* ucomixsd: fp ordered compare mem opnd */
+  312,  /* ucomixxsd: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* ucomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
+  310,  /* ucomiss: fp ordered compare */
+  311,  /* ucomixss: fp ordered compare mem opnd */
+  312,  /* ucomixxss: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* ucomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
    57,  /* fsub128v32: vector arithmetic */
    58,  /* fsubx128v32: vector arithmetic mem opnd */
    59,  /* fsubxx128v32: vector arithmetic mem opnd w/ scaled index */
@@ -2582,263 +2585,263 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* fhsubx128v64: vector arithmetic mem opnd */
    59,  /* fhsubxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* fhsubxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  232,  /* stss: float store */
-  232,  /* stntss: float store */
-  356,  /* stssx: fp store w/ indx */
-  356,  /* stntssx: fp store w/ indx */
-  358,  /* stssxx: fp store w/ indx w/o base */
-  358,  /* stntssxx: fp store w/ indx w/o base */
-  232,  /* stsd: float store */
-  232,  /* stntsd: float store */
-  356,  /* stsdx: fp store w/ indx */
-  356,  /* stntsdx: fp store w/ indx */
-  358,  /* stsdxx: fp store w/ indx w/o base */
-  358,  /* stntsdxx: fp store w/ indx w/o base */
-  260,  /* rcpss: float unary arithmetic */
-  261,  /* frcp128v32: float unary arithmetic extended */
-  260,  /* sqrtsd: float unary arithmetic */
-  260,  /* sqrtss: float unary arithmetic */
-  260,  /* rsqrtss: float unary arithmetic */
-  261,  /* fsqrt128v32: float unary arithmetic extended */
-  261,  /* frsqrt128v32: float unary arithmetic extended */
-  261,  /* fsqrt128v64: float unary arithmetic extended */
-  400,  /* punpcklwd: mmx vector arithmetic */
-  400,  /* punpcklbw: mmx vector arithmetic */
-  400,  /* punpckldq: mmx vector arithmetic */
-  239,  /* punpcklbw128: unpack */
-  239,  /* punpcklwd128: unpack */
-  239,  /* punpckldq128: unpack */
-  400,  /* punpckhbw: mmx vector arithmetic */
-  400,  /* punpckhwd: mmx vector arithmetic */
-  400,  /* punpckhdq: mmx vector arithmetic */
-  239,  /* punpckhbw128: unpack */
-  239,  /* punpckhwd128: unpack */
-  239,  /* punpckhdq128: unpack */
-  239,  /* punpcklqdq: unpack */
-  239,  /* punpckhqdq: unpack */
-  400,  /* packsswb: mmx vector arithmetic */
-  400,  /* packssdw: mmx vector arithmetic */
-  400,  /* packuswb: mmx vector arithmetic */
-  239,  /* packsswb128: unpack */
-  239,  /* packssdw128: unpack */
-  239,  /* packuswb128: unpack */
-  245,  /* pshufd: shuffle-int */
-  245,  /* pshufw: shuffle-int */
-  245,  /* pshuflw: shuffle-int */
-  245,  /* pshufhw: shuffle-int */
-  250,  /* pslldq: packed shifts w/ immediate */
-  251,  /* psllw: packed shifts */
-  250,  /* psllwi: packed shifts w/ immediate */
-  251,  /* pslld: packed shifts */
-  250,  /* pslldi: packed shifts w/ immediate */
-  251,  /* psllq: packed shifts */
-  250,  /* psllqi: packed shifts w/ immediate */
-  251,  /* psrlw: packed shifts */
-  250,  /* psrlwi: packed shifts w/ immediate */
-  251,  /* psrld: packed shifts */
-  250,  /* psrldi: packed shifts w/ immediate */
-  251,  /* psrlq: packed shifts */
-  250,  /* psrlqi: packed shifts w/ immediate */
-  251,  /* psraw: packed shifts */
-  250,  /* psrawi: packed shifts w/ immediate */
-  251,  /* psrad: packed shifts */
-  250,  /* psradi: packed shifts w/ immediate */
-  408,  /* psllw_mmx: packed mmx arith */
-  409,  /* psllwi_mmx: packed mmx imm arith */
-  408,  /* pslld_mmx: packed mmx arith */
-  409,  /* pslldi_mmx: packed mmx imm arith */
-  408,  /* psllq_mmx: packed mmx arith */
-  409,  /* psllqi_mmx: packed mmx imm arith */
-  408,  /* psrlw_mmx: packed mmx arith */
-  409,  /* psrlwi_mmx: packed mmx imm arith */
-  408,  /* psrld_mmx: packed mmx arith */
-  409,  /* psrldi_mmx: packed mmx imm arith */
-  408,  /* psrlq_mmx: packed mmx arith */
-  409,  /* psrlqi_mmx: packed mmx imm arith */
-  408,  /* psraw_mmx: packed mmx arith */
-  409,  /* psrawi_mmx: packed mmx imm arith */
-  408,  /* psrad_mmx: packed mmx arith */
-  409,  /* psradi_mmx: packed mmx imm arith */
-  408,  /* pand_mmx: packed mmx arith */
-  408,  /* pandn_mmx: packed mmx arith */
-  408,  /* por_mmx: packed mmx arith */
-  408,  /* pxor_mmx: packed mmx arith */
+  233,  /* stss: float store */
+  233,  /* stntss: float store */
+  357,  /* stssx: fp store w/ indx */
+  357,  /* stntssx: fp store w/ indx */
+  359,  /* stssxx: fp store w/ indx w/o base */
+  359,  /* stntssxx: fp store w/ indx w/o base */
+  233,  /* stsd: float store */
+  233,  /* stntsd: float store */
+  357,  /* stsdx: fp store w/ indx */
+  357,  /* stntsdx: fp store w/ indx */
+  359,  /* stsdxx: fp store w/ indx w/o base */
+  359,  /* stntsdxx: fp store w/ indx w/o base */
+  261,  /* rcpss: float unary arithmetic */
+  262,  /* frcp128v32: float unary arithmetic extended */
+  261,  /* sqrtsd: float unary arithmetic */
+  261,  /* sqrtss: float unary arithmetic */
+  261,  /* rsqrtss: float unary arithmetic */
+  262,  /* fsqrt128v32: float unary arithmetic extended */
+  262,  /* frsqrt128v32: float unary arithmetic extended */
+  262,  /* fsqrt128v64: float unary arithmetic extended */
+  401,  /* punpcklwd: mmx vector arithmetic */
+  401,  /* punpcklbw: mmx vector arithmetic */
+  401,  /* punpckldq: mmx vector arithmetic */
+  240,  /* punpcklbw128: unpack */
+  240,  /* punpcklwd128: unpack */
+  240,  /* punpckldq128: unpack */
+  401,  /* punpckhbw: mmx vector arithmetic */
+  401,  /* punpckhwd: mmx vector arithmetic */
+  401,  /* punpckhdq: mmx vector arithmetic */
+  240,  /* punpckhbw128: unpack */
+  240,  /* punpckhwd128: unpack */
+  240,  /* punpckhdq128: unpack */
+  240,  /* punpcklqdq: unpack */
+  240,  /* punpckhqdq: unpack */
+  401,  /* packsswb: mmx vector arithmetic */
+  401,  /* packssdw: mmx vector arithmetic */
+  401,  /* packuswb: mmx vector arithmetic */
+  240,  /* packsswb128: unpack */
+  240,  /* packssdw128: unpack */
+  240,  /* packuswb128: unpack */
+  246,  /* pshufd: shuffle-int */
+  246,  /* pshufw: shuffle-int */
+  246,  /* pshuflw: shuffle-int */
+  246,  /* pshufhw: shuffle-int */
+  251,  /* pslldq: packed shifts w/ immediate */
+  252,  /* psllw: packed shifts */
+  251,  /* psllwi: packed shifts w/ immediate */
+  252,  /* pslld: packed shifts */
+  251,  /* pslldi: packed shifts w/ immediate */
+  252,  /* psllq: packed shifts */
+  251,  /* psllqi: packed shifts w/ immediate */
+  252,  /* psrlw: packed shifts */
+  251,  /* psrlwi: packed shifts w/ immediate */
+  252,  /* psrld: packed shifts */
+  251,  /* psrldi: packed shifts w/ immediate */
+  252,  /* psrlq: packed shifts */
+  251,  /* psrlqi: packed shifts w/ immediate */
+  252,  /* psraw: packed shifts */
+  251,  /* psrawi: packed shifts w/ immediate */
+  252,  /* psrad: packed shifts */
+  251,  /* psradi: packed shifts w/ immediate */
+  409,  /* psllw_mmx: packed mmx arith */
+  410,  /* psllwi_mmx: packed mmx imm arith */
+  409,  /* pslld_mmx: packed mmx arith */
+  410,  /* pslldi_mmx: packed mmx imm arith */
+  409,  /* psllq_mmx: packed mmx arith */
+  410,  /* psllqi_mmx: packed mmx imm arith */
+  409,  /* psrlw_mmx: packed mmx arith */
+  410,  /* psrlwi_mmx: packed mmx imm arith */
+  409,  /* psrld_mmx: packed mmx arith */
+  410,  /* psrldi_mmx: packed mmx imm arith */
+  409,  /* psrlq_mmx: packed mmx arith */
+  410,  /* psrlqi_mmx: packed mmx imm arith */
+  409,  /* psraw_mmx: packed mmx arith */
+  410,  /* psrawi_mmx: packed mmx imm arith */
+  409,  /* psrad_mmx: packed mmx arith */
+  410,  /* psradi_mmx: packed mmx imm arith */
+  409,  /* pand_mmx: packed mmx arith */
+  409,  /* pandn_mmx: packed mmx arith */
+  409,  /* por_mmx: packed mmx arith */
+  409,  /* pxor_mmx: packed mmx arith */
    57,  /* pand: vector arithmetic */
    57,  /* pandn: vector arithmetic */
    57,  /* por: vector arithmetic */
    57,  /* pxor: vector arithmetic */
-  239,  /* unpckhpd: unpack */
-  239,  /* unpckhps: unpack */
-  239,  /* unpcklpd: unpack */
-  239,  /* unpcklps: unpack */
-  240,  /* shufpd: shuffle */
-  240,  /* shufps: shuffle */
-  249,  /* movhlps: move-high-low */
-  249,  /* movlhps: move-high-low */
-  250,  /* psrldq: packed shifts w/ immediate */
-  250,  /* psrlq128v64: packed shifts w/ immediate */
+  240,  /* unpckhpd: unpack */
+  240,  /* unpckhps: unpack */
+  240,  /* unpcklpd: unpack */
+  240,  /* unpcklps: unpack */
+  241,  /* shufpd: shuffle */
+  241,  /* shufps: shuffle */
+  250,  /* movhlps: move-high-low */
+  250,  /* movlhps: move-high-low */
+  251,  /* psrldq: packed shifts w/ immediate */
+  251,  /* psrlq128v64: packed shifts w/ immediate */
    57,  /* subus128v16: vector arithmetic */
-  400,  /* pavgb: mmx vector arithmetic */
-  400,  /* pavgw: mmx vector arithmetic */
-  400,  /* psadbw: mmx vector arithmetic */
+  401,  /* pavgb: mmx vector arithmetic */
+  401,  /* pavgw: mmx vector arithmetic */
+  401,  /* psadbw: mmx vector arithmetic */
    57,  /* pavgb128: vector arithmetic */
    57,  /* pavgw128: vector arithmetic */
    57,  /* psadbw128: vector arithmetic */
-  398,  /* pextrw: packed word modification */
-  399,  /* pinsrw: packed word insertion */
-  396,  /* pmovmskb: mmx packed move */
-  397,  /* pmovmskb128: sse packed move */
-  402,  /* movi32_2m: mov int32 2 mmx */
-  403,  /* movi64_2m: mov int64 2 mmx */
-  404,  /* movm_2i32: mov mmx 2 int32 */
-  405,  /* movm_2i64: mov mmx 2 int64 */
-  401,  /* pshufw64v16: MMX shuffle-int */
-  420,  /* movmskps: fp128 2 int32 */
-  420,  /* movmskpd: fp128 2 int32 */
-  422,  /* maskmovdqu: maskmov sse */
-  421,  /* maskmovq: maskmov mmx */
-  423,  /* extrq: extract field xmm */
-  424,  /* insertq: insert field xmm */
-  427,  /* vfmaddss: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddxss: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddxrss: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmaddsd: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddxsd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddxrsd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmaddss: vector fma4 xmm xmm xmm */
-  428,  /* vfnmaddxss: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmaddxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmaddxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmaddxrss: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmaddxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmaddxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmaddsd: vector fma4 xmm xmm xmm */
-  428,  /* vfnmaddxsd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmaddxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmaddxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmaddxrsd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmaddxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmaddxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmaddps: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmaddpd: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmaddsubps: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddsubxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddsubxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmaddsubpd: vector fma4 xmm xmm xmm */
-  428,  /* vfmaddsubxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmaddsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmaddsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmaddsubxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmaddsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmaddsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmaddps: vector fma4 xmm xmm xmm */
-  428,  /* vfnmaddxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmaddxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmaddpd: vector fma4 xmm xmm xmm */
-  428,  /* vfnmaddxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmaddxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubss: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubxss: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubxrss: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubsd: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubxsd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubxrsd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmsubss: vector fma4 xmm xmm xmm */
-  428,  /* vfnmsubxss: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmsubxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmsubxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmsubxrss: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmsubxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmsubxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmsubsd: vector fma4 xmm xmm xmm */
-  428,  /* vfnmsubxsd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmsubxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmsubxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmsubxrsd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmsubxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmsubxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubps: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubpd: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubaddps: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubaddxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubaddxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfmsubaddpd: vector fma4 xmm xmm xmm */
-  428,  /* vfmsubaddxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfmsubaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfmsubaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfmsubaddxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfmsubaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfmsubaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmsubps: vector fma4 xmm xmm xmm */
-  428,  /* vfnmsubxps: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmsubxrps: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
-  427,  /* vfnmsubpd: vector fma4 xmm xmm xmm */
-  428,  /* vfnmsubxpd: vector fma4 xmm xmm mem opnd */
-  429,  /* vfnmsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
-  430,  /* vfnmsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
-  431,  /* vfnmsubxrpd: vector fma4 xmm mem opnd xmm */
-  432,  /* vfnmsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
-  433,  /* vfnmsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  399,  /* pextrw: packed word modification */
+  400,  /* pinsrw: packed word insertion */
+  397,  /* pmovmskb: mmx packed move */
+  398,  /* pmovmskb128: sse packed move */
+  403,  /* movi32_2m: mov int32 2 mmx */
+  404,  /* movi64_2m: mov int64 2 mmx */
+  405,  /* movm_2i32: mov mmx 2 int32 */
+  406,  /* movm_2i64: mov mmx 2 int64 */
+  402,  /* pshufw64v16: MMX shuffle-int */
+  421,  /* movmskps: fp128 2 int32 */
+  421,  /* movmskpd: fp128 2 int32 */
+  423,  /* maskmovdqu: maskmov sse */
+  422,  /* maskmovq: maskmov mmx */
+  424,  /* extrq: extract field xmm */
+  425,  /* insertq: insert field xmm */
+  428,  /* vfmaddss: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddxss: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddxrss: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmaddsd: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddxsd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddxrsd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmaddss: vector fma4 xmm xmm xmm */
+  429,  /* vfnmaddxss: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmaddxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmaddxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmaddxrss: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmaddxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmaddxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmaddsd: vector fma4 xmm xmm xmm */
+  429,  /* vfnmaddxsd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmaddxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmaddxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmaddxrsd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmaddxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmaddxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmaddps: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmaddpd: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmaddsubps: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddsubxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddsubxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmaddsubpd: vector fma4 xmm xmm xmm */
+  429,  /* vfmaddsubxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmaddsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmaddsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmaddsubxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmaddsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmaddsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmaddps: vector fma4 xmm xmm xmm */
+  429,  /* vfnmaddxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmaddxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmaddpd: vector fma4 xmm xmm xmm */
+  429,  /* vfnmaddxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmaddxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubss: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubxss: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubxrss: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubsd: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubxsd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubxrsd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmsubss: vector fma4 xmm xmm xmm */
+  429,  /* vfnmsubxss: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmsubxxss: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmsubxxxss: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmsubxrss: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmsubxxrss: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmsubxxxrss: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmsubsd: vector fma4 xmm xmm xmm */
+  429,  /* vfnmsubxsd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmsubxxsd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmsubxxxsd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmsubxrsd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmsubxxrsd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmsubxxxrsd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubps: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubpd: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubaddps: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubaddxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubaddxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubaddxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubaddxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubaddxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubaddxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfmsubaddpd: vector fma4 xmm xmm xmm */
+  429,  /* vfmsubaddxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfmsubaddxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfmsubaddxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfmsubaddxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfmsubaddxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfmsubaddxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmsubps: vector fma4 xmm xmm xmm */
+  429,  /* vfnmsubxps: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmsubxxps: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmsubxxxps: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmsubxrps: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmsubxxrps: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmsubxxxrps: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
+  428,  /* vfnmsubpd: vector fma4 xmm xmm xmm */
+  429,  /* vfnmsubxpd: vector fma4 xmm xmm mem opnd */
+  430,  /* vfnmsubxxpd: vector fma4 xmm xmm mem opnd w/ scaled index */
+  431,  /* vfnmsubxxxpd: vector fma4 xmm xmm mem opnd w/ scaled index w/o base */
+  432,  /* vfnmsubxrpd: vector fma4 xmm mem opnd xmm */
+  433,  /* vfnmsubxxrpd: vector fma4 xmm mem opnd w/ scaled index xmm */
+  434,  /* vfnmsubxxxrpd: vector fma4 xmm mem opnd w/ scaled index w/o base xmm */
     0,  /* vzeroupper: no operand */
     0,  /* mfence: no operand */
     0,  /* lfence: no operand */
@@ -2846,17 +2849,17 @@ const mUINT16 ISA_OPERAND_info_index[] = {
     2,  /* monitor: sse3 monitor */
     3,  /* mwait: sse3 mwait */
     0,  /* asm: no operand */
-  370,  /* intrncall: intrncall */
-  368,  /* spadjust: spadjust */
-  369,  /* savexmms: savexmms */
-  373,  /* zero32: zero32 */
-  374,  /* zero64: zero64 */
-  375,  /* xzero32: xzero */
-  375,  /* xzero64: xzero */
-  376,  /* xzero128v32: xzerov */
-  376,  /* xzero128v64: xzerov */
-  256,  /* fadd: x87 float arithmetic */
-  256,  /* faddp: x87 float arithmetic */
+  371,  /* intrncall: intrncall */
+  369,  /* spadjust: spadjust */
+  370,  /* savexmms: savexmms */
+  374,  /* zero32: zero32 */
+  375,  /* zero64: zero64 */
+  376,  /* xzero32: xzero */
+  376,  /* xzero64: xzero */
+  377,  /* xzero128v32: xzerov */
+  377,  /* xzero128v64: xzerov */
+  257,  /* fadd: x87 float arithmetic */
+  257,  /* faddp: x87 float arithmetic */
   225,  /* flds: x87 float load */
   226,  /* flds_n32: x87 float load w/o index or base */
   225,  /* fldl: x87 float load */
@@ -2864,47 +2867,47 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   225,  /* fldt: x87 float load */
   226,  /* fldt_n32: x87 float load w/o index or base */
   224,  /* fld: x87-stack float load */
-  236,  /* fst: x87 store and pop */
-  236,  /* fstp: x87 store and pop */
-  237,  /* fstps: x87 float store */
-  238,  /* fstps_n32: x87 float store w/o base or index */
-  237,  /* fstpl: x87 float store */
-  238,  /* fstpl_n32: x87 float store w/o base or index */
-  237,  /* fstpt: x87 float store */
-  238,  /* fstpt_n32: x87 float store w/o base or index */
-  237,  /* fsts: x87 float store */
-  238,  /* fsts_n32: x87 float store w/o base or index */
-  237,  /* fstl: x87 float store */
-  238,  /* fstl_n32: x87 float store w/o base or index */
-  255,  /* fxch: x87 float exchange */
-  264,  /* fmov: x87 to x87 */
-  256,  /* fsub: x87 float arithmetic */
-  256,  /* fsubr: x87 float arithmetic */
-  256,  /* fsubp: x87 float arithmetic */
-  256,  /* fsubrp: x87 float arithmetic */
-  256,  /* fmul: x87 float arithmetic */
-  256,  /* fmulp: x87 float arithmetic */
-  256,  /* fdiv: x87 float arithmetic */
-  256,  /* fdivp: x87 float arithmetic */
-  256,  /* fdivr: x87 float arithmetic */
-  256,  /* fdivrp: x87 float arithmetic */
-  313,  /* fucomi: x87 fp compare */
-  313,  /* fucomip: x87 fp compare */
-  264,  /* fchs: x87 to x87 */
-  264,  /* frndint: x87 to x87 */
+  237,  /* fst: x87 store and pop */
+  237,  /* fstp: x87 store and pop */
+  238,  /* fstps: x87 float store */
+  239,  /* fstps_n32: x87 float store w/o base or index */
+  238,  /* fstpl: x87 float store */
+  239,  /* fstpl_n32: x87 float store w/o base or index */
+  238,  /* fstpt: x87 float store */
+  239,  /* fstpt_n32: x87 float store w/o base or index */
+  238,  /* fsts: x87 float store */
+  239,  /* fsts_n32: x87 float store w/o base or index */
+  238,  /* fstl: x87 float store */
+  239,  /* fstl_n32: x87 float store w/o base or index */
+  256,  /* fxch: x87 float exchange */
+  265,  /* fmov: x87 to x87 */
+  257,  /* fsub: x87 float arithmetic */
+  257,  /* fsubr: x87 float arithmetic */
+  257,  /* fsubp: x87 float arithmetic */
+  257,  /* fsubrp: x87 float arithmetic */
+  257,  /* fmul: x87 float arithmetic */
+  257,  /* fmulp: x87 float arithmetic */
+  257,  /* fdiv: x87 float arithmetic */
+  257,  /* fdivp: x87 float arithmetic */
+  257,  /* fdivr: x87 float arithmetic */
+  257,  /* fdivrp: x87 float arithmetic */
+  314,  /* fucomi: x87 fp compare */
+  314,  /* fucomip: x87 fp compare */
+  265,  /* fchs: x87 to x87 */
+  265,  /* frndint: x87 to x87 */
   228,  /* fnstcw: x87 control-word store */
   227,  /* fldcw: x87 control-word load */
-  235,  /* fistps: x87 float store */
-  235,  /* fistpl: x87 float store */
-  235,  /* fists: x87 float store */
-  235,  /* fistl: x87 float store */
-  235,  /* fistpll: x87 float store */
+  236,  /* fistps: x87 float store */
+  236,  /* fistpl: x87 float store */
+  236,  /* fists: x87 float store */
+  236,  /* fistl: x87 float store */
+  236,  /* fistpll: x87 float store */
   225,  /* filds: x87 float load */
   225,  /* fildl: x87 float load */
   225,  /* fildll: x87 float load */
-  263,  /* fldz: x87 load const */
-  264,  /* fabs: x87 to x87 */
-  264,  /* fsqrt: x87 to x87 */
+  264,  /* fldz: x87 load const */
+  265,  /* fabs: x87 to x87 */
+  265,  /* fsqrt: x87 to x87 */
   192,  /* fcmovb: cond x87 mov */
   192,  /* fcmovbe: cond x87 mov */
   192,  /* fcmovnb: cond x87 mov */
@@ -2913,47 +2916,47 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   192,  /* fcmovne: cond x87 mov */
   192,  /* fcmovu: cond x87 mov */
   192,  /* fcmovnu: cond x87 mov */
-  264,  /* fcos: x87 to x87 */
-  264,  /* fsin: x87 to x87 */
-  321,  /* cmpeqpd: fp vector compare I */
-  321,  /* cmpltpd: fp vector compare I */
-  321,  /* cmplepd: fp vector compare I */
-  321,  /* cmpunordpd: fp vector compare I */
-  321,  /* cmpneqpd: fp vector compare I */
-  321,  /* cmpnltpd: fp vector compare I */
-  321,  /* cmpnlepd: fp vector compare I */
-  321,  /* cmpordpd: fp vector compare I */
-  321,  /* cmpeqps: fp vector compare I */
-  321,  /* cmpltps: fp vector compare I */
-  321,  /* cmpleps: fp vector compare I */
-  321,  /* cmpunordps: fp vector compare I */
-  321,  /* cmpneqps: fp vector compare I */
-  321,  /* cmpnltps: fp vector compare I */
-  321,  /* cmpnleps: fp vector compare I */
-  321,  /* cmpordps: fp vector compare I */
-  315,  /* cmpeqsd: fp compare I */
-  315,  /* cmpltsd: fp compare I */
-  315,  /* cmplesd: fp compare I */
-  315,  /* cmpunordsd: fp compare I */
-  315,  /* cmpneqsd: fp compare I */
-  315,  /* cmpnltsd: fp compare I */
-  315,  /* cmpnlesd: fp compare I */
-  315,  /* cmpordsd: fp compare I */
-  315,  /* cmpeqss: fp compare I */
-  315,  /* cmpltss: fp compare I */
-  315,  /* cmpless: fp compare I */
-  315,  /* cmpunordss: fp compare I */
-  315,  /* cmpneqss: fp compare I */
-  315,  /* cmpnltss: fp compare I */
-  315,  /* cmpnless: fp compare I */
-  315,  /* cmpordss: fp compare I */
+  265,  /* fcos: x87 to x87 */
+  265,  /* fsin: x87 to x87 */
+  322,  /* cmpeqpd: fp vector compare I */
+  322,  /* cmpltpd: fp vector compare I */
+  322,  /* cmplepd: fp vector compare I */
+  322,  /* cmpunordpd: fp vector compare I */
+  322,  /* cmpneqpd: fp vector compare I */
+  322,  /* cmpnltpd: fp vector compare I */
+  322,  /* cmpnlepd: fp vector compare I */
+  322,  /* cmpordpd: fp vector compare I */
+  322,  /* cmpeqps: fp vector compare I */
+  322,  /* cmpltps: fp vector compare I */
+  322,  /* cmpleps: fp vector compare I */
+  322,  /* cmpunordps: fp vector compare I */
+  322,  /* cmpneqps: fp vector compare I */
+  322,  /* cmpnltps: fp vector compare I */
+  322,  /* cmpnleps: fp vector compare I */
+  322,  /* cmpordps: fp vector compare I */
+  316,  /* cmpeqsd: fp compare I */
+  316,  /* cmpltsd: fp compare I */
+  316,  /* cmplesd: fp compare I */
+  316,  /* cmpunordsd: fp compare I */
+  316,  /* cmpneqsd: fp compare I */
+  316,  /* cmpnltsd: fp compare I */
+  316,  /* cmpnlesd: fp compare I */
+  316,  /* cmpordsd: fp compare I */
+  316,  /* cmpeqss: fp compare I */
+  316,  /* cmpltss: fp compare I */
+  316,  /* cmpless: fp compare I */
+  316,  /* cmpunordss: fp compare I */
+  316,  /* cmpneqss: fp compare I */
+  316,  /* cmpnltss: fp compare I */
+  316,  /* cmpnless: fp compare I */
+  316,  /* cmpordss: fp compare I */
     0,  /* emms: no operand */
-  364,  /* stmxcsr: jump mem */
-  364,  /* ldmxcsr: jump mem */
+  365,  /* stmxcsr: jump mem */
+  365,  /* ldmxcsr: jump mem */
     1,  /* clflush: sse2 clflush */
-  235,  /* fisttps: x87 float store */
-  235,  /* fisttpl: x87 float store */
-  235,  /* fisttpll: x87 float store */
+  236,  /* fisttps: x87 float store */
+  236,  /* fisttpl: x87 float store */
+  236,  /* fisttpll: x87 float store */
    45,  /* pabs128v8: vector unary reg */
    46,  /* pabsx128v8: vector unary mem opnd */
    47,  /* pabsxx128v8: vector unary mem opnd w/ scaled index */
@@ -2978,10 +2981,10 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* psignx128v32: vector arithmetic mem opnd */
    59,  /* psignxx128v32: vector arithmetic mem opnd w/ scaled index */
    60,  /* psignxxx128v32: vector arithmetic mem opnd w/ scaled index w/o base */
-  241,  /* pshuf128v8: pshufb */
-  242,  /* pshufx128v8: pshufb mem */
-  243,  /* pshufxx128v8: pshufb mem w/ scaled index w/ base */
-  244,  /* pshufxxx128v8: pshufb mem w/ scaled index w/o base */
+  242,  /* pshuf128v8: pshufb */
+  243,  /* pshufx128v8: pshufb mem */
+  244,  /* pshufxx128v8: pshufb mem w/ scaled index w/ base */
+  245,  /* pshufxxx128v8: pshufb mem w/ scaled index w/o base */
    57,  /* phsub128v16: vector arithmetic */
    58,  /* phsubx128v16: vector arithmetic mem opnd */
    59,  /* phsubxx128v16: vector arithmetic mem opnd w/ scaled index */
@@ -3022,10 +3025,10 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* muldqx: vector arithmetic mem opnd */
    59,  /* muldqxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* muldqxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  230,  /* ldntdqa: float load vector */
+  231,  /* ldntdqa: float load vector */
    58,  /* ldntdqax: vector arithmetic mem opnd */
    59,  /* ldntdqaxx: vector arithmetic mem opnd w/ scaled index */
-  234,  /* stntdq: float store vector */
+  235,  /* stntdq: float store vector */
    58,  /* stntdqx: vector arithmetic mem opnd */
    59,  /* stntdqxx: vector arithmetic mem opnd w/ scaled index */
    57,  /* minu128v8: vector arithmetic */
@@ -3140,10 +3143,10 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    46,  /* phminposuwx: vector unary mem opnd */
    47,  /* phminposuwxx: vector unary mem opnd w/ scaled index */
    48,  /* phminposuwxxx: vector unary mem opnd w/ scaled index w/o base */
-  316,  /* ptest128: vector ptest reg */
-  317,  /* ptestx128: vector ptest mem opnd */
-  318,  /* ptestxx128: vector ptest mem opnd w/ scaled index */
-  319,  /* ptestxxx128: vector ptest mem opnd w/ scaled index w/o base */
+  317,  /* ptest128: vector ptest reg */
+  318,  /* ptestx128: vector ptest mem opnd */
+  319,  /* ptestxx128: vector ptest mem opnd w/ scaled index */
+  320,  /* ptestxxx128: vector ptest mem opnd w/ scaled index w/o base */
    66,  /* roundsd: vector res reg imm */
    67,  /* roundxsd: vector res mem imm */
    68,  /* roundxxsd: vector res reg mem imm w/ scaled index */
@@ -3256,22 +3259,22 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    15,  /* crc32bx: sse4.2 crc32 mem opnd */
    17,  /* crc32bxx: sse4.2 crc32 mem opnd w/ scaled index */
    19,  /* crc32bxxx: sse4.2 crc32 mem opnd w/ scaled index w/o base */
-  442,  /* cmpestrm: pcmpestrm reg */
-  443,  /* cmpestrmx: pcmpestrm mem opnd */
-  444,  /* cmpestrmxx: pcmpestrm mem opnd w/ scaled index */
-  445,  /* cmpestrmxxx: pcmpestrm mem opnd w/ scaled index w/o base */
-  438,  /* cmpestri: pcmpestri reg */
-  439,  /* cmpestrix: pcmpestri mem opnd */
-  440,  /* cmpestrixx: pcmpestri mem opnd w/ scaled index */
-  441,  /* cmpestrixxx: pcmpestri mem opnd w/ scaled index w/o base */
-  450,  /* cmpistrm: pcmpistrm reg */
-  451,  /* cmpistrmx: pcmpistrm mem opnd */
-  452,  /* cmpistrmxx: pcmpistrm mem opnd w/ scaled index */
-  453,  /* cmpistrmxxx: pcmpistrm mem opnd w/ scaled index w/o base */
-  446,  /* cmpistri: pcmpistri reg */
-  447,  /* cmpistrix: pcmpistri mem opnd */
-  448,  /* cmpistrixx: pcmpistri mem opnd w/ scaled index */
-  449,  /* cmpistrixxx: pcmpistri mem opnd w/ scaled index w/o base */
+  443,  /* cmpestrm: pcmpestrm reg */
+  444,  /* cmpestrmx: pcmpestrm mem opnd */
+  445,  /* cmpestrmxx: pcmpestrm mem opnd w/ scaled index */
+  446,  /* cmpestrmxxx: pcmpestrm mem opnd w/ scaled index w/o base */
+  439,  /* cmpestri: pcmpestri reg */
+  440,  /* cmpestrix: pcmpestri mem opnd */
+  441,  /* cmpestrixx: pcmpestri mem opnd w/ scaled index */
+  442,  /* cmpestrixxx: pcmpestri mem opnd w/ scaled index w/o base */
+  451,  /* cmpistrm: pcmpistrm reg */
+  452,  /* cmpistrmx: pcmpistrm mem opnd */
+  453,  /* cmpistrmxx: pcmpistrm mem opnd w/ scaled index */
+  454,  /* cmpistrmxxx: pcmpistrm mem opnd w/ scaled index w/o base */
+  447,  /* cmpistri: pcmpistri reg */
+  448,  /* cmpistrix: pcmpistri mem opnd */
+  449,  /* cmpistrixx: pcmpistri mem opnd w/ scaled index */
+  450,  /* cmpistrixxx: pcmpistri mem opnd w/ scaled index w/o base */
    21,  /* popcnt16: int16 unary reg */
    22,  /* popcntx16: int16 unary mem opnd */
    23,  /* popcntxx16: int16 unary mem opnd w/ scaled index */
@@ -3675,32 +3678,32 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    33,  /* vfbroadcastf128: vector broadcast mem */
    34,  /* vfbroadcastxf128: vector broadcast mem w/ scaled index */
    35,  /* vfbroadcastxxf128: vector broadcast mem w/ scaled index w/o base */
-   75,  /* vcmppd: vector res reg reg imm */
-   75,  /* vfcmp128v64: vector res reg reg imm */
+  321,  /* vcmppd: fp vector compare */
+  321,  /* vfcmp128v64: fp vector compare */
    76,  /* vfcmpx128v64: vector res reg mem imm */
    77,  /* vfcmpxx128v64: vector res reg mem imm w/ scaled index */
    78,  /* vfcmpxxx128v64: vector res reg mem imm w/ scaled index w/o base */
-   75,  /* vcmpps: vector res reg reg imm */
-   75,  /* vfcmp128v32: vector res reg reg imm */
+  321,  /* vcmpps: fp vector compare */
+  321,  /* vfcmp128v32: fp vector compare */
    76,  /* vfcmpx128v32: vector res reg mem imm */
    77,  /* vfcmpxx128v32: vector res reg mem imm w/ scaled index */
    78,  /* vfcmpxxx128v32: vector res reg mem imm w/ scaled index w/o base */
-   75,  /* vfcmpsd: vector res reg reg imm */
-   76,  /* vfcmpxsd: vector res reg mem imm */
-   77,  /* vfcmpxxsd: vector res reg mem imm w/ scaled index */
-   78,  /* vfcmpxxxsd: vector res reg mem imm w/ scaled index w/o base */
-   75,  /* vfcmpss: vector res reg reg imm */
-   76,  /* vfcmpxss: vector res reg mem imm */
-   77,  /* vfcmpxxss: vector res reg mem imm w/ scaled index */
-   78,  /* vfcmpxxxss: vector res reg mem imm w/ scaled index w/o base */
-  309,  /* vcomisd: fp ordered compare */
-  310,  /* vcomixsd: fp ordered compare mem opnd */
-  311,  /* vcomixxsd: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* vcomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
-  309,  /* vcomiss: fp ordered compare */
-  310,  /* vcomixss: fp ordered compare mem opnd */
-  311,  /* vcomixxss: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* vcomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
+  315,  /* vcmpsd: fp compare */
+   76,  /* vcmpxsd: vector res reg mem imm */
+   77,  /* vcmpxxsd: vector res reg mem imm w/ scaled index */
+   78,  /* vcmpxxxsd: vector res reg mem imm w/ scaled index w/o base */
+  315,  /* vcmpss: fp compare */
+   76,  /* vcmpxss: vector res reg mem imm */
+   77,  /* vcmpxxss: vector res reg mem imm w/ scaled index */
+   78,  /* vcmpxxxss: vector res reg mem imm w/ scaled index w/o base */
+  310,  /* vcomisd: fp ordered compare */
+  311,  /* vcomixsd: fp ordered compare mem opnd */
+  312,  /* vcomixxsd: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* vcomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
+  310,  /* vcomiss: fp ordered compare */
+  311,  /* vcomixss: fp ordered compare mem opnd */
+  312,  /* vcomixxss: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* vcomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
   194,  /* vcvtdq2pd: vector cvt */
   197,  /* vcvtdq2pdx: vector cvt I */
   199,  /* vcvtdq2pdxx: vector cvt II */
@@ -3741,20 +3744,20 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    60,  /* vcvtsd2ssxxx: vector arithmetic mem opnd w/ scaled index w/o base */
   204,  /* vcvtsi2sd: avx int32 2 float */
   223,  /* vcvtsi2sdx: avx float convert */
-  350,  /* vcvtsi2sdxx: avx fp convert w/ indx */
-  354,  /* vcvtsi2sdxxx: avx fp convert w/ indx w/o base */
+  351,  /* vcvtsi2sdxx: avx fp convert w/ indx */
+  355,  /* vcvtsi2sdxxx: avx fp convert w/ indx w/o base */
   206,  /* vcvtsi2sdq: avx int64 2 float */
   223,  /* vcvtsi2sdqx: avx float convert */
-  350,  /* vcvtsi2sdqxx: avx fp convert w/ indx */
-  354,  /* vcvtsi2sdqxxx: avx fp convert w/ indx w/o base */
+  351,  /* vcvtsi2sdqxx: avx fp convert w/ indx */
+  355,  /* vcvtsi2sdqxxx: avx fp convert w/ indx w/o base */
   204,  /* vcvtsi2ss: avx int32 2 float */
   223,  /* vcvtsi2ssx: avx float convert */
-  350,  /* vcvtsi2ssxx: avx fp convert w/ indx */
-  354,  /* vcvtsi2ssxxx: avx fp convert w/ indx w/o base */
+  351,  /* vcvtsi2ssxx: avx fp convert w/ indx */
+  355,  /* vcvtsi2ssxxx: avx fp convert w/ indx w/o base */
   206,  /* vcvtsi2ssq: avx int64 2 float */
   223,  /* vcvtsi2ssqx: avx float convert */
-  350,  /* vcvtsi2ssqxx: avx fp convert w/ indx */
-  354,  /* vcvtsi2ssqxxx: avx fp convert w/ indx w/o base */
+  351,  /* vcvtsi2ssqxx: avx fp convert w/ indx */
+  355,  /* vcvtsi2ssqxxx: avx fp convert w/ indx w/o base */
    57,  /* vcvtss2sd: vector arithmetic */
    58,  /* vcvtss2sdx: vector arithmetic mem opnd */
    59,  /* vcvtss2sdxx: vector arithmetic mem opnd w/ scaled index */
@@ -3833,11 +3836,11 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    76,  /* vfinsrx128v32: vector res reg mem imm */
    77,  /* vfinsrxx128v32: vector res reg mem imm w/ scaled index */
    78,  /* vfinsrxxx128v32: vector res reg mem imm w/ scaled index w/o base */
-  230,  /* vlddqu: float load vector */
-  351,  /* vlddqux: fp load vector w/ indx */
-  355,  /* vlddquxx: fp load vector w/ indx w/o base */
+  231,  /* vlddqu: float load vector */
+  352,  /* vlddqux: fp load vector w/ indx */
+  356,  /* vlddquxx: fp load vector w/ indx w/o base */
   229,  /* vlddqu_n32: float load vector w/o base or index */
-  360,  /* vldmxcsr: load mxcsr */
+  361,  /* vldmxcsr: load mxcsr */
    38,  /* vmaskmovdqu: vector maskmov */
    39,  /* vfmaskld128v32: vector mask load */
    40,  /* vfmaskldx128v32: vector mask load w/ scaled index w/ base */
@@ -3884,127 +3887,127 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    59,  /* vfminxxss: vector arithmetic mem opnd w/ scaled index */
    60,  /* vfminxxxss: vector arithmetic mem opnd w/ scaled index w/o base */
    36,  /* vmovapd: vector mov */
-  230,  /* vldapd: float load vector */
-  351,  /* vldapdx: fp load vector w/ indx */
-  355,  /* vldapdxx: fp load vector w/ indx w/o base */
+  231,  /* vldapd: float load vector */
+  352,  /* vldapdx: fp load vector w/ indx */
+  356,  /* vldapdxx: fp load vector w/ indx w/o base */
   229,  /* vldapd_n32: float load vector w/o base or index */
-  234,  /* vstapd: float store vector */
-  357,  /* vstapdx: fp store vector w/ indx */
-  359,  /* vstapdxx: fp store vector w/ indx w/o base */
-  233,  /* vstapd_n32: float store vector w/o base or index */
+  235,  /* vstapd: float store vector */
+  358,  /* vstapdx: fp store vector w/ indx */
+  360,  /* vstapdxx: fp store vector w/ indx w/o base */
+  234,  /* vstapd_n32: float store vector w/o base or index */
    36,  /* vmovaps: vector mov */
-  230,  /* vldaps: float load vector */
-  351,  /* vldapsx: fp load vector w/ indx */
-  355,  /* vldapsxx: fp load vector w/ indx w/o base */
+  231,  /* vldaps: float load vector */
+  352,  /* vldapsx: fp load vector w/ indx */
+  356,  /* vldapsxx: fp load vector w/ indx w/o base */
   229,  /* vldaps_n32: float load vector w/o base or index */
-  234,  /* vstaps: float store vector */
-  357,  /* vstapsx: fp store vector w/ indx */
-  359,  /* vstapsxx: fp store vector w/ indx w/o base */
-  233,  /* vstaps_n32: float store vector w/o base or index */
+  235,  /* vstaps: float store vector */
+  358,  /* vstapsx: fp store vector w/ indx */
+  360,  /* vstapsxx: fp store vector w/ indx w/o base */
+  234,  /* vstaps_n32: float store vector w/o base or index */
   203,  /* vmovg2x: int32 2 float */
   205,  /* vmovg2x64: int64 2 float */
   207,  /* vmovx2g: fp 2 int32 */
   208,  /* vmovx2g64: fp 2 int64 */
-  412,  /* vld64_2sse: int64 load to sse */
-  413,  /* vldx64_2sse: int64 load to sse w/ scaled index w/ base */
-  414,  /* vldxx64_2sse: int64 load to sse w/ scaled index w/o base */
-  415,  /* vld64_2sse_n32: int64 load to sse w/o base or index */
-  416,  /* vst64_fsse: int64 store from sse */
-  417,  /* vstx64_fsse: int64 store from sse w/ scaled index w/ base */
-  418,  /* vstxx64_fsse: int64 store from sse w/ scaled index w/o base */
-  419,  /* vst64_fsse_n32: int64 store from sse w/o base or index */
+  413,  /* vld64_2sse: int64 load to sse */
+  414,  /* vldx64_2sse: int64 load to sse w/ scaled index w/ base */
+  415,  /* vldxx64_2sse: int64 load to sse w/ scaled index w/o base */
+  416,  /* vld64_2sse_n32: int64 load to sse w/o base or index */
+  417,  /* vst64_fsse: int64 store from sse */
+  418,  /* vstx64_fsse: int64 store from sse w/ scaled index w/ base */
+  419,  /* vstxx64_fsse: int64 store from sse w/ scaled index w/o base */
+  420,  /* vst64_fsse_n32: int64 store from sse w/o base or index */
    45,  /* vmovddup: vector unary reg */
    46,  /* vmovddupx: vector unary mem opnd */
    47,  /* vmovddupxx: vector unary mem opnd w/ scaled index */
    48,  /* vmovddupxxx: vector unary mem opnd w/ scaled index w/o base */
-  230,  /* vlddqa: float load vector */
-  351,  /* vlddqax: fp load vector w/ indx */
-  355,  /* vlddqaxx: fp load vector w/ indx w/o base */
+  231,  /* vlddqa: float load vector */
+  352,  /* vlddqax: fp load vector w/ indx */
+  356,  /* vlddqaxx: fp load vector w/ indx w/o base */
   229,  /* vlddqa_n32: float load vector w/o base or index */
    36,  /* vmovdqa: vector mov */
-  234,  /* vstdqa: float store vector */
-  357,  /* vstdqax: fp store vector w/ indx */
-  359,  /* vstdqaxx: fp store vector w/ indx w/o base */
-  233,  /* vstdqa_n32: float store vector w/o base or index */
-  234,  /* vstdqu: float store vector */
-  357,  /* vstdqux: fp store vector w/ indx */
-  359,  /* vstdquxx: fp store vector w/ indx w/o base */
-  233,  /* vstdqu_n32: float store vector w/o base or index */
-  230,  /* vldhpd: float load vector */
-  351,  /* vldhpdx: fp load vector w/ indx */
-  355,  /* vldhpdxx: fp load vector w/ indx w/o base */
-  229,  /* vldhpd_n32: float load vector w/o base or index */
-  234,  /* vsthpd: float store vector */
-  357,  /* vsthpdx: fp store vector w/ indx */
-  359,  /* vsthpdxx: fp store vector w/ indx w/o base */
-  233,  /* vsthpd_n32: float store vector w/o base or index */
-  230,  /* vldhps: float load vector */
-  351,  /* vldhpsx: fp load vector w/ indx */
-  355,  /* vldhpsxx: fp load vector w/ indx w/o base */
-  229,  /* vldhps_n32: float load vector w/o base or index */
-  234,  /* vsthps: float store vector */
-  357,  /* vsthpsx: fp store vector w/ indx */
-  359,  /* vsthpsxx: fp store vector w/ indx w/o base */
-  233,  /* vsthps_n32: float store vector w/o base or index */
-  230,  /* vldlpd: float load vector */
-  351,  /* vldlpdx: fp load vector w/ indx */
-  355,  /* vldlpdxx: fp load vector w/ indx w/o base */
-  229,  /* vldlpd_n32: float load vector w/o base or index */
-  234,  /* vstorelpd: float store vector */
-  234,  /* vstlpd: float store vector */
-  357,  /* vstlpdx: fp store vector w/ indx */
-  359,  /* vstlpdxx: fp store vector w/ indx w/o base */
-  233,  /* vstlpd_n32: float store vector w/o base or index */
-  230,  /* vldlps: float load vector */
-  351,  /* vldlpsx: fp load vector w/ indx */
-  355,  /* vldlpsxx: fp load vector w/ indx w/o base */
-  229,  /* vldlps_n32: float load vector w/o base or index */
-  234,  /* vstlps: float store vector */
-  357,  /* vstlpsx: fp store vector w/ indx */
-  359,  /* vstlpsxx: fp store vector w/ indx w/o base */
-  233,  /* vstlps_n32: float store vector w/o base or index */
+  235,  /* vstdqa: float store vector */
+  358,  /* vstdqax: fp store vector w/ indx */
+  360,  /* vstdqaxx: fp store vector w/ indx w/o base */
+  234,  /* vstdqa_n32: float store vector w/o base or index */
+  235,  /* vstdqu: float store vector */
+  358,  /* vstdqux: fp store vector w/ indx */
+  360,  /* vstdquxx: fp store vector w/ indx w/o base */
+  234,  /* vstdqu_n32: float store vector w/o base or index */
+   58,  /* vldhpd: vector arithmetic mem opnd */
+   59,  /* vldhpdx: vector arithmetic mem opnd w/ scaled index */
+   60,  /* vldhpdxx: vector arithmetic mem opnd w/ scaled index w/o base */
+  230,  /* vldhpd_n32: avx float load vector w/o base or index */
+  235,  /* vsthpd: float store vector */
+  358,  /* vsthpdx: fp store vector w/ indx */
+  360,  /* vsthpdxx: fp store vector w/ indx w/o base */
+  234,  /* vsthpd_n32: float store vector w/o base or index */
+   58,  /* vldhps: vector arithmetic mem opnd */
+   59,  /* vldhpsx: vector arithmetic mem opnd w/ scaled index */
+   60,  /* vldhpsxx: vector arithmetic mem opnd w/ scaled index w/o base */
+  230,  /* vldhps_n32: avx float load vector w/o base or index */
+  235,  /* vsthps: float store vector */
+  358,  /* vsthpsx: fp store vector w/ indx */
+  360,  /* vsthpsxx: fp store vector w/ indx w/o base */
+  234,  /* vsthps_n32: float store vector w/o base or index */
+   58,  /* vldlpd: vector arithmetic mem opnd */
+   59,  /* vldlpdx: vector arithmetic mem opnd w/ scaled index */
+   60,  /* vldlpdxx: vector arithmetic mem opnd w/ scaled index w/o base */
+  230,  /* vldlpd_n32: avx float load vector w/o base or index */
+  235,  /* vstorelpd: float store vector */
+  235,  /* vstlpd: float store vector */
+  358,  /* vstlpdx: fp store vector w/ indx */
+  360,  /* vstlpdxx: fp store vector w/ indx w/o base */
+  234,  /* vstlpd_n32: float store vector w/o base or index */
+   58,  /* vldlps: vector arithmetic mem opnd */
+   59,  /* vldlpsx: vector arithmetic mem opnd w/ scaled index */
+   60,  /* vldlpsxx: vector arithmetic mem opnd w/ scaled index w/o base */
+  230,  /* vldlps_n32: avx float load vector w/o base or index */
+  235,  /* vstlps: float store vector */
+  358,  /* vstlpsx: fp store vector w/ indx */
+  360,  /* vstlpsxx: fp store vector w/ indx w/o base */
+  234,  /* vstlps_n32: float store vector w/o base or index */
   209,  /* vmovmskpd: avx move mask */
   209,  /* vmovmskps: avx move mask */
-  234,  /* vstorenti128: float store vector */
-  357,  /* vstorentxi128: fp store vector w/ indx */
-  359,  /* vstorentxxi128: fp store vector w/ indx w/o base */
-  230,  /* vldntdqa: float load vector */
-  351,  /* vldntdqax: fp load vector w/ indx */
-  355,  /* vldntdqaxx: fp load vector w/ indx w/o base */
-  234,  /* vstntdq: float store vector */
-  357,  /* vstntdqx: fp store vector w/ indx */
-  359,  /* vstntdqxx: fp store vector w/ indx w/o base */
-  234,  /* vstntpd: float store vector */
-  357,  /* vstntpdx: fp store vector w/ indx */
-  359,  /* vstntpdxx: fp store vector w/ indx w/o base */
-  234,  /* vstntps: float store vector */
-  357,  /* vstntpsx: fp store vector w/ indx */
-  359,  /* vstntpsxx: fp store vector w/ indx w/o base */
-  234,  /* vstntsd: float store vector */
-  357,  /* vstntsdx: fp store vector w/ indx */
-  359,  /* vstntsdxx: fp store vector w/ indx w/o base */
-  234,  /* vstntss: float store vector */
-  357,  /* vstntssx: fp store vector w/ indx */
-  359,  /* vstntssxx: fp store vector w/ indx w/o base */
+  235,  /* vstorenti128: float store vector */
+  358,  /* vstorentxi128: fp store vector w/ indx */
+  360,  /* vstorentxxi128: fp store vector w/ indx w/o base */
+  231,  /* vldntdqa: float load vector */
+  352,  /* vldntdqax: fp load vector w/ indx */
+  356,  /* vldntdqaxx: fp load vector w/ indx w/o base */
+  235,  /* vstntdq: float store vector */
+  358,  /* vstntdqx: fp store vector w/ indx */
+  360,  /* vstntdqxx: fp store vector w/ indx w/o base */
+  235,  /* vstntpd: float store vector */
+  358,  /* vstntpdx: fp store vector w/ indx */
+  360,  /* vstntpdxx: fp store vector w/ indx w/o base */
+  235,  /* vstntps: float store vector */
+  358,  /* vstntpsx: fp store vector w/ indx */
+  360,  /* vstntpsxx: fp store vector w/ indx w/o base */
+  235,  /* vstntsd: float store vector */
+  358,  /* vstntsdx: fp store vector w/ indx */
+  360,  /* vstntsdxx: fp store vector w/ indx w/o base */
+  235,  /* vstntss: float store vector */
+  358,  /* vstntssx: fp store vector w/ indx */
+  360,  /* vstntssxx: fp store vector w/ indx w/o base */
    37,  /* vmovsd: vector mov II */
-  230,  /* vldsd: float load vector */
-  351,  /* vldsdx: fp load vector w/ indx */
-  355,  /* vldsdxx: fp load vector w/ indx w/o base */
+  231,  /* vldsd: float load vector */
+  352,  /* vldsdx: fp load vector w/ indx */
+  356,  /* vldsdxx: fp load vector w/ indx w/o base */
   220,  /* vldsd_n32: float load w/o base or index */
-  234,  /* vstsd: float store vector */
-  357,  /* vstsdx: fp store vector w/ indx */
-  359,  /* vstsdxx: fp store vector w/ indx w/o base */
-  231,  /* vstsd_n32: float store w/o base or index */
+  235,  /* vstsd: float store vector */
+  358,  /* vstsdx: fp store vector w/ indx */
+  360,  /* vstsdxx: fp store vector w/ indx w/o base */
+  232,  /* vstsd_n32: float store w/o base or index */
    37,  /* vmovss: vector mov II */
-  230,  /* vldss: float load vector */
-  351,  /* vldssx: fp load vector w/ indx */
-  355,  /* vldssxx: fp load vector w/ indx w/o base */
+  231,  /* vldss: float load vector */
+  352,  /* vldssx: fp load vector w/ indx */
+  356,  /* vldssxx: fp load vector w/ indx w/o base */
   220,  /* vldss_n32: float load w/o base or index */
-  234,  /* vstss: float store vector */
-  357,  /* vstssx: fp store vector w/ indx */
-  359,  /* vstssxx: fp store vector w/ indx w/o base */
-  231,  /* vstss_n32: float store w/o base or index */
-  249,  /* vmovlhps: move-high-low */
+  235,  /* vstss: float store vector */
+  358,  /* vstssx: fp store vector w/ indx */
+  360,  /* vstssxx: fp store vector w/ indx w/o base */
+  232,  /* vstss_n32: float store w/o base or index */
+  250,  /* vmovlhps: move-high-low */
    57,  /* vmovhlps: vector arithmetic */
    45,  /* vmovshdup: vector unary reg */
    46,  /* vmovshdupx: vector unary mem opnd */
@@ -4014,22 +4017,22 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    46,  /* vmovsldupx: vector unary mem opnd */
    47,  /* vmovsldupxx: vector unary mem opnd w/ scaled index */
    48,  /* vmovsldupxxx: vector unary mem opnd w/ scaled index w/o base */
-  230,  /* vldupd: float load vector */
-  351,  /* vldupdx: fp load vector w/ indx */
-  355,  /* vldupdxx: fp load vector w/ indx w/o base */
+  231,  /* vldupd: float load vector */
+  352,  /* vldupdx: fp load vector w/ indx */
+  356,  /* vldupdxx: fp load vector w/ indx w/o base */
   229,  /* vldupd_n32: float load vector w/o base or index */
-  234,  /* vstupd: float store vector */
-  357,  /* vstupdx: fp store vector w/ indx */
-  359,  /* vstupdxx: fp store vector w/ indx w/o base */
-  233,  /* vstupd_n32: float store vector w/o base or index */
-  230,  /* vldups: float load vector */
-  351,  /* vldupsx: fp load vector w/ indx */
-  355,  /* vldupsxx: fp load vector w/ indx w/o base */
+  235,  /* vstupd: float store vector */
+  358,  /* vstupdx: fp store vector w/ indx */
+  360,  /* vstupdxx: fp store vector w/ indx w/o base */
+  234,  /* vstupd_n32: float store vector w/o base or index */
+  231,  /* vldups: float load vector */
+  352,  /* vldupsx: fp load vector w/ indx */
+  356,  /* vldupsxx: fp load vector w/ indx w/o base */
   229,  /* vldups_n32: float load vector w/o base or index */
-  234,  /* vstups: float store vector */
-  357,  /* vstupsx: fp store vector w/ indx */
-  359,  /* vstupsxx: fp store vector w/ indx w/o base */
-  233,  /* vstups_n32: float store vector w/o base or index */
+  235,  /* vstups: float store vector */
+  358,  /* vstupsx: fp store vector w/ indx */
+  360,  /* vstupsxx: fp store vector w/ indx w/o base */
+  234,  /* vstups_n32: float store vector w/o base or index */
    75,  /* vmpsadbw: vector res reg reg imm */
    76,  /* vmpsadbwx: vector res reg mem imm */
    77,  /* vmpsadbwxx: vector res reg mem imm w/ scaled index */
@@ -4192,14 +4195,14 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vcmpeqx128v16: vector arithmetic mem opnd */
    59,  /* vcmpeqxx128v16: vector arithmetic mem opnd w/ scaled index */
    60,  /* vcmpeqxxx128v16: vector arithmetic mem opnd w/ scaled index w/o base */
-  438,  /* vcmpestri: pcmpestri reg */
-  439,  /* vcmpestrix: pcmpestri mem opnd */
-  440,  /* vcmpestrixx: pcmpestri mem opnd w/ scaled index */
-  441,  /* vcmpestrixxx: pcmpestri mem opnd w/ scaled index w/o base */
-  442,  /* vcmpestrm: pcmpestrm reg */
-  443,  /* vcmpestrmx: pcmpestrm mem opnd */
-  444,  /* vcmpestrmxx: pcmpestrm mem opnd w/ scaled index */
-  445,  /* vcmpestrmxxx: pcmpestrm mem opnd w/ scaled index w/o base */
+  439,  /* vcmpestri: pcmpestri reg */
+  440,  /* vcmpestrix: pcmpestri mem opnd */
+  441,  /* vcmpestrixx: pcmpestri mem opnd w/ scaled index */
+  442,  /* vcmpestrixxx: pcmpestri mem opnd w/ scaled index w/o base */
+  443,  /* vcmpestrm: pcmpestrm reg */
+  444,  /* vcmpestrmx: pcmpestrm mem opnd */
+  445,  /* vcmpestrmxx: pcmpestrm mem opnd w/ scaled index */
+  446,  /* vcmpestrmxxx: pcmpestrm mem opnd w/ scaled index w/o base */
    57,  /* vcmpgt128v8: vector arithmetic */
    58,  /* vcmpgtx128v8: vector arithmetic mem opnd */
    59,  /* vcmpgtxx128v8: vector arithmetic mem opnd w/ scaled index */
@@ -4216,14 +4219,14 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vcmpgtx128v16: vector arithmetic mem opnd */
    59,  /* vcmpgtxx128v16: vector arithmetic mem opnd w/ scaled index */
    60,  /* vcmpgtxxx128v16: vector arithmetic mem opnd w/ scaled index w/o base */
-  446,  /* vcmpistri: pcmpistri reg */
-  447,  /* vcmpistrix: pcmpistri mem opnd */
-  448,  /* vcmpistrixx: pcmpistri mem opnd w/ scaled index */
-  449,  /* vcmpistrixxx: pcmpistri mem opnd w/ scaled index w/o base */
-  450,  /* vcmpistrm: pcmpistrm reg */
-  451,  /* vcmpistrmx: pcmpistrm mem opnd */
-  452,  /* vcmpistrmxx: pcmpistrm mem opnd w/ scaled index */
-  453,  /* vcmpistrmxxx: pcmpistrm mem opnd w/ scaled index w/o base */
+  447,  /* vcmpistri: pcmpistri reg */
+  448,  /* vcmpistrix: pcmpistri mem opnd */
+  449,  /* vcmpistrixx: pcmpistri mem opnd w/ scaled index */
+  450,  /* vcmpistrixxx: pcmpistri mem opnd w/ scaled index w/o base */
+  451,  /* vcmpistrm: pcmpistrm reg */
+  452,  /* vcmpistrmx: pcmpistrm mem opnd */
+  453,  /* vcmpistrmxx: pcmpistrm mem opnd w/ scaled index */
+  454,  /* vcmpistrmxxx: pcmpistrm mem opnd w/ scaled index w/o base */
    57,  /* vfperm128v64: vector arithmetic */
    58,  /* vfpermx128v64: vector arithmetic mem opnd */
    59,  /* vfpermxx128v64: vector arithmetic mem opnd w/ scaled index */
@@ -4360,7 +4363,7 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vminux128v32: vector arithmetic mem opnd */
    59,  /* vminuxx128v32: vector arithmetic mem opnd w/ scaled index */
    60,  /* vminuxxx128v32: vector arithmetic mem opnd w/ scaled index w/o base */
-  397,  /* vpmovmskb128: sse packed move */
+  398,  /* vpmovmskb128: sse packed move */
    45,  /* vpmovsxbd: vector unary reg */
    46,  /* vpmovsxbdx: vector unary mem opnd */
    47,  /* vpmovsxbdxx: vector unary mem opnd w/ scaled index */
@@ -4461,26 +4464,26 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vpsadbwx: vector arithmetic mem opnd */
    59,  /* vpsadbwxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsadbwxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  241,  /* vpshuf128v8: pshufb */
-  242,  /* vpshufx128v8: pshufb mem */
-  243,  /* vpshufxx128v8: pshufb mem w/ scaled index w/ base */
-  244,  /* vpshufxxx128v8: pshufb mem w/ scaled index w/o base */
-  245,  /* vpshuf128v32: shuffle-int */
-  246,  /* vpshufx128v32: shuffle-int mem */
-  247,  /* vpshufxx128v32: shuffle-int mem w/ scaled index w/ base */
-  248,  /* vpshufxxx128v32: shuffle-int mem w/ scaled index w/o base */
-  245,  /* vpshufw64v16: shuffle-int */
-  246,  /* vpshufwx64v16: shuffle-int mem */
-  247,  /* vpshufwxx64v16: shuffle-int mem w/ scaled index w/ base */
-  248,  /* vpshufwxxx64v16: shuffle-int mem w/ scaled index w/o base */
-  245,  /* vpshufhw: shuffle-int */
-  246,  /* vpshufhwx: shuffle-int mem */
-  247,  /* vpshufhwxx: shuffle-int mem w/ scaled index w/ base */
-  248,  /* vpshufhwxxx: shuffle-int mem w/ scaled index w/o base */
-  245,  /* vpshuflw: shuffle-int */
-  246,  /* vpshuflwx: shuffle-int mem */
-  247,  /* vpshuflwxx: shuffle-int mem w/ scaled index w/ base */
-  248,  /* vpshuflwxxx: shuffle-int mem w/ scaled index w/o base */
+  242,  /* vpshuf128v8: pshufb */
+  243,  /* vpshufx128v8: pshufb mem */
+  244,  /* vpshufxx128v8: pshufb mem w/ scaled index w/ base */
+  245,  /* vpshufxxx128v8: pshufb mem w/ scaled index w/o base */
+  246,  /* vpshuf128v32: shuffle-int */
+  247,  /* vpshufx128v32: shuffle-int mem */
+  248,  /* vpshufxx128v32: shuffle-int mem w/ scaled index w/ base */
+  249,  /* vpshufxxx128v32: shuffle-int mem w/ scaled index w/o base */
+  246,  /* vpshufw64v16: shuffle-int */
+  247,  /* vpshufwx64v16: shuffle-int mem */
+  248,  /* vpshufwxx64v16: shuffle-int mem w/ scaled index w/ base */
+  249,  /* vpshufwxxx64v16: shuffle-int mem w/ scaled index w/o base */
+  246,  /* vpshufhw: shuffle-int */
+  247,  /* vpshufhwx: shuffle-int mem */
+  248,  /* vpshufhwxx: shuffle-int mem w/ scaled index w/ base */
+  249,  /* vpshufhwxxx: shuffle-int mem w/ scaled index w/o base */
+  246,  /* vpshuflw: shuffle-int */
+  247,  /* vpshuflwx: shuffle-int mem */
+  248,  /* vpshuflwxx: shuffle-int mem w/ scaled index w/ base */
+  249,  /* vpshuflwxxx: shuffle-int mem w/ scaled index w/o base */
    57,  /* vpsign128v8: vector arithmetic */
    58,  /* vpsignx128v8: vector arithmetic mem opnd */
    59,  /* vpsignxx128v8: vector arithmetic mem opnd w/ scaled index */
@@ -4493,48 +4496,48 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vpsignx128v16: vector arithmetic mem opnd */
    59,  /* vpsignxx128v16: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsignxxx128v16: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpslldq: packed shifts w/ immediate */
-  250,  /* vpsrldq: packed shifts w/ immediate */
+  251,  /* vpslldq: packed shifts w/ immediate */
+  251,  /* vpsrldq: packed shifts w/ immediate */
    57,  /* vpslld: vector arithmetic */
    58,  /* vpslldx: vector arithmetic mem opnd */
    59,  /* vpslldxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpslldxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpslldi: packed shifts w/ immediate */
+  251,  /* vpslldi: packed shifts w/ immediate */
    57,  /* vpsllq: vector arithmetic */
    58,  /* vpsllqx: vector arithmetic mem opnd */
    59,  /* vpsllqxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsllqxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsllqi: packed shifts w/ immediate */
+  251,  /* vpsllqi: packed shifts w/ immediate */
    57,  /* vpsllw: vector arithmetic */
    58,  /* vpsllwx: vector arithmetic mem opnd */
    59,  /* vpsllwxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsllwxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsllwi: packed shifts w/ immediate */
+  251,  /* vpsllwi: packed shifts w/ immediate */
    57,  /* vpsrad: vector arithmetic */
    58,  /* vpsradx: vector arithmetic mem opnd */
    59,  /* vpsradxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsradxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsradi: packed shifts w/ immediate */
+  251,  /* vpsradi: packed shifts w/ immediate */
    57,  /* vpsraw: vector arithmetic */
    58,  /* vpsrawx: vector arithmetic mem opnd */
    59,  /* vpsrawxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsrawxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsrawi: packed shifts w/ immediate */
+  251,  /* vpsrawi: packed shifts w/ immediate */
    57,  /* vpsrld: vector arithmetic */
    58,  /* vpsrldx: vector arithmetic mem opnd */
    59,  /* vpsrldxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsrldxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsrldi: packed shifts w/ immediate */
+  251,  /* vpsrldi: packed shifts w/ immediate */
    57,  /* vpsrlq: vector arithmetic */
    58,  /* vpsrlqx: vector arithmetic mem opnd */
    59,  /* vpsrlqxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsrlqxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsrlqi: packed shifts w/ immediate */
+  251,  /* vpsrlqi: packed shifts w/ immediate */
    57,  /* vpsrlw: vector arithmetic */
    58,  /* vpsrlwx: vector arithmetic mem opnd */
    59,  /* vpsrlwxx: vector arithmetic mem opnd w/ scaled index */
    60,  /* vpsrlwxxx: vector arithmetic mem opnd w/ scaled index w/o base */
-  250,  /* vpsrlwi: packed shifts w/ immediate */
+  251,  /* vpsrlwi: packed shifts w/ immediate */
    57,  /* vsub128v8: vector arithmetic */
    58,  /* vsubx128v8: vector arithmetic mem opnd */
    59,  /* vsubxx128v8: vector arithmetic mem opnd w/ scaled index */
@@ -4567,18 +4570,18 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vsubusx128v16: vector arithmetic mem opnd */
    59,  /* vsubusxx128v16: vector arithmetic mem opnd w/ scaled index */
    60,  /* vsubusxxx128v16: vector arithmetic mem opnd w/ scaled index w/o base */
-  316,  /* vptest128: vector ptest reg */
-  317,  /* vptestx128: vector ptest mem opnd */
-  318,  /* vptestxx128: vector ptest mem opnd w/ scaled index */
-  319,  /* vptestxxx128: vector ptest mem opnd w/ scaled index w/o base */
-  316,  /* vtestpd: vector ptest reg */
-  317,  /* vtestxpd: vector ptest mem opnd */
-  318,  /* vtestxxpd: vector ptest mem opnd w/ scaled index */
-  319,  /* vtestxxxpd: vector ptest mem opnd w/ scaled index w/o base */
-  316,  /* vtestps: vector ptest reg */
-  317,  /* vtestxps: vector ptest mem opnd */
-  318,  /* vtestxxps: vector ptest mem opnd w/ scaled index */
-  319,  /* vtestxxxps: vector ptest mem opnd w/ scaled index w/o base */
+  317,  /* vptest128: vector ptest reg */
+  318,  /* vptestx128: vector ptest mem opnd */
+  319,  /* vptestxx128: vector ptest mem opnd w/ scaled index */
+  320,  /* vptestxxx128: vector ptest mem opnd w/ scaled index w/o base */
+  317,  /* vtestpd: vector ptest reg */
+  318,  /* vtestxpd: vector ptest mem opnd */
+  319,  /* vtestxxpd: vector ptest mem opnd w/ scaled index */
+  320,  /* vtestxxxpd: vector ptest mem opnd w/ scaled index w/o base */
+  317,  /* vtestps: vector ptest reg */
+  318,  /* vtestxps: vector ptest mem opnd */
+  319,  /* vtestxxps: vector ptest mem opnd w/ scaled index */
+  320,  /* vtestxxxps: vector ptest mem opnd w/ scaled index w/o base */
    57,  /* vpunpckh64v8: vector arithmetic */
    58,  /* vpunpckhx64v8: vector arithmetic mem opnd */
    59,  /* vpunpckhxx64v8: vector arithmetic mem opnd w/ scaled index */
@@ -4659,13 +4662,13 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    54,  /* vfrsqrtxss: vector arithmetic special mem opnd */
    55,  /* vfrsqrtxxss: vector arithmetic special mem opnd w/ scaled index */
    56,  /* vfrsqrtxxxss: vector arithmetic special mem opnd w/ scaled index w/o base */
-   75,  /* vshufpd: vector res reg reg imm */
-   75,  /* vfshuf128v64: vector res reg reg imm */
+  241,  /* vshufpd: shuffle */
+  241,  /* vfshuf128v64: shuffle */
    76,  /* vfshufx128v64: vector res reg mem imm */
    77,  /* vfshufxx128v64: vector res reg mem imm w/ scaled index */
    78,  /* vfshufxxx128v64: vector res reg mem imm w/ scaled index w/o base */
-   75,  /* vshufps: vector res reg reg imm */
-   75,  /* vfshuf128v32: vector res reg reg imm */
+  241,  /* vshufps: shuffle */
+  241,  /* vfshuf128v32: shuffle */
    76,  /* vfshufx128v32: vector res reg mem imm */
    77,  /* vfshufxx128v32: vector res reg mem imm w/ scaled index */
    78,  /* vfshufxxx128v32: vector res reg mem imm w/ scaled index w/o base */
@@ -4685,7 +4688,7 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    54,  /* vfsqrtxss: vector arithmetic special mem opnd */
    55,  /* vfsqrtxxss: vector arithmetic special mem opnd w/ scaled index */
    56,  /* vfsqrtxxxss: vector arithmetic special mem opnd w/ scaled index w/o base */
-  361,  /* vstmxcsr: store mxcsr */
+  362,  /* vstmxcsr: store mxcsr */
    57,  /* vfsub128v64: vector arithmetic */
    58,  /* vfsubx128v64: vector arithmetic mem opnd */
    59,  /* vfsubxx128v64: vector arithmetic mem opnd w/ scaled index */
@@ -4702,14 +4705,14 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vsubxss: vector arithmetic mem opnd */
    59,  /* vsubxxss: vector arithmetic mem opnd w/ scaled index */
    60,  /* vsubxxxss: vector arithmetic mem opnd w/ scaled index w/o base */
-  309,  /* vucomisd: fp ordered compare */
-  310,  /* vucomixsd: fp ordered compare mem opnd */
-  311,  /* vucomixxsd: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* vucomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
-  309,  /* vucomiss: fp ordered compare */
-  310,  /* vucomixss: fp ordered compare mem opnd */
-  311,  /* vucomixxss: fp ordered compare mem opnd w/ scaled-index */
-  312,  /* vucomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
+  310,  /* vucomisd: fp ordered compare */
+  311,  /* vucomixsd: fp ordered compare mem opnd */
+  312,  /* vucomixxsd: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* vucomixxxsd: fp ordered compare mem opnd w/ scaled-index w/o base */
+  310,  /* vucomiss: fp ordered compare */
+  311,  /* vucomixss: fp ordered compare mem opnd */
+  312,  /* vucomixxss: fp ordered compare mem opnd w/ scaled-index */
+  313,  /* vucomixxxss: fp ordered compare mem opnd w/ scaled-index w/o base */
    57,  /* vunpckh128v64: vector arithmetic */
    58,  /* vunpckhx128v64: vector arithmetic mem opnd */
    59,  /* vunpckhxx128v64: vector arithmetic mem opnd w/ scaled index */
@@ -4731,256 +4734,288 @@ const mUINT16 ISA_OPERAND_info_index[] = {
    58,  /* vfxorx128v64: vector arithmetic mem opnd */
    59,  /* vfxorxx128v64: vector arithmetic mem opnd w/ scaled index */
    60,  /* vfxorxxx128v64: vector arithmetic mem opnd w/ scaled index w/o base */
-  376,  /* vxzero128v64: xzerov */
-  375,  /* vxzero64: xzero */
+  377,  /* vxzero128v64: xzerov */
+  376,  /* vxzero64: xzero */
    57,  /* vxorps: vector arithmetic */
    57,  /* vfxor128v32: vector arithmetic */
    58,  /* vfxorx128v32: vector arithmetic mem opnd */
    59,  /* vfxorxx128v32: vector arithmetic mem opnd w/ scaled index */
    60,  /* vfxorxxx128v32: vector arithmetic mem opnd w/ scaled index w/o base */
-  376,  /* vxzero128v32: xzerov */
-  375,  /* vxzero32: xzero */
+  377,  /* vxzero128v32: xzerov */
+  376,  /* vxzero32: xzero */
     0,  /* vzeroall: no operand */
-  434,  /* xfmadd132pd: avx fma reg */
-  435,  /* xfmadd132xpd: avx fma mem opnd */
-  436,  /* xfmadd132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd213pd: avx fma reg */
-  435,  /* xfmadd213xpd: avx fma mem opnd */
-  436,  /* xfmadd213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd231pd: avx fma reg */
-  435,  /* xfmadd231xpd: avx fma mem opnd */
-  436,  /* xfmadd231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd132ps: avx fma reg */
-  435,  /* xfmadd132xps: avx fma mem opnd */
-  436,  /* xfmadd132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd213ps: avx fma reg */
-  435,  /* xfmadd213xps: avx fma mem opnd */
-  436,  /* xfmadd213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd231ps: avx fma reg */
-  435,  /* xfmadd231xps: avx fma mem opnd */
-  436,  /* xfmadd231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd132sd: avx fma reg */
-  435,  /* xfmadd132xsd: avx fma mem opnd */
-  436,  /* xfmadd132xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd132xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd213sd: avx fma reg */
-  435,  /* xfmadd213xsd: avx fma mem opnd */
-  436,  /* xfmadd213xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd213xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd231sd: avx fma reg */
-  435,  /* xfmadd231xsd: avx fma mem opnd */
-  436,  /* xfmadd231xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd231xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd132ss: avx fma reg */
-  435,  /* xfmadd132xss: avx fma mem opnd */
-  436,  /* xfmadd132xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd132xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd213ss: avx fma reg */
-  435,  /* xfmadd213xss: avx fma mem opnd */
-  436,  /* xfmadd213xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd213xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmadd231ss: avx fma reg */
-  435,  /* xfmadd231xss: avx fma mem opnd */
-  436,  /* xfmadd231xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmadd231xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub132pd: avx fma reg */
-  435,  /* xfmaddsub132xpd: avx fma mem opnd */
-  436,  /* xfmaddsub132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub213pd: avx fma reg */
-  435,  /* xfmaddsub213xpd: avx fma mem opnd */
-  436,  /* xfmaddsub213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub231pd: avx fma reg */
-  435,  /* xfmaddsub231xpd: avx fma mem opnd */
-  436,  /* xfmaddsub231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub132ps: avx fma reg */
-  435,  /* xfmaddsub132xps: avx fma mem opnd */
-  436,  /* xfmaddsub132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub213ps: avx fma reg */
-  435,  /* xfmaddsub213xps: avx fma mem opnd */
-  436,  /* xfmaddsub213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmaddsub231ps: avx fma reg */
-  435,  /* xfmaddsub231xps: avx fma mem opnd */
-  436,  /* xfmaddsub231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmaddsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd132pd: avx fma reg */
-  435,  /* xfmsubadd132xpd: avx fma mem opnd */
-  436,  /* xfmsubadd132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd213pd: avx fma reg */
-  435,  /* xfmsubadd213xpd: avx fma mem opnd */
-  436,  /* xfmsubadd213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd231pd: avx fma reg */
-  435,  /* xfmsubadd231xpd: avx fma mem opnd */
-  436,  /* xfmsubadd231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd132ps: avx fma reg */
-  435,  /* xfmsubadd132xps: avx fma mem opnd */
-  436,  /* xfmsubadd132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd213ps: avx fma reg */
-  435,  /* xfmsubadd213xps: avx fma mem opnd */
-  436,  /* xfmsubadd213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsubadd231ps: avx fma reg */
-  435,  /* xfmsubadd231xps: avx fma mem opnd */
-  436,  /* xfmsubadd231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsubadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub132pd: avx fma reg */
-  435,  /* xfmsub132xpd: avx fma mem opnd */
-  436,  /* xfmsub132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub213pd: avx fma reg */
-  435,  /* xfmsub213xpd: avx fma mem opnd */
-  436,  /* xfmsub213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub231pd: avx fma reg */
-  435,  /* xfmsub231xpd: avx fma mem opnd */
-  436,  /* xfmsub231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub132ps: avx fma reg */
-  435,  /* xfmsub132xps: avx fma mem opnd */
-  436,  /* xfmsub132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub213ps: avx fma reg */
-  435,  /* xfmsub213xps: avx fma mem opnd */
-  436,  /* xfmsub213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub231ps: avx fma reg */
-  435,  /* xfmsub231xps: avx fma mem opnd */
-  436,  /* xfmsub231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub132sd: avx fma reg */
-  435,  /* xfmsub132xsd: avx fma mem opnd */
-  436,  /* xfmsub132xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub132xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub213sd: avx fma reg */
-  435,  /* xfmsub213xsd: avx fma mem opnd */
-  436,  /* xfmsub213xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub213xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub231sd: avx fma reg */
-  435,  /* xfmsub231xsd: avx fma mem opnd */
-  436,  /* xfmsub231xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub231xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub132ss: avx fma reg */
-  435,  /* xfmsub132xss: avx fma mem opnd */
-  436,  /* xfmsub132xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub132xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub213ss: avx fma reg */
-  435,  /* xfmsub213xss: avx fma mem opnd */
-  436,  /* xfmsub213xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub213xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfmsub231ss: avx fma reg */
-  435,  /* xfmsub231xss: avx fma mem opnd */
-  436,  /* xfmsub231xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfmsub231xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd132pd: avx fma reg */
-  435,  /* xfnmadd132xpd: avx fma mem opnd */
-  436,  /* xfnmadd132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd213pd: avx fma reg */
-  435,  /* xfnmadd213xpd: avx fma mem opnd */
-  436,  /* xfnmadd213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd231pd: avx fma reg */
-  435,  /* xfnmadd231xpd: avx fma mem opnd */
-  436,  /* xfnmadd231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd132ps: avx fma reg */
-  435,  /* xfnmadd132xps: avx fma mem opnd */
-  436,  /* xfnmadd132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd213ps: avx fma reg */
-  435,  /* xfnmadd213xps: avx fma mem opnd */
-  436,  /* xfnmadd213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd231ps: avx fma reg */
-  435,  /* xfnmadd231xps: avx fma mem opnd */
-  436,  /* xfnmadd231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd132sd: avx fma reg */
-  435,  /* xfnmadd132xsd: avx fma mem opnd */
-  436,  /* xfnmadd132xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd132xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd213sd: avx fma reg */
-  435,  /* xfnmadd213xsd: avx fma mem opnd */
-  436,  /* xfnmadd213xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd213xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd231sd: avx fma reg */
-  435,  /* xfnmadd231xsd: avx fma mem opnd */
-  436,  /* xfnmadd231xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd231xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd132ss: avx fma reg */
-  435,  /* xfnmadd132xss: avx fma mem opnd */
-  436,  /* xfnmadd132xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd132xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd213ss: avx fma reg */
-  435,  /* xfnmadd213xss: avx fma mem opnd */
-  436,  /* xfnmadd213xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd213xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmadd231ss: avx fma reg */
-  435,  /* xfnmadd231xss: avx fma mem opnd */
-  436,  /* xfnmadd231xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmadd231xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub132pd: avx fma reg */
-  435,  /* xfnmsub132xpd: avx fma mem opnd */
-  436,  /* xfnmsub132xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub213pd: avx fma reg */
-  435,  /* xfnmsub213xpd: avx fma mem opnd */
-  436,  /* xfnmsub213xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub231pd: avx fma reg */
-  435,  /* xfnmsub231xpd: avx fma mem opnd */
-  436,  /* xfnmsub231xxpd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub132ps: avx fma reg */
-  435,  /* xfnmsub132xps: avx fma mem opnd */
-  436,  /* xfnmsub132xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub213ps: avx fma reg */
-  435,  /* xfnmsub213xps: avx fma mem opnd */
-  436,  /* xfnmsub213xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub231ps: avx fma reg */
-  435,  /* xfnmsub231xps: avx fma mem opnd */
-  436,  /* xfnmsub231xxps: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub132sd: avx fma reg */
-  435,  /* xfnmsub132xsd: avx fma mem opnd */
-  436,  /* xfnmsub132xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub132xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub213sd: avx fma reg */
-  435,  /* xfnmsub213xsd: avx fma mem opnd */
-  436,  /* xfnmsub213xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub213xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub231sd: avx fma reg */
-  435,  /* xfnmsub231xsd: avx fma mem opnd */
-  436,  /* xfnmsub231xxsd: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub231xxxsd: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub132ss: avx fma reg */
-  435,  /* xfnmsub132xss: avx fma mem opnd */
-  436,  /* xfnmsub132xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub132xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub213ss: avx fma reg */
-  435,  /* xfnmsub213xss: avx fma mem opnd */
-  436,  /* xfnmsub213xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub213xxxss: avx fma mem opnd w/ scaled index w/o base */
-  434,  /* xfnmsub231ss: avx fma reg */
-  435,  /* xfnmsub231xss: avx fma mem opnd */
-  436,  /* xfnmsub231xxss: avx fma mem opnd w/ scaled index */
-  437,  /* xfnmsub231xxxss: avx fma mem opnd w/ scaled index w/o base */
+  322,  /* vcmpeqpd: fp vector compare I */
+  322,  /* vcmpltpd: fp vector compare I */
+  322,  /* vcmplepd: fp vector compare I */
+  322,  /* vcmpunordpd: fp vector compare I */
+  322,  /* vcmpneqpd: fp vector compare I */
+  322,  /* vcmpnltpd: fp vector compare I */
+  322,  /* vcmpnlepd: fp vector compare I */
+  322,  /* vcmpordpd: fp vector compare I */
+  322,  /* vcmpeqps: fp vector compare I */
+  322,  /* vcmpltps: fp vector compare I */
+  322,  /* vcmpleps: fp vector compare I */
+  322,  /* vcmpunordps: fp vector compare I */
+  322,  /* vcmpneqps: fp vector compare I */
+  322,  /* vcmpnltps: fp vector compare I */
+  322,  /* vcmpnleps: fp vector compare I */
+  322,  /* vcmpordps: fp vector compare I */
+  316,  /* vcmpeqsd: fp compare I */
+  316,  /* vcmpltsd: fp compare I */
+  316,  /* vcmplesd: fp compare I */
+  316,  /* vcmpunordsd: fp compare I */
+  316,  /* vcmpneqsd: fp compare I */
+  316,  /* vcmpnltsd: fp compare I */
+  316,  /* vcmpnlesd: fp compare I */
+  316,  /* vcmpordsd: fp compare I */
+  316,  /* vcmpeqss: fp compare I */
+  316,  /* vcmpltss: fp compare I */
+  316,  /* vcmpless: fp compare I */
+  316,  /* vcmpunordss: fp compare I */
+  316,  /* vcmpneqss: fp compare I */
+  316,  /* vcmpnltss: fp compare I */
+  316,  /* vcmpnless: fp compare I */
+  316,  /* vcmpordss: fp compare I */
+  435,  /* xfmadd132pd: avx fma reg */
+  436,  /* xfmadd132xpd: avx fma mem opnd */
+  437,  /* xfmadd132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd213pd: avx fma reg */
+  436,  /* xfmadd213xpd: avx fma mem opnd */
+  437,  /* xfmadd213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd231pd: avx fma reg */
+  436,  /* xfmadd231xpd: avx fma mem opnd */
+  437,  /* xfmadd231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd132ps: avx fma reg */
+  436,  /* xfmadd132xps: avx fma mem opnd */
+  437,  /* xfmadd132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd213ps: avx fma reg */
+  436,  /* xfmadd213xps: avx fma mem opnd */
+  437,  /* xfmadd213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd231ps: avx fma reg */
+  436,  /* xfmadd231xps: avx fma mem opnd */
+  437,  /* xfmadd231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd132sd: avx fma reg */
+  436,  /* xfmadd132xsd: avx fma mem opnd */
+  437,  /* xfmadd132xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd132xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd213sd: avx fma reg */
+  436,  /* xfmadd213xsd: avx fma mem opnd */
+  437,  /* xfmadd213xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd213xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd231sd: avx fma reg */
+  436,  /* xfmadd231xsd: avx fma mem opnd */
+  437,  /* xfmadd231xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd231xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd132ss: avx fma reg */
+  436,  /* xfmadd132xss: avx fma mem opnd */
+  437,  /* xfmadd132xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd132xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd213ss: avx fma reg */
+  436,  /* xfmadd213xss: avx fma mem opnd */
+  437,  /* xfmadd213xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd213xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmadd231ss: avx fma reg */
+  436,  /* xfmadd231xss: avx fma mem opnd */
+  437,  /* xfmadd231xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmadd231xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub132pd: avx fma reg */
+  436,  /* xfmaddsub132xpd: avx fma mem opnd */
+  437,  /* xfmaddsub132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub213pd: avx fma reg */
+  436,  /* xfmaddsub213xpd: avx fma mem opnd */
+  437,  /* xfmaddsub213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub231pd: avx fma reg */
+  436,  /* xfmaddsub231xpd: avx fma mem opnd */
+  437,  /* xfmaddsub231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub132ps: avx fma reg */
+  436,  /* xfmaddsub132xps: avx fma mem opnd */
+  437,  /* xfmaddsub132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub213ps: avx fma reg */
+  436,  /* xfmaddsub213xps: avx fma mem opnd */
+  437,  /* xfmaddsub213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmaddsub231ps: avx fma reg */
+  436,  /* xfmaddsub231xps: avx fma mem opnd */
+  437,  /* xfmaddsub231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmaddsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd132pd: avx fma reg */
+  436,  /* xfmsubadd132xpd: avx fma mem opnd */
+  437,  /* xfmsubadd132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd213pd: avx fma reg */
+  436,  /* xfmsubadd213xpd: avx fma mem opnd */
+  437,  /* xfmsubadd213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd231pd: avx fma reg */
+  436,  /* xfmsubadd231xpd: avx fma mem opnd */
+  437,  /* xfmsubadd231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd132ps: avx fma reg */
+  436,  /* xfmsubadd132xps: avx fma mem opnd */
+  437,  /* xfmsubadd132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd213ps: avx fma reg */
+  436,  /* xfmsubadd213xps: avx fma mem opnd */
+  437,  /* xfmsubadd213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsubadd231ps: avx fma reg */
+  436,  /* xfmsubadd231xps: avx fma mem opnd */
+  437,  /* xfmsubadd231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsubadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub132pd: avx fma reg */
+  436,  /* xfmsub132xpd: avx fma mem opnd */
+  437,  /* xfmsub132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub213pd: avx fma reg */
+  436,  /* xfmsub213xpd: avx fma mem opnd */
+  437,  /* xfmsub213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub231pd: avx fma reg */
+  436,  /* xfmsub231xpd: avx fma mem opnd */
+  437,  /* xfmsub231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub132ps: avx fma reg */
+  436,  /* xfmsub132xps: avx fma mem opnd */
+  437,  /* xfmsub132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub213ps: avx fma reg */
+  436,  /* xfmsub213xps: avx fma mem opnd */
+  437,  /* xfmsub213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub231ps: avx fma reg */
+  436,  /* xfmsub231xps: avx fma mem opnd */
+  437,  /* xfmsub231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub132sd: avx fma reg */
+  436,  /* xfmsub132xsd: avx fma mem opnd */
+  437,  /* xfmsub132xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub132xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub213sd: avx fma reg */
+  436,  /* xfmsub213xsd: avx fma mem opnd */
+  437,  /* xfmsub213xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub213xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub231sd: avx fma reg */
+  436,  /* xfmsub231xsd: avx fma mem opnd */
+  437,  /* xfmsub231xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub231xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub132ss: avx fma reg */
+  436,  /* xfmsub132xss: avx fma mem opnd */
+  437,  /* xfmsub132xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub132xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub213ss: avx fma reg */
+  436,  /* xfmsub213xss: avx fma mem opnd */
+  437,  /* xfmsub213xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub213xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfmsub231ss: avx fma reg */
+  436,  /* xfmsub231xss: avx fma mem opnd */
+  437,  /* xfmsub231xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfmsub231xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd132pd: avx fma reg */
+  436,  /* xfnmadd132xpd: avx fma mem opnd */
+  437,  /* xfnmadd132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd213pd: avx fma reg */
+  436,  /* xfnmadd213xpd: avx fma mem opnd */
+  437,  /* xfnmadd213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd231pd: avx fma reg */
+  436,  /* xfnmadd231xpd: avx fma mem opnd */
+  437,  /* xfnmadd231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd132ps: avx fma reg */
+  436,  /* xfnmadd132xps: avx fma mem opnd */
+  437,  /* xfnmadd132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd213ps: avx fma reg */
+  436,  /* xfnmadd213xps: avx fma mem opnd */
+  437,  /* xfnmadd213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd231ps: avx fma reg */
+  436,  /* xfnmadd231xps: avx fma mem opnd */
+  437,  /* xfnmadd231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd132sd: avx fma reg */
+  436,  /* xfnmadd132xsd: avx fma mem opnd */
+  437,  /* xfnmadd132xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd132xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd213sd: avx fma reg */
+  436,  /* xfnmadd213xsd: avx fma mem opnd */
+  437,  /* xfnmadd213xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd213xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd231sd: avx fma reg */
+  436,  /* xfnmadd231xsd: avx fma mem opnd */
+  437,  /* xfnmadd231xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd231xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd132ss: avx fma reg */
+  436,  /* xfnmadd132xss: avx fma mem opnd */
+  437,  /* xfnmadd132xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd132xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd213ss: avx fma reg */
+  436,  /* xfnmadd213xss: avx fma mem opnd */
+  437,  /* xfnmadd213xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd213xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmadd231ss: avx fma reg */
+  436,  /* xfnmadd231xss: avx fma mem opnd */
+  437,  /* xfnmadd231xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmadd231xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub132pd: avx fma reg */
+  436,  /* xfnmsub132xpd: avx fma mem opnd */
+  437,  /* xfnmsub132xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub132xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub213pd: avx fma reg */
+  436,  /* xfnmsub213xpd: avx fma mem opnd */
+  437,  /* xfnmsub213xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub213xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub231pd: avx fma reg */
+  436,  /* xfnmsub231xpd: avx fma mem opnd */
+  437,  /* xfnmsub231xxpd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub231xxxpd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub132ps: avx fma reg */
+  436,  /* xfnmsub132xps: avx fma mem opnd */
+  437,  /* xfnmsub132xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub132xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub213ps: avx fma reg */
+  436,  /* xfnmsub213xps: avx fma mem opnd */
+  437,  /* xfnmsub213xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub213xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub231ps: avx fma reg */
+  436,  /* xfnmsub231xps: avx fma mem opnd */
+  437,  /* xfnmsub231xxps: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub231xxxps: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub132sd: avx fma reg */
+  436,  /* xfnmsub132xsd: avx fma mem opnd */
+  437,  /* xfnmsub132xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub132xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub213sd: avx fma reg */
+  436,  /* xfnmsub213xsd: avx fma mem opnd */
+  437,  /* xfnmsub213xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub213xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub231sd: avx fma reg */
+  436,  /* xfnmsub231xsd: avx fma mem opnd */
+  437,  /* xfnmsub231xxsd: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub231xxxsd: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub132ss: avx fma reg */
+  436,  /* xfnmsub132xss: avx fma mem opnd */
+  437,  /* xfnmsub132xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub132xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub213ss: avx fma reg */
+  436,  /* xfnmsub213xss: avx fma mem opnd */
+  437,  /* xfnmsub213xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub213xxxss: avx fma mem opnd w/ scaled index w/o base */
+  435,  /* xfnmsub231ss: avx fma reg */
+  436,  /* xfnmsub231xss: avx fma mem opnd */
+  437,  /* xfnmsub231xxss: avx fma mem opnd w/ scaled index */
+  438,  /* xfnmsub231xxxss: avx fma mem opnd w/ scaled index w/o base */
     6,  /* movabsq: int load imm64 */
   151,  /* store8_abs: int8 store w/o base or index (movabs) */
   153,  /* store16_abs: int16 store w/o base or index (movabs) */
@@ -4990,52 +5025,52 @@ const mUINT16 ISA_OPERAND_info_index[] = {
   142,  /* ld16_abs: int16 load w/o base or index (movabs) */
   143,  /* ld32_abs: int32 load w/o base or index (movabs) */
   146,  /* ld64_abs: int64 load w/o base or index (movabs) */
-  379,  /* lock_add32: int32 arithmetic lock */
-  379,  /* lock_adc32: int32 arithmetic lock */
-  380,  /* lock_add64: int64 arithmetic lock */
-  387,  /* lock_xchg32: int32 exchange arithmetic lock */
-  388,  /* lock_xchg64: int64 exchange arithmetic lock */
-  383,  /* lock_cmpxchg32: int32 compare & exchange mem opnd lock */
-  384,  /* lock_cmpxchg64: int64 compare & exchange mem opnd lock */
-  379,  /* lock_and32: int32 arithmetic lock */
-  380,  /* lock_and64: int64 arithmetic lock */
-  379,  /* lock_or32: int32 arithmetic lock */
-  380,  /* lock_or64: int64 arithmetic lock */
-  379,  /* lock_xor32: int32 arithmetic lock */
-  380,  /* lock_xor64: int64 arithmetic lock */
-  379,  /* lock_sub32: int32 arithmetic lock */
-  380,  /* lock_sub64: int64 arithmetic lock */
-  377,  /* lock_add8: int8 arithmetic lock */
-  378,  /* lock_add16: int16 arithmetic lock */
-  385,  /* lock_xchg8: int8 exchange arithmetic lock */
-  386,  /* lock_xchg16: int16 exchange arithmetic lock */
-  381,  /* lock_cmpxchg8: int8 compare & exchange mem opnd lock */
-  382,  /* lock_cmpxchg16: int16 compare & exchange mem opnd lock */
-  377,  /* lock_and8: int8 arithmetic lock */
-  378,  /* lock_and16: int16 arithmetic lock */
-  377,  /* lock_or8: int8 arithmetic lock */
-  378,  /* lock_or16: int16 arithmetic lock */
-  377,  /* lock_xor8: int8 arithmetic lock */
-  378,  /* lock_xor16: int16 arithmetic lock */
-  377,  /* lock_sub8: int8 arithmetic lock */
-  378,  /* lock_sub16: int16 arithmetic lock */
-  385,  /* lock_xadd8: int8 exchange arithmetic lock */
-  386,  /* lock_xadd16: int16 exchange arithmetic lock */
-  387,  /* lock_xadd32: int32 exchange arithmetic lock */
-  388,  /* lock_xadd64: int64 exchange arithmetic lock */
-  389,  /* bsf32: bsf32 */
-  390,  /* bsf64: bsf64 */
-  389,  /* bsr32: bsf32 */
-  390,  /* bsr64: bsf64 */
-  425,  /* tls_global_dynamic_64: tls_get_addr_64 */
-  426,  /* tls_global_dynamic_32: tls_get_addr_32 */
-  425,  /* tls_local_dynamic_64: tls_get_addr_64 */
-  426,  /* tls_local_dynamic_32: tls_get_addr_32 */
+  380,  /* lock_add32: int32 arithmetic lock */
+  380,  /* lock_adc32: int32 arithmetic lock */
+  381,  /* lock_add64: int64 arithmetic lock */
+  388,  /* lock_xchg32: int32 exchange arithmetic lock */
+  389,  /* lock_xchg64: int64 exchange arithmetic lock */
+  384,  /* lock_cmpxchg32: int32 compare & exchange mem opnd lock */
+  385,  /* lock_cmpxchg64: int64 compare & exchange mem opnd lock */
+  380,  /* lock_and32: int32 arithmetic lock */
+  381,  /* lock_and64: int64 arithmetic lock */
+  380,  /* lock_or32: int32 arithmetic lock */
+  381,  /* lock_or64: int64 arithmetic lock */
+  380,  /* lock_xor32: int32 arithmetic lock */
+  381,  /* lock_xor64: int64 arithmetic lock */
+  380,  /* lock_sub32: int32 arithmetic lock */
+  381,  /* lock_sub64: int64 arithmetic lock */
+  378,  /* lock_add8: int8 arithmetic lock */
+  379,  /* lock_add16: int16 arithmetic lock */
+  386,  /* lock_xchg8: int8 exchange arithmetic lock */
+  387,  /* lock_xchg16: int16 exchange arithmetic lock */
+  382,  /* lock_cmpxchg8: int8 compare & exchange mem opnd lock */
+  383,  /* lock_cmpxchg16: int16 compare & exchange mem opnd lock */
+  378,  /* lock_and8: int8 arithmetic lock */
+  379,  /* lock_and16: int16 arithmetic lock */
+  378,  /* lock_or8: int8 arithmetic lock */
+  379,  /* lock_or16: int16 arithmetic lock */
+  378,  /* lock_xor8: int8 arithmetic lock */
+  379,  /* lock_xor16: int16 arithmetic lock */
+  378,  /* lock_sub8: int8 arithmetic lock */
+  379,  /* lock_sub16: int16 arithmetic lock */
+  386,  /* lock_xadd8: int8 exchange arithmetic lock */
+  387,  /* lock_xadd16: int16 exchange arithmetic lock */
+  388,  /* lock_xadd32: int32 exchange arithmetic lock */
+  389,  /* lock_xadd64: int64 exchange arithmetic lock */
+  390,  /* bsf32: bsf32 */
+  391,  /* bsf64: bsf64 */
+  390,  /* bsr32: bsf32 */
+  391,  /* bsr64: bsf64 */
+  426,  /* tls_global_dynamic_64: tls_get_addr_64 */
+  427,  /* tls_global_dynamic_32: tls_get_addr_32 */
+  426,  /* tls_local_dynamic_64: tls_get_addr_64 */
+  427,  /* tls_local_dynamic_32: tls_get_addr_32 */
     0,  /* begin_pregtn: no operand */
     0,  /* end_pregtn: no operand */
     0,  /* bwd_bar: no operand */
     0,  /* fwd_bar: no operand */
-  367,  /* label: label */
+  368,  /* label: label */
     0,  /* nop: no operand */
     0,  /* noop: no operand */
 };
@@ -7279,14 +7314,14 @@ const mINT8 ISA_OPERAND_relocatable_opnd[] = {
   -1,  /* vfcmpx128v32 */
   -1,  /* vfcmpxx128v32 */
   -1,  /* vfcmpxxx128v32 */
-  -1,  /* vfcmpsd */
-  -1,  /* vfcmpxsd */
-  -1,  /* vfcmpxxsd */
-  -1,  /* vfcmpxxxsd */
-  -1,  /* vfcmpss */
-  -1,  /* vfcmpxss */
-  -1,  /* vfcmpxxss */
-  -1,  /* vfcmpxxxss */
+  -1,  /* vcmpsd */
+  -1,  /* vcmpxsd */
+  -1,  /* vcmpxxsd */
+  -1,  /* vcmpxxxsd */
+  -1,  /* vcmpss */
+  -1,  /* vcmpxss */
+  -1,  /* vcmpxxss */
+  -1,  /* vcmpxxxss */
   -1,  /* vcomisd */
   -1,  /* vcomixsd */
   -1,  /* vcomixxsd */
@@ -8335,6 +8370,38 @@ const mINT8 ISA_OPERAND_relocatable_opnd[] = {
   -1,  /* vxzero128v32 */
   -1,  /* vxzero32 */
   -1,  /* vzeroall */
+  -1,  /* vcmpeqpd */
+  -1,  /* vcmpltpd */
+  -1,  /* vcmplepd */
+  -1,  /* vcmpunordpd */
+  -1,  /* vcmpneqpd */
+  -1,  /* vcmpnltpd */
+  -1,  /* vcmpnlepd */
+  -1,  /* vcmpordpd */
+  -1,  /* vcmpeqps */
+  -1,  /* vcmpltps */
+  -1,  /* vcmpleps */
+  -1,  /* vcmpunordps */
+  -1,  /* vcmpneqps */
+  -1,  /* vcmpnltps */
+  -1,  /* vcmpnleps */
+  -1,  /* vcmpordps */
+  -1,  /* vcmpeqsd */
+  -1,  /* vcmpltsd */
+  -1,  /* vcmplesd */
+  -1,  /* vcmpunordsd */
+  -1,  /* vcmpneqsd */
+  -1,  /* vcmpnltsd */
+  -1,  /* vcmpnlesd */
+  -1,  /* vcmpordsd */
+  -1,  /* vcmpeqss */
+  -1,  /* vcmpltss */
+  -1,  /* vcmpless */
+  -1,  /* vcmpunordss */
+  -1,  /* vcmpneqss */
+  -1,  /* vcmpnltss */
+  -1,  /* vcmpnless */
+  -1,  /* vcmpordss */
   -1,  /* xfmadd132pd */
   -1,  /* xfmadd132xpd */
   -1,  /* xfmadd132xxpd */

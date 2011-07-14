@@ -93,6 +93,9 @@ ac_cv_header_unistd_h=${ac_cv_header_unistd_h=yes}
 ac_cv_host=${ac_cv_host=x86_64-redhat-linux-gnu}
 ac_cv_host_alias=${ac_cv_host_alias=x86_64-redhat-linux}
 ac_cv_objext=${ac_cv_objext=o}
+ac_cv_prog_ACLOCAL=${ac_cv_prog_ACLOCAL=aclocal}
+ac_cv_prog_AUTOCONF=${ac_cv_prog_AUTOCONF=autoconf}
+ac_cv_prog_AUTOHEADER=${ac_cv_prog_AUTOHEADER=autoheader}
 ac_cv_prog_CC=${ac_cv_prog_CC='gcc -m32'}
 ac_cv_prog_CPP=${ac_cv_prog_CPP='gcc -m32 -E'}
 ac_cv_prog_RANLIB=${ac_cv_prog_RANLIB=ranlib}

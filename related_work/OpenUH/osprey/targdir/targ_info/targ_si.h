@@ -82,7 +82,7 @@ extern const SI_RRW SI_RRW_overuse_mask;
 extern const INT SI_resource_count;
 extern const SI_RESOURCE* const SI_resources[7];
 
-extern const SI SI_all[163];
+extern const SI SI_all[182];
 
 extern const SI_MACHINE si_machines[6];
 

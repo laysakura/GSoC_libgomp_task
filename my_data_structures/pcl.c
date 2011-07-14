@@ -20,17 +20,17 @@
  *
  */
 
+#ifndef _PCL_H_
+#define _PCL_H_
+
+
 #undef CO_USE_SIGCONTEXT
 #define CO_USE_UCONTEXT
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "pcl.h"
-
-
-#define GSOC_POOL_SIZE 100
-__thread void *gsoc_current_pool;
-__thread int gsoc_pool_index = GSOC_POOL_SIZE + 1;
+#include <execinfo.h>
 
 
 #if defined(CO_USE_SIGCONTEXT)
@@ -55,58 +55,9 @@ __thread coroutine *co_dhelper;
 
 
 
-#if defined(CO_USE_SIGCONTEXT)
-
-static volatile int ctx_called;
-static co_ctx_t *ctx_creating;
-static void *ctx_creating_func;
-static sigset_t ctx_creating_sigs;
-static co_ctx_t ctx_trampoline;
-static co_ctx_t ctx_caller;
-
-
-int co_init(int num_threads)
-{
-  co_curr = malloc(sizeof(coroutine *)*16); /* 何故固定・・・? */
-  co_dhelpher = malloc(sizeof(coroutine *)*16);
-
-  for(int i=0; i<16; i++)
-    {
-      co_curr[i] = &co_thread[i];
-    }
-
-  return 0;
-}
-
-
-
-
-
-cothread
-#endif /* #if defined(CO_USE_SIGCONTEXT) */
-
-
-
-static int co_ctx_sdir(unsigned long psp) {
-  int nav = 0;
-  unsigned long csp = (unsigned long) &nav;
-
-  return psp > csp ? -1: +1;
-}
-
-
-static int co_ctx_stackdir(void) {
-  int cav = 0;
-
-  return co_ctx_sdir((unsigned long) &cav);
-}
-
-
-#if defined(CO_USE_UCONTEXT)
-
 static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
 
-	if (getcontext(&ctx->cc)) /* これの必要性は分からない */
+  if (getcontext(&ctx->cc)) /* 正にこの行のcontextをctx->ccに保存 */
     return -1;
  
   ctx->cc.uc_link = NULL;
@@ -116,14 +67,14 @@ static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz)
   ctx->cc.uc_stack.ss_flags = 0;
  
   makecontext(&ctx->cc, func, 1); /* 関数コールのプロローグ・エピローグの代替といった難しいことをやってくれているんだと思う
-                                     作成されたcontextはctx->ccに対する変更で反映される */
+                                     作成されたcontextはctx->ccに対する変更で反映される
+                                     funcにはco_runnerが入る */
 
   return 0;
 }
 
 
 void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
-
 
   if (swapcontext(&octx->cc, &nctx->cc) < 0) {
     fprintf(stderr, "[PCL] Context switch failed: curr=%p\n",
@@ -133,265 +84,21 @@ void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
 
 }
 
-#else /* #if defined(CO_USE_UCONTEXT) */
-
-#if defined(CO_USE_SIGCONTEXT)
-
-/*
- * This code comes from the GNU Pth implementation and uses the
- * sigstack/sigaltstack() trick.
- *
- * The ingenious fact is that this variant runs really on _all_ POSIX
- * compliant systems without special platform kludges.  But be _VERY_
- * carefully when you change something in the following code. The slightest
- * change or reordering can lead to horribly broken code.  Really every
- * function call in the following case is intended to be how it is, doubt
- * me...
- *
- * For more details we strongly recommend you to read the companion
- * paper ``Portable Multithreading -- The Signal Stack Trick for
- * User-Space Thread Creation'' from Ralf S. Engelschall.
- */
-#error POINT1
-static void co_ctx_bootstrap(void) {
-  co_ctx_t * volatile ctx_starting;
-  void (* volatile ctx_starting_func)(void);
- 
-  /*
-   * Switch to the final signal mask (inherited from parent)
-   */
-  sigprocmask(SIG_SETMASK, &ctx_creating_sigs, NULL);
- 
-  /*
-   * Move startup details from static storage to local auto
-   * variables which is necessary because it has to survive in
-   * a local context until the thread is scheduled for real.
-   */
-  ctx_starting = ctx_creating;
-  ctx_starting_func = (void (*)(void)) ctx_creating_func;
- 
-  /*
-   * Save current machine state (on new stack) and
-   * go back to caller until we're scheduled for real...
-   */
-  if (!setjmp(ctx_starting->cc))
-    longjmp(ctx_caller.cc, 1);
-
-  /*
-   * The new thread is now running: GREAT!
-   * Now we just invoke its init function....
-   */
-  ctx_starting_func();
-
-  fprintf(stderr, "[PCL] Hmm, you really shouldn't reach this point: curr=%p\n",
-          co_curr);
-  exit(1);
-}
-
-
-static void co_ctx_trampoline(int sig) {
-  /*
-   * Save current machine state and _immediately_ go back with
-   * a standard "return" (to stop the signal handler situation)
-   * to let him remove the stack again. Notice that we really
-   * have do a normal "return" here, or the OS would consider
-   * the thread to be running on a signal stack which isn't
-   * good (for instance it wouldn't allow us to spawn a thread
-   * from within a thread, etc.)
-   */
-  if (!setjmp(ctx_trampoline.cc)) {
-    ctx_called = 1;
-    return;
-  }
- 
-  /*
-   * Ok, the caller has longjmp'ed back to us, so now prepare
-   * us for the real machine state switching. We have to jump
-   * into another function here to get a new stack context for
-   * the auto variables (which have to be auto-variables
-   * because the start of the thread happens later).
-   */
-  co_ctx_bootstrap();
-}
-
-
-static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
-  struct sigaction sa;
-  struct sigaction osa;
-  sigset_t osigs;
-  sigset_t sigs;
-#if defined(CO_HAS_SIGSTACK)
-  struct sigstack ss;
-  struct sigstack oss;
-#elif defined(CO_HAS_SIGALTSTACK)
-  struct sigaltstack ss;
-  struct sigaltstack oss;
-#else
-#error "PCL: Unknown context stack type"
-#endif
-
-  /*
-   * Preserve the SIGUSR1 signal state, block SIGUSR1,
-   * and establish our signal handler. The signal will
-   * later transfer control onto the signal stack.
-   */
-  sigemptyset(&sigs);
-  sigaddset(&sigs, SIGUSR1);
-  sigprocmask(SIG_BLOCK, &sigs, &osigs);
-  sa.sa_handler = co_ctx_trampoline;
-  sigemptyset(&sa.sa_mask);
-  sa.sa_flags = SA_ONSTACK;
-  if (sigaction(SIGUSR1, &sa, &osa) != 0)
-    return -1;
-
-  /*
-   * Set the new stack.
-   *
-   * For sigaltstack we're lucky [from sigaltstack(2) on
-   * FreeBSD 3.1]: ``Signal stacks are automatically adjusted
-   * for the direction of stack growth and alignment
-   * requirements''
-   *
-   * For sigstack we have to decide ourself [from sigstack(2)
-   * on Solaris 2.6]: ``The direction of stack growth is not
-   * indicated in the historical definition of struct sigstack.
-   * The only way to portably establish a stack pointer is for
-   * the application to determine stack growth direction.''
-   */
-#if defined(CO_HAS_SIGALTSTACK)
-  ss.ss_sp = stkbase;
-  ss.ss_size = stksiz - sizeof(long);
-  ss.ss_flags = 0;
-  if (sigaltstack(&ss, &oss) < 0)
-    return -1;
-#elif defined(CO_HAS_SIGSTACK)
-  if (co_ctx_stackdir() < 0)
-    ss.ss_sp = (stkbase + stksiz - sizeof(long));
-  else
-    ss.ss_sp = stkbase;
-  ss.ss_onstack = 0;
-  if (sigstack(&ss, &oss) < 0)
-    return -1;
-#else
-#error "PCL: Unknown context stack type"
-#endif
-
-  /*
-   * Now transfer control onto the signal stack and set it up.
-   * It will return immediately via "return" after the setjmp()
-   * was performed. Be careful here with race conditions.  The
-   * signal can be delivered the first time sigsuspend() is
-   * called.
-   */
-  ctx_called = 0;
-  kill(getpid(), SIGUSR1);
-  sigfillset(&sigs);
-  sigdelset(&sigs, SIGUSR1);
-  while (!ctx_called)
-    sigsuspend(&sigs);
-
-  /*
-   * Inform the system that we are back off the signal stack by
-   * removing the alternative signal stack. Be careful here: It
-   * first has to be disabled, before it can be removed.
-   */
-#if defined(CO_HAS_SIGALTSTACK)
-  sigaltstack(NULL, &ss);
-  ss.ss_flags = SS_DISABLE;
-  if (sigaltstack(&ss, NULL) < 0)
-    return -1;
-  sigaltstack(NULL, &ss);
-  if (!(ss.ss_flags & SS_DISABLE))
-    return -1;
-  if (!(oss.ss_flags & SS_DISABLE))
-    sigaltstack(&oss, NULL);
-#elif defined(CO_HAS_SIGSTACK)
-  if (sigstack(&oss, NULL))
-    return -1;
-#else
-#error "PCL: Unknown context stack type"
-#endif
-
-  /*
-   * Restore the old SIGUSR1 signal handler and mask
-   */
-  sigaction(SIGUSR1, &osa, NULL);
-  sigprocmask(SIG_SETMASK, &osigs, NULL);
-
-  /*
-   * Set creation information.
-   */
-  ctx_creating = ctx;
-  ctx_creating_func = func;
-  memcpy(&ctx_creating_sigs, &osigs, sizeof(sigset_t));
-
-  /*
-   * Now enter the trampoline again, but this time not as a signal
-   * handler. Instead we jump into it directly.
-   */
-  if (!setjmp(ctx_caller.cc))
-    longjmp(ctx_trampoline.cc, 1);
-
-  return 0;
-}
-
-#else /* #if defined(CO_USE_SIGCONTEXT) */
-
-static int co_set_context(co_ctx_t *ctx, void *func, char *stkbase, long stksiz) {
-  char *stack;
-
-  stack = stkbase + stksiz - sizeof(long);
-
-  setjmp(ctx->cc);
-
-#if defined(__GLIBC__) && defined(__GLIBC_MINOR__)                      \
-  && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 0 && defined(JB_PC) && defined(JB_SP)
-  ctx->cc[0].__jmpbuf[JB_PC] = (int) func;
-  ctx->cc[0].__jmpbuf[JB_SP] = (int) stack;
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__)                    \
-  && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 0 && defined(__mc68000__)
-  ctx->cc[0].__jmpbuf[0].__aregs[0] = (long) func;
-  ctx->cc[0].__jmpbuf[0].__sp = (int *) stack;
-#elif defined(__GNU_LIBRARY__) && defined(__i386__)
-  ctx->cc[0].__jmpbuf[0].__pc = func;
-  ctx->cc[0].__jmpbuf[0].__sp = stack;
-#elif defined(_WIN32) && defined(_MSC_VER)
-  ((_JUMP_BUFFER *) &ctx->cc)->Eip = (long) func;
-  ((_JUMP_BUFFER *) &ctx->cc)->Esp = (long) stack;
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__)                    \
-  && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 0 && (defined(__powerpc64__) || defined(__powerpc__))
-  ctx->cc[0].__jmpbuf[JB_LR] = (int) func;
-  ctx->cc[0].__jmpbuf[JB_GPR1] = (int) stack;
-#else
-#error "PCL: Unsupported setjmp/longjmp platform. Please report to <davidel@xmailserver.org>"
-#endif
-
-  return 0;
-}
-
-#endif /* #if defined(CO_USE_SIGCONTEXT) */
-
-
-static void co_switch_context(co_ctx_t *octx, co_ctx_t *nctx) {
-
-  if (!setjmp(octx->cc))
-    longjmp(nctx->cc, 1);
-}
-
-#endif /* #if defined(CO_USE_UCONTEXT) */
+static void co_del_helper(void*);
 
 /* makecontext()の引数として与えるために，void()(void)型．
  * */
 static void co_runner(void) {
   coroutine *co = co_curr;
 
-  co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる．
-                                 ここまで来るとcoroutineという抽象化は非常に妥当な気もする */
+  co->restarget = co->caller; /* swap返しをするために，呼び出し元の登録．swap返しはco_exit()の中でやってる． */
   co->func(co->data); /* funcは戻り値のないoutlined function. この中で *data->ret = fib(*data->arg) とかやってるから大丈夫
 
                          「funcの中でちゃんとコンテキストスイッチ起きるの?」と思うかも知れないが，大丈夫．
                          OpenMP directiveの各種ABIが，__ompc_task_switch()を呼び出していて，その中では実質swapcontext()呼び出しをしている */
-  co_exit();
+
+  /* ここにfinish_current_task()を入れれば良いんじゃね? */
+  co_exit(); /* laysakura: ここでexitしているので，co_exit()を明示的に呼ぶ必要が無くなっている */
 }
 
 void co_vp_init()
@@ -405,25 +112,14 @@ void co_vp_init()
  * stack: funcが使用するスタックフレーム．NULLなら，この関数がstack frameをheap上に作成する
  * size: stackのサイズ */
 coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
-  int alloc = 0, r = CO_STK_COROSIZE;
+  int alloc = 0;
   coroutine *co;
 
   if ((size &= ~(sizeof(long) - 1)) < CO_MIN_SIZE)
     return NULL;
   if (!stack) {
     size = (size + sizeof(coroutine) + CO_STK_ALIGN - 1) & ~(CO_STK_ALIGN - 1); /* 何行か下の "co = stack" のコメント参照 */
-
-    if (gsoc_pool_index >= GSOC_POOL_SIZE)
-      {
-        stack = gsoc_current_pool = malloc(size * GSOC_POOL_SIZE);
-        gsoc_pool_index = 1;
-      }
-    else
-      {
-        stack = gsoc_current_pool + size * gsoc_pool_index;
-        ++gsoc_pool_index;
-      }
-
+    stack = malloc(size); /* heap上にstackを作成 */
     if (!stack)
       return NULL;
     alloc = size;
@@ -438,6 +134,7 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
   co->alloc = alloc;
   co->func = func;
   co->data = data;
+
   if (co_set_context(&co->ctx, co_runner, stack, size - CO_STK_COROSIZE) < 0) {
     if (alloc)
       free(co);
@@ -451,13 +148,15 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size) {
 void co_delete(coroutine_t coro) {
   coroutine *co = (coroutine *) coro;
 
+  /* fprintf(stderr, "co_delete(): delete %p\n", co); */
+
   if (co == co_curr) {
     fprintf(stderr, "[PCL] Cannot delete itself: curr=%p\n",
             co_curr);
     exit(1);
   }
-  /*if (co->alloc)
-    free(co);*/
+  if (co->alloc)
+    free(co);
 }
 
 
@@ -477,21 +176,13 @@ void co_call(coroutine_t coro) {
 }
 
 
-void co_resume(void) {
-
-  co_call(co_curr->restarget);
-  co_curr->restarget = co_curr->caller;
-}
-
-/* 全然難しいことしてなくてワロタ */
 static void co_del_helper(void *data) {
   coroutine *cdh;
 
-  for (;;) { /* この関数はcoroutineとして呼ばれるので，1呼び出しがこのループの中1iterationに対応 */
-    cdh = co_dhelper; /* co_exit_to(to) のto */
+  for (;;) { /* laysakura: このforはなくても動いたりする */
+    cdh = co_dhelper;
     co_dhelper = NULL;
-    co_delete(co_curr->caller); /* curr はこのco_del_helperにbindされたcoroutine．
-                                   そのcallerは，co_exit_to()に至ったcoroutine */
+    co_delete(co_curr->caller);
     co_call((coroutine_t) cdh);
     if (!co_dhelper) {
       fprintf(stderr, "[PCL] Resume to delete helper coroutine: curr=%p\n",
@@ -503,7 +194,7 @@ static void co_del_helper(void *data) {
 
 /* @parameters:
  * coro: 今thread上で走っているcoroutineを終了させた後に移る先．*/
-void co_exit_to(coroutine_t coro)
+void co_exit_to(coroutine_t coro, int thread_id)
 {
   coroutine *co = (coroutine *) coro;
   static __thread coroutine *dchelper = NULL; /* delete helper らしい */
@@ -515,18 +206,19 @@ void co_exit_to(coroutine_t coro)
             co_curr);
     exit(1);
   }
-  co_dhelper = co;
+  co_dhelper = co;  /* laysakura: こいつがco_del_helper()の中でco_callされる */
  
   co_call((coroutine_t) dchelper);
+  /* laysakura: co_del_helperの中でco_dhelperがco_callされるので，以降の行には来ない */
 
-  fprintf(stderr, "[PCL] Stale coroutine called on CPU %d: curr=%p, next=%p\n",
-          sched_getcpu(),  co_curr, coro);
+  /* ここに来るのは，外部からco_call(); */
+
   exit(1);
 }
 
 
 void co_exit(void) {
-  co_exit_to((coroutine_t) co_curr->restarget);
+  co_exit_to((coroutine_t) co_curr->restarget, 777);
 }
 
 
@@ -534,3 +226,5 @@ coroutine_t co_current(void) {
   return (coroutine_t) co_curr;
 }
 
+
+#endif /* _PCL_H_ */

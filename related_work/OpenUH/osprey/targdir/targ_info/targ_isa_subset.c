@@ -9,7 +9,7 @@ ISA_SUBSET ISA_SUBSET_Value = ISA_SUBSET_UNDEFINED;
 const char* ISA_SUBSET_Name( ISA_SUBSET subset ) {
   return isa_subset_names[(INT)subset];
 }
-static const char isa_subset_opcode_table[2][449] = {
+static const char isa_subset_opcode_table[2][453] = {
   { /* x86_64 */
     0377, /* add8 add16 add32 adc32 add64 addx32 addxx32 addxxx32 */
     0377, /* addx64 addxx64 addxxx64 addi8 addi16 addi32 adci32 addi64 */
@@ -290,8 +290,8 @@ static const char isa_subset_opcode_table[2][449] = {
     0377, /* vfblendx128v32 vfblendxx128v32 vfblendxxx128v32 vfblendv128v64 vfblendvx128v64 vfblendvxx128v64 vfblendvxxx128v64 vfblendv128v32 */
     0377, /* vfblendvx128v32 vfblendvxx128v32 vfblendvxxx128v32 vfbroadcastss vfbroadcastxss vfbroadcastxxss vfbroadcastsd vfbroadcastxsd */
     0377, /* vfbroadcastxxsd vfbroadcastf128 vfbroadcastxf128 vfbroadcastxxf128 vcmppd vfcmp128v64 vfcmpx128v64 vfcmpxx128v64 */
-    0377, /* vfcmpxxx128v64 vcmpps vfcmp128v32 vfcmpx128v32 vfcmpxx128v32 vfcmpxxx128v32 vfcmpsd vfcmpxsd */
-    0377, /* vfcmpxxsd vfcmpxxxsd vfcmpss vfcmpxss vfcmpxxss vfcmpxxxss vcomisd vcomixsd */
+    0377, /* vfcmpxxx128v64 vcmpps vfcmp128v32 vfcmpx128v32 vfcmpxx128v32 vfcmpxxx128v32 vcmpsd vcmpxsd */
+    0377, /* vcmpxxsd vcmpxxxsd vcmpss vcmpxss vcmpxxss vcmpxxxss vcomisd vcomixsd */
     0377, /* vcomixxsd vcomixxxsd vcomiss vcomixss vcomixxss vcomixxxss vcvtdq2pd vcvtdq2pdx */
     0377, /* vcvtdq2pdxx vcvtdq2pdxxx vcvtdq2ps vcvtdq2psx vcvtdq2psxx vcvtdq2psxxx vcvtpd2dq vcvtpd2dqx */
     0377, /* vcvtpd2dqxx vcvtpd2dqxxx vcvtpd2dqy vcvtpd2dqyx vcvtpd2dqyxx vcvtpd2dqyxxx vcvtpd2ps vcvtpd2psx */
@@ -422,7 +422,11 @@ static const char isa_subset_opcode_table[2][449] = {
     0377, /* vunpckhx128v64 vunpckhxx128v64 vunpckhxxx128v64 vunpckh128v32 vunpckhx128v32 vunpckhxx128v32 vunpckhxxx128v32 vunpckl128v64 */
     0377, /* vunpcklx128v64 vunpcklxx128v64 vunpcklxxx128v64 vunpckl128v32 vunpcklx128v32 vunpcklxx128v32 vunpcklxxx128v32 vxorpd */
     0377, /* vfxor128v64 vfxorx128v64 vfxorxx128v64 vfxorxxx128v64 vxzero128v64 vxzero64 vxorps vfxor128v32 */
-    0377, /* vfxorx128v32 vfxorxx128v32 vfxorxxx128v32 vxzero128v32 vxzero32 vzeroall xfmadd132pd xfmadd132xpd */
+    0377, /* vfxorx128v32 vfxorxx128v32 vfxorxxx128v32 vxzero128v32 vxzero32 vzeroall vcmpeqpd vcmpltpd */
+    0377, /* vcmplepd vcmpunordpd vcmpneqpd vcmpnltpd vcmpnlepd vcmpordpd vcmpeqps vcmpltps */
+    0377, /* vcmpleps vcmpunordps vcmpneqps vcmpnltps vcmpnleps vcmpordps vcmpeqsd vcmpltsd */
+    0377, /* vcmplesd vcmpunordsd vcmpneqsd vcmpnltsd vcmpnlesd vcmpordsd vcmpeqss vcmpltss */
+    0377, /* vcmpless vcmpunordss vcmpneqss vcmpnltss vcmpnless vcmpordss xfmadd132pd xfmadd132xpd */
     0377, /* xfmadd132xxpd xfmadd132xxxpd xfmadd213pd xfmadd213xpd xfmadd213xxpd xfmadd213xxxpd xfmadd231pd xfmadd231xpd */
     0377, /* xfmadd231xxpd xfmadd231xxxpd xfmadd132ps xfmadd132xps xfmadd132xxps xfmadd132xxxps xfmadd213ps xfmadd213xps */
     0377, /* xfmadd213xxps xfmadd213xxxps xfmadd231ps xfmadd231xps xfmadd231xxps xfmadd231xxxps xfmadd132sd xfmadd132xsd */

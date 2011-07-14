@@ -154,11 +154,15 @@ extern "C" {
 				      void(*cp)(void* src, void* dst));
 
 
-/*added by Cody Addison, University of Houston, April 2, 2008 */				
-  extern int __ompc_task_create( omp_task_func func, void *args, int is_tied);
+/* external tasking API for compiler */
+  extern int __ompc_task_will_defer(int may_delay);
+  extern void __ompc_task_create(omp_task_func taskfunc, void *frame_pointer,
+                void *firstprivates, int may_delay, int is_tied, int blocks_parent);
   extern void __ompc_task_wait();
   extern void __ompc_task_exit();
-  extern omp_cond_func __ompc_task_create_cond;
+
+  extern void __ompc_task_firstprivates_alloc(void **firstprivates, int size);
+  extern void __ompc_task_firstprivates_free(void *firstprivates);
 
 
 #ifdef __cplusplus

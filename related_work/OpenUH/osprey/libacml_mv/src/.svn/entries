@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libacml_mv/src
 http://svn.open64.net/svnroot/open64
 
@@ -25,40 +25,6 @@ leihuang
 
 
 ead328b1-e903-0410-a19d-eacee4b031f6
-
-sincos_special.c
-file
-
-
-
-
-2011-05-17T07:39:56.783031Z
-86b8774fa3e79b814c752e66f6df4eef
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3233
 
 lrintf.c
 file
@@ -93,6 +59,40 @@ leihuang
 
 
 1804
+
+sincos_special.c
+file
+
+
+
+
+2011-05-17T07:39:56.783031Z
+86b8774fa3e79b814c752e66f6df4eef
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3233
 
 nexttoward.c
 file
@@ -162,40 +162,6 @@ leihuang
 
 3389
 
-coshf.c
-file
-
-
-
-
-2011-05-17T07:39:56.783031Z
-e4536187f32aa1dda4f374e4daebe311
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9939
-
 scalbn.c
 file
 
@@ -229,6 +195,40 @@ leihuang
 
 
 3055
+
+coshf.c
+file
+
+
+
+
+2011-05-17T07:39:56.783031Z
+e4536187f32aa1dda4f374e4daebe311
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9939
 
 lround.c
 file
@@ -400,40 +400,6 @@ leihuang
 
 3044
 
-floor.c
-file
-
-
-
-
-2011-05-17T07:39:56.787031Z
-5aa208b40273906133e09de83c00f37a
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2354
-
 log_special.c
 file
 
@@ -467,6 +433,40 @@ leihuang
 
 
 3385
+
+floor.c
+file
+
+
+
+
+2011-05-17T07:39:56.787031Z
+5aa208b40273906133e09de83c00f37a
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2354
 
 rintf.c
 file
@@ -1049,40 +1049,6 @@ leihuang
 
 2277
 
-tanf.c
-file
-
-
-
-
-2011-05-17T07:39:56.787031Z
-0748d4eae5a7e9d82bb47ecd9024b1bd
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5909
-
 log1pf.c
 file
 
@@ -1116,6 +1082,40 @@ leihuang
 
 
 16080
+
+tanf.c
+file
+
+
+
+
+2011-05-17T07:39:56.787031Z
+0748d4eae5a7e9d82bb47ecd9024b1bd
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5909
 
 sqrt.c
 file
@@ -1151,40 +1151,6 @@ leihuang
 
 1901
 
-tanh.c
-file
-
-
-
-
-2011-05-17T07:39:56.791031Z
-413c59a8a493c2c2e604f1b54c6be108
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3797
-
 frexpf.c
 file
 
@@ -1218,6 +1184,40 @@ leihuang
 
 
 1808
+
+tanh.c
+file
+
+
+
+
+2011-05-17T07:39:56.791031Z
+413c59a8a493c2c2e604f1b54c6be108
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3797
 
 modff.c
 file
@@ -1253,40 +1253,6 @@ leihuang
 
 2097
 
-ilogb.c
-file
-
-
-
-
-2011-05-17T07:39:56.791031Z
-30683df1be0cac0b7c862f02c290e222
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2248
-
 exp_special.c
 file
 
@@ -1320,6 +1286,40 @@ leihuang
 
 
 2759
+
+ilogb.c
+file
+
+
+
+
+2011-05-17T07:39:56.791031Z
+30683df1be0cac0b7c862f02c290e222
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2248
 
 asinf.c
 file
@@ -1355,40 +1355,6 @@ leihuang
 
 5101
 
-atanhf.c
-file
-
-
-
-
-2011-05-17T07:39:56.791031Z
-e072377e6c02faa110f0e2daa3110986
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5321
-
 nearbyintf.c
 file
 
@@ -1423,14 +1389,14 @@ leihuang
 
 1609
 
-ilogbf.c
+atanhf.c
 file
 
 
 
 
 2011-05-17T07:39:56.791031Z
-26ff2fd6ff58f491f7fbb276a9cd35b9
+e072377e6c02faa110f0e2daa3110986
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1455,7 +1421,7 @@ leihuang
 
 
 
-2783
+5321
 
 asinh.c
 file
@@ -1491,14 +1457,14 @@ leihuang
 
 11157
 
-hypot.c
+ilogbf.c
 file
 
 
 
 
 2011-05-17T07:39:56.791031Z
-24fe56107c4830083eeedfe18dff65ce
+26ff2fd6ff58f491f7fbb276a9cd35b9
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1523,7 +1489,7 @@ leihuang
 
 
 
-6387
+2783
 
 acoshf.c
 file
@@ -1559,14 +1525,14 @@ leihuang
 
 3923
 
-sinhf.c
+hypot.c
 file
 
 
 
 
 2011-05-17T07:39:56.791031Z
-f0161290e714df88f7a46d96368589ce
+24fe56107c4830083eeedfe18dff65ce
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -1591,7 +1557,7 @@ leihuang
 
 
 
-10491
+6387
 
 remainder_piby2d2f.c
 file
@@ -1626,6 +1592,40 @@ leihuang
 
 
 7282
+
+sinhf.c
+file
+
+
+
+
+2011-05-17T07:39:56.791031Z
+f0161290e714df88f7a46d96368589ce
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10491
 
 scalbnf.c
 file
@@ -2035,40 +2035,6 @@ leihuang
 
 1824
 
-ldexp.c
-file
-
-
-
-
-2011-05-17T07:39:56.795031Z
-661d364c1e3f09d8ce0fedc479649d9f
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3021
-
 nan.c
 file
 
@@ -2102,6 +2068,40 @@ leihuang
 
 
 3314
+
+ldexp.c
+file
+
+
+
+
+2011-05-17T07:39:56.795031Z
+661d364c1e3f09d8ce0fedc479649d9f
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3021
 
 llround.c
 file

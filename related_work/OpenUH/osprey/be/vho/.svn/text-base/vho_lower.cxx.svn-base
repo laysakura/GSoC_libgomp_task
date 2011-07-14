@@ -136,7 +136,9 @@ VHO_WN_has_side_effects ( WN * wn )
     case OPR_ILOAD:
 
       has_side_effects =    TY_is_volatile(WN_ty(wn))
-                         || VHO_WN_has_side_effects ( WN_kid0(wn) );  
+	|| (TY_kind(WN_load_addr_ty(wn)) == KIND_POINTER 
+	    && TY_is_volatile(TY_pointed(WN_load_addr_ty(wn))))
+	|| VHO_WN_has_side_effects ( WN_kid0(wn) );  
       break;
 
     default:
@@ -2783,7 +2785,8 @@ vho_simplify_cand ( WN * wn, WN * l_wn, WN * r_wn )
 
   else
   if (    r_oper == OPR_INTCONST
-       && WN_const_val(r_wn) == 0 ) {
+       && WN_const_val(r_wn) == 0 
+       && !WN_has_side_effects(l_wn)) {
 
     wn = r_wn;
     simplified = TRUE;
@@ -2965,14 +2968,15 @@ vho_simplify_cior ( WN * wn, WN * l_wn, WN * r_wn )
 
   else
   if (    r_oper == OPR_INTCONST
-       && WN_const_val(r_wn) == 1 ) {
+       && WN_const_val(r_wn) == 1
+       && !WN_has_side_effects(l_wn)) {
 
     wn = r_wn;
     simplified = TRUE;
   }
 
   /* simplify 
-   *          ( e && FALSE )
+   *          ( e || FALSE )
    * to
    *          ( e )
    */
@@ -4457,7 +4461,8 @@ vho_lower_expr ( WN * wn, WN * block, BOOL_INFO * bool_info, BOOL is_return )
       WN_kid0(wn) = vho_lower_expr (WN_kid0(wn), block, NULL);
 
       if (    VHO_Iload_Opt
-           && WN_operator(WN_kid0(wn)) == OPR_LDA ) {
+           && WN_operator(WN_kid0(wn)) == OPR_LDA 
+	   && !VHO_WN_has_side_effects(wn)) {
 
         INT64 offset;
 
@@ -5840,6 +5845,19 @@ vho_lower_region ( WN * wn, WN * block )
   }
   else
     WN_region_body(wn) = vho_lower_block ( WN_region_body(wn) );
+
+  UINT last_sz = Scope_tab[CURRENT_SYMTAB].st_tab->Size();
+  UINT new_sz = Scope_tab[CURRENT_SYMTAB].st_tab->Size();
+  // Make temp variables generated inside OpenMP blocks to be private
+  if (new_sz > last_sz && WN_region_kind(wn) == REGION_KIND_MP) {
+    WN_PRAGMA_ID region_type = (WN_PRAGMA_ID) WN_pragma(WN_first(WN_region_pragmas(wn)));
+    if (region_type == WN_PRAGMA_PARALLEL_BEGIN || region_type == WN_PRAGMA_PDO_BEGIN || region_type == WN_PRAGMA_TASK_BEGIN) {
+      for (UINT i = last_sz; i < new_sz; i++) {
+        WN* local_wn = WN_CreatePragma(WN_PRAGMA_LOCAL, &Scope_tab[CURRENT_SYMTAB].st_tab->Entry(i), 0, 0);
+        WN_INSERT_BlockLast(WN_region_pragmas(wn), local_wn);
+      }
+    }
+  }
   
   INT region_id = WN_region_id(wn);
   if ((WN_region_kind(wn) == REGION_KIND_MP) &&

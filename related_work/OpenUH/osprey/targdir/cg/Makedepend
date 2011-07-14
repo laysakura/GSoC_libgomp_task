@@ -1897,7 +1897,9 @@ cg_loop.o: \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_loop.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_swp.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_swp_options.h \
- /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/ebo.h
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/ebo.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/lra.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/calls.h
 cg_loop_mii.o: \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_loop_mii.cxx \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/defs.h \
@@ -4020,7 +4022,8 @@ cgdriver.o: \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cgdriver.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/pqs_cg.h \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/pqs_defs.h \
- /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_gcov.h
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cg_gcov.h \
+ /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/common/com/config_wopt.h
 cgdwarf.o: \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/be/cg/cgdwarf.cxx \
  /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/../osprey/linux/include/elf_stuff.h \

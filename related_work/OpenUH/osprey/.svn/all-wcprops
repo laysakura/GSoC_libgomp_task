@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey
 END
 Makefile.gsetup
 K 25
@@ -37,7 +37,7 @@ Makefile.gsetup.in
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/Makefile.gsetup.in
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/Makefile.gsetup.in
 END
 Makefile
 K 25

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008-2010 Advanced Micro Devices, Inc.  All Rights Reserved.
+ * Copyright (C) 2008-2011 Advanced Micro Devices, Inc.  All Rights Reserved.
  */
 
 /*
@@ -2133,7 +2133,13 @@ add_final_ld_args (string_list_t *args, phases_t ld_phase)
 	    if (option_was_seen(O_mp) ||
 		option_was_seen(O_apo) ||	// bug 6334
 		option_was_seen(O_fopenmp)) {
-                add_string(args, "-lopenmp");
+                char *use_pcl_omp = getenv("USE_PCL_TASKS");
+                if (use_pcl_omp != NULL &&
+                    ((strcmp(use_pcl_omp, "yes") == 0) ||
+                    (strcmp(use_pcl_omp, "YES") == 0)))
+                  add_string(args, "-lopenmp-pcl");
+                else
+                  add_string(args, "-lopenmp");
                 add_string(args, "-lstdc++");
             }
 
@@ -3179,12 +3185,22 @@ run_ld (void)
 #ifdef KEY
 	// Pass "-m elf_i386" and "-m elf_x86_64" to linker.  Bug 8441.
 	if (option_was_seen(O_melf_i386)) {
-	    add_string(args, "-m elf_i386");
+	    add_string(args, "-m");
+	    add_string(args, "elf_i386");
 	}
 	if (option_was_seen(O_melf_x86_64)) {
-	    add_string(args, "-m elf_x86_64");
+	    add_string(args, "-m");
+	    add_string(args, "elf_x86_64");
 	}
 #endif
+
+#ifdef BUILD_SKIP_IPA
+        if (ipa == TRUE) {
+            error("IPA support is not enabled in this compiler.");
+            return;
+        }
+#endif
+
 	if (ipa == TRUE) {
 	    char *str;
 	    ldpath = get_phase_dir (ldphase);

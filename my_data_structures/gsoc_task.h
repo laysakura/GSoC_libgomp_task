@@ -11,7 +11,9 @@ gsoc_task_create(void (*func)(void*), void *data, void *stack, int stacksize, gs
 {
   gsoc_task* ret;
   ret = co_create(func, data, stack, stacksize);
+  pthread_mutex_init(&ret->lock, NULL);
   ret->num_children = 0;
+  ret->waiting = false;
   ret->creator = parent_task;
   if (parent_task)
     {

@@ -42,9 +42,9 @@ pkgincludedir = $(includedir)/ld
 top_builddir = .
 
 ACLOCAL = /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing aclocal-1.4
-AUTOCONF = /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing autoconf
+AUTOCONF = autoconf
 AUTOMAKE = /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing automake-1.4
-AUTOHEADER = /home/sho/src/myproject/gsoc/related_work/OpenUH/osprey/cygnus/missing autoheader
+AUTOHEADER = autoheader
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)

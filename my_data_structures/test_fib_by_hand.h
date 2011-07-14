@@ -2,10 +2,6 @@
 #define _TEST_FIB_BY_HAND_H_
 
 
-#include "pcl.h"
-#include "gsoc_taskqueue.h"
-
-
 #define OMP_TASK_STACK_SIZE_DEFAULT 0x010000L
 
 typedef struct {

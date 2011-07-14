@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/libopenmp
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey/libopenmp
 END
 omp_collector_util.c
 K 25
 svn:wc:ra_dav:version-url
 V 83
-/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/libopenmp/omp_collector_util.c
+/svnroot/open64/!svn/ver/3677/branches/OpenUH/osprey/libopenmp/omp_collector_util.c
 END
 omp_init.cxx
 K 25
@@ -19,91 +19,37 @@ omp_runtime.c
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_runtime.c
+/svnroot/open64/!svn/ver/3677/branches/OpenUH/osprey/libopenmp/omp_runtime.c
 END
 omp_sys.h
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_sys.h
-END
-omp_collector_api.h
-K 25
-svn:wc:ra_dav:version-url
-V 82
-/svnroot/open64/!svn/ver/2097/branches/OpenUH/osprey/libopenmp/omp_collector_api.h
-END
-omp_queue.c
-K 25
-svn:wc:ra_dav:version-url
-V 74
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_queue.c
-END
-omp_type.h
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_type.h
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/omp_sys.h
 END
 omp_collector_util.h
 K 25
 svn:wc:ra_dav:version-url
 V 83
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopenmp/omp_collector_util.h
-END
-omp_lock.c
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_lock.c
-END
-omp_lock.h
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_lock.h
+/svnroot/open64/!svn/ver/3677/branches/OpenUH/osprey/libopenmp/omp_collector_util.h
 END
 omp_rtl_api.h
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_rtl_api.h
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/omp_rtl_api.h
 END
 omp_collector_validation.c
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_collector_validation.c
-END
-Makefile.gbase
-K 25
-svn:wc:ra_dav:version-url
-V 77
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/Makefile.gbase
-END
-omp_task.c
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_task.c
-END
-pcl.c
-K 25
-svn:wc:ra_dav:version-url
-V 68
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/pcl.c
+/svnroot/open64/!svn/ver/3677/branches/OpenUH/osprey/libopenmp/omp_collector_validation.c
 END
 omp_collector_validation.h
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_collector_validation.h
-END
-omp_rtl.h
-K 25
-svn:wc:ra_dav:version-url
-V 72
-/svnroot/open64/!svn/ver/3633/branches/OpenUH/osprey/libopenmp/omp_rtl.h
+/svnroot/open64/!svn/ver/3677/branches/OpenUH/osprey/libopenmp/omp_collector_validation.h
 END
 omp_lib.c
 K 25
@@ -111,29 +57,17 @@ svn:wc:ra_dav:version-url
 V 72
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopenmp/omp_lib.c
 END
-omp_task.h
+omp_rtl.h
 K 25
 svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3635/branches/OpenUH/osprey/libopenmp/omp_task.h
+V 72
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/omp_rtl.h
 END
-omp_thread.c
+omp_task_pool_per_thread1.c
 K 25
 svn:wc:ra_dav:version-url
-V 75
-/svnroot/open64/!svn/ver/3604/branches/OpenUH/osprey/libopenmp/omp_thread.c
-END
-pcl.h
-K 25
-svn:wc:ra_dav:version-url
-V 68
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/pcl.h
-END
-omp_thread.h
-K 25
-svn:wc:ra_dav:version-url
-V 75
-/svnroot/open64/!svn/ver/3635/branches/OpenUH/osprey/libopenmp/omp_thread.h
+V 90
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_task_pool_per_thread1.c
 END
 omp_util.c
 K 25
@@ -145,11 +79,113 @@ libopenmp.vs
 K 25
 svn:wc:ra_dav:version-url
 V 75
-/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/libopenmp.vs
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/libopenmp.vs
 END
 omp_util.h
 K 25
 svn:wc:ra_dav:version-url
 V 73
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/libopenmp/omp_util.h
+END
+omprun
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey/libopenmp/omprun
+END
+omp_collector_api.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/open64/!svn/ver/2097/branches/OpenUH/osprey/libopenmp/omp_collector_api.h
+END
+omp_queue.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_queue.c
+END
+omp_type.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_type.h
+END
+omp_lock.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_lock.c
+END
+omp_queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_queue.h
+END
+omp_task_pool.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey/libopenmp/omp_task_pool.c
+END
+omp_lock.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3580/branches/OpenUH/osprey/libopenmp/omp_lock.h
+END
+omp_task_pool.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_task_pool.h
+END
+Makefile.gbase
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/Makefile.gbase
+END
+omp_task.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey/libopenmp/omp_task.c
+END
+pcl.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/pcl.c
+END
+omp_thread.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3687/branches/OpenUH/osprey/libopenmp/omp_thread.c
+END
+omp_task.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_task.h
+END
+pcl.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/pcl.h
+END
+omp_task_pool_global.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/open64/!svn/ver/3686/branches/OpenUH/osprey/libopenmp/omp_task_pool_global.c
+END
+omp_thread.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3685/branches/OpenUH/osprey/libopenmp/omp_thread.h
 END

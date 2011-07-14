@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 63
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ia64
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/cg/ia64
 END
 imul32.doc
 K 25
@@ -117,23 +117,23 @@ svn:wc:ra_dav:version-url
 V 81
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ia64/cg_swp_bundle.cxx
 END
-exp_predicate.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 81
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/ia64/exp_predicate.cxx
-END
 Makefile
 K 25
 svn:wc:ra_dav:version-url
 V 72
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/ia64/Makefile
 END
+exp_predicate.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/cg/ia64/exp_predicate.cxx
+END
 expand.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/cg/ia64/expand.cxx
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/cg/ia64/expand.cxx
 END
 pqs_cg_ia64.h
 K 25

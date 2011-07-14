@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libf/pxf
 http://svn.open64.net/svnroot/open64
 
@@ -366,16 +366,16 @@ marcel
 
 3706
 
-pxftcgetattr.c
+pxfopen.c
 file
 
 
 
 
 2011-05-17T07:39:59.319044Z
-22e90bf824f33c711907601e1380c9df
-2005-10-25T01:22:06.291212Z
-2
+876ed2b8fe2aeece114b159aea8ebf7a
+2005-11-18T22:20:42.308833Z
+71
 marcel
 
 
@@ -398,41 +398,7 @@ marcel
 
 
 
-4438
-
-pxfstructtable.h
-file
-
-
-
-
-2011-05-17T07:39:59.319044Z
-626b19f119b9b69f2cb36be3aa981704
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2504
+4459
 
 pxffork.c
 file
@@ -468,16 +434,16 @@ marcel
 
 7441
 
-pxfopen.c
+pxfstructtable.h
 file
 
 
 
 
 2011-05-17T07:39:59.319044Z
-876ed2b8fe2aeece114b159aea8ebf7a
-2005-11-18T22:20:42.308833Z
-71
+626b19f119b9b69f2cb36be3aa981704
+2005-10-25T01:22:06.291212Z
+2
 marcel
 
 
@@ -500,7 +466,41 @@ marcel
 
 
 
-4459
+2504
+
+pxftcgetattr.c
+file
+
+
+
+
+2011-05-17T07:39:59.319044Z
+22e90bf824f33c711907601e1380c9df
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4438
 
 pxfwait.c
 file
@@ -1012,6 +1012,40 @@ marcel
 
 3605
 
+pxfsysconf.c
+file
+
+
+
+
+2011-05-17T07:39:59.323044Z
+f80cfae4e79d99a9840ed2624aa44c28
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2746
+
 pxfsystem.c
 file
 
@@ -1079,40 +1113,6 @@ marcel
 
 
 2403
-
-pxfsysconf.c
-file
-
-
-
-
-2011-05-17T07:39:59.323044Z
-f80cfae4e79d99a9840ed2624aa44c28
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2746
 
 pxfgeteuid.c
 file
@@ -1250,40 +1250,6 @@ marcel
 
 3836
 
-pxfalarm.c
-file
-
-
-
-
-2011-05-17T07:39:59.323044Z
-cc45694fa54311f50ac5bfffd50a77e9
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3215
-
 pxfgetgrgid.c
 file
 
@@ -1317,6 +1283,40 @@ marcel
 
 
 5609
+
+pxfalarm.c
+file
+
+
+
+
+2011-05-17T07:39:59.323044Z
+cc45694fa54311f50ac5bfffd50a77e9
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3215
 
 pxfchroot.c
 file
@@ -1522,40 +1522,6 @@ marcel
 
 3630
 
-table.c
-file
-
-
-
-
-2011-05-17T07:39:59.327044Z
-a285917b45e7073117407f95a3e3436a
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7171
-
 pxfisreg.c
 file
 
@@ -1589,6 +1555,40 @@ marcel
 
 
 2279
+
+table.c
+file
+
+
+
+
+2011-05-17T07:39:59.327044Z
+a285917b45e7073117407f95a3e3436a
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7171
 
 pxfreaddir.c
 file
@@ -1692,40 +1692,6 @@ marcel
 
 2943
 
-table.h
-file
-
-
-
-
-2011-05-17T07:39:59.327044Z
-34b167c07bdd4f4ba1d0d806f172da4f
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2332
-
 pxf.makeinclude
 file
 
@@ -1759,6 +1725,40 @@ marcel
 
 
 3376
+
+table.h
+file
+
+
+
+
+2011-05-17T07:39:59.327044Z
+34b167c07bdd4f4ba1d0d806f172da4f
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2332
 
 pxfumask.c
 file
@@ -1828,40 +1828,6 @@ marcel
 
 3094
 
-pxftcsendbreak.c
-file
-
-
-
-
-2011-05-17T07:39:59.327044Z
-11dc16e28a086b01f4d7a4d79a181cdd
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5227
-
 ipxfargc.c
 file
 
@@ -1895,6 +1861,40 @@ leihuang
 
 
 2203
+
+pxftcsendbreak.c
+file
+
+
+
+
+2011-05-17T07:39:59.327044Z
+11dc16e28a086b01f4d7a4d79a181cdd
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5227
 
 pxfconst.c
 file
@@ -1930,40 +1930,6 @@ leihuang
 
 16564
 
-pxfcfgetospeed.c
-file
-
-
-
-
-2011-05-17T07:39:59.327044Z
-488f0d1ca7bf983e05d392bf3d15549e
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5506
-
 pxfgetenv.c
 file
 
@@ -1997,6 +1963,40 @@ leihuang
 
 
 5735
+
+pxfcfgetospeed.c
+file
+
+
+
+
+2011-05-17T07:39:59.327044Z
+488f0d1ca7bf983e05d392bf3d15549e
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5506
 
 pxfstruct.h
 file
@@ -2032,40 +2032,6 @@ marcel
 
 1758
 
-pxfwrite.c
-file
-
-
-
-
-2011-05-17T07:39:59.327044Z
-563453480ed2343b2f406cafa8379dde
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7439
-
 pxfchmod.c
 file
 
@@ -2099,6 +2065,40 @@ marcel
 
 
 5434
+
+pxfwrite.c
+file
+
+
+
+
+2011-05-17T07:39:59.327044Z
+563453480ed2343b2f406cafa8379dde
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7439
 
 pxfwifsignaled.c
 file

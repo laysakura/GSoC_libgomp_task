@@ -102,9 +102,9 @@ typedef struct {
   mUINT8 comp[13];
 } ISA_PRINT_INFO;
 
-extern const ISA_PRINT_INFO ISA_PRINT_info[129];
+extern const ISA_PRINT_INFO ISA_PRINT_info[130];
 
-extern const unsigned char ISA_PRINT_info_index[3591];
+extern const unsigned char ISA_PRINT_info_index[3623];
 
 inline const ISA_PRINT_INFO *ISA_PRINT_Info(TOP topcode)
 {

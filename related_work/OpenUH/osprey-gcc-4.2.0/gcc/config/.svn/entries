@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey-gcc-4.2.0/gcc/config
 http://svn.open64.net/svnroot/open64
 
@@ -409,6 +409,9 @@ leihuang
 
 1998
 
+m32c
+dir
+
 libgloss.h
 file
 
@@ -443,7 +446,7 @@ leihuang
 
 1590
 
-m32c
+sparc
 dir
 
 interix.h
@@ -479,9 +482,6 @@ leihuang
 
 
 3662
-
-sparc
-dir
 
 vx-common.h
 file
@@ -585,6 +585,9 @@ leihuang
 
 5662
 
+m32r
+dir
+
 floatunsixf.c
 file
 
@@ -618,9 +621,6 @@ leihuang
 
 
 384
-
-m32r
-dir
 
 vxworks.opt
 file
@@ -656,40 +656,6 @@ leihuang
 
 1274
 
-darwin.opt
-file
-
-
-
-
-2011-05-17T07:41:32.415506Z
-ce2dffa0c743e59fa9ef5dfecbd3db00
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1354
-
 darwin-c.c
 file
 
@@ -723,6 +689,40 @@ leihuang
 
 
 16967
+
+darwin.opt
+file
+
+
+
+
+2011-05-17T07:41:32.415506Z
+ce2dffa0c743e59fa9ef5dfecbd3db00
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1354
 
 i386
 dir
@@ -795,40 +795,6 @@ leihuang
 
 3551
 
-sol2.c
-file
-
-
-
-
-2011-05-17T07:41:32.415506Z
-91b2a72b15f72aeac7104e95c1020b90
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3562
-
 linux.opt
 file
 
@@ -862,6 +828,40 @@ leihuang
 
 
 1115
+
+sol2.c
+file
+
+
+
+
+2011-05-17T07:41:32.415506Z
+91b2a72b15f72aeac7104e95c1020b90
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3562
 
 sol2.h
 file
@@ -1706,40 +1706,6 @@ leihuang
 
 168
 
-interix3.h
-file
-
-
-
-
-2011-05-17T07:41:32.419506Z
-3ee6cf403135bac794fb1f101d142c41
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1155
-
 host-linux.c
 file
 
@@ -1773,6 +1739,40 @@ leihuang
 
 
 7257
+
+interix3.h
+file
+
+
+
+
+2011-05-17T07:41:32.419506Z
+3ee6cf403135bac794fb1f101d142c41
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1155
 
 README
 file
@@ -1842,9 +1842,6 @@ leihuang
 
 286
 
-cris
-dir
-
 t-linux
 file
 
@@ -1878,6 +1875,9 @@ leihuang
 
 
 538
+
+cris
+dir
 
 x-linux
 file
@@ -1913,40 +1913,6 @@ leihuang
 
 210
 
-netbsd.h
-file
-
-
-
-
-2011-05-17T07:41:32.419506Z
-a35dcc66e064bc83491856b05bf78e02
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6526
-
 t-slibgcc-elf-ver
 file
 
@@ -1980,6 +1946,40 @@ leihuang
 
 
 1474
+
+netbsd.h
+file
+
+
+
+
+2011-05-17T07:41:32.419506Z
+a35dcc66e064bc83491856b05bf78e02
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6526
 
 netbsd-elf.h
 file
@@ -2015,9 +2015,6 @@ leihuang
 
 3153
 
-iq2000
-dir
-
 memset.c
 file
 
@@ -2052,8 +2049,42 @@ leihuang
 
 177
 
-mt
+iq2000
 dir
+
+t-sol2
+file
+
+
+
+
+2011-05-17T07:41:32.423506Z
+b241b04bca0de03218c83989000a571e
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+526
 
 host-darwin.c
 file
@@ -2089,39 +2120,8 @@ leihuang
 
 2422
 
-t-sol2
-file
-
-
-
-
-2011-05-17T07:41:32.423506Z
-b241b04bca0de03218c83989000a571e
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-526
+mt
+dir
 
 t-libc-ok
 file
@@ -2293,14 +2293,14 @@ leihuang
 
 1386
 
-x-hpux
+chorus.h
 file
 
 
 
 
 2011-05-17T07:41:32.423506Z
-2a31a36fe47acba6959a4c3fbc2df487
+a4f0d84c6996771c2f750ec60aad309d
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -2325,7 +2325,7 @@ leihuang
 
 
 
-207
+1272
 
 x-darwin
 file
@@ -2361,14 +2361,14 @@ leihuang
 
 172
 
-chorus.h
+x-hpux
 file
 
 
 
 
 2011-05-17T07:41:32.423506Z
-a4f0d84c6996771c2f750ec60aad309d
+2a31a36fe47acba6959a4c3fbc2df487
 2011-04-30T22:57:30.882112Z
 3577
 leihuang
@@ -2393,7 +2393,7 @@ leihuang
 
 
 
-1272
+207
 
 mn10300
 dir
@@ -2503,40 +2503,6 @@ leihuang
 
 3331
 
-gnu.h
-file
-
-
-
-
-2011-05-17T07:41:32.423506Z
-fc2a41b61b1c92467f82c06cd525f082
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-941
-
 floatunsitf.c
 file
 
@@ -2570,6 +2536,40 @@ leihuang
 
 
 384
+
+gnu.h
+file
+
+
+
+
+2011-05-17T07:41:32.423506Z
+fc2a41b61b1c92467f82c06cd525f082
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+941
 
 rtems.h
 file
@@ -2747,12 +2747,6 @@ leihuang
 
 1410
 
-arc
-dir
-
-mcore
-dir
-
 darwin.c
 file
 
@@ -2787,39 +2781,11 @@ leihuang
 
 47231
 
-darwin-sections.def
-file
-
-
-
-
-2011-05-17T07:41:32.427506Z
-90e85176f6bbf0be019db4f7df620546
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3446
+mcore
+dir
+
+arc
+dir
 
 dfp-bit.c
 file
@@ -2854,6 +2820,40 @@ leihuang
 
 
 14784
+
+darwin-sections.def
+file
+
+
+
+
+2011-05-17T07:41:32.427506Z
+90e85176f6bbf0be019db4f7df620546
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3446
 
 freebsd-nthr.h
 file
@@ -2923,9 +2923,6 @@ leihuang
 
 38259
 
-score
-dir
-
 dfp-bit.h
 file
 
@@ -2959,6 +2956,9 @@ leihuang
 
 
 15744
+
+score
+dir
 
 t-slibgcc-nolc-override
 file
@@ -3139,40 +3139,6 @@ leihuang
 mips
 dir
 
-memcpy.c
-file
-
-
-
-
-2011-05-17T07:41:32.427506Z
-dad9e98504e8f79e6e97aa29c6b49d96
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-192
-
 t-freebsd
 file
 
@@ -3206,6 +3172,40 @@ leihuang
 
 
 135
+
+memcpy.c
+file
+
+
+
+
+2011-05-17T07:41:32.427506Z
+dad9e98504e8f79e6e97aa29c6b49d96
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+192
 
 soft-fp
 dir
@@ -3346,40 +3346,6 @@ leihuang
 
 287
 
-darwin-64.c
-file
-
-
-
-
-2011-05-17T07:41:32.427506Z
-64b5e185317c770db49e2528544b00d8
-2011-04-30T22:57:30.882112Z
-3577
-leihuang
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3194
-
 libgcc-glibc.ver
 file
 
@@ -3413,6 +3379,40 @@ leihuang
 
 
 756
+
+darwin-64.c
+file
+
+
+
+
+2011-05-17T07:41:32.427506Z
+64b5e185317c770db49e2528544b00d8
+2011-04-30T22:57:30.882112Z
+3577
+leihuang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3194
 
 vax
 dir

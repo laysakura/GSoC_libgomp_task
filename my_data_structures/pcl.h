@@ -71,7 +71,9 @@ typedef struct s_coroutine {
   struct s_coroutine *creator;
   volatile uint32_t num_children;
   volatile bool cutoff;
+  volatile bool waiting;
   int depth;
+  pthread_mutex_t lock;
 } coroutine;
 
 typedef coroutine * coroutine_t;
@@ -80,7 +82,7 @@ coroutine_t co_create(void (*func)(void *), void *data, void *stack, int size);
 void co_delete(coroutine_t coro);
 void co_call(coroutine_t coro);
 void co_resume(void);
-void co_exit_to(coroutine_t coro);
+  void co_exit_to(coroutine_t coro, int thread_id);
 void co_exit(void);
 coroutine_t co_current(void);
 void co_vp_init();

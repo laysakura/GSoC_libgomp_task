@@ -1,7 +1,7 @@
 10
 
 dir
-3641
+3689
 http://svn.open64.net/svnroot/open64/branches/OpenUH/osprey/libF77/mips/quad
 http://svn.open64.net/svnroot/open64
 
@@ -60,14 +60,14 @@ marcel
 
 1836
 
-quad.h
+q_erfc.c
 file
 
 
 
 
 2011-05-17T07:39:55.179023Z
-6ea97d5cae800a3bacf1b75a8177fc49
+07008c49cb9c1b951f9783fb5b65fedd
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -92,7 +92,7 @@ marcel
 
 
 
-4558
+1446
 
 qerfc_.c
 file
@@ -128,14 +128,14 @@ marcel
 
 1444
 
-q_erfc.c
+quad.h
 file
 
 
 
 
 2011-05-17T07:39:55.179023Z
-07008c49cb9c1b951f9783fb5b65fedd
+6ea97d5cae800a3bacf1b75a8177fc49
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -160,7 +160,7 @@ marcel
 
 
 
-1446
+4558
 
 cq_imag.c
 file
@@ -230,40 +230,6 @@ marcel
 
 2107
 
-cq_sqrt.c
-file
-
-
-
-
-2011-05-17T07:39:55.179023Z
-6f3082bcec01c5ee57ab9a0389653b77
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2329
-
 q_exp.c
 file
 
@@ -297,6 +263,40 @@ marcel
 
 
 1443
+
+cq_sqrt.c
+file
+
+
+
+
+2011-05-17T07:39:55.179023Z
+6f3082bcec01c5ee57ab9a0389653b77
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2329
 
 q_sind.c
 file
@@ -400,14 +400,14 @@ marcel
 
 1446
 
-iqint.c
+q_prod.c
 file
 
 
 
 
 2011-05-17T07:39:55.179023Z
-1d8481e605c0c24694a8a95cabd6e7d8
+4bb24992482f14874966ba676f7a7597
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -432,7 +432,7 @@ marcel
 
 
 
-1520
+1574
 
 q_atn2.c
 file
@@ -468,14 +468,14 @@ marcel
 
 1464
 
-q_prod.c
+iqint.c
 file
 
 
 
 
 2011-05-17T07:39:55.179023Z
-4bb24992482f14874966ba676f7a7597
+1d8481e605c0c24694a8a95cabd6e7d8
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -500,7 +500,7 @@ marcel
 
 
 
-1574
+1520
 
 q_max1.c
 file
@@ -1182,40 +1182,6 @@ marcel
 
 1966
 
-qerf_.c
-file
-
-
-
-
-2011-05-17T07:39:55.187023Z
-b062602596dec405b1787cc09a33840a
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1441
-
 q_erf.c
 file
 
@@ -1249,6 +1215,40 @@ marcel
 
 
 1443
+
+qerf_.c
+file
+
+
+
+
+2011-05-17T07:39:55.187023Z
+b062602596dec405b1787cc09a33840a
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1441
 
 qfrts.c
 file
@@ -1352,40 +1352,6 @@ marcel
 
 1618
 
-ji_qnnt.c
-file
-
-
-
-
-2011-05-17T07:39:55.187023Z
-580511a00564c9ff3379a2e225a7e0f6
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1619
-
 q_gamma.c
 file
 
@@ -1420,14 +1386,14 @@ marcel
 
 1475
 
-ki_qnnt.c
+ji_qnnt.c
 file
 
 
 
 
 2011-05-17T07:39:55.187023Z
-c8d3b6b63b4afaaeb7cc90b34a8a4d89
+580511a00564c9ff3379a2e225a7e0f6
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -1452,7 +1418,41 @@ marcel
 
 
 
-1618
+1619
+
+q_cmplx.c
+file
+
+
+
+
+2011-05-17T07:39:55.187023Z
+7b7cb4a9ea4b3a5a088e37f0cd9d6256
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4026
 
 jiqnnt.c
 file
@@ -1488,14 +1488,14 @@ marcel
 
 1769
 
-q_cmplx.c
+ki_qnnt.c
 file
 
 
 
 
 2011-05-17T07:39:55.187023Z
-7b7cb4a9ea4b3a5a088e37f0cd9d6256
+c8d3b6b63b4afaaeb7cc90b34a8a4d89
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -1520,7 +1520,7 @@ marcel
 
 
 
-4026
+1618
 
 q_atand.c
 file
@@ -1828,40 +1828,6 @@ marcel
 
 1443
 
-q_tan.c
-file
-
-
-
-
-2011-05-17T07:39:55.187023Z
-72c40dbaa6074bf1a3a65791f02dee83
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1443
-
 iiqnnt.c
 file
 
@@ -1895,6 +1861,40 @@ marcel
 
 
 1776
+
+q_tan.c
+file
+
+
+
+
+2011-05-17T07:39:55.187023Z
+72c40dbaa6074bf1a3a65791f02dee83
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1443
 
 q_atan.c
 file
@@ -1930,40 +1930,6 @@ marcel
 
 1446
 
-cq_log.c
-file
-
-
-
-
-2011-05-17T07:39:55.187023Z
-c88730dff17e28c69e0561edfa299711
-2005-10-25T01:22:06.291212Z
-2
-marcel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2247
-
 q_cos.c
 file
 
@@ -1998,14 +1964,14 @@ marcel
 
 1443
 
-cq_div.c
+cq_log.c
 file
 
 
 
 
-2011-05-17T07:39:55.191023Z
-3ad24b436d26d4566a4a4ad4dcfbf030
+2011-05-17T07:39:55.187023Z
+c88730dff17e28c69e0561edfa299711
 2005-10-25T01:22:06.291212Z
 2
 marcel
@@ -2030,7 +1996,7 @@ marcel
 
 
 
-3592
+2247
 
 q_acos.c
 file
@@ -2065,6 +2031,40 @@ marcel
 
 
 1446
+
+cq_div.c
+file
+
+
+
+
+2011-05-17T07:39:55.191023Z
+3ad24b436d26d4566a4a4ad4dcfbf030
+2005-10-25T01:22:06.291212Z
+2
+marcel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3592
 
 cq_real.c
 file

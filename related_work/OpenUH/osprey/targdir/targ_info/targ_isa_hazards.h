@@ -99,13 +99,13 @@ typedef struct {
 
 inline BOOL ISA_HAZARD_TOP_Has_Hazard(TOP topcode)
 {
-  extern mUINT8 ISA_HAZARD_hazard_index[3591];
+  extern mUINT8 ISA_HAZARD_hazard_index[3623];
   return ISA_HAZARD_hazard_index[(INT)topcode] != 0;
 }
 
 inline ISA_HAZARD_INFO *ISA_HAZARD_First(TOP topcode)
 {
-  extern mUINT8 ISA_HAZARD_hazard_index[3591];
+  extern mUINT8 ISA_HAZARD_hazard_index[3623];
   extern ISA_HAZARD_INFO ISA_HAZARD_hazard_info[1];
   INT index = ISA_HAZARD_hazard_index[(INT)topcode];
   return index ? ISA_HAZARD_hazard_info + index : (ISA_HAZARD_INFO *)0;

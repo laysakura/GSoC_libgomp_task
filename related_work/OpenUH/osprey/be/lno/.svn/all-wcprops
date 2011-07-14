@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/lno
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno
 END
 lego_affinity.cxx
 K 25
@@ -87,17 +87,17 @@ svn:wc:ra_dav:version-url
 V 69
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/shackle.h
 END
-shackle_ifs.h
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/shackle_ifs.h
-END
 lnopt_main.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 74
 /svnroot/open64/!svn/ver/3612/branches/OpenUH/osprey/be/lno/lnopt_main.cxx
+END
+shackle_ifs.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/shackle_ifs.h
 END
 lx_ipa_cost_util.cxx
 K 25
@@ -129,17 +129,17 @@ svn:wc:ra_dav:version-url
 V 73
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/eliminate.cxx
 END
-ipa_lno_cost.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 76
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ipa_lno_cost.cxx
-END
 lnoutils.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 72
 /svnroot/open64/!svn/ver/3612/branches/OpenUH/osprey/be/lno/lnoutils.cxx
+END
+ipa_lno_cost.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ipa_lno_cost.cxx
 END
 debug.h
 K 25
@@ -147,17 +147,17 @@ svn:wc:ra_dav:version-url
 V 67
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/debug.h
 END
-snl_dist.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 72
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/snl_dist.cxx
-END
 lno_bv.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 70
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/lno_bv.cxx
+END
+snl_dist.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/snl_dist.cxx
 END
 mat.cxx
 K 25
@@ -171,17 +171,17 @@ svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/lno_pch.cxx
 END
-call_info.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/call_info.cxx
-END
 array_lower.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 75
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/array_lower.cxx
+END
+call_info.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/call_info.cxx
 END
 inner_fission.h
 K 25
@@ -369,6 +369,12 @@ svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/permute.cxx
 END
+dead.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/dead.h
+END
 lwn_util.h
 K 25
 svn:wc:ra_dav:version-url
@@ -380,12 +386,6 @@ K 25
 svn:wc:ra_dav:version-url
 V 72
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ara_live.cxx
-END
-dead.h
-K 25
-svn:wc:ra_dav:version-url
-V 66
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/dead.h
 END
 outer.h
 K 25
@@ -411,17 +411,17 @@ svn:wc:ra_dav:version-url
 V 68
 /svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/sclrze.h
 END
-wind_down.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/wind_down.cxx
-END
 ipa_lno_reshape.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 79
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/ipa_lno_reshape.cxx
+END
+wind_down.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/wind_down.cxx
 END
 dnf.h
 K 25
@@ -429,11 +429,11 @@ svn:wc:ra_dav:version-url
 V 65
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/dnf.h
 END
-pf_loop.cxx
+if_info.h
 K 25
 svn:wc:ra_dav:version-url
-V 71
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/pf_loop.cxx
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/if_info.h
 END
 oinvar.cxx
 K 25
@@ -441,23 +441,23 @@ svn:wc:ra_dav:version-url
 V 70
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/oinvar.cxx
 END
-if_info.h
+pf_loop.cxx
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/if_info.h
-END
-pad.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/pad.cxx
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/pf_loop.cxx
 END
 lnodriver.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 73
 /svnroot/open64/!svn/ver/3612/branches/OpenUH/osprey/be/lno/lnodriver.cxx
+END
+pad.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/pad.cxx
 END
 name.h
 K 25
@@ -477,23 +477,23 @@ svn:wc:ra_dav:version-url
 V 67
 /svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/cse.cxx
 END
-zmult.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 69
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/zmult.cxx
-END
 lego.h
 K 25
 svn:wc:ra_dav:version-url
 V 66
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/lego.h
 END
-cross_cache.cxx
+zmult.cxx
 K 25
 svn:wc:ra_dav:version-url
-V 75
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cross_cache.cxx
+V 69
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/zmult.cxx
+END
+ipa_lno_read.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ipa_lno_read.cxx
 END
 autod.cxx
 K 25
@@ -501,11 +501,11 @@ svn:wc:ra_dav:version-url
 V 69
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/autod.cxx
 END
-ipa_lno_read.cxx
+cross_cache.cxx
 K 25
 svn:wc:ra_dav:version-url
-V 76
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ipa_lno_read.cxx
+V 75
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cross_cache.cxx
 END
 al_ref.h
 K 25
@@ -525,23 +525,17 @@ svn:wc:ra_dav:version-url
 V 69
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/pf_loop.h
 END
+model.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/model.h
+END
 snl_gen.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/snl_gen.cxx
-END
-model.h
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/model.h
-END
-parmodel.h
-K 25
-svn:wc:ra_dav:version-url
-V 70
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/parmodel.h
 END
 fusion.h
 K 25
@@ -549,11 +543,11 @@ svn:wc:ra_dav:version-url
 V 68
 /svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/fusion.h
 END
-small_trips.cxx
+parmodel.h
 K 25
 svn:wc:ra_dav:version-url
-V 75
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/lno/small_trips.cxx
+V 70
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/parmodel.h
 END
 scalar_expand.h
 K 25
@@ -561,23 +555,17 @@ svn:wc:ra_dav:version-url
 V 75
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/scalar_expand.h
 END
+small_trips.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/lno/small_trips.cxx
+END
 aequiv.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 70
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/aequiv.cxx
-END
-tile.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 68
-/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/tile.cxx
-END
-dep.h
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/dep.h
 END
 array_copy.h
 K 25
@@ -585,17 +573,29 @@ svn:wc:ra_dav:version-url
 V 72
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/array_copy.h
 END
-ipa_lno_cost.h
+dep.h
 K 25
 svn:wc:ra_dav:version-url
-V 74
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/ipa_lno_cost.h
+V 65
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/dep.h
+END
+tile.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/tile.cxx
 END
 lnoutils.h
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/svnroot/open64/!svn/ver/3578/branches/OpenUH/osprey/be/lno/lnoutils.h
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/lnoutils.h
+END
+ipa_lno_cost.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/ipa_lno_cost.h
 END
 cse.h
 K 25
@@ -603,17 +603,17 @@ svn:wc:ra_dav:version-url
 V 65
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/cse.h
 END
-pf_manual.cxx
-K 25
-svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/pf_manual.cxx
-END
 pf_common.h
 K 25
 svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/pf_common.h
+END
+pf_manual.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/pf_manual.cxx
 END
 vintr_fis.cxx
 K 25
@@ -627,17 +627,17 @@ svn:wc:ra_dav:version-url
 V 69
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/lno_scc.h
 END
-mat.h
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/mat.h
-END
 cxx_queue.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 73
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cxx_queue.cxx
+END
+mat.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/mat.h
 END
 dnf.cxx
 K 25
@@ -651,23 +651,17 @@ svn:wc:ra_dav:version-url
 V 73
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cache_model.h
 END
-array_bounds.h
-K 25
-svn:wc:ra_dav:version-url
-V 74
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/array_bounds.h
-END
 lego_io.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/lego_io.cxx
 END
-vs_textra.cxx
+array_bounds.h
 K 25
 svn:wc:ra_dav:version-url
-V 73
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/vs_textra.cxx
+V 74
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/array_bounds.h
 END
 aequiv.h
 K 25
@@ -675,17 +669,23 @@ svn:wc:ra_dav:version-url
 V 68
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/aequiv.h
 END
-parallel.h
+vs_textra.cxx
 K 25
 svn:wc:ra_dav:version-url
-V 70
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/parallel.h
+V 73
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/vs_textra.cxx
 END
 ara_loop.h
 K 25
 svn:wc:ra_dav:version-url
 V 70
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/ara_loop.h
+END
+parallel.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/parallel.h
 END
 parids.cxx
 K 25
@@ -699,23 +699,23 @@ svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/pf_manual.h
 END
-snl_trans.h
-K 25
-svn:wc:ra_dav:version-url
-V 71
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/snl_trans.h
-END
 lx_wb_summary.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 77
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/lx_wb_summary.cxx
 END
-sxlimit.cxx
+snl_trans.h
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/sxlimit.cxx
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/snl_trans.h
+END
+forward.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/forward.h
 END
 Exported
 K 25
@@ -723,11 +723,11 @@ svn:wc:ra_dav:version-url
 V 68
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/Exported
 END
-forward.h
+sxlimit.cxx
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/forward.h
+V 71
+/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/sxlimit.cxx
 END
 ff_pragmas.h
 K 25
@@ -741,17 +741,17 @@ svn:wc:ra_dav:version-url
 V 71
 /svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cxx_queue.h
 END
-snl_deps.h
-K 25
-svn:wc:ra_dav:version-url
-V 70
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/snl_deps.h
-END
 lx_ipl_lno_util.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 79
 /svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/lx_ipl_lno_util.cxx
+END
+snl_deps.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/snl_deps.h
 END
 ifminmax.h
 K 25
@@ -823,7 +823,7 @@ cond.h
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/svnroot/open64/!svn/ver/1120/branches/OpenUH/osprey/be/lno/cond.h
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/cond.h
 END
 minvariant.cxx
 K 25
@@ -907,7 +907,7 @@ simd.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svnroot/open64/!svn/ver/3641/branches/OpenUH/osprey/be/lno/simd.cxx
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/simd.cxx
 END
 lx_prompf_anl.cxx
 K 25
@@ -1027,7 +1027,7 @@ cond.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/cond.cxx
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/cond.cxx
 END
 lnotarget.h
 K 25
@@ -1081,7 +1081,7 @@ model.cxx
 K 25
 svn:wc:ra_dav:version-url
 V 69
-/svnroot/open64/!svn/ver/3577/branches/OpenUH/osprey/be/lno/model.cxx
+/svnroot/open64/!svn/ver/3675/branches/OpenUH/osprey/be/lno/model.cxx
 END
 uh_apo.h
 K 25

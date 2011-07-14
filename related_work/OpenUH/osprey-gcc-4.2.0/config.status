@@ -169,7 +169,7 @@ s%@STRIP@%strip%g
 s%@WINDRES@%windres%g
 s%@OBJCOPY@%objcopy%g
 s%@OBJDUMP@%objdump%g
-s%@CXX@%c++%g
+s%@CXX@%g++-4.4%g
 s%@CFLAGS_FOR_BUILD@%-O2 -DTARG_X8664%g
 s%@CC_FOR_TARGET@%$$r/$(HOST_SUBDIR)/gcc/xgcc -B$$r/$(HOST_SUBDIR)/gcc/%g
 s%@CXX_FOR_TARGET@%$$r/$(HOST_SUBDIR)/gcc/g++ -B$$r/$(HOST_SUBDIR)/gcc/ -nostdinc++ `test ! -f $$r/$(TARGET_SUBDIR)/libstdc++-v3/scripts/testsuite_flags || $(SHELL) $$r/$(TARGET_SUBDIR)/libstdc++-v3/scripts/testsuite_flags --build-includes` -L$$r/$(TARGET_SUBDIR)/libstdc++-v3/src -L$$r/$(TARGET_SUBDIR)/libstdc++-v3/src/.libs%g

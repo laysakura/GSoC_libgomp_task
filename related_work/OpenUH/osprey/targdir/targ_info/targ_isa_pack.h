@@ -154,7 +154,7 @@ typedef struct {
 
 inline UINT64 ISA_PACK_Init_Mask(TOP topcode, INT iword)
 {
-  extern const mUINT32 ISA_PACK_init_mask[3591][1];
+  extern const mUINT32 ISA_PACK_init_mask[3623][1];
   return ISA_PACK_init_mask[(INT)topcode][iword];
 }
 

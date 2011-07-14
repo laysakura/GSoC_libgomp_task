@@ -3,7 +3,7 @@
 #include "targ_isa_print.h"
 
 
-const ISA_PRINT_INFO ISA_PRINT_info[129] = {
+const ISA_PRINT_INFO ISA_PRINT_info[130] = {
   { "", {
  ISA_PRINT_COMP_end } },	/* print_NULL[0] */
   { "%s %s,%s", {
@@ -593,6 +593,12 @@ const ISA_PRINT_INFO ISA_PRINT_info[129] = {
                     ISA_PRINT_COMP_opnd,	/* rop[1] */
                     ISA_PRINT_COMP_result,	/* rop[2] */
                     ISA_PRINT_COMP_end } },	/* rop[3] */
+  { "%s %s %s,%s", {
+ ISA_PRINT_COMP_name,	/* rop2[0] */
+                    ISA_PRINT_COMP_opnd+1,	/* rop2[1] */
+                    ISA_PRINT_COMP_opnd,	/* rop2[2] */
+                    ISA_PRINT_COMP_result,	/* rop2[3] */
+                    ISA_PRINT_COMP_end } },	/* rop2[4] */
   { "%s %s%s(%s),%s", {
  ISA_PRINT_COMP_name,	/* rmem[0] */
                     ISA_PRINT_COMP_segment,	/* rmem[1] */
@@ -989,7 +995,7 @@ const ISA_PRINT_INFO ISA_PRINT_info[129] = {
                     ISA_PRINT_COMP_end } },	/* no_rop[1] */
 };
 
-const mUINT8 ISA_PRINT_info_index[3591] = {
+const mUINT8 ISA_PRINT_info_index[3623] = {
    14,  /* add8: ropop */
    14,  /* add16: ropop */
    14,  /* add32: ropop */
@@ -1220,7 +1226,7 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* cmovns: rop */
     3,  /* div32: op2 */
     3,  /* div64: op2 */
-  128,  /* enter: no_rop */
+  129,  /* enter: no_rop */
     3,  /* idiv32: op2 */
     3,  /* idiv64: op2 */
     1,  /* imul32: imul */
@@ -1292,18 +1298,18 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    69,  /* ijmpx: opop */
    70,  /* ijmpxx: opopopop */
    71,  /* ijmpxxx: opopop */
-   81,  /* ld64: load */
-   84,  /* ldx64: ldx */
-   85,  /* ldxx64: ldxx */
-   81,  /* ld64_2m: load */
-   81,  /* ld64_2sse: load */
-   81,  /* lea32: load */
-   81,  /* lea64: load */
-   82,  /* leax32: leax */
-   82,  /* leax64: leax */
-   83,  /* leaxx32: leaxx */
-   83,  /* leaxx64: leaxx */
-  128,  /* leave: no_rop */
+   82,  /* ld64: load */
+   85,  /* ldx64: ldx */
+   86,  /* ldxx64: ldxx */
+   82,  /* ld64_2m: load */
+   82,  /* ld64_2sse: load */
+   82,  /* lea32: load */
+   82,  /* lea64: load */
+   83,  /* leax32: leax */
+   83,  /* leax64: leax */
+   84,  /* leaxx32: leaxx */
+   84,  /* leaxx64: leaxx */
+  129,  /* leave: no_rop */
    76,  /* ldc32: rop */
    76,  /* ldc64: rop */
     2,  /* mul32: op1 */
@@ -1313,8 +1319,8 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* mov64_m: rop */
    76,  /* ld32_64_off: rop */
    76,  /* ld64_off: rop */
-   80,  /* store64_off: opop1 */
-   80,  /* storei64_off: opop1 */
+   81,  /* store64_off: opop1 */
+   81,  /* storei64_off: opop1 */
    76,  /* ld8_32_n32: rop */
    76,  /* ldu8_32_n32: rop */
    76,  /* ld16_32_n32: rop */
@@ -1334,69 +1340,69 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* ldhpd_n32: rop */
    76,  /* ld64_2m_n32: rop */
    76,  /* ld64_2sse_n32: rop */
-   80,  /* store8_n32: opop1 */
-   80,  /* storei8_n32: opop1 */
-   80,  /* store16_n32: opop1 */
-   80,  /* storei16_n32: opop1 */
-   80,  /* store32_n32: opop1 */
-   80,  /* storei32_n32: opop1 */
-   80,  /* stss_n32: opop1 */
-   80,  /* stsd_n32: opop1 */
-   80,  /* staps_n32: opop1 */
-   80,  /* stapd_n32: opop1 */
-   80,  /* stdqa_n32: opop1 */
-   80,  /* stdqu_n32: opop1 */
-   80,  /* stlps_n32: opop1 */
-   80,  /* sthps_n32: opop1 */
-   80,  /* stlpd_n32: opop1 */
-   80,  /* sthpd_n32: opop1 */
-   80,  /* store64_fm_n32: opop1 */
-   80,  /* store64_fsse_n32: opop1 */
-   87,  /* ld32_gs_seg_off: load_gs_seg_off */
-   88,  /* ld64_fs_seg_off: load_fs_seg_off */
+   81,  /* store8_n32: opop1 */
+   81,  /* storei8_n32: opop1 */
+   81,  /* store16_n32: opop1 */
+   81,  /* storei16_n32: opop1 */
+   81,  /* store32_n32: opop1 */
+   81,  /* storei32_n32: opop1 */
+   81,  /* stss_n32: opop1 */
+   81,  /* stsd_n32: opop1 */
+   81,  /* staps_n32: opop1 */
+   81,  /* stapd_n32: opop1 */
+   81,  /* stdqa_n32: opop1 */
+   81,  /* stdqu_n32: opop1 */
+   81,  /* stlps_n32: opop1 */
+   81,  /* sthps_n32: opop1 */
+   81,  /* stlpd_n32: opop1 */
+   81,  /* sthpd_n32: opop1 */
+   81,  /* store64_fm_n32: opop1 */
+   81,  /* store64_fsse_n32: opop1 */
+   88,  /* ld32_gs_seg_off: load_gs_seg_off */
+   89,  /* ld64_fs_seg_off: load_fs_seg_off */
    76,  /* movsbl: rop */
-   81,  /* ld8_32: load */
-   84,  /* ldx8_32: ldx */
-   85,  /* ldxx8_32: ldxx */
+   82,  /* ld8_32: load */
+   85,  /* ldx8_32: ldx */
+   86,  /* ldxx8_32: ldxx */
    76,  /* movzbl: rop */
-   81,  /* ldu8_32: load */
-   84,  /* ldxu8_32: ldx */
-   85,  /* ldxxu8_32: ldxx */
+   82,  /* ldu8_32: load */
+   85,  /* ldxu8_32: ldx */
+   86,  /* ldxxu8_32: ldxx */
    76,  /* movswl: rop */
-   81,  /* ld16_32: load */
-   84,  /* ldx16_32: ldx */
-   85,  /* ldxx16_32: ldxx */
+   82,  /* ld16_32: load */
+   85,  /* ldx16_32: ldx */
+   86,  /* ldxx16_32: ldxx */
    76,  /* movzwl: rop */
-   81,  /* ldu16_32: load */
-   84,  /* ldxu16_32: ldx */
-   85,  /* ldxxu16_32: ldxx */
+   82,  /* ldu16_32: load */
+   85,  /* ldxu16_32: ldx */
+   86,  /* ldxxu16_32: ldxx */
    76,  /* movsbq: rop */
-   81,  /* ld8_64: load */
-   84,  /* ldx8_64: ldx */
-   85,  /* ldxx8_64: ldxx */
+   82,  /* ld8_64: load */
+   85,  /* ldx8_64: ldx */
+   86,  /* ldxx8_64: ldxx */
    76,  /* ld8_64_off: rop */
    76,  /* movzbq: rop */
-   81,  /* ldu8_64: load */
-   84,  /* ldxu8_64: ldx */
-   85,  /* ldxxu8_64: ldxx */
+   82,  /* ldu8_64: load */
+   85,  /* ldxu8_64: ldx */
+   86,  /* ldxxu8_64: ldxx */
    76,  /* ldu8_64_off: rop */
    76,  /* movswq: rop */
-   81,  /* ld16_64: load */
-   84,  /* ldx16_64: ldx */
-   85,  /* ldxx16_64: ldxx */
+   82,  /* ld16_64: load */
+   85,  /* ldx16_64: ldx */
+   86,  /* ldxx16_64: ldxx */
    76,  /* ld16_64_off: rop */
    76,  /* movzwq: rop */
-   81,  /* ldu16_64: load */
-   84,  /* ldxu16_64: ldx */
-   85,  /* ldxxu16_64: ldxx */
+   82,  /* ldu16_64: load */
+   85,  /* ldxu16_64: ldx */
+   86,  /* ldxxu16_64: ldxx */
    76,  /* ldu16_64_off: rop */
    76,  /* movslq: rop */
-   81,  /* ld32_64: load */
-   84,  /* ldx32_64: ldx */
-   85,  /* ldxx32_64: ldxx */
-   81,  /* ld32: load */
-   84,  /* ldx32: ldx */
-   85,  /* ldxx32: ldxx */
+   82,  /* ld32_64: load */
+   85,  /* ldx32_64: ldx */
+   86,  /* ldxx32_64: ldxx */
+   82,  /* ld32: load */
+   85,  /* ldx32: ldx */
+   86,  /* ldxx32: ldxx */
    76,  /* movzlq: rop */
    73,  /* neg8: r */
    73,  /* neg16: r */
@@ -1510,7 +1516,7 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    73,  /* popq: r */
    68,  /* pushl: op0 */
    68,  /* pushq: op0 */
-  128,  /* ret: no_rop */
+  129,  /* ret: no_rop */
    68,  /* reti: op0 */
    14,  /* ror8: ropop */
    14,  /* ror16: ropop */
@@ -1528,21 +1534,21 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    14,  /* roli16: ropop */
    14,  /* roli32: ropop */
    14,  /* roli64: ropop */
-   90,  /* prefetch: prefetch */
-   90,  /* prefetchw: prefetch */
-   90,  /* prefetcht0: prefetch */
-   90,  /* prefetcht1: prefetch */
-   90,  /* prefetchnta: prefetch */
-   91,  /* prefetchx: prefetchx */
-   92,  /* prefetchxx: prefetchxx */
-   91,  /* prefetchwx: prefetchx */
-   92,  /* prefetchwxx: prefetchxx */
-   91,  /* prefetcht0x: prefetchx */
-   92,  /* prefetcht0xx: prefetchxx */
-   91,  /* prefetcht1x: prefetchx */
-   92,  /* prefetcht1xx: prefetchxx */
-   91,  /* prefetchntax: prefetchx */
-   92,  /* prefetchntaxx: prefetchxx */
+   91,  /* prefetch: prefetch */
+   91,  /* prefetchw: prefetch */
+   91,  /* prefetcht0: prefetch */
+   91,  /* prefetcht1: prefetch */
+   91,  /* prefetchnta: prefetch */
+   92,  /* prefetchx: prefetchx */
+   93,  /* prefetchxx: prefetchxx */
+   92,  /* prefetchwx: prefetchx */
+   93,  /* prefetchwxx: prefetchxx */
+   92,  /* prefetcht0x: prefetchx */
+   93,  /* prefetcht0xx: prefetchxx */
+   92,  /* prefetcht1x: prefetchx */
+   93,  /* prefetcht1xx: prefetchxx */
+   92,  /* prefetchntax: prefetchx */
+   93,  /* prefetchntaxx: prefetchxx */
    73,  /* setb: r */
    73,  /* setae: r */
    73,  /* setp: r */
@@ -1559,39 +1565,39 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    73,  /* seto: r */
    73,  /* sets: r */
    73,  /* setz: r */
-   93,  /* store8: store */
-   93,  /* storei8: store */
-   86,  /* storex8: storex */
-   86,  /* storeix8: storex */
-   89,  /* storexx8: storexx */
-   89,  /* storeixx8: storexx */
-   93,  /* store16: store */
-   93,  /* storei16: store */
-   86,  /* storex16: storex */
-   86,  /* storeix16: storex */
-   89,  /* storexx16: storexx */
-   89,  /* storeixx16: storexx */
-   93,  /* store32: store */
-   93,  /* storei32: store */
-   86,  /* storex32: storex */
-   86,  /* storeix32: storex */
-   89,  /* storexx32: storexx */
-   89,  /* storeixx32: storexx */
-   93,  /* store64: store */
-   93,  /* storei64: store */
-   86,  /* storex64: storex */
-   86,  /* storeix64: storex */
-   89,  /* storexx64: storexx */
-   89,  /* storeixx64: storexx */
-   93,  /* store64_fm: store */
-   93,  /* store64_fsse: store */
-   93,  /* storenti32: store */
-   86,  /* storentix32: storex */
-   89,  /* storentixx32: storexx */
-   93,  /* storenti64: store */
-   86,  /* storentix64: storex */
-   89,  /* storentixx64: storexx */
-   93,  /* storenti128: store */
+   94,  /* store8: store */
+   94,  /* storei8: store */
+   87,  /* storex8: storex */
+   87,  /* storeix8: storex */
+   90,  /* storexx8: storexx */
+   90,  /* storeixx8: storexx */
+   94,  /* store16: store */
+   94,  /* storei16: store */
+   87,  /* storex16: storex */
+   87,  /* storeix16: storex */
+   90,  /* storexx16: storexx */
+   90,  /* storeixx16: storexx */
+   94,  /* store32: store */
+   94,  /* storei32: store */
+   87,  /* storex32: storex */
+   87,  /* storeix32: storex */
+   90,  /* storexx32: storexx */
+   90,  /* storeixx32: storexx */
+   94,  /* store64: store */
+   94,  /* storei64: store */
+   87,  /* storex64: storex */
+   87,  /* storeix64: storex */
+   90,  /* storexx64: storexx */
+   90,  /* storeixx64: storexx */
+   94,  /* store64_fm: store */
+   94,  /* store64_fsse: store */
+   94,  /* storenti32: store */
+   87,  /* storentix32: storex */
+   90,  /* storentixx32: storexx */
+   94,  /* storenti64: store */
+   87,  /* storentix64: storex */
+   90,  /* storentixx64: storexx */
+   94,  /* storenti128: store */
    14,  /* sar32: ropop */
    14,  /* sar64: ropop */
    14,  /* sari32: ropop */
@@ -1872,38 +1878,38 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* fmovsldup: rop */
    76,  /* fmovshdup: rop */
    76,  /* fmovddup: rop */
-   81,  /* fmovsldupx: load */
-   81,  /* fmovshdupx: load */
-   81,  /* fmovddupx: load */
-   84,  /* fmovsldupxx: ldx */
-   84,  /* fmovshdupxx: ldx */
-   84,  /* fmovddupxx: ldx */
-   85,  /* fmovsldupxxx: ldxx */
-   85,  /* fmovshdupxxx: ldxx */
-   85,  /* fmovddupxxx: ldxx */
-  128,  /* cltd: no_rop */
-  128,  /* cqto: no_rop */
+   82,  /* fmovsldupx: load */
+   82,  /* fmovshdupx: load */
+   82,  /* fmovddupx: load */
+   85,  /* fmovsldupxx: ldx */
+   85,  /* fmovshdupxx: ldx */
+   85,  /* fmovddupxx: ldx */
+   86,  /* fmovsldupxxx: ldxx */
+   86,  /* fmovshdupxxx: ldxx */
+   86,  /* fmovddupxxx: ldxx */
+  129,  /* cltd: no_rop */
+  129,  /* cqto: no_rop */
    76,  /* cvtss2sd: rop */
    76,  /* cvtsd2ss: rop */
-   81,  /* cvtsd2ss_x: load */
-   82,  /* cvtsd2ss_xx: leax */
-   83,  /* cvtsd2ss_xxx: leaxx */
+   82,  /* cvtsd2ss_x: load */
+   83,  /* cvtsd2ss_xx: leax */
+   84,  /* cvtsd2ss_xxx: leaxx */
    76,  /* cvtsi2sd: rop */
-   81,  /* cvtsi2sd_x: load */
-   82,  /* cvtsi2sd_xx: leax */
-   83,  /* cvtsi2sd_xxx: leaxx */
+   82,  /* cvtsi2sd_x: load */
+   83,  /* cvtsi2sd_xx: leax */
+   84,  /* cvtsi2sd_xxx: leaxx */
    76,  /* cvtsi2ss: rop */
-   81,  /* cvtsi2ss_x: load */
-   82,  /* cvtsi2ss_xx: leax */
-   83,  /* cvtsi2ss_xxx: leaxx */
+   82,  /* cvtsi2ss_x: load */
+   83,  /* cvtsi2ss_xx: leax */
+   84,  /* cvtsi2ss_xxx: leaxx */
    76,  /* cvtsi2sdq: rop */
-   81,  /* cvtsi2sdq_x: load */
-   82,  /* cvtsi2sdq_xx: leax */
-   83,  /* cvtsi2sdq_xxx: leaxx */
+   82,  /* cvtsi2sdq_x: load */
+   83,  /* cvtsi2sdq_xx: leax */
+   84,  /* cvtsi2sdq_xxx: leaxx */
    76,  /* cvtsi2ssq: rop */
-   81,  /* cvtsi2ssq_x: load */
-   82,  /* cvtsi2ssq_xx: leax */
-   83,  /* cvtsi2ssq_xxx: leaxx */
+   82,  /* cvtsi2ssq_x: load */
+   83,  /* cvtsi2ssq_xx: leax */
+   84,  /* cvtsi2ssq_xxx: leaxx */
    76,  /* cvtss2si: rop */
    76,  /* cvtsd2si: rop */
    76,  /* cvtss2siq: rop */
@@ -1920,111 +1926,111 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* cvttps2dq: rop */
    76,  /* cvtpd2dq: rop */
    76,  /* cvttpd2dq: rop */
-   81,  /* cvtdq2pd_x: load */
-   81,  /* cvtdq2ps_x: load */
-   81,  /* cvtps2pd_x: load */
-   81,  /* cvtpd2ps_x: load */
-   81,  /* cvtps2dq_x: load */
-   81,  /* cvtpd2dq_x: load */
-   81,  /* cvttps2dq_x: load */
-   81,  /* cvttpd2dq_x: load */
-   82,  /* cvtdq2pd_xx: leax */
-   82,  /* cvtdq2ps_xx: leax */
-   82,  /* cvtps2pd_xx: leax */
-   82,  /* cvtpd2ps_xx: leax */
-   82,  /* cvtps2dq_xx: leax */
-   82,  /* cvtpd2dq_xx: leax */
-   82,  /* cvttps2dq_xx: leax */
-   82,  /* cvttpd2dq_xx: leax */
-   83,  /* cvtdq2pd_xxx: leaxx */
-   83,  /* cvtdq2ps_xxx: leaxx */
-   83,  /* cvtps2pd_xxx: leaxx */
-   83,  /* cvtpd2ps_xxx: leaxx */
-   83,  /* cvtps2dq_xxx: leaxx */
-   83,  /* cvtpd2dq_xxx: leaxx */
-   83,  /* cvttps2dq_xxx: leaxx */
-   83,  /* cvttpd2dq_xxx: leaxx */
+   82,  /* cvtdq2pd_x: load */
+   82,  /* cvtdq2ps_x: load */
+   82,  /* cvtps2pd_x: load */
+   82,  /* cvtpd2ps_x: load */
+   82,  /* cvtps2dq_x: load */
+   82,  /* cvtpd2dq_x: load */
+   82,  /* cvttps2dq_x: load */
+   82,  /* cvttpd2dq_x: load */
+   83,  /* cvtdq2pd_xx: leax */
+   83,  /* cvtdq2ps_xx: leax */
+   83,  /* cvtps2pd_xx: leax */
+   83,  /* cvtpd2ps_xx: leax */
+   83,  /* cvtps2dq_xx: leax */
+   83,  /* cvtpd2dq_xx: leax */
+   83,  /* cvttps2dq_xx: leax */
+   83,  /* cvttpd2dq_xx: leax */
+   84,  /* cvtdq2pd_xxx: leaxx */
+   84,  /* cvtdq2ps_xxx: leaxx */
+   84,  /* cvtps2pd_xxx: leaxx */
+   84,  /* cvtpd2ps_xxx: leaxx */
+   84,  /* cvtps2dq_xxx: leaxx */
+   84,  /* cvtpd2dq_xxx: leaxx */
+   84,  /* cvttps2dq_xxx: leaxx */
+   84,  /* cvttpd2dq_xxx: leaxx */
    76,  /* cvtpi2ps: rop */
    76,  /* cvtps2pi: rop */
    76,  /* cvttps2pi: rop */
    76,  /* cvtpi2pd: rop */
    76,  /* cvtpd2pi: rop */
    76,  /* cvttpd2pi: rop */
-   81,  /* ldsd: load */
-   84,  /* ldsdx: ldx */
-   85,  /* ldsdxx: ldxx */
-   81,  /* ldss: load */
-   84,  /* ldssx: ldx */
-   85,  /* ldssxx: ldxx */
-   81,  /* lddqa: load */
-   81,  /* lddqu: load */
-   81,  /* ldlps: load */
-   81,  /* ldhps: load */
-   81,  /* ldlpd: load */
-   81,  /* ldhpd: load */
-   93,  /* stdqa: store */
-   93,  /* stdqu: store */
-   93,  /* stlps: store */
-   93,  /* sthps: store */
-   93,  /* stlpd: store */
-   93,  /* storelpd: store */
-   93,  /* sthpd: store */
-   93,  /* stntpd: store */
-   93,  /* stntps: store */
-   93,  /* storent64_fm: store */
-   84,  /* lddqax: ldx */
-   84,  /* lddqux: ldx */
-   84,  /* ldlpsx: ldx */
-   84,  /* ldhpsx: ldx */
-   84,  /* ldlpdx: ldx */
-   84,  /* ldhpdx: ldx */
-   86,  /* stdqax: storex */
-   86,  /* stntpdx: storex */
-   86,  /* stntpsx: storex */
-   86,  /* stdqux: storex */
-   86,  /* stlpsx: storex */
-   86,  /* sthpsx: storex */
-   86,  /* stlpdx: storex */
-   86,  /* sthpdx: storex */
-   85,  /* lddqaxx: ldxx */
-   85,  /* lddquxx: ldxx */
-   85,  /* ldlpsxx: ldxx */
-   85,  /* ldhpsxx: ldxx */
-   85,  /* ldlpdxx: ldxx */
-   85,  /* ldhpdxx: ldxx */
-   81,  /* ldaps: load */
-   84,  /* ldapsx: ldx */
-   85,  /* ldapsxx: ldxx */
-   81,  /* ldapd: load */
-   84,  /* ldapdx: ldx */
-   85,  /* ldapdxx: ldxx */
-   81,  /* ldups: load */
-   84,  /* ldupsx: ldx */
-   85,  /* ldupsxx: ldxx */
-   81,  /* ldupd: load */
-   84,  /* ldupdx: ldx */
-   85,  /* ldupdxx: ldxx */
-   89,  /* stdqaxx: storexx */
-   89,  /* stntpdxx: storexx */
-   89,  /* stntpsxx: storexx */
-   89,  /* stdquxx: storexx */
-   89,  /* stlpsxx: storexx */
-   89,  /* sthpsxx: storexx */
-   89,  /* stlpdxx: storexx */
-   89,  /* sthpdxx: storexx */
-   93,  /* staps: store */
-   86,  /* stapsx: storex */
-   89,  /* stapsxx: storexx */
-   93,  /* stapd: store */
-   86,  /* stapdx: storex */
-   89,  /* stapdxx: storexx */
-   93,  /* stups: store */
-   86,  /* stupsx: storex */
-   89,  /* stupsxx: storexx */
+   82,  /* ldsd: load */
+   85,  /* ldsdx: ldx */
+   86,  /* ldsdxx: ldxx */
+   82,  /* ldss: load */
+   85,  /* ldssx: ldx */
+   86,  /* ldssxx: ldxx */
+   82,  /* lddqa: load */
+   82,  /* lddqu: load */
+   82,  /* ldlps: load */
+   82,  /* ldhps: load */
+   82,  /* ldlpd: load */
+   82,  /* ldhpd: load */
+   94,  /* stdqa: store */
+   94,  /* stdqu: store */
+   94,  /* stlps: store */
+   94,  /* sthps: store */
+   94,  /* stlpd: store */
+   94,  /* storelpd: store */
+   94,  /* sthpd: store */
+   94,  /* stntpd: store */
+   94,  /* stntps: store */
+   94,  /* storent64_fm: store */
+   85,  /* lddqax: ldx */
+   85,  /* lddqux: ldx */
+   85,  /* ldlpsx: ldx */
+   85,  /* ldhpsx: ldx */
+   85,  /* ldlpdx: ldx */
+   85,  /* ldhpdx: ldx */
+   87,  /* stdqax: storex */
+   87,  /* stntpdx: storex */
+   87,  /* stntpsx: storex */
+   87,  /* stdqux: storex */
+   87,  /* stlpsx: storex */
+   87,  /* sthpsx: storex */
+   87,  /* stlpdx: storex */
+   87,  /* sthpdx: storex */
+   86,  /* lddqaxx: ldxx */
+   86,  /* lddquxx: ldxx */
+   86,  /* ldlpsxx: ldxx */
+   86,  /* ldhpsxx: ldxx */
+   86,  /* ldlpdxx: ldxx */
+   86,  /* ldhpdxx: ldxx */
+   82,  /* ldaps: load */
+   85,  /* ldapsx: ldx */
+   86,  /* ldapsxx: ldxx */
+   82,  /* ldapd: load */
+   85,  /* ldapdx: ldx */
+   86,  /* ldapdxx: ldxx */
+   82,  /* ldups: load */
+   85,  /* ldupsx: ldx */
+   86,  /* ldupsxx: ldxx */
+   82,  /* ldupd: load */
+   85,  /* ldupdx: ldx */
+   86,  /* ldupdxx: ldxx */
+   90,  /* stdqaxx: storexx */
+   90,  /* stntpdxx: storexx */
+   90,  /* stntpsxx: storexx */
+   90,  /* stdquxx: storexx */
+   90,  /* stlpsxx: storexx */
+   90,  /* sthpsxx: storexx */
+   90,  /* stlpdxx: storexx */
+   90,  /* sthpdxx: storexx */
+   94,  /* staps: store */
+   87,  /* stapsx: storex */
+   90,  /* stapsxx: storexx */
+   94,  /* stapd: store */
+   87,  /* stapdx: storex */
+   90,  /* stapdxx: storexx */
+   94,  /* stups: store */
+   87,  /* stupsx: storex */
+   90,  /* stupsxx: storexx */
    76,  /* stups_n32: rop */
-   93,  /* stupd: store */
-   86,  /* stupdx: storex */
-   89,  /* stupdxx: storexx */
+   94,  /* stupd: store */
+   87,  /* stupdx: storex */
+   90,  /* stupdxx: storexx */
    76,  /* stupd_n32: rop */
    14,  /* maxsd: ropop */
    14,  /* maxss: ropop */
@@ -2125,18 +2131,18 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    23,  /* fhsubx128v64: ropmem */
    24,  /* fhsubxx128v64: ropmemindex */
    25,  /* fhsubxxx128v64: ropmemindexx */
-   93,  /* stss: store */
-   93,  /* stntss: store */
-   86,  /* stssx: storex */
-   86,  /* stntssx: storex */
-   89,  /* stssxx: storexx */
-   89,  /* stntssxx: storexx */
-   93,  /* stsd: store */
-   93,  /* stntsd: store */
-   86,  /* stsdx: storex */
-   86,  /* stntsdx: storex */
-   89,  /* stsdxx: storexx */
-   89,  /* stntsdxx: storexx */
+   94,  /* stss: store */
+   94,  /* stntss: store */
+   87,  /* stssx: storex */
+   87,  /* stntssx: storex */
+   90,  /* stssxx: storexx */
+   90,  /* stntssxx: storexx */
+   94,  /* stsd: store */
+   94,  /* stntsd: store */
+   87,  /* stsdx: storex */
+   87,  /* stntsdx: storex */
+   90,  /* stsdxx: storexx */
+   90,  /* stntsdxx: storexx */
    76,  /* rcpss: rop */
    76,  /* frcp128v32: rop */
    76,  /* sqrtsd: rop */
@@ -2145,81 +2151,81 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* fsqrt128v32: rop */
    76,  /* frsqrt128v32: rop */
    76,  /* fsqrt128v64: rop */
-  103,  /* punpcklwd: unpck */
-  103,  /* punpcklbw: unpck */
-  103,  /* punpckldq: unpck */
-  103,  /* punpcklbw128: unpck */
-  103,  /* punpcklwd128: unpck */
-  103,  /* punpckldq128: unpck */
-  103,  /* punpckhbw: unpck */
-  103,  /* punpckhwd: unpck */
-  103,  /* punpckhdq: unpck */
-  103,  /* punpckhbw128: unpck */
-  103,  /* punpckhwd128: unpck */
-  103,  /* punpckhdq128: unpck */
-  103,  /* punpcklqdq: unpck */
-  103,  /* punpckhqdq: unpck */
+  104,  /* punpcklwd: unpck */
+  104,  /* punpcklbw: unpck */
+  104,  /* punpckldq: unpck */
+  104,  /* punpcklbw128: unpck */
+  104,  /* punpcklwd128: unpck */
+  104,  /* punpckldq128: unpck */
+  104,  /* punpckhbw: unpck */
+  104,  /* punpckhwd: unpck */
+  104,  /* punpckhdq: unpck */
+  104,  /* punpckhbw128: unpck */
+  104,  /* punpckhwd128: unpck */
+  104,  /* punpckhdq128: unpck */
+  104,  /* punpcklqdq: unpck */
+  104,  /* punpckhqdq: unpck */
    14,  /* packsswb: ropop */
    14,  /* packssdw: ropop */
    14,  /* packuswb: ropop */
    14,  /* packsswb128: ropop */
    14,  /* packssdw128: ropop */
    14,  /* packuswb128: ropop */
-  110,  /* pshufd: shuffle_int */
-  110,  /* pshufw: shuffle_int */
-  110,  /* pshuflw: shuffle_int */
-  110,  /* pshufhw: shuffle_int */
-  111,  /* pslldq: shift_packed */
-  111,  /* psllw: shift_packed */
-  111,  /* psllwi: shift_packed */
-  111,  /* pslld: shift_packed */
-  111,  /* pslldi: shift_packed */
-  111,  /* psllq: shift_packed */
-  111,  /* psllqi: shift_packed */
-  111,  /* psrlw: shift_packed */
-  111,  /* psrlwi: shift_packed */
-  111,  /* psrld: shift_packed */
-  111,  /* psrldi: shift_packed */
-  111,  /* psrlq: shift_packed */
-  111,  /* psrlqi: shift_packed */
-  111,  /* psraw: shift_packed */
-  111,  /* psrawi: shift_packed */
-  111,  /* psrad: shift_packed */
-  111,  /* psradi: shift_packed */
-  111,  /* psllw_mmx: shift_packed */
-  111,  /* psllwi_mmx: shift_packed */
-  111,  /* pslld_mmx: shift_packed */
-  111,  /* pslldi_mmx: shift_packed */
-  111,  /* psllq_mmx: shift_packed */
-  111,  /* psllqi_mmx: shift_packed */
-  111,  /* psrlw_mmx: shift_packed */
-  111,  /* psrlwi_mmx: shift_packed */
-  111,  /* psrld_mmx: shift_packed */
-  111,  /* psrldi_mmx: shift_packed */
-  111,  /* psrlq_mmx: shift_packed */
-  111,  /* psrlqi_mmx: shift_packed */
-  111,  /* psraw_mmx: shift_packed */
-  111,  /* psrawi_mmx: shift_packed */
-  111,  /* psrad_mmx: shift_packed */
-  111,  /* psradi_mmx: shift_packed */
-  111,  /* pand_mmx: shift_packed */
-  111,  /* pandn_mmx: shift_packed */
-  111,  /* por_mmx: shift_packed */
-  111,  /* pxor_mmx: shift_packed */
+  111,  /* pshufd: shuffle_int */
+  111,  /* pshufw: shuffle_int */
+  111,  /* pshuflw: shuffle_int */
+  111,  /* pshufhw: shuffle_int */
+  112,  /* pslldq: shift_packed */
+  112,  /* psllw: shift_packed */
+  112,  /* psllwi: shift_packed */
+  112,  /* pslld: shift_packed */
+  112,  /* pslldi: shift_packed */
+  112,  /* psllq: shift_packed */
+  112,  /* psllqi: shift_packed */
+  112,  /* psrlw: shift_packed */
+  112,  /* psrlwi: shift_packed */
+  112,  /* psrld: shift_packed */
+  112,  /* psrldi: shift_packed */
+  112,  /* psrlq: shift_packed */
+  112,  /* psrlqi: shift_packed */
+  112,  /* psraw: shift_packed */
+  112,  /* psrawi: shift_packed */
+  112,  /* psrad: shift_packed */
+  112,  /* psradi: shift_packed */
+  112,  /* psllw_mmx: shift_packed */
+  112,  /* psllwi_mmx: shift_packed */
+  112,  /* pslld_mmx: shift_packed */
+  112,  /* pslldi_mmx: shift_packed */
+  112,  /* psllq_mmx: shift_packed */
+  112,  /* psllqi_mmx: shift_packed */
+  112,  /* psrlw_mmx: shift_packed */
+  112,  /* psrlwi_mmx: shift_packed */
+  112,  /* psrld_mmx: shift_packed */
+  112,  /* psrldi_mmx: shift_packed */
+  112,  /* psrlq_mmx: shift_packed */
+  112,  /* psrlqi_mmx: shift_packed */
+  112,  /* psraw_mmx: shift_packed */
+  112,  /* psrawi_mmx: shift_packed */
+  112,  /* psrad_mmx: shift_packed */
+  112,  /* psradi_mmx: shift_packed */
+  112,  /* pand_mmx: shift_packed */
+  112,  /* pandn_mmx: shift_packed */
+  112,  /* por_mmx: shift_packed */
+  112,  /* pxor_mmx: shift_packed */
    14,  /* pand: ropop */
    14,  /* pandn: ropop */
    14,  /* por: ropop */
    14,  /* pxor: ropop */
-  103,  /* unpckhpd: unpck */
-  103,  /* unpckhps: unpck */
-  103,  /* unpcklpd: unpck */
-  103,  /* unpcklps: unpck */
-  105,  /* shufpd: shuffle */
-  105,  /* shufps: shuffle */
+  104,  /* unpckhpd: unpck */
+  104,  /* unpckhps: unpck */
+  104,  /* unpcklpd: unpck */
+  104,  /* unpcklps: unpck */
+  106,  /* shufpd: shuffle */
+  106,  /* shufps: shuffle */
    76,  /* movhlps: rop */
    76,  /* movlhps: rop */
-  111,  /* psrldq: shift_packed */
-  111,  /* psrlq128v64: shift_packed */
+  112,  /* psrldq: shift_packed */
+  112,  /* psrlq128v64: shift_packed */
    14,  /* subus128v16: ropop */
    14,  /* pavgb: ropop */
    14,  /* pavgw: ropop */
@@ -2227,167 +2233,167 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    14,  /* pavgb128: ropop */
    14,  /* pavgw128: ropop */
    14,  /* psadbw128: ropop */
-  110,  /* pextrw: shuffle_int */
-  110,  /* pinsrw: shuffle_int */
+  111,  /* pextrw: shuffle_int */
+  111,  /* pinsrw: shuffle_int */
    76,  /* pmovmskb: rop */
    76,  /* pmovmskb128: rop */
    76,  /* movi32_2m: rop */
    76,  /* movi64_2m: rop */
    76,  /* movm_2i32: rop */
    76,  /* movm_2i64: rop */
-  110,  /* pshufw64v16: shuffle_int */
+  111,  /* pshufw64v16: shuffle_int */
    76,  /* movmskps: rop */
    76,  /* movmskpd: rop */
-   80,  /* maskmovdqu: opop1 */
-   80,  /* maskmovq: opop1 */
-  111,  /* extrq: shift_packed */
-  111,  /* insertq: shift_packed */
-  112,  /* vfmaddss: ndstvecreg */
-  113,  /* vfmaddxss: ndstvecregx */
-  114,  /* vfmaddxxss: ndestvecregxx */
-  115,  /* vfmaddxxxss: ndestvecregxxx */
-  116,  /* vfmaddxrss: ndstvecregxr */
-  117,  /* vfmaddxxrss: ndestvecregxxr */
-  118,  /* vfmaddxxxrss: ndestvecregxxxr */
-  112,  /* vfmaddsd: ndstvecreg */
-  113,  /* vfmaddxsd: ndstvecregx */
-  114,  /* vfmaddxxsd: ndestvecregxx */
-  115,  /* vfmaddxxxsd: ndestvecregxxx */
-  116,  /* vfmaddxrsd: ndstvecregxr */
-  117,  /* vfmaddxxrsd: ndestvecregxxr */
-  118,  /* vfmaddxxxrsd: ndestvecregxxxr */
-  112,  /* vfnmaddss: ndstvecreg */
-  113,  /* vfnmaddxss: ndstvecregx */
-  114,  /* vfnmaddxxss: ndestvecregxx */
-  115,  /* vfnmaddxxxss: ndestvecregxxx */
-  116,  /* vfnmaddxrss: ndstvecregxr */
-  117,  /* vfnmaddxxrss: ndestvecregxxr */
-  118,  /* vfnmaddxxxrss: ndestvecregxxxr */
-  112,  /* vfnmaddsd: ndstvecreg */
-  113,  /* vfnmaddxsd: ndstvecregx */
-  114,  /* vfnmaddxxsd: ndestvecregxx */
-  115,  /* vfnmaddxxxsd: ndestvecregxxx */
-  116,  /* vfnmaddxrsd: ndstvecregxr */
-  117,  /* vfnmaddxxrsd: ndestvecregxxr */
-  118,  /* vfnmaddxxxrsd: ndestvecregxxxr */
-  112,  /* vfmaddps: ndstvecreg */
-  113,  /* vfmaddxps: ndstvecregx */
-  114,  /* vfmaddxxps: ndestvecregxx */
-  115,  /* vfmaddxxxps: ndestvecregxxx */
-  116,  /* vfmaddxrps: ndstvecregxr */
-  117,  /* vfmaddxxrps: ndestvecregxxr */
-  118,  /* vfmaddxxxrps: ndestvecregxxxr */
-  112,  /* vfmaddpd: ndstvecreg */
-  113,  /* vfmaddxpd: ndstvecregx */
-  114,  /* vfmaddxxpd: ndestvecregxx */
-  115,  /* vfmaddxxxpd: ndestvecregxxx */
-  116,  /* vfmaddxrpd: ndstvecregxr */
-  117,  /* vfmaddxxrpd: ndestvecregxxr */
-  118,  /* vfmaddxxxrpd: ndestvecregxxxr */
-  112,  /* vfmaddsubps: ndstvecreg */
-  113,  /* vfmaddsubxps: ndstvecregx */
-  114,  /* vfmaddsubxxps: ndestvecregxx */
-  115,  /* vfmaddsubxxxps: ndestvecregxxx */
-  116,  /* vfmaddsubxrps: ndstvecregxr */
-  117,  /* vfmaddsubxxrps: ndestvecregxxr */
-  118,  /* vfmaddsubxxxrps: ndestvecregxxxr */
-  112,  /* vfmaddsubpd: ndstvecreg */
-  113,  /* vfmaddsubxpd: ndstvecregx */
-  114,  /* vfmaddsubxxpd: ndestvecregxx */
-  115,  /* vfmaddsubxxxpd: ndestvecregxxx */
-  116,  /* vfmaddsubxrpd: ndstvecregxr */
-  117,  /* vfmaddsubxxrpd: ndestvecregxxr */
-  118,  /* vfmaddsubxxxrpd: ndestvecregxxxr */
-  112,  /* vfnmaddps: ndstvecreg */
-  113,  /* vfnmaddxps: ndstvecregx */
-  114,  /* vfnmaddxxps: ndestvecregxx */
-  115,  /* vfnmaddxxxps: ndestvecregxxx */
-  116,  /* vfnmaddxrps: ndstvecregxr */
-  117,  /* vfnmaddxxrps: ndestvecregxxr */
-  118,  /* vfnmaddxxxrps: ndestvecregxxxr */
-  112,  /* vfnmaddpd: ndstvecreg */
-  113,  /* vfnmaddxpd: ndstvecregx */
-  114,  /* vfnmaddxxpd: ndestvecregxx */
-  115,  /* vfnmaddxxxpd: ndestvecregxxx */
-  116,  /* vfnmaddxrpd: ndstvecregxr */
-  117,  /* vfnmaddxxrpd: ndestvecregxxr */
-  118,  /* vfnmaddxxxrpd: ndestvecregxxxr */
-  112,  /* vfmsubss: ndstvecreg */
-  113,  /* vfmsubxss: ndstvecregx */
-  114,  /* vfmsubxxss: ndestvecregxx */
-  115,  /* vfmsubxxxss: ndestvecregxxx */
-  116,  /* vfmsubxrss: ndstvecregxr */
-  117,  /* vfmsubxxrss: ndestvecregxxr */
-  118,  /* vfmsubxxxrss: ndestvecregxxxr */
-  112,  /* vfmsubsd: ndstvecreg */
-  113,  /* vfmsubxsd: ndstvecregx */
-  114,  /* vfmsubxxsd: ndestvecregxx */
-  115,  /* vfmsubxxxsd: ndestvecregxxx */
-  116,  /* vfmsubxrsd: ndstvecregxr */
-  117,  /* vfmsubxxrsd: ndestvecregxxr */
-  118,  /* vfmsubxxxrsd: ndestvecregxxxr */
-  112,  /* vfnmsubss: ndstvecreg */
-  113,  /* vfnmsubxss: ndstvecregx */
-  114,  /* vfnmsubxxss: ndestvecregxx */
-  115,  /* vfnmsubxxxss: ndestvecregxxx */
-  116,  /* vfnmsubxrss: ndstvecregxr */
-  117,  /* vfnmsubxxrss: ndestvecregxxr */
-  118,  /* vfnmsubxxxrss: ndestvecregxxxr */
-  112,  /* vfnmsubsd: ndstvecreg */
-  113,  /* vfnmsubxsd: ndstvecregx */
-  114,  /* vfnmsubxxsd: ndestvecregxx */
-  115,  /* vfnmsubxxxsd: ndestvecregxxx */
-  116,  /* vfnmsubxrsd: ndstvecregxr */
-  117,  /* vfnmsubxxrsd: ndestvecregxxr */
-  118,  /* vfnmsubxxxrsd: ndestvecregxxxr */
-  112,  /* vfmsubps: ndstvecreg */
-  113,  /* vfmsubxps: ndstvecregx */
-  114,  /* vfmsubxxps: ndestvecregxx */
-  115,  /* vfmsubxxxps: ndestvecregxxx */
-  116,  /* vfmsubxrps: ndstvecregxr */
-  117,  /* vfmsubxxrps: ndestvecregxxr */
-  118,  /* vfmsubxxxrps: ndestvecregxxxr */
-  112,  /* vfmsubpd: ndstvecreg */
-  113,  /* vfmsubxpd: ndstvecregx */
-  114,  /* vfmsubxxpd: ndestvecregxx */
-  115,  /* vfmsubxxxpd: ndestvecregxxx */
-  116,  /* vfmsubxrpd: ndstvecregxr */
-  117,  /* vfmsubxxrpd: ndestvecregxxr */
-  118,  /* vfmsubxxxrpd: ndestvecregxxxr */
-  112,  /* vfmsubaddps: ndstvecreg */
-  113,  /* vfmsubaddxps: ndstvecregx */
-  114,  /* vfmsubaddxxps: ndestvecregxx */
-  115,  /* vfmsubaddxxxps: ndestvecregxxx */
-  116,  /* vfmsubaddxrps: ndstvecregxr */
-  117,  /* vfmsubaddxxrps: ndestvecregxxr */
-  118,  /* vfmsubaddxxxrps: ndestvecregxxxr */
-  112,  /* vfmsubaddpd: ndstvecreg */
-  113,  /* vfmsubaddxpd: ndstvecregx */
-  114,  /* vfmsubaddxxpd: ndestvecregxx */
-  115,  /* vfmsubaddxxxpd: ndestvecregxxx */
-  116,  /* vfmsubaddxrpd: ndstvecregxr */
-  117,  /* vfmsubaddxxrpd: ndestvecregxxr */
-  118,  /* vfmsubaddxxxrpd: ndestvecregxxxr */
-  112,  /* vfnmsubps: ndstvecreg */
-  113,  /* vfnmsubxps: ndstvecregx */
-  114,  /* vfnmsubxxps: ndestvecregxx */
-  115,  /* vfnmsubxxxps: ndestvecregxxx */
-  116,  /* vfnmsubxrps: ndstvecregxr */
-  117,  /* vfnmsubxxrps: ndestvecregxxr */
-  118,  /* vfnmsubxxxrps: ndestvecregxxxr */
-  112,  /* vfnmsubpd: ndstvecreg */
-  113,  /* vfnmsubxpd: ndstvecregx */
-  114,  /* vfnmsubxxpd: ndestvecregxx */
-  115,  /* vfnmsubxxxpd: ndestvecregxxx */
-  116,  /* vfnmsubxrpd: ndstvecregxr */
-  117,  /* vfnmsubxxrpd: ndestvecregxxr */
-  118,  /* vfnmsubxxxrpd: ndestvecregxxxr */
-  128,  /* vzeroupper: no_rop */
-  128,  /* mfence: no_rop */
-  128,  /* lfence: no_rop */
-  128,  /* sfence: no_rop */
-  128,  /* monitor: no_rop */
-  128,  /* mwait: no_rop */
+   81,  /* maskmovdqu: opop1 */
+   81,  /* maskmovq: opop1 */
+  112,  /* extrq: shift_packed */
+  112,  /* insertq: shift_packed */
+  113,  /* vfmaddss: ndstvecreg */
+  114,  /* vfmaddxss: ndstvecregx */
+  115,  /* vfmaddxxss: ndestvecregxx */
+  116,  /* vfmaddxxxss: ndestvecregxxx */
+  117,  /* vfmaddxrss: ndstvecregxr */
+  118,  /* vfmaddxxrss: ndestvecregxxr */
+  119,  /* vfmaddxxxrss: ndestvecregxxxr */
+  113,  /* vfmaddsd: ndstvecreg */
+  114,  /* vfmaddxsd: ndstvecregx */
+  115,  /* vfmaddxxsd: ndestvecregxx */
+  116,  /* vfmaddxxxsd: ndestvecregxxx */
+  117,  /* vfmaddxrsd: ndstvecregxr */
+  118,  /* vfmaddxxrsd: ndestvecregxxr */
+  119,  /* vfmaddxxxrsd: ndestvecregxxxr */
+  113,  /* vfnmaddss: ndstvecreg */
+  114,  /* vfnmaddxss: ndstvecregx */
+  115,  /* vfnmaddxxss: ndestvecregxx */
+  116,  /* vfnmaddxxxss: ndestvecregxxx */
+  117,  /* vfnmaddxrss: ndstvecregxr */
+  118,  /* vfnmaddxxrss: ndestvecregxxr */
+  119,  /* vfnmaddxxxrss: ndestvecregxxxr */
+  113,  /* vfnmaddsd: ndstvecreg */
+  114,  /* vfnmaddxsd: ndstvecregx */
+  115,  /* vfnmaddxxsd: ndestvecregxx */
+  116,  /* vfnmaddxxxsd: ndestvecregxxx */
+  117,  /* vfnmaddxrsd: ndstvecregxr */
+  118,  /* vfnmaddxxrsd: ndestvecregxxr */
+  119,  /* vfnmaddxxxrsd: ndestvecregxxxr */
+  113,  /* vfmaddps: ndstvecreg */
+  114,  /* vfmaddxps: ndstvecregx */
+  115,  /* vfmaddxxps: ndestvecregxx */
+  116,  /* vfmaddxxxps: ndestvecregxxx */
+  117,  /* vfmaddxrps: ndstvecregxr */
+  118,  /* vfmaddxxrps: ndestvecregxxr */
+  119,  /* vfmaddxxxrps: ndestvecregxxxr */
+  113,  /* vfmaddpd: ndstvecreg */
+  114,  /* vfmaddxpd: ndstvecregx */
+  115,  /* vfmaddxxpd: ndestvecregxx */
+  116,  /* vfmaddxxxpd: ndestvecregxxx */
+  117,  /* vfmaddxrpd: ndstvecregxr */
+  118,  /* vfmaddxxrpd: ndestvecregxxr */
+  119,  /* vfmaddxxxrpd: ndestvecregxxxr */
+  113,  /* vfmaddsubps: ndstvecreg */
+  114,  /* vfmaddsubxps: ndstvecregx */
+  115,  /* vfmaddsubxxps: ndestvecregxx */
+  116,  /* vfmaddsubxxxps: ndestvecregxxx */
+  117,  /* vfmaddsubxrps: ndstvecregxr */
+  118,  /* vfmaddsubxxrps: ndestvecregxxr */
+  119,  /* vfmaddsubxxxrps: ndestvecregxxxr */
+  113,  /* vfmaddsubpd: ndstvecreg */
+  114,  /* vfmaddsubxpd: ndstvecregx */
+  115,  /* vfmaddsubxxpd: ndestvecregxx */
+  116,  /* vfmaddsubxxxpd: ndestvecregxxx */
+  117,  /* vfmaddsubxrpd: ndstvecregxr */
+  118,  /* vfmaddsubxxrpd: ndestvecregxxr */
+  119,  /* vfmaddsubxxxrpd: ndestvecregxxxr */
+  113,  /* vfnmaddps: ndstvecreg */
+  114,  /* vfnmaddxps: ndstvecregx */
+  115,  /* vfnmaddxxps: ndestvecregxx */
+  116,  /* vfnmaddxxxps: ndestvecregxxx */
+  117,  /* vfnmaddxrps: ndstvecregxr */
+  118,  /* vfnmaddxxrps: ndestvecregxxr */
+  119,  /* vfnmaddxxxrps: ndestvecregxxxr */
+  113,  /* vfnmaddpd: ndstvecreg */
+  114,  /* vfnmaddxpd: ndstvecregx */
+  115,  /* vfnmaddxxpd: ndestvecregxx */
+  116,  /* vfnmaddxxxpd: ndestvecregxxx */
+  117,  /* vfnmaddxrpd: ndstvecregxr */
+  118,  /* vfnmaddxxrpd: ndestvecregxxr */
+  119,  /* vfnmaddxxxrpd: ndestvecregxxxr */
+  113,  /* vfmsubss: ndstvecreg */
+  114,  /* vfmsubxss: ndstvecregx */
+  115,  /* vfmsubxxss: ndestvecregxx */
+  116,  /* vfmsubxxxss: ndestvecregxxx */
+  117,  /* vfmsubxrss: ndstvecregxr */
+  118,  /* vfmsubxxrss: ndestvecregxxr */
+  119,  /* vfmsubxxxrss: ndestvecregxxxr */
+  113,  /* vfmsubsd: ndstvecreg */
+  114,  /* vfmsubxsd: ndstvecregx */
+  115,  /* vfmsubxxsd: ndestvecregxx */
+  116,  /* vfmsubxxxsd: ndestvecregxxx */
+  117,  /* vfmsubxrsd: ndstvecregxr */
+  118,  /* vfmsubxxrsd: ndestvecregxxr */
+  119,  /* vfmsubxxxrsd: ndestvecregxxxr */
+  113,  /* vfnmsubss: ndstvecreg */
+  114,  /* vfnmsubxss: ndstvecregx */
+  115,  /* vfnmsubxxss: ndestvecregxx */
+  116,  /* vfnmsubxxxss: ndestvecregxxx */
+  117,  /* vfnmsubxrss: ndstvecregxr */
+  118,  /* vfnmsubxxrss: ndestvecregxxr */
+  119,  /* vfnmsubxxxrss: ndestvecregxxxr */
+  113,  /* vfnmsubsd: ndstvecreg */
+  114,  /* vfnmsubxsd: ndstvecregx */
+  115,  /* vfnmsubxxsd: ndestvecregxx */
+  116,  /* vfnmsubxxxsd: ndestvecregxxx */
+  117,  /* vfnmsubxrsd: ndstvecregxr */
+  118,  /* vfnmsubxxrsd: ndestvecregxxr */
+  119,  /* vfnmsubxxxrsd: ndestvecregxxxr */
+  113,  /* vfmsubps: ndstvecreg */
+  114,  /* vfmsubxps: ndstvecregx */
+  115,  /* vfmsubxxps: ndestvecregxx */
+  116,  /* vfmsubxxxps: ndestvecregxxx */
+  117,  /* vfmsubxrps: ndstvecregxr */
+  118,  /* vfmsubxxrps: ndestvecregxxr */
+  119,  /* vfmsubxxxrps: ndestvecregxxxr */
+  113,  /* vfmsubpd: ndstvecreg */
+  114,  /* vfmsubxpd: ndstvecregx */
+  115,  /* vfmsubxxpd: ndestvecregxx */
+  116,  /* vfmsubxxxpd: ndestvecregxxx */
+  117,  /* vfmsubxrpd: ndstvecregxr */
+  118,  /* vfmsubxxrpd: ndestvecregxxr */
+  119,  /* vfmsubxxxrpd: ndestvecregxxxr */
+  113,  /* vfmsubaddps: ndstvecreg */
+  114,  /* vfmsubaddxps: ndstvecregx */
+  115,  /* vfmsubaddxxps: ndestvecregxx */
+  116,  /* vfmsubaddxxxps: ndestvecregxxx */
+  117,  /* vfmsubaddxrps: ndstvecregxr */
+  118,  /* vfmsubaddxxrps: ndestvecregxxr */
+  119,  /* vfmsubaddxxxrps: ndestvecregxxxr */
+  113,  /* vfmsubaddpd: ndstvecreg */
+  114,  /* vfmsubaddxpd: ndstvecregx */
+  115,  /* vfmsubaddxxpd: ndestvecregxx */
+  116,  /* vfmsubaddxxxpd: ndestvecregxxx */
+  117,  /* vfmsubaddxrpd: ndstvecregxr */
+  118,  /* vfmsubaddxxrpd: ndestvecregxxr */
+  119,  /* vfmsubaddxxxrpd: ndestvecregxxxr */
+  113,  /* vfnmsubps: ndstvecreg */
+  114,  /* vfnmsubxps: ndstvecregx */
+  115,  /* vfnmsubxxps: ndestvecregxx */
+  116,  /* vfnmsubxxxps: ndestvecregxxx */
+  117,  /* vfnmsubxrps: ndstvecregxr */
+  118,  /* vfnmsubxxrps: ndestvecregxxr */
+  119,  /* vfnmsubxxxrps: ndestvecregxxxr */
+  113,  /* vfnmsubpd: ndstvecreg */
+  114,  /* vfnmsubxpd: ndstvecregx */
+  115,  /* vfnmsubxxpd: ndestvecregxx */
+  116,  /* vfnmsubxxxpd: ndestvecregxxx */
+  117,  /* vfnmsubxrpd: ndstvecregxr */
+  118,  /* vfnmsubxxrpd: ndestvecregxxr */
+  119,  /* vfnmsubxxxrpd: ndestvecregxxxr */
+  129,  /* vzeroupper: no_rop */
+  129,  /* mfence: no_rop */
+  129,  /* lfence: no_rop */
+  129,  /* sfence: no_rop */
+  129,  /* monitor: no_rop */
+  129,  /* mwait: no_rop */
     0,  /* asm */
     0,  /* intrncall */
     0,  /* spadjust */
@@ -2409,15 +2415,15 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    68,  /* fld: op0 */
    68,  /* fst: op0 */
    68,  /* fstp: op0 */
-   90,  /* fstps: prefetch */
+   91,  /* fstps: prefetch */
     2,  /* fstps_n32: op1 */
-   90,  /* fstpl: prefetch */
+   91,  /* fstpl: prefetch */
     2,  /* fstpl_n32: op1 */
-   90,  /* fstpt: prefetch */
+   91,  /* fstpt: prefetch */
     2,  /* fstpt_n32: op1 */
-   90,  /* fsts: prefetch */
+   91,  /* fsts: prefetch */
     2,  /* fsts_n32: op1 */
-   90,  /* fstl: prefetch */
+   91,  /* fstl: prefetch */
     2,  /* fstl_n32: op1 */
    68,  /* fxch: op0 */
    68,  /* fmov: op0 */
@@ -2433,21 +2439,21 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    14,  /* fdivrp: ropop */
     4,  /* fucomi: cmp */
     4,  /* fucomip: cmp */
-  128,  /* fchs: no_rop */
-  128,  /* frndint: no_rop */
-   90,  /* fnstcw: prefetch */
+  129,  /* fchs: no_rop */
+  129,  /* frndint: no_rop */
+   91,  /* fnstcw: prefetch */
    69,  /* fldcw: opop */
-   90,  /* fistps: prefetch */
-   90,  /* fistpl: prefetch */
-   90,  /* fists: prefetch */
-   90,  /* fistl: prefetch */
-   90,  /* fistpll: prefetch */
+   91,  /* fistps: prefetch */
+   91,  /* fistpl: prefetch */
+   91,  /* fists: prefetch */
+   91,  /* fistl: prefetch */
+   91,  /* fistpll: prefetch */
    69,  /* filds: opop */
    69,  /* fildl: opop */
    69,  /* fildll: opop */
-  128,  /* fldz: no_rop */
-  128,  /* fabs: no_rop */
-  128,  /* fsqrt: no_rop */
+  129,  /* fldz: no_rop */
+  129,  /* fabs: no_rop */
+  129,  /* fsqrt: no_rop */
    76,  /* fcmovb: rop */
    76,  /* fcmovbe: rop */
    76,  /* fcmovnb: rop */
@@ -2456,8 +2462,8 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    76,  /* fcmovne: rop */
    76,  /* fcmovu: rop */
    76,  /* fcmovnu: rop */
-  128,  /* fcos: no_rop */
-  128,  /* fsin: no_rop */
+  129,  /* fcos: no_rop */
+  129,  /* fsin: no_rop */
    14,  /* cmpeqpd: ropop */
    14,  /* cmpltpd: ropop */
    14,  /* cmplepd: ropop */
@@ -2490,25 +2496,25 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    14,  /* cmpnltss: ropop */
    14,  /* cmpnless: ropop */
    14,  /* cmpordss: ropop */
-  128,  /* emms: no_rop */
-  123,  /* stmxcsr: stmxcsr */
-  123,  /* ldmxcsr: stmxcsr */
+  129,  /* emms: no_rop */
+  124,  /* stmxcsr: stmxcsr */
+  124,  /* ldmxcsr: stmxcsr */
    69,  /* clflush: opop */
-   90,  /* fisttps: prefetch */
-   90,  /* fisttpl: prefetch */
-   90,  /* fisttpll: prefetch */
+   91,  /* fisttps: prefetch */
+   91,  /* fisttpl: prefetch */
+   91,  /* fisttpll: prefetch */
    76,  /* pabs128v8: rop */
-   77,  /* pabsx128v8: rmem */
-   78,  /* pabsxx128v8: rmemindex */
-   79,  /* pabsxxx128v8: rmemindexx */
+   78,  /* pabsx128v8: rmem */
+   79,  /* pabsxx128v8: rmemindex */
+   80,  /* pabsxxx128v8: rmemindexx */
    76,  /* pabs128v16: rop */
-   77,  /* pabsx128v16: rmem */
-   78,  /* pabsxx128v16: rmemindex */
-   79,  /* pabsxxx128v16: rmemindexx */
+   78,  /* pabsx128v16: rmem */
+   79,  /* pabsxx128v16: rmemindex */
+   80,  /* pabsxxx128v16: rmemindexx */
    76,  /* pabs128v32: rop */
-   77,  /* pabsx128v32: rmem */
-   78,  /* pabsxx128v32: rmemindex */
-   79,  /* pabsxxx128v32: rmemindexx */
+   78,  /* pabsx128v32: rmem */
+   79,  /* pabsxx128v32: rmemindex */
+   80,  /* pabsxxx128v32: rmemindexx */
    14,  /* psign128v8: ropop */
    23,  /* psignx128v8: ropmem */
    24,  /* psignxx128v8: ropmemindex */
@@ -2521,10 +2527,10 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    23,  /* psignx128v32: ropmem */
    24,  /* psignxx128v32: ropmemindex */
    25,  /* psignxxx128v32: ropmemindexx */
-  106,  /* pshuf128v8: pshufb */
-  107,  /* pshufx128v8: pshufb_mem */
-  108,  /* pshufxx128v8: pshufb_memindex */
-  109,  /* pshufxxx128v8: pshufb_memindexx */
+  107,  /* pshuf128v8: pshufb */
+  108,  /* pshufx128v8: pshufb_mem */
+  109,  /* pshufxx128v8: pshufb_memindex */
+  110,  /* pshufxxx128v8: pshufb_memindexx */
    14,  /* phsub128v16: ropop */
    23,  /* phsubx128v16: ropmem */
    24,  /* phsubxx128v16: ropmemindex */
@@ -2565,12 +2571,12 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    23,  /* muldqx: ropmem */
    24,  /* muldqxx: ropmemindex */
    25,  /* muldqxxx: ropmemindexx */
-   81,  /* ldntdqa: load */
-   84,  /* ldntdqax: ldx */
-   85,  /* ldntdqaxx: ldxx */
-   93,  /* stntdq: store */
-   86,  /* stntdqx: storex */
-   89,  /* stntdqxx: storexx */
+   82,  /* ldntdqa: load */
+   85,  /* ldntdqax: ldx */
+   86,  /* ldntdqaxx: ldxx */
+   94,  /* stntdq: store */
+   87,  /* stntdqx: storex */
+   90,  /* stntdqxx: storexx */
    14,  /* minu128v8: ropop */
    23,  /* minux128v8: ropmem */
    24,  /* minuxx128v8: ropmemindex */
@@ -2620,53 +2626,53 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    24,  /* maxsxx128v32: ropmemindex */
    25,  /* maxsxxx128v32: ropmemindexx */
    76,  /* pmovsxbw: rop */
-   77,  /* pmovsxbwx: rmem */
-   78,  /* pmovsxbwxx: rmemindex */
-   79,  /* pmovsxbwxxx: rmemindexx */
+   78,  /* pmovsxbwx: rmem */
+   79,  /* pmovsxbwxx: rmemindex */
+   80,  /* pmovsxbwxxx: rmemindexx */
    76,  /* pmovzxbw: rop */
-   77,  /* pmovzxbwx: rmem */
-   78,  /* pmovzxbwxx: rmemindex */
-   79,  /* pmovzxbwxxx: rmemindexx */
+   78,  /* pmovzxbwx: rmem */
+   79,  /* pmovzxbwxx: rmemindex */
+   80,  /* pmovzxbwxxx: rmemindexx */
    76,  /* pmovsxbd: rop */
-   77,  /* pmovsxbdx: rmem */
-   78,  /* pmovsxbdxx: rmemindex */
-   79,  /* pmovsxbdxxx: rmemindexx */
+   78,  /* pmovsxbdx: rmem */
+   79,  /* pmovsxbdxx: rmemindex */
+   80,  /* pmovsxbdxxx: rmemindexx */
    76,  /* pmovzxbd: rop */
-   77,  /* pmovzxbdx: rmem */
-   78,  /* pmovzxbdxx: rmemindex */
-   79,  /* pmovzxbdxxx: rmemindexx */
+   78,  /* pmovzxbdx: rmem */
+   79,  /* pmovzxbdxx: rmemindex */
+   80,  /* pmovzxbdxxx: rmemindexx */
    76,  /* pmovsxbq: rop */
-   77,  /* pmovsxbqx: rmem */
-   78,  /* pmovsxbqxx: rmemindex */
-   79,  /* pmovsxbqxxx: rmemindexx */
+   78,  /* pmovsxbqx: rmem */
+   79,  /* pmovsxbqxx: rmemindex */
+   80,  /* pmovsxbqxxx: rmemindexx */
    76,  /* pmovzxbq: rop */
-   77,  /* pmovzxbqx: rmem */
-   78,  /* pmovzxbqxx: rmemindex */
-   79,  /* pmovzxbqxxx: rmemindexx */
+   78,  /* pmovzxbqx: rmem */
+   79,  /* pmovzxbqxx: rmemindex */
+   80,  /* pmovzxbqxxx: rmemindexx */
    76,  /* pmovsxwd: rop */
-   77,  /* pmovsxwdx: rmem */
-   78,  /* pmovsxwdxx: rmemindex */
-   79,  /* pmovsxwdxxx: rmemindexx */
+   78,  /* pmovsxwdx: rmem */
+   79,  /* pmovsxwdxx: rmemindex */
+   80,  /* pmovsxwdxxx: rmemindexx */
    76,  /* pmovzxwd: rop */
-   77,  /* pmovzxwdx: rmem */
-   78,  /* pmovzxwdxx: rmemindex */
-   79,  /* pmovzxwdxxx: rmemindexx */
+   78,  /* pmovzxwdx: rmem */
+   79,  /* pmovzxwdxx: rmemindex */
+   80,  /* pmovzxwdxxx: rmemindexx */
    76,  /* pmovsxwq: rop */
-   77,  /* pmovsxwqx: rmem */
-   78,  /* pmovsxwqxx: rmemindex */
-   79,  /* pmovsxwqxxx: rmemindexx */
+   78,  /* pmovsxwqx: rmem */
+   79,  /* pmovsxwqxx: rmemindex */
+   80,  /* pmovsxwqxxx: rmemindexx */
    76,  /* pmovzxwq: rop */
-   77,  /* pmovzxwqx: rmem */
-   78,  /* pmovzxwqxx: rmemindex */
-   79,  /* pmovzxwqxxx: rmemindexx */
+   78,  /* pmovzxwqx: rmem */
+   79,  /* pmovzxwqxx: rmemindex */
+   80,  /* pmovzxwqxxx: rmemindexx */
    76,  /* pmovsxdq: rop */
-   77,  /* pmovsxdqx: rmem */
-   78,  /* pmovsxdqxx: rmemindex */
-   79,  /* pmovsxdqxxx: rmemindexx */
+   78,  /* pmovsxdqx: rmem */
+   79,  /* pmovsxdqxx: rmemindex */
+   80,  /* pmovsxdqxxx: rmemindexx */
    76,  /* pmovzxdq: rop */
-   77,  /* pmovzxdqx: rmem */
-   78,  /* pmovzxdqxx: rmemindex */
-   79,  /* pmovzxdqxxx: rmemindexx */
+   78,  /* pmovzxdqx: rmem */
+   79,  /* pmovzxdqxx: rmemindex */
+   80,  /* pmovzxdqxxx: rmemindexx */
    14,  /* mul128v32: ropop */
    23,  /* mulx128v32: ropmem */
    24,  /* mulxx128v32: ropmemindex */
@@ -2680,9 +2686,9 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    24,  /* packusdwxx: ropmemindex */
    25,  /* packusdwxxx: ropmemindexx */
    76,  /* phminposuw: rop */
-   77,  /* phminposuwx: rmem */
-   78,  /* phminposuwxx: rmemindex */
-   79,  /* phminposuwxxx: rmemindexx */
+   78,  /* phminposuwx: rmem */
+   79,  /* phminposuwxx: rmemindex */
+   80,  /* phminposuwxxx: rmemindexx */
     4,  /* ptest128: cmp */
     5,  /* ptestx128: cmpx */
     8,  /* ptestxx128: cmpxx */
@@ -2711,30 +2717,30 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    31,  /* insrx128v64: ropmemop */
    32,  /* insrxx128v64: ropmemindexop */
    33,  /* insrxxx128v64: ropmemindexxop */
-   30,  /* extr128v8: ropopop */
-   31,  /* extrx128v8: ropmemop */
-   32,  /* extrxx128v8: ropmemindexop */
-   33,  /* extrxxx128v8: ropmemindexxop */
-   30,  /* extr128v16: ropopop */
-   31,  /* extrx128v16: ropmemop */
-   32,  /* extrxx128v16: ropmemindexop */
-   33,  /* extrxxx128v16: ropmemindexxop */
-   30,  /* extr128v32: ropopop */
-   31,  /* extrx128v32: ropmemop */
-   32,  /* extrxx128v32: ropmemindexop */
-   33,  /* extrxxx128v32: ropmemindexxop */
-   30,  /* extr128v64: ropopop */
-   31,  /* extrx128v64: ropmemop */
-   32,  /* extrxx128v64: ropmemindexop */
-   33,  /* extrxxx128v64: ropmemindexxop */
+   38,  /* extr128v8: vropop */
+   40,  /* extrx128v8: vrmemop */
+   42,  /* extrxx128v8: vrmemindexop */
+   44,  /* extrxxx128v8: vrmemindexxop */
+   38,  /* extr128v16: vropop */
+   40,  /* extrx128v16: vrmemop */
+   42,  /* extrxx128v16: vrmemindexop */
+   44,  /* extrxxx128v16: vrmemindexxop */
+   38,  /* extr128v32: vropop */
+   40,  /* extrx128v32: vrmemop */
+   42,  /* extrxx128v32: vrmemindexop */
+   44,  /* extrxxx128v32: vrmemindexxop */
+   38,  /* extr128v64: vropop */
+   40,  /* extrx128v64: vrmemop */
+   42,  /* extrxx128v64: vrmemindexop */
+   44,  /* extrxxx128v64: vrmemindexxop */
    30,  /* finsr128v32: ropopop */
    31,  /* finsrx128v32: ropmemop */
    32,  /* finsrxx128v32: ropmemindexop */
    33,  /* finsrxxx128v32: ropmemindexxop */
-   30,  /* fextr128v32: ropopop */
-   31,  /* fextrx128v32: ropmemop */
-   32,  /* fextrxx128v32: ropmemindexop */
-   33,  /* fextrxxx128v32: ropmemindexxop */
+   38,  /* fextr128v32: vropop */
+   40,  /* fextrx128v32: vrmemop */
+   42,  /* fextrxx128v32: vrmemindexop */
+   44,  /* fextrxxx128v32: vrmemindexxop */
    26,  /* fblendv128v32: rblendv */
    27,  /* fblendvx128v32: rblendvmem */
    28,  /* fblendvxx128v32: rblendvmemindex */
@@ -2816,21 +2822,21 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    66,  /* cmpistrixx: pcmpistrmemindex */
    67,  /* cmpistrixxx: pcmpistrmemindexx */
    76,  /* popcnt16: rop */
-   77,  /* popcntx16: rmem */
-   78,  /* popcntxx16: rmemindex */
-   79,  /* popcntxxx16: rmemindexx */
+   78,  /* popcntx16: rmem */
+   79,  /* popcntxx16: rmemindex */
+   80,  /* popcntxxx16: rmemindexx */
    76,  /* popcnt32: rop */
-   77,  /* popcntx32: rmem */
-   78,  /* popcntxx32: rmemindex */
-   79,  /* popcntxxx32: rmemindexx */
+   78,  /* popcntx32: rmem */
+   79,  /* popcntxx32: rmemindex */
+   80,  /* popcntxxx32: rmemindexx */
    76,  /* popcnt64: rop */
-   77,  /* popcntx64: rmem */
-   78,  /* popcntxx64: rmemindex */
-   79,  /* popcntxxx64: rmemindexx */
+   78,  /* popcntx64: rmem */
+   79,  /* popcntxx64: rmemindex */
+   80,  /* popcntxxx64: rmemindexx */
    76,  /* aesimc: rop */
-   77,  /* aesimcx: rmem */
-   78,  /* aesimcxx: rmemindex */
-   79,  /* aesimcxxx: rmemindexx */
+   78,  /* aesimcx: rmem */
+   79,  /* aesimcxx: rmemindex */
+   80,  /* aesimcxxx: rmemindexx */
    38,  /* aeskeygenassist: vropop */
    39,  /* aeskeygenassistx: vropmem */
    41,  /* aeskeygenassistxx: vropmemindex */
@@ -2856,81 +2862,81 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    32,  /* pclmulqdqxx: ropmemindexop */
    33,  /* pclmulqdqxxx: ropmemindexxop */
    76,  /* vphaddbd: rop */
-   77,  /* vphaddbdx: rmem */
-   78,  /* vphaddbdxx: rmemindex */
-   79,  /* vphaddbdxxx: rmemindexx */
+   78,  /* vphaddbdx: rmem */
+   79,  /* vphaddbdxx: rmemindex */
+   80,  /* vphaddbdxxx: rmemindexx */
    76,  /* vphaddbq: rop */
-   77,  /* vphaddbqx: rmem */
-   78,  /* vphaddbqxx: rmemindex */
-   79,  /* vphaddbqxxx: rmemindexx */
+   78,  /* vphaddbqx: rmem */
+   79,  /* vphaddbqxx: rmemindex */
+   80,  /* vphaddbqxxx: rmemindexx */
    76,  /* vphaddbw: rop */
-   77,  /* vphaddbwx: rmem */
-   78,  /* vphaddbwxx: rmemindex */
-   79,  /* vphaddbwxxx: rmemindexx */
+   78,  /* vphaddbwx: rmem */
+   79,  /* vphaddbwxx: rmemindex */
+   80,  /* vphaddbwxxx: rmemindexx */
    76,  /* vphadddq: rop */
-   77,  /* vphadddqx: rmem */
-   78,  /* vphadddqxx: rmemindex */
-   79,  /* vphadddqxxx: rmemindexx */
+   78,  /* vphadddqx: rmem */
+   79,  /* vphadddqxx: rmemindex */
+   80,  /* vphadddqxxx: rmemindexx */
    76,  /* vphaddubd: rop */
-   77,  /* vphaddubdx: rmem */
-   78,  /* vphaddubdxx: rmemindex */
-   79,  /* vphaddubdxxx: rmemindexx */
+   78,  /* vphaddubdx: rmem */
+   79,  /* vphaddubdxx: rmemindex */
+   80,  /* vphaddubdxxx: rmemindexx */
    76,  /* vphaddubq: rop */
-   77,  /* vphaddubqx: rmem */
-   78,  /* vphaddubqxx: rmemindex */
-   79,  /* vphaddubqxxx: rmemindexx */
+   78,  /* vphaddubqx: rmem */
+   79,  /* vphaddubqxx: rmemindex */
+   80,  /* vphaddubqxxx: rmemindexx */
    76,  /* vphaddubw: rop */
-   77,  /* vphaddubwx: rmem */
-   78,  /* vphaddubwxx: rmemindex */
-   79,  /* vphaddubwxxx: rmemindexx */
+   78,  /* vphaddubwx: rmem */
+   79,  /* vphaddubwxx: rmemindex */
+   80,  /* vphaddubwxxx: rmemindexx */
    76,  /* vphaddudq: rop */
-   77,  /* vphaddudqx: rmem */
-   78,  /* vphaddudqxx: rmemindex */
-   79,  /* vphaddudqxxx: rmemindexx */
+   78,  /* vphaddudqx: rmem */
+   79,  /* vphaddudqxx: rmemindex */
+   80,  /* vphaddudqxxx: rmemindexx */
    76,  /* vphadduwd: rop */
-   77,  /* vphadduwdx: rmem */
-   78,  /* vphadduwdxx: rmemindex */
-   79,  /* vphadduwdxxx: rmemindexx */
+   78,  /* vphadduwdx: rmem */
+   79,  /* vphadduwdxx: rmemindex */
+   80,  /* vphadduwdxxx: rmemindexx */
    76,  /* vphadduwq: rop */
-   77,  /* vphadduwqx: rmem */
-   78,  /* vphadduwqxx: rmemindex */
-   79,  /* vphadduwqxxx: rmemindexx */
+   78,  /* vphadduwqx: rmem */
+   79,  /* vphadduwqxx: rmemindex */
+   80,  /* vphadduwqxxx: rmemindexx */
    76,  /* vphaddwd: rop */
-   77,  /* vphaddwdx: rmem */
-   78,  /* vphaddwdxx: rmemindex */
-   79,  /* vphaddwdxxx: rmemindexx */
+   78,  /* vphaddwdx: rmem */
+   79,  /* vphaddwdxx: rmemindex */
+   80,  /* vphaddwdxxx: rmemindexx */
    76,  /* vphaddwq: rop */
-   77,  /* vphaddwqx: rmem */
-   78,  /* vphaddwqxx: rmemindex */
-   79,  /* vphaddwqxxx: rmemindexx */
+   78,  /* vphaddwqx: rmem */
+   79,  /* vphaddwqxx: rmemindex */
+   80,  /* vphaddwqxxx: rmemindexx */
    76,  /* vphsubbw: rop */
-   77,  /* vphsubbwx: rmem */
-   78,  /* vphsubbwxx: rmemindex */
-   79,  /* vphsubbwxxx: rmemindexx */
+   78,  /* vphsubbwx: rmem */
+   79,  /* vphsubbwxx: rmemindex */
+   80,  /* vphsubbwxxx: rmemindexx */
    76,  /* vphsubdq: rop */
-   77,  /* vphsubdqx: rmem */
-   78,  /* vphsubdqxx: rmemindex */
-   79,  /* vphsubdqxxx: rmemindexx */
+   78,  /* vphsubdqx: rmem */
+   79,  /* vphsubdqxx: rmemindex */
+   80,  /* vphsubdqxxx: rmemindexx */
    76,  /* vphsubwd: rop */
-   77,  /* vphsubwdx: rmem */
-   78,  /* vphsubwdxx: rmemindex */
-   79,  /* vphsubwdxxx: rmemindexx */
+   78,  /* vphsubwdx: rmem */
+   79,  /* vphsubwdxx: rmemindex */
+   80,  /* vphsubwdxxx: rmemindexx */
    76,  /* vfrczpd: rop */
-   77,  /* vfrczpdx: rmem */
-   78,  /* vfrczpdxx: rmemindex */
-   79,  /* vfrczpdxxx: rmemindexx */
+   78,  /* vfrczpdx: rmem */
+   79,  /* vfrczpdxx: rmemindex */
+   80,  /* vfrczpdxxx: rmemindexx */
    76,  /* vfrczps: rop */
-   77,  /* vfrczpsx: rmem */
-   78,  /* vfrczpsxx: rmemindex */
-   79,  /* vfrczpsxxx: rmemindexx */
+   78,  /* vfrczpsx: rmem */
+   79,  /* vfrczpsxx: rmemindex */
+   80,  /* vfrczpsxxx: rmemindexx */
    76,  /* vfrczsd: rop */
-   77,  /* vfrczsdx: rmem */
-   78,  /* vfrczsdxx: rmemindex */
-   79,  /* vfrczsdxxx: rmemindexx */
+   78,  /* vfrczsdx: rmem */
+   79,  /* vfrczsdxx: rmemindex */
+   80,  /* vfrczsdxxx: rmemindexx */
    76,  /* vfrczss: rop */
-   77,  /* vfrczssx: rmem */
-   78,  /* vfrczssxx: rmemindex */
-   79,  /* vfrczssxxx: rmemindexx */
+   78,  /* vfrczssx: rmem */
+   79,  /* vfrczssxx: rmemindex */
+   80,  /* vfrczssxxx: rmemindexx */
    38,  /* vprotbi: vropop */
    40,  /* vprotbix: vrmemop */
    42,  /* vprotbixx: vrmemindexop */
@@ -3166,9 +3172,9 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vaesdeclastxx: vropmemindex */
    43,  /* vaesdeclastxxx: vropmemindexx */
    76,  /* vaesimc: rop */
-   77,  /* vaesimcx: rmem */
-   78,  /* vaesimcxx: rmemindex */
-   79,  /* vaesimcxxx: rmemindexx */
+   78,  /* vaesimcx: rmem */
+   79,  /* vaesimcxx: rmemindex */
+   80,  /* vaesimcxxx: rmemindexx */
    38,  /* vaeskeygenassist: vropop */
    39,  /* vaeskeygenassistx: vropmem */
    41,  /* vaeskeygenassistxx: vropmemindex */
@@ -3209,15 +3215,15 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    46,  /* vfblendvx128v32: vropmemop */
    47,  /* vfblendvxx128v32: vropmemindexop */
    48,  /* vfblendvxxx128v32: vropmemindexxop */
-   81,  /* vfbroadcastss: load */
-   84,  /* vfbroadcastxss: ldx */
-   85,  /* vfbroadcastxxss: ldxx */
-   81,  /* vfbroadcastsd: load */
-   84,  /* vfbroadcastxsd: ldx */
-   85,  /* vfbroadcastxxsd: ldxx */
-   81,  /* vfbroadcastf128: load */
-   84,  /* vfbroadcastxf128: ldx */
-   85,  /* vfbroadcastxxf128: ldxx */
+   82,  /* vfbroadcastss: load */
+   85,  /* vfbroadcastxss: ldx */
+   86,  /* vfbroadcastxxss: ldxx */
+   82,  /* vfbroadcastsd: load */
+   85,  /* vfbroadcastxsd: ldx */
+   86,  /* vfbroadcastxxsd: ldxx */
+   82,  /* vfbroadcastf128: load */
+   85,  /* vfbroadcastxf128: ldx */
+   86,  /* vfbroadcastxxf128: ldxx */
    45,  /* vcmppd: vropopimm */
    45,  /* vfcmp128v64: vropopimm */
    46,  /* vfcmpx128v64: vropmemop */
@@ -3228,14 +3234,14 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    46,  /* vfcmpx128v32: vropmemop */
    47,  /* vfcmpxx128v32: vropmemindexop */
    48,  /* vfcmpxxx128v32: vropmemindexxop */
-   45,  /* vfcmpsd: vropopimm */
-   46,  /* vfcmpxsd: vropmemop */
-   47,  /* vfcmpxxsd: vropmemindexop */
-   48,  /* vfcmpxxxsd: vropmemindexxop */
-   45,  /* vfcmpss: vropopimm */
-   46,  /* vfcmpxss: vropmemop */
-   47,  /* vfcmpxxss: vropmemindexop */
-   48,  /* vfcmpxxxss: vropmemindexxop */
+   45,  /* vcmpsd: vropopimm */
+   46,  /* vcmpxsd: vropmemop */
+   47,  /* vcmpxxsd: vropmemindexop */
+   48,  /* vcmpxxxsd: vropmemindexxop */
+   45,  /* vcmpss: vropopimm */
+   46,  /* vcmpxss: vropmemop */
+   47,  /* vcmpxxss: vropmemindexop */
+   48,  /* vcmpxxxss: vropmemindexxop */
     4,  /* vcomisd: cmp */
     5,  /* vcomixsd: cmpx */
     8,  /* vcomixxsd: cmpxx */
@@ -3245,40 +3251,40 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
     8,  /* vcomixxss: cmpxx */
    11,  /* vcomixxxss: cmpxxx */
    76,  /* vcvtdq2pd: rop */
-   77,  /* vcvtdq2pdx: rmem */
-   82,  /* vcvtdq2pdxx: leax */
-   83,  /* vcvtdq2pdxxx: leaxx */
+   78,  /* vcvtdq2pdx: rmem */
+   83,  /* vcvtdq2pdxx: leax */
+   84,  /* vcvtdq2pdxxx: leaxx */
    76,  /* vcvtdq2ps: rop */
-   77,  /* vcvtdq2psx: rmem */
-   82,  /* vcvtdq2psxx: leax */
-   83,  /* vcvtdq2psxxx: leaxx */
+   78,  /* vcvtdq2psx: rmem */
+   83,  /* vcvtdq2psxx: leax */
+   84,  /* vcvtdq2psxxx: leaxx */
    76,  /* vcvtpd2dq: rop */
-   77,  /* vcvtpd2dqx: rmem */
-   82,  /* vcvtpd2dqxx: leax */
-   83,  /* vcvtpd2dqxxx: leaxx */
+   78,  /* vcvtpd2dqx: rmem */
+   83,  /* vcvtpd2dqxx: leax */
+   84,  /* vcvtpd2dqxxx: leaxx */
    76,  /* vcvtpd2dqy: rop */
-   77,  /* vcvtpd2dqyx: rmem */
-   82,  /* vcvtpd2dqyxx: leax */
-   83,  /* vcvtpd2dqyxxx: leaxx */
+   78,  /* vcvtpd2dqyx: rmem */
+   83,  /* vcvtpd2dqyxx: leax */
+   84,  /* vcvtpd2dqyxxx: leaxx */
    76,  /* vcvtpd2ps: rop */
-   77,  /* vcvtpd2psx: rmem */
-   82,  /* vcvtpd2psxx: leax */
-   83,  /* vcvtpd2psxxx: leaxx */
+   78,  /* vcvtpd2psx: rmem */
+   83,  /* vcvtpd2psxx: leax */
+   84,  /* vcvtpd2psxxx: leaxx */
    76,  /* vcvtpd2psy: rop */
-   77,  /* vcvtpd2psyx: rmem */
-   82,  /* vcvtpd2psyxx: leax */
-   83,  /* vcvtpd2psyxxx: leaxx */
+   78,  /* vcvtpd2psyx: rmem */
+   83,  /* vcvtpd2psyxx: leax */
+   84,  /* vcvtpd2psyxxx: leaxx */
    76,  /* vcvtps2dq: rop */
-   77,  /* vcvtps2dqx: rmem */
-   82,  /* vcvtps2dqxx: leax */
-   83,  /* vcvtps2dqxxx: leaxx */
+   78,  /* vcvtps2dqx: rmem */
+   83,  /* vcvtps2dqxx: leax */
+   84,  /* vcvtps2dqxxx: leaxx */
    76,  /* vcvtps2pd: rop */
-   77,  /* vcvtps2pdx: rmem */
-   82,  /* vcvtps2pdxx: leax */
-   83,  /* vcvtps2pdxxx: leaxx */
+   78,  /* vcvtps2pdx: rmem */
+   83,  /* vcvtps2pdxx: leax */
+   84,  /* vcvtps2pdxxx: leaxx */
    76,  /* vcvtsd2si: rop */
    76,  /* vcvtsd2siq: rop */
-   76,  /* vcvtsd2ss: rop */
+   38,  /* vcvtsd2ss: vropop */
    39,  /* vcvtsd2ssx: vropmem */
    41,  /* vcvtsd2ssxx: vropmemindex */
    43,  /* vcvtsd2ssxxx: vropmemindexx */
@@ -3298,24 +3304,24 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    39,  /* vcvtsi2ssqx: vropmem */
    41,  /* vcvtsi2ssqxx: vropmemindex */
    43,  /* vcvtsi2ssqxxx: vropmemindexx */
-   76,  /* vcvtss2sd: rop */
+   38,  /* vcvtss2sd: vropop */
    39,  /* vcvtss2sdx: vropmem */
    41,  /* vcvtss2sdxx: vropmemindex */
    43,  /* vcvtss2sdxxx: vropmemindexx */
    76,  /* vcvtss2si: rop */
    76,  /* vcvtss2siq: rop */
    76,  /* vcvttpd2dq: rop */
-   77,  /* vcvttpd2dqx: rmem */
-   82,  /* vcvttpd2dqxx: leax */
-   83,  /* vcvttpd2dqxxx: leaxx */
+   78,  /* vcvttpd2dqx: rmem */
+   83,  /* vcvttpd2dqxx: leax */
+   84,  /* vcvttpd2dqxxx: leaxx */
    76,  /* vcvttpd2dqy: rop */
-   77,  /* vcvttpd2dqyx: rmem */
-   82,  /* vcvttpd2dqyxx: leax */
-   83,  /* vcvttpd2dqyxxx: leaxx */
+   78,  /* vcvttpd2dqyx: rmem */
+   83,  /* vcvttpd2dqyxx: leax */
+   84,  /* vcvttpd2dqyxxx: leaxx */
    76,  /* vcvttps2dq: rop */
-   77,  /* vcvttps2dqx: rmem */
-   82,  /* vcvttps2dqxx: leax */
-   83,  /* vcvttps2dqxxx: leaxx */
+   78,  /* vcvttps2dqx: rmem */
+   83,  /* vcvttps2dqxx: leax */
+   84,  /* vcvttps2dqxxx: leaxx */
    76,  /* vcvttsd2si: rop */
    76,  /* vcvttsd2siq: rop */
    76,  /* vcvttss2si: rop */
@@ -3376,24 +3382,24 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    46,  /* vfinsrx128v32: vropmemop */
    47,  /* vfinsrxx128v32: vropmemindexop */
    48,  /* vfinsrxxx128v32: vropmemindexxop */
-   81,  /* vlddqu: load */
-   84,  /* vlddqux: ldx */
-   85,  /* vlddquxx: ldxx */
+   82,  /* vlddqu: load */
+   85,  /* vlddqux: ldx */
+   86,  /* vlddquxx: ldxx */
    76,  /* vlddqu_n32: rop */
-  123,  /* vldmxcsr: stmxcsr */
+  124,  /* vldmxcsr: stmxcsr */
    76,  /* vmaskmovdqu: rop */
-   94,  /* vfmaskld128v32: vmaskload */
-   95,  /* vfmaskldx128v32: vmaskloadindex */
-   96,  /* vfmaskldxx128v32: vmaskloadindexx */
-   94,  /* vfmaskld128v64: vmaskload */
-   95,  /* vfmaskldx128v64: vmaskloadindex */
-   96,  /* vfmaskldxx128v64: vmaskloadindexx */
-   97,  /* vfmaskst128v32: vmaskstore */
-   98,  /* vfmaskstx128v32: vmaskstoreindex */
-   99,  /* vfmaskstxx128v32: vmaskstoreindexx */
-   97,  /* vfmaskst128v64: vmaskstore */
-   98,  /* vfmaskstx128v64: vmaskstoreindex */
-   99,  /* vfmaskstxx128v64: vmaskstoreindexx */
+   95,  /* vfmaskld128v32: vmaskload */
+   96,  /* vfmaskldx128v32: vmaskloadindex */
+   97,  /* vfmaskldxx128v32: vmaskloadindexx */
+   95,  /* vfmaskld128v64: vmaskload */
+   96,  /* vfmaskldx128v64: vmaskloadindex */
+   97,  /* vfmaskldxx128v64: vmaskloadindexx */
+   98,  /* vfmaskst128v32: vmaskstore */
+   99,  /* vfmaskstx128v32: vmaskstoreindex */
+  100,  /* vfmaskstxx128v32: vmaskstoreindexx */
+   98,  /* vfmaskst128v64: vmaskstore */
+   99,  /* vfmaskstx128v64: vmaskstoreindex */
+  100,  /* vfmaskstxx128v64: vmaskstoreindexx */
    38,  /* vfmax128v64: vropop */
    39,  /* vfmaxx128v64: vropmem */
    41,  /* vfmaxxx128v64: vropmemindex */
@@ -3427,151 +3433,151 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vfminxxss: vropmemindex */
    43,  /* vfminxxxss: vropmemindexx */
    76,  /* vmovapd: rop */
-   81,  /* vldapd: load */
-   84,  /* vldapdx: ldx */
-   85,  /* vldapdxx: ldxx */
+   82,  /* vldapd: load */
+   85,  /* vldapdx: ldx */
+   86,  /* vldapdxx: ldxx */
    76,  /* vldapd_n32: rop */
-   93,  /* vstapd: store */
-   86,  /* vstapdx: storex */
-   89,  /* vstapdxx: storexx */
+   94,  /* vstapd: store */
+   87,  /* vstapdx: storex */
+   90,  /* vstapdxx: storexx */
    76,  /* vstapd_n32: rop */
    76,  /* vmovaps: rop */
-   81,  /* vldaps: load */
-   84,  /* vldapsx: ldx */
-   85,  /* vldapsxx: ldxx */
+   82,  /* vldaps: load */
+   85,  /* vldapsx: ldx */
+   86,  /* vldapsxx: ldxx */
    76,  /* vldaps_n32: rop */
-   93,  /* vstaps: store */
-   86,  /* vstapsx: storex */
-   89,  /* vstapsxx: storexx */
+   94,  /* vstaps: store */
+   87,  /* vstapsx: storex */
+   90,  /* vstapsxx: storexx */
    76,  /* vstaps_n32: rop */
    76,  /* vmovg2x: rop */
    76,  /* vmovg2x64: rop */
    76,  /* vmovx2g: rop */
    76,  /* vmovx2g64: rop */
-   81,  /* vld64_2sse: load */
-   84,  /* vldx64_2sse: ldx */
-   85,  /* vldxx64_2sse: ldxx */
+   82,  /* vld64_2sse: load */
+   85,  /* vldx64_2sse: ldx */
+   86,  /* vldxx64_2sse: ldxx */
    76,  /* vld64_2sse_n32: rop */
    76,  /* vst64_fsse: rop */
-   86,  /* vstx64_fsse: storex */
-   89,  /* vstxx64_fsse: storexx */
+   87,  /* vstx64_fsse: storex */
+   90,  /* vstxx64_fsse: storexx */
    76,  /* vst64_fsse_n32: rop */
    76,  /* vmovddup: rop */
-   77,  /* vmovddupx: rmem */
-   78,  /* vmovddupxx: rmemindex */
-   79,  /* vmovddupxxx: rmemindexx */
-   81,  /* vlddqa: load */
-   84,  /* vlddqax: ldx */
-   85,  /* vlddqaxx: ldxx */
+   78,  /* vmovddupx: rmem */
+   79,  /* vmovddupxx: rmemindex */
+   80,  /* vmovddupxxx: rmemindexx */
+   82,  /* vlddqa: load */
+   85,  /* vlddqax: ldx */
+   86,  /* vlddqaxx: ldxx */
    76,  /* vlddqa_n32: rop */
    76,  /* vmovdqa: rop */
-   93,  /* vstdqa: store */
-   86,  /* vstdqax: storex */
-   89,  /* vstdqaxx: storexx */
+   94,  /* vstdqa: store */
+   87,  /* vstdqax: storex */
+   90,  /* vstdqaxx: storexx */
    76,  /* vstdqa_n32: rop */
-   93,  /* vstdqu: store */
-   86,  /* vstdqux: storex */
-   89,  /* vstdquxx: storexx */
+   94,  /* vstdqu: store */
+   87,  /* vstdqux: storex */
+   90,  /* vstdquxx: storexx */
    76,  /* vstdqu_n32: rop */
-   81,  /* vldhpd: load */
-   84,  /* vldhpdx: ldx */
-   85,  /* vldhpdxx: ldxx */
-   76,  /* vldhpd_n32: rop */
-   93,  /* vsthpd: store */
-   86,  /* vsthpdx: storex */
-   89,  /* vsthpdxx: storexx */
+   39,  /* vldhpd: vropmem */
+   41,  /* vldhpdx: vropmemindex */
+   43,  /* vldhpdxx: vropmemindexx */
+   77,  /* vldhpd_n32: rop2 */
+   94,  /* vsthpd: store */
+   87,  /* vsthpdx: storex */
+   90,  /* vsthpdxx: storexx */
    76,  /* vsthpd_n32: rop */
-   81,  /* vldhps: load */
-   84,  /* vldhpsx: ldx */
-   85,  /* vldhpsxx: ldxx */
-   76,  /* vldhps_n32: rop */
-   93,  /* vsthps: store */
-   86,  /* vsthpsx: storex */
-   89,  /* vsthpsxx: storexx */
+   39,  /* vldhps: vropmem */
+   41,  /* vldhpsx: vropmemindex */
+   43,  /* vldhpsxx: vropmemindexx */
+   77,  /* vldhps_n32: rop2 */
+   94,  /* vsthps: store */
+   87,  /* vsthpsx: storex */
+   90,  /* vsthpsxx: storexx */
    76,  /* vsthps_n32: rop */
-   81,  /* vldlpd: load */
-   84,  /* vldlpdx: ldx */
-   85,  /* vldlpdxx: ldxx */
-   76,  /* vldlpd_n32: rop */
-   93,  /* vstorelpd: store */
-   93,  /* vstlpd: store */
-   86,  /* vstlpdx: storex */
-   89,  /* vstlpdxx: storexx */
+   39,  /* vldlpd: vropmem */
+   41,  /* vldlpdx: vropmemindex */
+   43,  /* vldlpdxx: vropmemindexx */
+   78,  /* vldlpd_n32: rmem */
+   94,  /* vstorelpd: store */
+   94,  /* vstlpd: store */
+   87,  /* vstlpdx: storex */
+   90,  /* vstlpdxx: storexx */
    76,  /* vstlpd_n32: rop */
-   81,  /* vldlps: load */
-   84,  /* vldlpsx: ldx */
-   85,  /* vldlpsxx: ldxx */
-   76,  /* vldlps_n32: rop */
-   93,  /* vstlps: store */
-   86,  /* vstlpsx: storex */
-   89,  /* vstlpsxx: storexx */
+   39,  /* vldlps: vropmem */
+   41,  /* vldlpsx: vropmemindex */
+   43,  /* vldlpsxx: vropmemindexx */
+   77,  /* vldlps_n32: rop2 */
+   94,  /* vstlps: store */
+   87,  /* vstlpsx: storex */
+   90,  /* vstlpsxx: storexx */
    76,  /* vstlps_n32: rop */
-  104,  /* vmovmskpd: vmovmsk */
-  104,  /* vmovmskps: vmovmsk */
-   93,  /* vstorenti128: store */
-   86,  /* vstorentxi128: storex */
-   89,  /* vstorentxxi128: storexx */
-   81,  /* vldntdqa: load */
-   84,  /* vldntdqax: ldx */
-   85,  /* vldntdqaxx: ldxx */
-   93,  /* vstntdq: store */
-   86,  /* vstntdqx: storex */
-   89,  /* vstntdqxx: storexx */
-   93,  /* vstntpd: store */
-   86,  /* vstntpdx: storex */
-   89,  /* vstntpdxx: storexx */
-   93,  /* vstntps: store */
-   86,  /* vstntpsx: storex */
-   89,  /* vstntpsxx: storexx */
-   93,  /* vstntsd: store */
-   86,  /* vstntsdx: storex */
-   89,  /* vstntsdxx: storexx */
-   93,  /* vstntss: store */
-   86,  /* vstntssx: storex */
-   89,  /* vstntssxx: storexx */
+  105,  /* vmovmskpd: vmovmsk */
+  105,  /* vmovmskps: vmovmsk */
+   94,  /* vstorenti128: store */
+   87,  /* vstorentxi128: storex */
+   90,  /* vstorentxxi128: storexx */
+   82,  /* vldntdqa: load */
+   85,  /* vldntdqax: ldx */
+   86,  /* vldntdqaxx: ldxx */
+   94,  /* vstntdq: store */
+   87,  /* vstntdqx: storex */
+   90,  /* vstntdqxx: storexx */
+   94,  /* vstntpd: store */
+   87,  /* vstntpdx: storex */
+   90,  /* vstntpdxx: storexx */
+   94,  /* vstntps: store */
+   87,  /* vstntpsx: storex */
+   90,  /* vstntpsxx: storexx */
+   94,  /* vstntsd: store */
+   87,  /* vstntsdx: storex */
+   90,  /* vstntsdxx: storexx */
+   94,  /* vstntss: store */
+   87,  /* vstntssx: storex */
+   90,  /* vstntssxx: storexx */
    38,  /* vmovsd: vropop */
-   81,  /* vldsd: load */
-   84,  /* vldsdx: ldx */
-   85,  /* vldsdxx: ldxx */
+   82,  /* vldsd: load */
+   85,  /* vldsdx: ldx */
+   86,  /* vldsdxx: ldxx */
    76,  /* vldsd_n32: rop */
-   93,  /* vstsd: store */
-   86,  /* vstsdx: storex */
-   89,  /* vstsdxx: storexx */
-   80,  /* vstsd_n32: opop1 */
+   94,  /* vstsd: store */
+   87,  /* vstsdx: storex */
+   90,  /* vstsdxx: storexx */
+   81,  /* vstsd_n32: opop1 */
    38,  /* vmovss: vropop */
-   81,  /* vldss: load */
-   84,  /* vldssx: ldx */
-   85,  /* vldssxx: ldxx */
+   82,  /* vldss: load */
+   85,  /* vldssx: ldx */
+   86,  /* vldssxx: ldxx */
    76,  /* vldss_n32: rop */
-   93,  /* vstss: store */
-   86,  /* vstssx: storex */
-   89,  /* vstssxx: storexx */
-   80,  /* vstss_n32: opop1 */
+   94,  /* vstss: store */
+   87,  /* vstssx: storex */
+   90,  /* vstssxx: storexx */
+   81,  /* vstss_n32: opop1 */
    34,  /* vmovlhps: vropspec */
    38,  /* vmovhlps: vropop */
    76,  /* vmovshdup: rop */
-   77,  /* vmovshdupx: rmem */
-   78,  /* vmovshdupxx: rmemindex */
-   79,  /* vmovshdupxxx: rmemindexx */
+   78,  /* vmovshdupx: rmem */
+   79,  /* vmovshdupxx: rmemindex */
+   80,  /* vmovshdupxxx: rmemindexx */
    76,  /* vmovsldup: rop */
-   77,  /* vmovsldupx: rmem */
-   78,  /* vmovsldupxx: rmemindex */
-   79,  /* vmovsldupxxx: rmemindexx */
-   81,  /* vldupd: load */
-   84,  /* vldupdx: ldx */
-   85,  /* vldupdxx: ldxx */
+   78,  /* vmovsldupx: rmem */
+   79,  /* vmovsldupxx: rmemindex */
+   80,  /* vmovsldupxxx: rmemindexx */
+   82,  /* vldupd: load */
+   85,  /* vldupdx: ldx */
+   86,  /* vldupdxx: ldxx */
    76,  /* vldupd_n32: rop */
-   93,  /* vstupd: store */
-   86,  /* vstupdx: storex */
-   89,  /* vstupdxx: storexx */
+   94,  /* vstupd: store */
+   87,  /* vstupdx: storex */
+   90,  /* vstupdxx: storexx */
    76,  /* vstupd_n32: rop */
-   81,  /* vldups: load */
-   84,  /* vldupsx: ldx */
-   85,  /* vldupsxx: ldxx */
+   82,  /* vldups: load */
+   85,  /* vldupsx: ldx */
+   86,  /* vldupsxx: ldxx */
    76,  /* vldups_n32: rop */
-   93,  /* vstups: store */
-   86,  /* vstupsx: storex */
-   89,  /* vstupsxx: storexx */
+   94,  /* vstups: store */
+   87,  /* vstupsx: storex */
+   90,  /* vstupsxx: storexx */
    76,  /* vstups_n32: rop */
    45,  /* vmpsadbw: vropopimm */
    46,  /* vmpsadbwx: vropmemop */
@@ -3604,17 +3610,17 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vforxx128v32: vropmemindex */
    43,  /* vforxxx128v32: vropmemindexx */
    76,  /* vabs128v8: rop */
-   77,  /* vabsx128v8: rmem */
-   78,  /* vabsxx128v8: rmemindex */
-   79,  /* vabsxxx128v8: rmemindexx */
+   78,  /* vabsx128v8: rmem */
+   79,  /* vabsxx128v8: rmemindex */
+   80,  /* vabsxxx128v8: rmemindexx */
    76,  /* vabs128v32: rop */
-   77,  /* vabsx128v32: rmem */
-   78,  /* vabsxx128v32: rmemindex */
-   79,  /* vabsxxx128v32: rmemindexx */
+   78,  /* vabsx128v32: rmem */
+   79,  /* vabsxx128v32: rmemindex */
+   80,  /* vabsxxx128v32: rmemindexx */
    76,  /* vabs128v16: rop */
-   77,  /* vabsx128v16: rmem */
-   78,  /* vabsxx128v16: rmemindex */
-   79,  /* vabsxxx128v16: rmemindexx */
+   78,  /* vabsx128v16: rmem */
+   79,  /* vabsxx128v16: rmemindex */
+   80,  /* vabsxxx128v16: rmemindexx */
    38,  /* vpackssdw: vropop */
    39,  /* vpackssdwx: vropmem */
    41,  /* vpackssdwxx: vropmemindex */
@@ -3816,9 +3822,9 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vphaddxx128v16: vropmemindex */
    43,  /* vphaddxxx128v16: vropmemindexx */
    76,  /* vphminposuw: rop */
-   77,  /* vphminposuwx: rmem */
-   78,  /* vphminposuwxx: rmemindex */
-   79,  /* vphminposuwxxx: rmemindexx */
+   78,  /* vphminposuwx: rmem */
+   79,  /* vphminposuwxx: rmemindex */
+   80,  /* vphminposuwxxx: rmemindexx */
    38,  /* vphsub128v32: vropop */
    39,  /* vphsubx128v32: vropmem */
    41,  /* vphsubxx128v32: vropmemindex */
@@ -3905,53 +3911,53 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    43,  /* vminuxxx128v32: vropmemindexx */
    76,  /* vpmovmskb128: rop */
    76,  /* vpmovsxbd: rop */
-   77,  /* vpmovsxbdx: rmem */
-   78,  /* vpmovsxbdxx: rmemindex */
-   79,  /* vpmovsxbdxxx: rmemindexx */
+   78,  /* vpmovsxbdx: rmem */
+   79,  /* vpmovsxbdxx: rmemindex */
+   80,  /* vpmovsxbdxxx: rmemindexx */
    76,  /* vpmovsxbq: rop */
-   77,  /* vpmovsxbqx: rmem */
-   78,  /* vpmovsxbqxx: rmemindex */
-   79,  /* vpmovsxbqxxx: rmemindexx */
+   78,  /* vpmovsxbqx: rmem */
+   79,  /* vpmovsxbqxx: rmemindex */
+   80,  /* vpmovsxbqxxx: rmemindexx */
    76,  /* vpmovsxbw: rop */
-   77,  /* vpmovsxbwx: rmem */
-   78,  /* vpmovsxbwxx: rmemindex */
-   79,  /* vpmovsxbwxxx: rmemindexx */
+   78,  /* vpmovsxbwx: rmem */
+   79,  /* vpmovsxbwxx: rmemindex */
+   80,  /* vpmovsxbwxxx: rmemindexx */
    76,  /* vpmovsxdq: rop */
-   77,  /* vpmovsxdqx: rmem */
-   78,  /* vpmovsxdqxx: rmemindex */
-   79,  /* vpmovsxdqxxx: rmemindexx */
+   78,  /* vpmovsxdqx: rmem */
+   79,  /* vpmovsxdqxx: rmemindex */
+   80,  /* vpmovsxdqxxx: rmemindexx */
    76,  /* vpmovsxwd: rop */
-   77,  /* vpmovsxwdx: rmem */
-   78,  /* vpmovsxwdxx: rmemindex */
-   79,  /* vpmovsxwdxxx: rmemindexx */
+   78,  /* vpmovsxwdx: rmem */
+   79,  /* vpmovsxwdxx: rmemindex */
+   80,  /* vpmovsxwdxxx: rmemindexx */
    76,  /* vpmovsxwq: rop */
-   77,  /* vpmovsxwqx: rmem */
-   78,  /* vpmovsxwqxx: rmemindex */
-   79,  /* vpmovsxwqxxx: rmemindexx */
+   78,  /* vpmovsxwqx: rmem */
+   79,  /* vpmovsxwqxx: rmemindex */
+   80,  /* vpmovsxwqxxx: rmemindexx */
    76,  /* vpmovzxbd: rop */
-   77,  /* vpmovzxbdx: rmem */
-   78,  /* vpmovzxbdxx: rmemindex */
-   79,  /* vpmovzxbdxxx: rmemindexx */
+   78,  /* vpmovzxbdx: rmem */
+   79,  /* vpmovzxbdxx: rmemindex */
+   80,  /* vpmovzxbdxxx: rmemindexx */
    76,  /* vpmovzxbq: rop */
-   77,  /* vpmovzxbqx: rmem */
-   78,  /* vpmovzxbqxx: rmemindex */
-   79,  /* vpmovzxbqxxx: rmemindexx */
+   78,  /* vpmovzxbqx: rmem */
+   79,  /* vpmovzxbqxx: rmemindex */
+   80,  /* vpmovzxbqxxx: rmemindexx */
    76,  /* vpmovzxbw: rop */
-   77,  /* vpmovzxbwx: rmem */
-   78,  /* vpmovzxbwxx: rmemindex */
-   79,  /* vpmovzxbwxxx: rmemindexx */
+   78,  /* vpmovzxbwx: rmem */
+   79,  /* vpmovzxbwxx: rmemindex */
+   80,  /* vpmovzxbwxxx: rmemindexx */
    76,  /* vpmovzxdq: rop */
-   77,  /* vpmovzxdqx: rmem */
-   78,  /* vpmovzxdqxx: rmemindex */
-   79,  /* vpmovzxdqxxx: rmemindexx */
+   78,  /* vpmovzxdqx: rmem */
+   79,  /* vpmovzxdqxx: rmemindex */
+   80,  /* vpmovzxdqxxx: rmemindexx */
    76,  /* vpmovzxwd: rop */
-   77,  /* vpmovzxwdx: rmem */
-   78,  /* vpmovzxwdxx: rmemindex */
-   79,  /* vpmovzxwdxxx: rmemindexx */
+   78,  /* vpmovzxwdx: rmem */
+   79,  /* vpmovzxwdxx: rmemindex */
+   80,  /* vpmovzxwdxxx: rmemindexx */
    76,  /* vpmovzxwq: rop */
-   77,  /* vpmovzxwqx: rmem */
-   78,  /* vpmovzxwqxx: rmemindex */
-   79,  /* vpmovzxwqxxx: rmemindexx */
+   78,  /* vpmovzxwqx: rmem */
+   79,  /* vpmovzxwqxx: rmemindex */
+   80,  /* vpmovzxwqxxx: rmemindexx */
    38,  /* vmulhuw: vropop */
    39,  /* vmulhuwx: vropmem */
    41,  /* vmulhuwxx: vropmemindex */
@@ -4025,17 +4031,17 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vpshuflwxx: vropmemindex */
    43,  /* vpshuflwxxx: vropmemindexx */
    76,  /* vpsign128v8: rop */
-   77,  /* vpsignx128v8: rmem */
-   78,  /* vpsignxx128v8: rmemindex */
-   79,  /* vpsignxxx128v8: rmemindexx */
+   78,  /* vpsignx128v8: rmem */
+   79,  /* vpsignxx128v8: rmemindex */
+   80,  /* vpsignxxx128v8: rmemindexx */
    76,  /* vpsign128v32: rop */
-   77,  /* vpsignx128v32: rmem */
-   78,  /* vpsignxx128v32: rmemindex */
-   79,  /* vpsignxxx128v32: rmemindexx */
+   78,  /* vpsignx128v32: rmem */
+   79,  /* vpsignxx128v32: rmemindex */
+   80,  /* vpsignxxx128v32: rmemindexx */
    76,  /* vpsign128v16: rop */
-   77,  /* vpsignx128v16: rmem */
-   78,  /* vpsignxx128v16: rmemindex */
-   79,  /* vpsignxxx128v16: rmemindexx */
+   78,  /* vpsignx128v16: rmem */
+   79,  /* vpsignxx128v16: rmemindex */
+   80,  /* vpsignxxx128v16: rmemindexx */
    38,  /* vpslldq: vropop */
    38,  /* vpsrldq: vropop */
    38,  /* vpslld: vropop */
@@ -4171,9 +4177,9 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    41,  /* vxorxx128v64: vropmemindex */
    43,  /* vxorxxx128v64: vropmemindexx */
    76,  /* vfrcp128v32: rop */
-   77,  /* vfrcpx128v32: rmem */
-   78,  /* vfrcpxx128v32: rmemindex */
-   79,  /* vfrcpxxx128v32: rmemindexx */
+   78,  /* vfrcpx128v32: rmem */
+   79,  /* vfrcpxx128v32: rmemindex */
+   80,  /* vfrcpxxx128v32: rmemindexx */
    34,  /* vfrcpss: vropspec */
    35,  /* vfrcpxss: vropspecmem */
    36,  /* vfrcpxxss: vropspecmemindex */
@@ -4195,9 +4201,9 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    58,  /* vroundxxss: avxroundsmemindex */
    59,  /* vroundxxxss: avxroundsmemindexx */
    76,  /* vfrsqrt128v32: rop */
-   77,  /* vfrsqrtx128v32: rmem */
-   78,  /* vfrsqrtxx128v32: rmemindex */
-   79,  /* vfrsqrtxxx128v32: rmemindexx */
+   78,  /* vfrsqrtx128v32: rmem */
+   79,  /* vfrsqrtxx128v32: rmemindex */
+   80,  /* vfrsqrtxxx128v32: rmemindexx */
    34,  /* vfrsqrtss: vropspec */
    35,  /* vfrsqrtxss: vropspecmem */
    36,  /* vfrsqrtxxss: vropspecmemindex */
@@ -4213,13 +4219,13 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    47,  /* vfshufxx128v32: vropmemindexop */
    48,  /* vfshufxxx128v32: vropmemindexxop */
    76,  /* vfsqrt128v64: rop */
-   77,  /* vfsqrtx128v64: rmem */
-   78,  /* vfsqrtxx128v64: rmemindex */
-   79,  /* vfsqrtxxx128v64: rmemindexx */
+   78,  /* vfsqrtx128v64: rmem */
+   79,  /* vfsqrtxx128v64: rmemindex */
+   80,  /* vfsqrtxxx128v64: rmemindexx */
    76,  /* vfsqrt128v32: rop */
-   77,  /* vfsqrtx128v32: rmem */
-   78,  /* vfsqrtxx128v32: rmemindex */
-   79,  /* vfsqrtxxx128v32: rmemindexx */
+   78,  /* vfsqrtx128v32: rmem */
+   79,  /* vfsqrtxx128v32: rmemindex */
+   80,  /* vfsqrtxxx128v32: rmemindexx */
    34,  /* vfsqrtsd: vropspec */
    35,  /* vfsqrtxsd: vropspecmem */
    36,  /* vfsqrtxxsd: vropspecmemindex */
@@ -4228,7 +4234,7 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    35,  /* vfsqrtxss: vropspecmem */
    36,  /* vfsqrtxxss: vropspecmemindex */
    37,  /* vfsqrtxxxss: vropspecmemindexx */
-  123,  /* vstmxcsr: stmxcsr */
+  124,  /* vstmxcsr: stmxcsr */
    38,  /* vfsub128v64: vropop */
    39,  /* vfsubx128v64: vropmem */
    41,  /* vfsubxx128v64: vropmemindex */
@@ -4283,303 +4289,335 @@ const mUINT8 ISA_PRINT_info_index[3591] = {
    43,  /* vfxorxxx128v32: vropmemindexx */
    75,  /* vxzero128v32: vrr */
    75,  /* vxzero32: vrr */
-  128,  /* vzeroall: no_rop */
-  119,  /* xfmadd132pd: ifma_ropopop */
-  120,  /* xfmadd132xpd: ifma_ropopmem */
-  121,  /* xfmadd132xxpd: ifma_ropopmemindex */
-  122,  /* xfmadd132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmadd213pd: ifma_ropopop */
-  120,  /* xfmadd213xpd: ifma_ropopmem */
-  121,  /* xfmadd213xxpd: ifma_ropopmemindex */
-  122,  /* xfmadd213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmadd231pd: ifma_ropopop */
-  120,  /* xfmadd231xpd: ifma_ropopmem */
-  121,  /* xfmadd231xxpd: ifma_ropopmemindex */
-  122,  /* xfmadd231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmadd132ps: ifma_ropopop */
-  120,  /* xfmadd132xps: ifma_ropopmem */
-  121,  /* xfmadd132xxps: ifma_ropopmemindex */
-  122,  /* xfmadd132xxxps: ifma_ropopmemindexx */
-  119,  /* xfmadd213ps: ifma_ropopop */
-  120,  /* xfmadd213xps: ifma_ropopmem */
-  121,  /* xfmadd213xxps: ifma_ropopmemindex */
-  122,  /* xfmadd213xxxps: ifma_ropopmemindexx */
-  119,  /* xfmadd231ps: ifma_ropopop */
-  120,  /* xfmadd231xps: ifma_ropopmem */
-  121,  /* xfmadd231xxps: ifma_ropopmemindex */
-  122,  /* xfmadd231xxxps: ifma_ropopmemindexx */
-  119,  /* xfmadd132sd: ifma_ropopop */
-  120,  /* xfmadd132xsd: ifma_ropopmem */
-  121,  /* xfmadd132xxsd: ifma_ropopmemindex */
-  122,  /* xfmadd132xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmadd213sd: ifma_ropopop */
-  120,  /* xfmadd213xsd: ifma_ropopmem */
-  121,  /* xfmadd213xxsd: ifma_ropopmemindex */
-  122,  /* xfmadd213xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmadd231sd: ifma_ropopop */
-  120,  /* xfmadd231xsd: ifma_ropopmem */
-  121,  /* xfmadd231xxsd: ifma_ropopmemindex */
-  122,  /* xfmadd231xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmadd132ss: ifma_ropopop */
-  120,  /* xfmadd132xss: ifma_ropopmem */
-  121,  /* xfmadd132xxss: ifma_ropopmemindex */
-  122,  /* xfmadd132xxxss: ifma_ropopmemindexx */
-  119,  /* xfmadd213ss: ifma_ropopop */
-  120,  /* xfmadd213xss: ifma_ropopmem */
-  121,  /* xfmadd213xxss: ifma_ropopmemindex */
-  122,  /* xfmadd213xxxss: ifma_ropopmemindexx */
-  119,  /* xfmadd231ss: ifma_ropopop */
-  120,  /* xfmadd231xss: ifma_ropopmem */
-  121,  /* xfmadd231xxss: ifma_ropopmemindex */
-  122,  /* xfmadd231xxxss: ifma_ropopmemindexx */
-  119,  /* xfmaddsub132pd: ifma_ropopop */
-  120,  /* xfmaddsub132xpd: ifma_ropopmem */
-  121,  /* xfmaddsub132xxpd: ifma_ropopmemindex */
-  122,  /* xfmaddsub132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmaddsub213pd: ifma_ropopop */
-  120,  /* xfmaddsub213xpd: ifma_ropopmem */
-  121,  /* xfmaddsub213xxpd: ifma_ropopmemindex */
-  122,  /* xfmaddsub213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmaddsub231pd: ifma_ropopop */
-  120,  /* xfmaddsub231xpd: ifma_ropopmem */
-  121,  /* xfmaddsub231xxpd: ifma_ropopmemindex */
-  122,  /* xfmaddsub231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmaddsub132ps: ifma_ropopop */
-  120,  /* xfmaddsub132xps: ifma_ropopmem */
-  121,  /* xfmaddsub132xxps: ifma_ropopmemindex */
-  122,  /* xfmaddsub132xxxps: ifma_ropopmemindexx */
-  119,  /* xfmaddsub213ps: ifma_ropopop */
-  120,  /* xfmaddsub213xps: ifma_ropopmem */
-  121,  /* xfmaddsub213xxps: ifma_ropopmemindex */
-  122,  /* xfmaddsub213xxxps: ifma_ropopmemindexx */
-  119,  /* xfmaddsub231ps: ifma_ropopop */
-  120,  /* xfmaddsub231xps: ifma_ropopmem */
-  121,  /* xfmaddsub231xxps: ifma_ropopmemindex */
-  122,  /* xfmaddsub231xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsubadd132pd: ifma_ropopop */
-  120,  /* xfmsubadd132xpd: ifma_ropopmem */
-  121,  /* xfmsubadd132xxpd: ifma_ropopmemindex */
-  122,  /* xfmsubadd132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsubadd213pd: ifma_ropopop */
-  120,  /* xfmsubadd213xpd: ifma_ropopmem */
-  121,  /* xfmsubadd213xxpd: ifma_ropopmemindex */
-  122,  /* xfmsubadd213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsubadd231pd: ifma_ropopop */
-  120,  /* xfmsubadd231xpd: ifma_ropopmem */
-  121,  /* xfmsubadd231xxpd: ifma_ropopmemindex */
-  122,  /* xfmsubadd231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsubadd132ps: ifma_ropopop */
-  120,  /* xfmsubadd132xps: ifma_ropopmem */
-  121,  /* xfmsubadd132xxps: ifma_ropopmemindex */
-  122,  /* xfmsubadd132xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsubadd213ps: ifma_ropopop */
-  120,  /* xfmsubadd213xps: ifma_ropopmem */
-  121,  /* xfmsubadd213xxps: ifma_ropopmemindex */
-  122,  /* xfmsubadd213xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsubadd231ps: ifma_ropopop */
-  120,  /* xfmsubadd231xps: ifma_ropopmem */
-  121,  /* xfmsubadd231xxps: ifma_ropopmemindex */
-  122,  /* xfmsubadd231xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsub132pd: ifma_ropopop */
-  120,  /* xfmsub132xpd: ifma_ropopmem */
-  121,  /* xfmsub132xxpd: ifma_ropopmemindex */
-  122,  /* xfmsub132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsub213pd: ifma_ropopop */
-  120,  /* xfmsub213xpd: ifma_ropopmem */
-  121,  /* xfmsub213xxpd: ifma_ropopmemindex */
-  122,  /* xfmsub213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsub231pd: ifma_ropopop */
-  120,  /* xfmsub231xpd: ifma_ropopmem */
-  121,  /* xfmsub231xxpd: ifma_ropopmemindex */
-  122,  /* xfmsub231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfmsub132ps: ifma_ropopop */
-  120,  /* xfmsub132xps: ifma_ropopmem */
-  121,  /* xfmsub132xxps: ifma_ropopmemindex */
-  122,  /* xfmsub132xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsub213ps: ifma_ropopop */
-  120,  /* xfmsub213xps: ifma_ropopmem */
-  121,  /* xfmsub213xxps: ifma_ropopmemindex */
-  122,  /* xfmsub213xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsub231ps: ifma_ropopop */
-  120,  /* xfmsub231xps: ifma_ropopmem */
-  121,  /* xfmsub231xxps: ifma_ropopmemindex */
-  122,  /* xfmsub231xxxps: ifma_ropopmemindexx */
-  119,  /* xfmsub132sd: ifma_ropopop */
-  120,  /* xfmsub132xsd: ifma_ropopmem */
-  121,  /* xfmsub132xxsd: ifma_ropopmemindex */
-  122,  /* xfmsub132xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmsub213sd: ifma_ropopop */
-  120,  /* xfmsub213xsd: ifma_ropopmem */
-  121,  /* xfmsub213xxsd: ifma_ropopmemindex */
-  122,  /* xfmsub213xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmsub231sd: ifma_ropopop */
-  120,  /* xfmsub231xsd: ifma_ropopmem */
-  121,  /* xfmsub231xxsd: ifma_ropopmemindex */
-  122,  /* xfmsub231xxxsd: ifma_ropopmemindexx */
-  119,  /* xfmsub132ss: ifma_ropopop */
-  120,  /* xfmsub132xss: ifma_ropopmem */
-  121,  /* xfmsub132xxss: ifma_ropopmemindex */
-  122,  /* xfmsub132xxxss: ifma_ropopmemindexx */
-  119,  /* xfmsub213ss: ifma_ropopop */
-  120,  /* xfmsub213xss: ifma_ropopmem */
-  121,  /* xfmsub213xxss: ifma_ropopmemindex */
-  122,  /* xfmsub213xxxss: ifma_ropopmemindexx */
-  119,  /* xfmsub231ss: ifma_ropopop */
-  120,  /* xfmsub231xss: ifma_ropopmem */
-  121,  /* xfmsub231xxss: ifma_ropopmemindex */
-  122,  /* xfmsub231xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmadd132pd: ifma_ropopop */
-  120,  /* xfnmadd132xpd: ifma_ropopmem */
-  121,  /* xfnmadd132xxpd: ifma_ropopmemindex */
-  122,  /* xfnmadd132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmadd213pd: ifma_ropopop */
-  120,  /* xfnmadd213xpd: ifma_ropopmem */
-  121,  /* xfnmadd213xxpd: ifma_ropopmemindex */
-  122,  /* xfnmadd213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmadd231pd: ifma_ropopop */
-  120,  /* xfnmadd231xpd: ifma_ropopmem */
-  121,  /* xfnmadd231xxpd: ifma_ropopmemindex */
-  122,  /* xfnmadd231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmadd132ps: ifma_ropopop */
-  120,  /* xfnmadd132xps: ifma_ropopmem */
-  121,  /* xfnmadd132xxps: ifma_ropopmemindex */
-  122,  /* xfnmadd132xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmadd213ps: ifma_ropopop */
-  120,  /* xfnmadd213xps: ifma_ropopmem */
-  121,  /* xfnmadd213xxps: ifma_ropopmemindex */
-  122,  /* xfnmadd213xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmadd231ps: ifma_ropopop */
-  120,  /* xfnmadd231xps: ifma_ropopmem */
-  121,  /* xfnmadd231xxps: ifma_ropopmemindex */
-  122,  /* xfnmadd231xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmadd132sd: ifma_ropopop */
-  120,  /* xfnmadd132xsd: ifma_ropopmem */
-  121,  /* xfnmadd132xxsd: ifma_ropopmemindex */
-  122,  /* xfnmadd132xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmadd213sd: ifma_ropopop */
-  120,  /* xfnmadd213xsd: ifma_ropopmem */
-  121,  /* xfnmadd213xxsd: ifma_ropopmemindex */
-  122,  /* xfnmadd213xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmadd231sd: ifma_ropopop */
-  120,  /* xfnmadd231xsd: ifma_ropopmem */
-  121,  /* xfnmadd231xxsd: ifma_ropopmemindex */
-  122,  /* xfnmadd231xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmadd132ss: ifma_ropopop */
-  120,  /* xfnmadd132xss: ifma_ropopmem */
-  121,  /* xfnmadd132xxss: ifma_ropopmemindex */
-  122,  /* xfnmadd132xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmadd213ss: ifma_ropopop */
-  120,  /* xfnmadd213xss: ifma_ropopmem */
-  121,  /* xfnmadd213xxss: ifma_ropopmemindex */
-  122,  /* xfnmadd213xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmadd231ss: ifma_ropopop */
-  120,  /* xfnmadd231xss: ifma_ropopmem */
-  121,  /* xfnmadd231xxss: ifma_ropopmemindex */
-  122,  /* xfnmadd231xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmsub132pd: ifma_ropopop */
-  120,  /* xfnmsub132xpd: ifma_ropopmem */
-  121,  /* xfnmsub132xxpd: ifma_ropopmemindex */
-  122,  /* xfnmsub132xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmsub213pd: ifma_ropopop */
-  120,  /* xfnmsub213xpd: ifma_ropopmem */
-  121,  /* xfnmsub213xxpd: ifma_ropopmemindex */
-  122,  /* xfnmsub213xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmsub231pd: ifma_ropopop */
-  120,  /* xfnmsub231xpd: ifma_ropopmem */
-  121,  /* xfnmsub231xxpd: ifma_ropopmemindex */
-  122,  /* xfnmsub231xxxpd: ifma_ropopmemindexx */
-  119,  /* xfnmsub132ps: ifma_ropopop */
-  120,  /* xfnmsub132xps: ifma_ropopmem */
-  121,  /* xfnmsub132xxps: ifma_ropopmemindex */
-  122,  /* xfnmsub132xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmsub213ps: ifma_ropopop */
-  120,  /* xfnmsub213xps: ifma_ropopmem */
-  121,  /* xfnmsub213xxps: ifma_ropopmemindex */
-  122,  /* xfnmsub213xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmsub231ps: ifma_ropopop */
-  120,  /* xfnmsub231xps: ifma_ropopmem */
-  121,  /* xfnmsub231xxps: ifma_ropopmemindex */
-  122,  /* xfnmsub231xxxps: ifma_ropopmemindexx */
-  119,  /* xfnmsub132sd: ifma_ropopop */
-  120,  /* xfnmsub132xsd: ifma_ropopmem */
-  121,  /* xfnmsub132xxsd: ifma_ropopmemindex */
-  122,  /* xfnmsub132xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmsub213sd: ifma_ropopop */
-  120,  /* xfnmsub213xsd: ifma_ropopmem */
-  121,  /* xfnmsub213xxsd: ifma_ropopmemindex */
-  122,  /* xfnmsub213xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmsub231sd: ifma_ropopop */
-  120,  /* xfnmsub231xsd: ifma_ropopmem */
-  121,  /* xfnmsub231xxsd: ifma_ropopmemindex */
-  122,  /* xfnmsub231xxxsd: ifma_ropopmemindexx */
-  119,  /* xfnmsub132ss: ifma_ropopop */
-  120,  /* xfnmsub132xss: ifma_ropopmem */
-  121,  /* xfnmsub132xxss: ifma_ropopmemindex */
-  122,  /* xfnmsub132xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmsub213ss: ifma_ropopop */
-  120,  /* xfnmsub213xss: ifma_ropopmem */
-  121,  /* xfnmsub213xxss: ifma_ropopmemindex */
-  122,  /* xfnmsub213xxxss: ifma_ropopmemindexx */
-  119,  /* xfnmsub231ss: ifma_ropopop */
-  120,  /* xfnmsub231xss: ifma_ropopmem */
-  121,  /* xfnmsub231xxss: ifma_ropopmemindex */
-  122,  /* xfnmsub231xxxss: ifma_ropopmemindexx */
+  129,  /* vzeroall: no_rop */
+   38,  /* vcmpeqpd: vropop */
+   38,  /* vcmpltpd: vropop */
+   38,  /* vcmplepd: vropop */
+   38,  /* vcmpunordpd: vropop */
+   38,  /* vcmpneqpd: vropop */
+   38,  /* vcmpnltpd: vropop */
+   38,  /* vcmpnlepd: vropop */
+   38,  /* vcmpordpd: vropop */
+   38,  /* vcmpeqps: vropop */
+   38,  /* vcmpltps: vropop */
+   38,  /* vcmpleps: vropop */
+   38,  /* vcmpunordps: vropop */
+   38,  /* vcmpneqps: vropop */
+   38,  /* vcmpnltps: vropop */
+   38,  /* vcmpnleps: vropop */
+   38,  /* vcmpordps: vropop */
+   38,  /* vcmpeqsd: vropop */
+   38,  /* vcmpltsd: vropop */
+   38,  /* vcmplesd: vropop */
+   38,  /* vcmpunordsd: vropop */
+   38,  /* vcmpneqsd: vropop */
+   38,  /* vcmpnltsd: vropop */
+   38,  /* vcmpnlesd: vropop */
+   38,  /* vcmpordsd: vropop */
+   38,  /* vcmpeqss: vropop */
+   38,  /* vcmpltss: vropop */
+   38,  /* vcmpless: vropop */
+   38,  /* vcmpunordss: vropop */
+   38,  /* vcmpneqss: vropop */
+   38,  /* vcmpnltss: vropop */
+   38,  /* vcmpnless: vropop */
+   38,  /* vcmpordss: vropop */
+  120,  /* xfmadd132pd: ifma_ropopop */
+  121,  /* xfmadd132xpd: ifma_ropopmem */
+  122,  /* xfmadd132xxpd: ifma_ropopmemindex */
+  123,  /* xfmadd132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmadd213pd: ifma_ropopop */
+  121,  /* xfmadd213xpd: ifma_ropopmem */
+  122,  /* xfmadd213xxpd: ifma_ropopmemindex */
+  123,  /* xfmadd213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmadd231pd: ifma_ropopop */
+  121,  /* xfmadd231xpd: ifma_ropopmem */
+  122,  /* xfmadd231xxpd: ifma_ropopmemindex */
+  123,  /* xfmadd231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmadd132ps: ifma_ropopop */
+  121,  /* xfmadd132xps: ifma_ropopmem */
+  122,  /* xfmadd132xxps: ifma_ropopmemindex */
+  123,  /* xfmadd132xxxps: ifma_ropopmemindexx */
+  120,  /* xfmadd213ps: ifma_ropopop */
+  121,  /* xfmadd213xps: ifma_ropopmem */
+  122,  /* xfmadd213xxps: ifma_ropopmemindex */
+  123,  /* xfmadd213xxxps: ifma_ropopmemindexx */
+  120,  /* xfmadd231ps: ifma_ropopop */
+  121,  /* xfmadd231xps: ifma_ropopmem */
+  122,  /* xfmadd231xxps: ifma_ropopmemindex */
+  123,  /* xfmadd231xxxps: ifma_ropopmemindexx */
+  120,  /* xfmadd132sd: ifma_ropopop */
+  121,  /* xfmadd132xsd: ifma_ropopmem */
+  122,  /* xfmadd132xxsd: ifma_ropopmemindex */
+  123,  /* xfmadd132xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmadd213sd: ifma_ropopop */
+  121,  /* xfmadd213xsd: ifma_ropopmem */
+  122,  /* xfmadd213xxsd: ifma_ropopmemindex */
+  123,  /* xfmadd213xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmadd231sd: ifma_ropopop */
+  121,  /* xfmadd231xsd: ifma_ropopmem */
+  122,  /* xfmadd231xxsd: ifma_ropopmemindex */
+  123,  /* xfmadd231xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmadd132ss: ifma_ropopop */
+  121,  /* xfmadd132xss: ifma_ropopmem */
+  122,  /* xfmadd132xxss: ifma_ropopmemindex */
+  123,  /* xfmadd132xxxss: ifma_ropopmemindexx */
+  120,  /* xfmadd213ss: ifma_ropopop */
+  121,  /* xfmadd213xss: ifma_ropopmem */
+  122,  /* xfmadd213xxss: ifma_ropopmemindex */
+  123,  /* xfmadd213xxxss: ifma_ropopmemindexx */
+  120,  /* xfmadd231ss: ifma_ropopop */
+  121,  /* xfmadd231xss: ifma_ropopmem */
+  122,  /* xfmadd231xxss: ifma_ropopmemindex */
+  123,  /* xfmadd231xxxss: ifma_ropopmemindexx */
+  120,  /* xfmaddsub132pd: ifma_ropopop */
+  121,  /* xfmaddsub132xpd: ifma_ropopmem */
+  122,  /* xfmaddsub132xxpd: ifma_ropopmemindex */
+  123,  /* xfmaddsub132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmaddsub213pd: ifma_ropopop */
+  121,  /* xfmaddsub213xpd: ifma_ropopmem */
+  122,  /* xfmaddsub213xxpd: ifma_ropopmemindex */
+  123,  /* xfmaddsub213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmaddsub231pd: ifma_ropopop */
+  121,  /* xfmaddsub231xpd: ifma_ropopmem */
+  122,  /* xfmaddsub231xxpd: ifma_ropopmemindex */
+  123,  /* xfmaddsub231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmaddsub132ps: ifma_ropopop */
+  121,  /* xfmaddsub132xps: ifma_ropopmem */
+  122,  /* xfmaddsub132xxps: ifma_ropopmemindex */
+  123,  /* xfmaddsub132xxxps: ifma_ropopmemindexx */
+  120,  /* xfmaddsub213ps: ifma_ropopop */
+  121,  /* xfmaddsub213xps: ifma_ropopmem */
+  122,  /* xfmaddsub213xxps: ifma_ropopmemindex */
+  123,  /* xfmaddsub213xxxps: ifma_ropopmemindexx */
+  120,  /* xfmaddsub231ps: ifma_ropopop */
+  121,  /* xfmaddsub231xps: ifma_ropopmem */
+  122,  /* xfmaddsub231xxps: ifma_ropopmemindex */
+  123,  /* xfmaddsub231xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsubadd132pd: ifma_ropopop */
+  121,  /* xfmsubadd132xpd: ifma_ropopmem */
+  122,  /* xfmsubadd132xxpd: ifma_ropopmemindex */
+  123,  /* xfmsubadd132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsubadd213pd: ifma_ropopop */
+  121,  /* xfmsubadd213xpd: ifma_ropopmem */
+  122,  /* xfmsubadd213xxpd: ifma_ropopmemindex */
+  123,  /* xfmsubadd213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsubadd231pd: ifma_ropopop */
+  121,  /* xfmsubadd231xpd: ifma_ropopmem */
+  122,  /* xfmsubadd231xxpd: ifma_ropopmemindex */
+  123,  /* xfmsubadd231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsubadd132ps: ifma_ropopop */
+  121,  /* xfmsubadd132xps: ifma_ropopmem */
+  122,  /* xfmsubadd132xxps: ifma_ropopmemindex */
+  123,  /* xfmsubadd132xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsubadd213ps: ifma_ropopop */
+  121,  /* xfmsubadd213xps: ifma_ropopmem */
+  122,  /* xfmsubadd213xxps: ifma_ropopmemindex */
+  123,  /* xfmsubadd213xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsubadd231ps: ifma_ropopop */
+  121,  /* xfmsubadd231xps: ifma_ropopmem */
+  122,  /* xfmsubadd231xxps: ifma_ropopmemindex */
+  123,  /* xfmsubadd231xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsub132pd: ifma_ropopop */
+  121,  /* xfmsub132xpd: ifma_ropopmem */
+  122,  /* xfmsub132xxpd: ifma_ropopmemindex */
+  123,  /* xfmsub132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsub213pd: ifma_ropopop */
+  121,  /* xfmsub213xpd: ifma_ropopmem */
+  122,  /* xfmsub213xxpd: ifma_ropopmemindex */
+  123,  /* xfmsub213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsub231pd: ifma_ropopop */
+  121,  /* xfmsub231xpd: ifma_ropopmem */
+  122,  /* xfmsub231xxpd: ifma_ropopmemindex */
+  123,  /* xfmsub231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfmsub132ps: ifma_ropopop */
+  121,  /* xfmsub132xps: ifma_ropopmem */
+  122,  /* xfmsub132xxps: ifma_ropopmemindex */
+  123,  /* xfmsub132xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsub213ps: ifma_ropopop */
+  121,  /* xfmsub213xps: ifma_ropopmem */
+  122,  /* xfmsub213xxps: ifma_ropopmemindex */
+  123,  /* xfmsub213xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsub231ps: ifma_ropopop */
+  121,  /* xfmsub231xps: ifma_ropopmem */
+  122,  /* xfmsub231xxps: ifma_ropopmemindex */
+  123,  /* xfmsub231xxxps: ifma_ropopmemindexx */
+  120,  /* xfmsub132sd: ifma_ropopop */
+  121,  /* xfmsub132xsd: ifma_ropopmem */
+  122,  /* xfmsub132xxsd: ifma_ropopmemindex */
+  123,  /* xfmsub132xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmsub213sd: ifma_ropopop */
+  121,  /* xfmsub213xsd: ifma_ropopmem */
+  122,  /* xfmsub213xxsd: ifma_ropopmemindex */
+  123,  /* xfmsub213xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmsub231sd: ifma_ropopop */
+  121,  /* xfmsub231xsd: ifma_ropopmem */
+  122,  /* xfmsub231xxsd: ifma_ropopmemindex */
+  123,  /* xfmsub231xxxsd: ifma_ropopmemindexx */
+  120,  /* xfmsub132ss: ifma_ropopop */
+  121,  /* xfmsub132xss: ifma_ropopmem */
+  122,  /* xfmsub132xxss: ifma_ropopmemindex */
+  123,  /* xfmsub132xxxss: ifma_ropopmemindexx */
+  120,  /* xfmsub213ss: ifma_ropopop */
+  121,  /* xfmsub213xss: ifma_ropopmem */
+  122,  /* xfmsub213xxss: ifma_ropopmemindex */
+  123,  /* xfmsub213xxxss: ifma_ropopmemindexx */
+  120,  /* xfmsub231ss: ifma_ropopop */
+  121,  /* xfmsub231xss: ifma_ropopmem */
+  122,  /* xfmsub231xxss: ifma_ropopmemindex */
+  123,  /* xfmsub231xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmadd132pd: ifma_ropopop */
+  121,  /* xfnmadd132xpd: ifma_ropopmem */
+  122,  /* xfnmadd132xxpd: ifma_ropopmemindex */
+  123,  /* xfnmadd132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmadd213pd: ifma_ropopop */
+  121,  /* xfnmadd213xpd: ifma_ropopmem */
+  122,  /* xfnmadd213xxpd: ifma_ropopmemindex */
+  123,  /* xfnmadd213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmadd231pd: ifma_ropopop */
+  121,  /* xfnmadd231xpd: ifma_ropopmem */
+  122,  /* xfnmadd231xxpd: ifma_ropopmemindex */
+  123,  /* xfnmadd231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmadd132ps: ifma_ropopop */
+  121,  /* xfnmadd132xps: ifma_ropopmem */
+  122,  /* xfnmadd132xxps: ifma_ropopmemindex */
+  123,  /* xfnmadd132xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmadd213ps: ifma_ropopop */
+  121,  /* xfnmadd213xps: ifma_ropopmem */
+  122,  /* xfnmadd213xxps: ifma_ropopmemindex */
+  123,  /* xfnmadd213xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmadd231ps: ifma_ropopop */
+  121,  /* xfnmadd231xps: ifma_ropopmem */
+  122,  /* xfnmadd231xxps: ifma_ropopmemindex */
+  123,  /* xfnmadd231xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmadd132sd: ifma_ropopop */
+  121,  /* xfnmadd132xsd: ifma_ropopmem */
+  122,  /* xfnmadd132xxsd: ifma_ropopmemindex */
+  123,  /* xfnmadd132xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmadd213sd: ifma_ropopop */
+  121,  /* xfnmadd213xsd: ifma_ropopmem */
+  122,  /* xfnmadd213xxsd: ifma_ropopmemindex */
+  123,  /* xfnmadd213xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmadd231sd: ifma_ropopop */
+  121,  /* xfnmadd231xsd: ifma_ropopmem */
+  122,  /* xfnmadd231xxsd: ifma_ropopmemindex */
+  123,  /* xfnmadd231xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmadd132ss: ifma_ropopop */
+  121,  /* xfnmadd132xss: ifma_ropopmem */
+  122,  /* xfnmadd132xxss: ifma_ropopmemindex */
+  123,  /* xfnmadd132xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmadd213ss: ifma_ropopop */
+  121,  /* xfnmadd213xss: ifma_ropopmem */
+  122,  /* xfnmadd213xxss: ifma_ropopmemindex */
+  123,  /* xfnmadd213xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmadd231ss: ifma_ropopop */
+  121,  /* xfnmadd231xss: ifma_ropopmem */
+  122,  /* xfnmadd231xxss: ifma_ropopmemindex */
+  123,  /* xfnmadd231xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmsub132pd: ifma_ropopop */
+  121,  /* xfnmsub132xpd: ifma_ropopmem */
+  122,  /* xfnmsub132xxpd: ifma_ropopmemindex */
+  123,  /* xfnmsub132xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmsub213pd: ifma_ropopop */
+  121,  /* xfnmsub213xpd: ifma_ropopmem */
+  122,  /* xfnmsub213xxpd: ifma_ropopmemindex */
+  123,  /* xfnmsub213xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmsub231pd: ifma_ropopop */
+  121,  /* xfnmsub231xpd: ifma_ropopmem */
+  122,  /* xfnmsub231xxpd: ifma_ropopmemindex */
+  123,  /* xfnmsub231xxxpd: ifma_ropopmemindexx */
+  120,  /* xfnmsub132ps: ifma_ropopop */
+  121,  /* xfnmsub132xps: ifma_ropopmem */
+  122,  /* xfnmsub132xxps: ifma_ropopmemindex */
+  123,  /* xfnmsub132xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmsub213ps: ifma_ropopop */
+  121,  /* xfnmsub213xps: ifma_ropopmem */
+  122,  /* xfnmsub213xxps: ifma_ropopmemindex */
+  123,  /* xfnmsub213xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmsub231ps: ifma_ropopop */
+  121,  /* xfnmsub231xps: ifma_ropopmem */
+  122,  /* xfnmsub231xxps: ifma_ropopmemindex */
+  123,  /* xfnmsub231xxxps: ifma_ropopmemindexx */
+  120,  /* xfnmsub132sd: ifma_ropopop */
+  121,  /* xfnmsub132xsd: ifma_ropopmem */
+  122,  /* xfnmsub132xxsd: ifma_ropopmemindex */
+  123,  /* xfnmsub132xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmsub213sd: ifma_ropopop */
+  121,  /* xfnmsub213xsd: ifma_ropopmem */
+  122,  /* xfnmsub213xxsd: ifma_ropopmemindex */
+  123,  /* xfnmsub213xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmsub231sd: ifma_ropopop */
+  121,  /* xfnmsub231xsd: ifma_ropopmem */
+  122,  /* xfnmsub231xxsd: ifma_ropopmemindex */
+  123,  /* xfnmsub231xxxsd: ifma_ropopmemindexx */
+  120,  /* xfnmsub132ss: ifma_ropopop */
+  121,  /* xfnmsub132xss: ifma_ropopmem */
+  122,  /* xfnmsub132xxss: ifma_ropopmemindex */
+  123,  /* xfnmsub132xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmsub213ss: ifma_ropopop */
+  121,  /* xfnmsub213xss: ifma_ropopmem */
+  122,  /* xfnmsub213xxss: ifma_ropopmemindex */
+  123,  /* xfnmsub213xxxss: ifma_ropopmemindexx */
+  120,  /* xfnmsub231ss: ifma_ropopop */
+  121,  /* xfnmsub231xss: ifma_ropopmem */
+  122,  /* xfnmsub231xxss: ifma_ropopmemindex */
+  123,  /* xfnmsub231xxxss: ifma_ropopmemindexx */
    76,  /* movabsq: rop */
-   80,  /* store8_abs: opop1 */
-   80,  /* store16_abs: opop1 */
-   80,  /* store32_abs: opop1 */
-   80,  /* store64_abs: opop1 */
+   81,  /* store8_abs: opop1 */
+   81,  /* store16_abs: opop1 */
+   81,  /* store32_abs: opop1 */
+   81,  /* store64_abs: opop1 */
    76,  /* ld8_abs: rop */
    76,  /* ld16_abs: rop */
    76,  /* ld32_abs: rop */
    76,  /* ld64_abs: rop */
-  100,  /* lock_add32: rmw */
-  100,  /* lock_adc32: rmw */
-  100,  /* lock_add64: rmw */
-  101,  /* lock_xchg32: xchg */
-  101,  /* lock_xchg64: xchg */
-  102,  /* lock_cmpxchg32: cmpxchg */
-  102,  /* lock_cmpxchg64: cmpxchg */
-  100,  /* lock_and32: rmw */
-  100,  /* lock_and64: rmw */
-  100,  /* lock_or32: rmw */
-  100,  /* lock_or64: rmw */
-  100,  /* lock_xor32: rmw */
-  100,  /* lock_xor64: rmw */
-  100,  /* lock_sub32: rmw */
-  100,  /* lock_sub64: rmw */
-  100,  /* lock_add8: rmw */
-  100,  /* lock_add16: rmw */
-  101,  /* lock_xchg8: xchg */
-  101,  /* lock_xchg16: xchg */
-  102,  /* lock_cmpxchg8: cmpxchg */
-  102,  /* lock_cmpxchg16: cmpxchg */
-  100,  /* lock_and8: rmw */
-  100,  /* lock_and16: rmw */
-  100,  /* lock_or8: rmw */
-  100,  /* lock_or16: rmw */
-  100,  /* lock_xor8: rmw */
-  100,  /* lock_xor16: rmw */
-  100,  /* lock_sub8: rmw */
-  100,  /* lock_sub16: rmw */
-  100,  /* lock_xadd8: rmw */
-  100,  /* lock_xadd16: rmw */
-  100,  /* lock_xadd32: rmw */
-  100,  /* lock_xadd64: rmw */
+  101,  /* lock_add32: rmw */
+  101,  /* lock_adc32: rmw */
+  101,  /* lock_add64: rmw */
+  102,  /* lock_xchg32: xchg */
+  102,  /* lock_xchg64: xchg */
+  103,  /* lock_cmpxchg32: cmpxchg */
+  103,  /* lock_cmpxchg64: cmpxchg */
+  101,  /* lock_and32: rmw */
+  101,  /* lock_and64: rmw */
+  101,  /* lock_or32: rmw */
+  101,  /* lock_or64: rmw */
+  101,  /* lock_xor32: rmw */
+  101,  /* lock_xor64: rmw */
+  101,  /* lock_sub32: rmw */
+  101,  /* lock_sub64: rmw */
+  101,  /* lock_add8: rmw */
+  101,  /* lock_add16: rmw */
+  102,  /* lock_xchg8: xchg */
+  102,  /* lock_xchg16: xchg */
+  103,  /* lock_cmpxchg8: cmpxchg */
+  103,  /* lock_cmpxchg16: cmpxchg */
+  101,  /* lock_and8: rmw */
+  101,  /* lock_and16: rmw */
+  101,  /* lock_or8: rmw */
+  101,  /* lock_or16: rmw */
+  101,  /* lock_xor8: rmw */
+  101,  /* lock_xor16: rmw */
+  101,  /* lock_sub8: rmw */
+  101,  /* lock_sub16: rmw */
+  101,  /* lock_xadd8: rmw */
+  101,  /* lock_xadd16: rmw */
+  101,  /* lock_xadd32: rmw */
+  101,  /* lock_xadd64: rmw */
    76,  /* bsf32: rop */
    76,  /* bsf64: rop */
    76,  /* bsr32: rop */
    76,  /* bsr64: rop */
-  124,  /* tls_global_dynamic_64: tls_gd_64 */
-  125,  /* tls_global_dynamic_32: tls_gd_32 */
-  126,  /* tls_local_dynamic_64: tls_ld_64 */
-  127,  /* tls_local_dynamic_32: tls_ld_32 */
+  125,  /* tls_global_dynamic_64: tls_gd_64 */
+  126,  /* tls_global_dynamic_32: tls_gd_32 */
+  127,  /* tls_local_dynamic_64: tls_ld_64 */
+  128,  /* tls_local_dynamic_32: tls_ld_32 */
     0,  /* begin_pregtn */
     0,  /* end_pregtn */
     0,  /* bwd_bar */
     0,  /* fwd_bar */
     0,  /* label */
-  128,  /* nop: no_rop */
+  129,  /* nop: no_rop */
     0,  /* noop */
 };
 

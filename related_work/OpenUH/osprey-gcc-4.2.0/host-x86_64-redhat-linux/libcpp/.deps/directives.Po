@@ -1,5 +1,5 @@
-directives.o: ../.././libcpp/directives.c config.h \
- ../.././libcpp/system.h ../.././libcpp/../include/filenames.h \
+directives.o: ../.././libcpp/directives.c ../.././libcpp/system.h \
+ ../.././libcpp/../include/filenames.h \
  ../.././libcpp/../include/libiberty.h \
  ../.././libcpp/../include/ansidecl.h \
  ../.././libcpp/../include/safe-ctype.h ../.././libcpp/include/cpplib.h \
@@ -7,8 +7,6 @@ directives.o: ../.././libcpp/directives.c config.h \
  ../.././libcpp/include/line-map.h ../.././libcpp/internal.h \
  ../.././libcpp/include/symtab.h ../.././libcpp/include/cpp-id-data.h \
  ../.././libcpp/include/cpplib.h ../.././libcpp/include/mkdeps.h
-
-config.h:
 
 ../.././libcpp/system.h:
 

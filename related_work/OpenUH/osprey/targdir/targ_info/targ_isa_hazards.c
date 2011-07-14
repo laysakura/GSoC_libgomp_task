@@ -6,7 +6,7 @@ ISA_HAZARD_INFO ISA_HAZARD_hazard_info[1] = {
   { ISA_HAZARD_UNDEFINED, 0, 0,  0, 0x00, 0 }, /*  0 */
 };
 
-mUINT8 ISA_HAZARD_hazard_index[3591] = {
+mUINT8 ISA_HAZARD_hazard_index[3623] = {
     0, /* add8      */
     0, /* add16     */
     0, /* add32     */
@@ -2245,14 +2245,14 @@ mUINT8 ISA_HAZARD_hazard_index[3591] = {
     0, /* vfcmpx128v32 */
     0, /* vfcmpxx128v32 */
     0, /* vfcmpxxx128v32 */
-    0, /* vfcmpsd   */
-    0, /* vfcmpxsd  */
-    0, /* vfcmpxxsd */
-    0, /* vfcmpxxxsd */
-    0, /* vfcmpss   */
-    0, /* vfcmpxss  */
-    0, /* vfcmpxxss */
-    0, /* vfcmpxxxss */
+    0, /* vcmpsd    */
+    0, /* vcmpxsd   */
+    0, /* vcmpxxsd  */
+    0, /* vcmpxxxsd */
+    0, /* vcmpss    */
+    0, /* vcmpxss   */
+    0, /* vcmpxxss  */
+    0, /* vcmpxxxss */
     0, /* vcomisd   */
     0, /* vcomixsd  */
     0, /* vcomixxsd */
@@ -3301,6 +3301,38 @@ mUINT8 ISA_HAZARD_hazard_index[3591] = {
     0, /* vxzero128v32 */
     0, /* vxzero32  */
     0, /* vzeroall  */
+    0, /* vcmpeqpd  */
+    0, /* vcmpltpd  */
+    0, /* vcmplepd  */
+    0, /* vcmpunordpd */
+    0, /* vcmpneqpd */
+    0, /* vcmpnltpd */
+    0, /* vcmpnlepd */
+    0, /* vcmpordpd */
+    0, /* vcmpeqps  */
+    0, /* vcmpltps  */
+    0, /* vcmpleps  */
+    0, /* vcmpunordps */
+    0, /* vcmpneqps */
+    0, /* vcmpnltps */
+    0, /* vcmpnleps */
+    0, /* vcmpordps */
+    0, /* vcmpeqsd  */
+    0, /* vcmpltsd  */
+    0, /* vcmplesd  */
+    0, /* vcmpunordsd */
+    0, /* vcmpneqsd */
+    0, /* vcmpnltsd */
+    0, /* vcmpnlesd */
+    0, /* vcmpordsd */
+    0, /* vcmpeqss  */
+    0, /* vcmpltss  */
+    0, /* vcmpless  */
+    0, /* vcmpunordss */
+    0, /* vcmpneqss */
+    0, /* vcmpnltss */
+    0, /* vcmpnless */
+    0, /* vcmpordss */
     0, /* xfmadd132pd */
     0, /* xfmadd132xpd */
     0, /* xfmadd132xxpd */
