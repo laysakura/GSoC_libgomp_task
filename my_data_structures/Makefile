@@ -95,7 +95,7 @@ test_coroutine: test_coroutine.c pcl.o
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread
 
 test_fib_by_hand: pcl.o gsoc_taskqueue.o gsoc_worker.o test_fib_by_hand.c
-	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
+	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -lrt -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)
 
 test_fib_by_hand_callgraph: pcl_callgraph.o gsoc_taskqueue.o test_fib_by_hand_callgraph.c
 	$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS) -lpthread -D TESTVAL_EXTENDS=$(TESTVAL_EXTENDS)

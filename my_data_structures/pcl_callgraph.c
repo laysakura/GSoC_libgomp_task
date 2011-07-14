@@ -465,12 +465,6 @@ void co_call(coroutine_t coro) {
 }
 
 
-void co_resume(void) {
-
-  co_call(co_curr->restarget);
-  co_curr->restarget = co_curr->caller;
-}
-
 
 static void co_del_helper(void *data) {
   coroutine *cdh;

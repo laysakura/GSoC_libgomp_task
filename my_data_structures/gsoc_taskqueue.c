@@ -31,6 +31,8 @@ void gsoc_taskqueue_delete(gsoc_taskqueue* this)
    (Push doesn't need lock to taskqueue) */
 void gsoc_taskqueue_push(gsoc_taskqueue* this, gsoc_task* task)
 {
+  /* fprintf(stderr, "gsoc_taskqueue_push: CPU%d pushed %p\n", sched_getcpu(), task); */
+
   this->_taskqueue[this->_top] = task;
   ++this->_top;
   __sync_synchronize();  /* write to _top and taskqueue */
@@ -71,7 +73,10 @@ gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
   base = this->_base;
 
   if (this->_top - base == 0)
-    return NULL;
+    {
+      /* fprintf(stderr, "gsoc_taskqueue_pop: CPU%d popped NULL\n", sched_getcpu()); */
+      return NULL;
+    }
 
   if (__builtin_expect(this->_top - base > GSOC_TASKQUEUE_NUM_TASKS_TOO_SMALL_TO_LOCKFREE, 1))
     {
@@ -80,6 +85,7 @@ gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
       res = this->_taskqueue[this->_top];
       __sync_synchronize();  /* write to _top and taskqueue */
 
+      /* fprintf(stderr, "gsoc_taskqueue_pop: CPU%d popped %p\n", sched_getcpu(), res); */
       return res;
     }
 
@@ -92,6 +98,7 @@ gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
   if (this->_top - base == 0)
     {
       pthread_mutex_unlock(&this->_lock);
+      /* fprintf(stderr, "gsoc_taskqueue_pop: CPU%d popped NULL\n", sched_getcpu()); */
       return NULL;
     }
   else
@@ -101,6 +108,7 @@ gsoc_task* gsoc_taskqueue_pop(gsoc_taskqueue* this)
       __sync_synchronize();  /* write to _top and taskqueue */
 
       pthread_mutex_unlock(&this->_lock);
+      /* fprintf(stderr, "gsoc_taskqueue_pop: CPU%d popped %p\n", sched_getcpu(), res); */
       return res;
     }
 }
@@ -117,7 +125,10 @@ gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this)
   top = this->_top;
 
   if (top - this->_base == 0)
-    return NULL;
+    {
+      /* fprintf(stderr, "gsoc_taskqueue_take: CPU%d took NULL\n", sched_getcpu()); */
+      return NULL;
+    }
 
   pthread_mutex_lock(&this->_lock);
 
@@ -129,6 +140,7 @@ gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this)
   if (__builtin_expect(top - this->_base == 0, 0))
     {
       pthread_mutex_unlock(&this->_lock);
+      /* fprintf(stderr, "gsoc_taskqueue_take: CPU%d took NULL\n", sched_getcpu()); */
       return NULL;
     }
 
@@ -137,5 +149,6 @@ gsoc_task* gsoc_taskqueue_take(gsoc_taskqueue* this)
   __sync_synchronize();         /* Ensure writing to _base. */
 
   pthread_mutex_unlock(&this->_lock);
+  /* fprintf(stderr, "gsoc_taskqueue_take: CPU%d took %p\n", sched_getcpu(), res); */
   return res;
 }

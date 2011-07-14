@@ -11,6 +11,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <stdio.h>
+#include <time.h>
+
+static inline void
+laysakura_log(char* s)
+{
+  struct timespec tp;
+  clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tp);
+  fprintf(stderr, "%d.%09ld CPU:%d %s\n", (int)tp.tv_sec, (long int)tp.tv_nsec, sched_getcpu(), s);
+}
 
 
 gsoc_worker* _workers;
@@ -21,17 +31,24 @@ unsigned int _gsoc_cutoff_depth;
 
 void gsoc_task_scheduler_loop()
 {
+  int i = 0;
+
   while (1)
     {
       /* Never return from this function.
          So the caller of this function (task scheduling point ABI)
          doesn't have to think about context switch from this funciton. */
       gsoc_task* next_task;
+      int victim;
+
+      ++i;
 
       next_task = gsoc_taskqueue_pop(_workers[_thread_id].taskq);
       if (__builtin_expect(next_task == NULL, 0))
         {
-          next_task = gsoc_taskqueue_take(_workers[gsoc_worker_choose_victim(_thread_id, _num_workers)].taskq);
+          victim = gsoc_worker_choose_victim(_thread_id, _num_workers);
+          next_task = gsoc_taskqueue_take(_workers[victim].taskq);
+
           if (!next_task)
             {
               if (_num_team_tasks == 0)
@@ -42,7 +59,6 @@ void gsoc_task_scheduler_loop()
         }
       _workers[_thread_id].current_task = next_task;
       co_call(_workers[_thread_id].current_task);
-      /* fprintf(stderr, "gsoc_task_scheduler_loop(): returned from co_call\n"); */
     }
 }
 
@@ -76,6 +92,7 @@ gsoc_encounter_taskwait_directive()
       return;
 
   /* This task sleeps until the last child wakes it up */
+  _workers[_thread_id].current_task->waiting = true;
   co_call(_workers[_thread_id].scheduler_task);
 }
 
@@ -88,17 +105,44 @@ gsoc_finish_current_task()
 
       if (_workers[_thread_id].current_task->creator)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
-          if (_workers[_thread_id].current_task->creator->num_children == 0)
-            /* Tell parent task that all of us children finished our work
-               then parent resume its work using our result. */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+          if (_workers[_thread_id].current_task->creator->num_children <= 2)
+            {
+              /* If there are only two children, it is possible that
+                 both of them finishes almost at the same time.
+                 If it happens, parent of them would be waken up by both of them.
+                 So in order to save consistensy, creator->num_children should be locked
+                 when there are only two children. */
+              pthread_mutex_lock(&_workers[_thread_id].current_task->creator->lock);
+              --_workers[_thread_id].current_task->creator->num_children;
+              if (_workers[_thread_id].current_task->creator->num_children == 0
+                  && _workers[_thread_id].current_task->creator->waiting)
+                {
+                  /* Tell parent task that all of us children finished our work
+                     then parent resume its work using our result. */
+                  _workers[_thread_id].current_task->creator->waiting = false;
+                  pthread_mutex_unlock(&_workers[_thread_id].current_task->creator->lock);
+                  gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+                }
+              else
+                pthread_mutex_unlock(&_workers[_thread_id].current_task->creator->lock);
+            }
+          else
+            {
+              __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+              if (_workers[_thread_id].current_task->creator->num_children == 0
+                  && _workers[_thread_id].current_task->creator->waiting)
+                {
+                  /* Tell parent task that all of us children finished our work
+                     then parent resume its work using our result. */
+                  _workers[_thread_id].current_task->creator->waiting = false;
+                  gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+                }
+            }
         }
       /* ここをco_call(scheduler)にすると，current_taskの実行は今後ない．
          つまり，co_runnerを最後まで実行できないので，メモリリークになる */
       /* co_exit_to(scheduler)だと，確かにメモリリークは観測されない． */
-
-      co_exit_to(_workers[_thread_id].scheduler_task);
+      co_exit_to(_workers[_thread_id].scheduler_task, _thread_id);
     }
   else if (_workers[_thread_id].current_task->cutoff
            && _workers[_thread_id].current_task->depth == _gsoc_cutoff_depth + 1)
@@ -109,11 +153,39 @@ gsoc_finish_current_task()
 
       if (_workers[_thread_id].current_task->creator)
         {
-          __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
-          if (_workers[_thread_id].current_task->creator->num_children == 0)
-            /* Tell parent task that all of us children finished our work
-               then parent resume its work using our result. */
-            gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+          if (_workers[_thread_id].current_task->creator->num_children <= 2)
+            {
+              /* If there are only two children, it is possible that
+                 both of them finishes almost at the same time.
+                 If it happens, parent of them would be waken up by both of them.
+                 So in order to save consistensy, creator->num_children should be locked
+                 when there are only two children. */
+              pthread_mutex_lock(&_workers[_thread_id].current_task->creator->lock);
+              --_workers[_thread_id].current_task->creator->num_children;
+              if (_workers[_thread_id].current_task->creator->num_children == 0
+                  && _workers[_thread_id].current_task->creator->waiting)
+                {
+                  /* Tell parent task that all of us children finished our work
+                     then parent resume its work using our result. */
+                  _workers[_thread_id].current_task->creator->waiting = false;
+                  pthread_mutex_unlock(&_workers[_thread_id].current_task->creator->lock);
+                  gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+                }
+              else
+                pthread_mutex_unlock(&_workers[_thread_id].current_task->creator->lock);
+            }
+          else
+            {
+              __sync_sub_and_fetch(&_workers[_thread_id].current_task->creator->num_children, 1);
+              if (_workers[_thread_id].current_task->creator->num_children == 0
+                  && _workers[_thread_id].current_task->creator->waiting)
+                {
+                  /* Tell parent task that all of us children finished our work
+                     then parent resume its work using our result. */
+                  _workers[_thread_id].current_task->creator->waiting = false;
+                  gsoc_taskqueue_push(_workers[_thread_id].taskq, _workers[_thread_id].current_task->creator);
+                }
+            }
         }
     }
   /* Cutoff task does nothing here */
@@ -155,12 +227,16 @@ int fib(int N)
   return f1 + f2;
 }
 
-void gsoc_setaffinity()
+void gsoc_setaffinity(int thread_id)
 {
   cpu_set_t cpuset;
   CPU_ZERO(&cpuset);
-  CPU_SET(_thread_id, &cpuset);
-  pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset);
+  CPU_SET(thread_id, &cpuset);
+  if (pthread_setaffinity_np(pthread_self(), sizeof(cpuset), &cpuset) != 0)
+    {
+      fprintf(stderr, "gsoc_setaffinity: Error on setting CPU affinity.\n");
+      exit(1);
+    }
 }
 
 /* Called by pthread_create() */
@@ -168,15 +244,15 @@ void* start_thread(int* rank)
 {
   _thread_id = *rank;
 
-  gsoc_setaffinity();
+  gsoc_setaffinity(*rank);
   co_vp_init(); /* Necessary to set initial value for "co_curr__" in pcl.c.
                    Without this, SEGV would happen because
                    swapcontext(co_curr__->context, co_next->context)
                    is called in pcl.c internally. */
   if (*rank == 0)
-    fprintf(stderr, "Starting Master Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
+    fprintf(stderr, "Starting Master Thread on CPU%d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
   else
-    fprintf(stderr, "Starting Slave Thread on CPU %d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
+    fprintf(stderr, "Starting Slave Thread on CPU%d. Scheduler is %p\n", sched_getcpu(), _workers[_thread_id].scheduler_task);
 
   co_call(_workers[_thread_id].scheduler_task);
 
